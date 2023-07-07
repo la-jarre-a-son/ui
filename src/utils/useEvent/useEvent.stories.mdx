@@ -1,0 +1,24 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import useEvent from './useEvent';
+
+<Meta title="Utilities/Hooks/useEvent" />
+
+# useEvent
+
+A Hook to define an event handler with an always-stable function identity. [See this RFC](https://github.com/reactjs/rfcs/blob/useevent/text/0000-useevent.md).
+
+> Need to be changed with the React implementation once released
+
+```tsx
+const MyComponent: React.FC = () => {
+    const handler = useEvent(() => {
+        // do something
+    });
+
+    return <button onClick={handler}>button</button>;
+};
+```
+
+## When to use this hook instead of the useCallback one ?
+
+Don't use this hook if the callback as to be somehow executed directly in the render function (for example when passed to a render prop).

@@ -1,0 +1,57 @@
+$Badge_borderRadius: $size-xs !default;
+$Badge_borderWidth: 0 !default;
+$Badge_gap: $space-sm !default;
+
+$Badge_sizes: (
+    'sm': (
+        height: $space-xl,
+        textStyle: (sm, regular),
+        padding: $space-xs $space-sm,
+    ),
+    'md': (
+        height: $size-xs,
+        textStyle: (md, regular),
+        padding: $space-sm $space-md,
+    ),
+    'lg': (
+        height: $size-sm,
+        textStyle: (lg, regular),
+        padding: $space-sm $space-lg,
+    ),
+) !default;
+
+$Badge_intents: (
+    'neutral': (
+        background: $color-neutral-normal,
+        color: $color-white,
+    ),
+    'primary': (
+        background: $color-primary-normal,
+        color: $color-white,
+    ),
+    'secondary': (
+        background: $color-secondary-normal,
+        color: $color-white,
+    ),
+    'error': (
+        background: $color-danger-normal,
+        color: $color-white,
+    ),
+    'warning': (
+        background: $color-warning-normal,
+        color: $color-white,
+    ),
+    'success': (
+        background: $color-success-normal,
+        color: $color-white,
+    ),
+) !default;
+
+// Defaults
+
+$Badge_height: map-get($Badge_sizes, 'md', height) !default;
+$Badge_padding: map-get($Badge_sizes, 'md', padding) !default;
+$Badge_textStyle: map-get($Badge_sizes, 'md', textStyle) !default;
+$Badge_textTransform: uppercase !default;
+$Badge_background: map-get($Badge_intents, 'neutral', background) !default;
+$Badge_color: map-get($Badge_intents, 'neutral', color) !default;

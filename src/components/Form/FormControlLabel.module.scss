@@ -1,0 +1,63 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    margin: var(--FormControlLabel_margin, $FormControlLabel_margin);
+    gap: var(--FormControlLabel_gap, $FormControlLabel_gap);
+    cursor: pointer;
+}
+
+
+.control {
+    flex-grow: 0;
+    flex-shrink: 0;
+    // Ensure control has same line-height as the label as if it was in the same element
+    @include _textStyle(null, --FormControlLabel-label, $FormControlLabel-label_textStyle...);
+}
+
+.container {
+    padding: var(--FormControlLabel-container_padding, $FormControlLabel-container_padding);
+
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.label {
+    @include _textStyle(null, --FormControlLabel-label, $FormControlLabel-label_textStyle...);
+    text-transform: var(--FormControlLabel-label_textTransform, $FormControlLabel-label_textTransform);
+    color: var(--FormControlLabel-label_color, $FormControlLabel-label_color);
+}
+
+.hint {
+    @include _textStyle(null, --FormControlLabel-hint, $FormControlLabel-hint_textStyle...);
+    color: var(--FormControlLabel-hint_color, $FormControlLabel-hint_color);
+}
+
+.hint--error {
+    color: var(--FormControlLabel-hint--error_color, $FormControlLabel-hint--error_color);
+}    
+
+// States
+
+.--disabled {
+    --FormControlLabel-label_color: var(
+        --FormControlLabel-label--disabled_color,
+        #{$FormControlLabel-label--disabled_color}
+    );
+    --FormControlLabel-hint_color: var(
+        --FormControlLabel-hint--disabled_color,
+        #{$FormControlLabel-hint--disabled_color}
+    );
+    cursor: initial;
+}
+
+// Reverse variant
+
+.--reverse {
+    flex-direction: row-reverse;
+}

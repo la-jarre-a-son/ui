@@ -1,0 +1,168 @@
+$body_fontSize: 16px;
+$body_fontFamily: 'Lato', 'Arial Unicode MS', 'Arial', sans-serif;
+
+$color-black: #0e0e0e;
+$color-white: #ffffff;
+
+$color-neutral-darker: #191919;
+$color-neutral-dark: #303030;
+$color-neutral-normal: #5c5c5c;
+$color-neutral-light: #999999;
+$color-neutral-lighter: #cccccc;
+
+$color-primary-normal: #3567f0;
+$color-primary-dark: darken($color-primary-normal, 15%); // #142452
+$color-primary-light: lighten($color-primary-normal, 15%); // #6f8cdd
+
+$color-secondary-normal: #d84547;
+$color-secondary-dark: darken($color-secondary-normal, 15%); // #6d1718
+$color-secondary-light: lighten($color-secondary-normal, 15%); // #e58486
+
+$color-danger-normal: #d84547;
+$color-danger-dark: darken($color-danger-normal, 15%);
+$color-danger-light: lighten($color-danger-normal, 15%);
+
+$color-warning-normal: #d89845;
+$color-warning-dark: darken($color-warning-normal, 15%);
+$color-warning-light: lighten($color-warning-normal, 15%);
+
+$color-success-normal: #19a86c;
+$color-success-dark: darken($color-success-normal, 15%);
+$color-success-light: lighten($color-success-normal, 15%);
+
+$gradient-interactive: linear-gradient(
+  135deg,
+  rgba(#fff, 0.12) 0%,
+  rgba(#fff, 0) 50%,
+  rgba(#000, 0) 51%,
+  rgba(#000, 0.10) 100%,
+) no-repeat;
+$gradient-interactive-alt: linear-gradient(
+  120deg,
+  rgba(#fff, 0.15) 0%,
+  rgba(#fff, 0) 50%,
+  transparent 51%
+) no-repeat;
+// $gradient-interactive: radial-gradient(farthest-side at 0 0, rgba(#fff, 0.15), transparent) no-repeat;
+
+$zindex-backdrop: -1;
+$zindex-header: 400;
+$zindex-side: 100;
+$zindex-body: 200;
+$zindex-dropdown: 500;
+$zindex-modal: 1000;
+$zindex-tooltip: 3000;
+
+$duration_slow: 800ms;
+$duration_medium: 300ms;
+$duration_fast: 150ms;
+
+$timing_default: cubic-bezier(.4, 0, .2, 1);
+$timing_overshoot: cubic-bezier(.2, .6, .25, 2);
+
+$transition_slow: $duration_slow $timing_default;
+$transition_medium: $duration_medium $timing_default;
+$transition_fast: $duration_fast $timing_default;
+
+$space-xs: 2px;
+$space-sm: 4px;
+$space-md: 8px;
+$space-lg: 12px;
+$space-xl: 16px;
+
+$size-xs: 24px;
+$size-sm: 32px;
+$size-md: 42px;
+$size-lg: 64px;
+$size-xl: 84px;
+
+$container-xs: 200px;
+$container-sm: 300px;
+$container-md: 420px;
+$container-lg: 640px;
+$container-xl: 960px;
+
+$radius-sm: 1px;
+
+$border-none: 0;
+$border-sm: 1px;
+$border-md: 2px;
+
+$shadow-xs: 0 1px 4px 0 rgba($color-black, 0.6);
+$shadow-sm: 0 2px 8px 0 rgba($color-black, 0.6);
+$shadow-md: 0 4px 16px 0 rgba($color-black, 0.6);
+$shadow-lg: 0 4px 32px 0px rgba($color-black, 0.6);
+$shadow-inset: inset 0 3px 6px 0 rgba($color-black, 0.3);
+
+$typo: (
+  lg: (
+    bold: (
+      font-family: "Lato",
+      font-weight: 700,
+      font-size: 24px,
+      letter-spacing: 0,
+      line-height: 32px,
+    ),
+    regular: (
+      font-family: "Lato",
+      font-weight: 400,
+      font-size: 24px,
+      letter-spacing: 0,
+      line-height: 32px,
+    ),
+    light: (
+      font-family: "Lato",
+      font-weight: 300,
+      font-size: 24px,
+      letter-spacing: 0,
+      line-height: 32px,
+    ),
+  ),
+  md: (
+    bold: (
+      font-family: "Lato",
+      font-weight: 700,
+      font-size: 16px,
+      letter-spacing: 0,
+      line-height: 20px,
+    ),
+    regular: (
+      font-family: "Lato",
+      font-weight: 400,
+      font-size: 16px,
+      letter-spacing: 0,
+      line-height: 20px,
+    ),
+    light: (
+      font-family: "Lato",
+      font-weight: 300,
+      font-size: 16px,
+      letter-spacing: 0,
+      line-height: 20px,
+    ),
+  ),
+  sm: (
+    bold: (
+      font-family: "Lato",
+      font-weight: 700,
+      font-size: 12px,
+      line-height: 16px,
+    ),
+    regular: (
+      font-family: "Lato",
+      font-weight: 400,
+      font-size: 12px,
+      line-height: 16px,
+    ),
+    light: (
+      font-family: "Lato",
+      font-weight: 300,
+      font-size: 12px,
+      line-height: 16px,
+    ),
+  ),
+);
+
+$breakpoint-sm: 'only screen and (max-width : #{$container-md})';
+$breakpoint-md: 'only screen and (max-width : #{$container-lg})';
+$breakpoint-lg: 'only screen and (max-width : #{$container-xl})';

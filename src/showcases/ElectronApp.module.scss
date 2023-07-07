@@ -1,0 +1,43 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  flex-grow: 0;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.nav {
+  --Button_textAlign: left;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarNav {
+  flex-grow: 1;
+}
+
+.sidebarFooter {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.settingsContent {
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
+}

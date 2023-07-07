@@ -1,0 +1,63 @@
+$InputContainer_background: $color-white !default;
+$InputContainer_color: $color-neutral-dark !default;
+$InputContainer_borderWidth: $border-md !default;
+$InputContainer_borderColor: $color-neutral-lighter !default;
+$InputContainer_borderRadius: $radius-sm !default;
+$InputContainer_boxShadow: none !default;
+$InputContainer_minWidth: $size-md !default;
+$InputContainer_transitionDuration: $duration_fast !default;
+$InputContainer_transitionTimingFunction: ease !default;
+
+$InputContainer--focus_zIndex: 1 !default;
+$InputContainer--focus_background: $color-white !default;
+$InputContainer--focus_color: $color-neutral-darker !default;
+$InputContainer--focus_borderColor: $color-primary-normal !default;
+$InputContainer--focus_boxShadow: $shadow-inset !default;
+
+$InputContainer--hover_background: $color-white !default;
+$InputContainer--hover_color: $color-neutral-normal !default;
+$InputContainer--hover_borderColor: $color-neutral-light !default;
+
+$InputContainer--hasError_color: $InputContainer_color !default;
+$InputContainer--hasError_borderColor: $color-danger-normal !default;
+$InputContainer--hasError--hover_borderColor: $color-danger-normal !default;
+$InputContainer--hasError--focus_borderColor: $color-danger-normal !default;
+
+$InputContainer--disabled_color: $color-neutral-light !default;
+$InputContainer--disabled_background: $color-neutral-lighter !default;
+
+$InputContainer-errorIcon_color: $color-danger-normal !default;
+
+$InputContainer-placeholder_color: $color-neutral-light !default;
+$InputContainer-placeholder--disabled_color: $color-neutral-normal !default;
+
+$InputContainer-label_color: $color-neutral-darker !default;
+$InputContainer-label_background: $color-neutral-lighter $gradient-interactive !default;
+
+$InputContainer_sizes: (
+    'sm': (
+        height: $size-xs,
+        padding: 0 $space-md,
+        gap: $space-sm,
+        textStyle: (sm, regular),
+    ),
+    'md': (
+        height: $size-md,
+        padding: 0 $space-md,
+        gap: $space-md,
+        textStyle: (md, regular),
+    ),
+    'lg': (
+        height: $size-lg,
+        padding: 0 $space-lg,
+        gap: $space-lg,
+        textStyle: (lg, regular),
+    ),
+) !default;
+
+// Defaults
+
+$InputContainer_height: map-get($InputContainer_sizes, 'md', height) !default;
+$InputContainer_padding: map-get($InputContainer_sizes, 'md', padding) !default;
+$InputContainer_gap: map-get($InputContainer_sizes, 'md', gap) !default;
+$InputContainer_textStyle: map-get($InputContainer_sizes, 'md', textStyle) !default;

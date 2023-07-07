@@ -1,0 +1,60 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.container {
+    padding-top: var(--Dropdown_padding, $Dropdown_padding);
+    width: fit-content;
+    z-index: var(--Dropdown_zIndex, $Dropdown_zIndex);
+
+    & > * {
+        max-height: inherit;
+    }
+}
+
+.list {
+    overflow: auto;
+    user-select: none;
+}
+
+// Animations
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+// States
+
+.--show {
+    animation:
+        show
+        var(--Dropdown--show_animationDuration, $Dropdown--show_animationDuration)
+        var(--Dropdown--show_animationTimingFunction, $Dropdown--show_animationTimingFunction);
+    animation-fill-mode: forwards;
+}
+
+.--hide {
+    animation:
+        hide
+        var(--Dropdown--hide_animationDuration, $Dropdown--hide_animationDuration)
+        var(--Dropdown--hide_animationTimingFunction, $Dropdown--hide_animationTimingFunction);
+    animation-fill-mode: forwards;
+}

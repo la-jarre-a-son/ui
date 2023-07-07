@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+.npmrc
+
+# test artifacts
+coverage
+storybook-static
+
+# dev files
+.husky
+.storybook
+*.stories.tsx
+*.spec.ts
+*.mdx
+src
+plugin
+
+# config files
+.eslintrc.js
+.prettierrc
+babel.config.js
+jest-setup.js
+jest.config.cjs
+postcss.config.js
+tsconfig.json
+tsconfig.prod.json

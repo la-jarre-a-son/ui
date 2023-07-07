@@ -1,0 +1,9 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    transition: height var(--Collapse_transitionDuration, $Collapse_transitionDuration)
+        var(--Collapse_transitionTimingFunction, $Collapse_transitionTimingFunction);
+    will-change: height;
+}

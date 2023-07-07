@@ -1,0 +1,61 @@
+@import 'ljas-ui-theme';
+
+.root {
+    border: 0;
+    border-top-style: solid;
+    border-top-width: var(--Divider_borderWidth, $Divider_borderWidth);
+    border-color: var(--Divider_color, $Divider_color);
+    padding: 0;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    width: 100%;
+}
+
+.--wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 0;
+
+    &::before, &::after {
+        width: 100%;
+        border-top-style: solid;
+        border-top-width:  var(--Divider_borderWidth, $Divider_borderWidth);
+        border-color: var(--Divider_color, $Divider_color);
+        position: relative;
+        top: 50%;
+        transform: translateY(50%);
+        content: "";
+    }
+}
+
+.content {
+    padding-left: var(--Divider-children_paddingHorizontal, $Divider-children_paddingHorizontal);
+    padding-right: var(--Divider-children_paddingHorizontal, $Divider-children_paddingHorizontal);
+}
+
+// Positions
+
+.--left {
+    &::before {
+        max-width: 10%;
+    }
+    &::after {
+        max-width: 90%;
+    }
+}
+
+.--right {
+    &::before {
+        max-width: 90%;
+    }
+    &::after {
+       max-width: 10%;
+    }
+}
+
+.--center {
+    &::before, &::after {
+        max-width: 50%
+    }
+}

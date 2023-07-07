@@ -1,0 +1,28 @@
+@import 'ljas-ui-theme';
+
+.root {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(var(--Grid-col_minWidth, #{$Grid-col_minWidth}), 100%), 1fr)
+    );
+    gap: var(--Grid_gap, 0);
+    list-style: none;
+}
+
+// Gaps
+
+@each $gap, $value in $Grid_gaps {
+    .--gap-#{$gap} {
+        --Grid_gap: var(--Grid--gap#{$gap}_gap, #{map-get($Grid_gaps, $gap)});
+    }
+}
+
+// Sizes
+
+@each $size, $value in $Grid_sizes {
+    .col--#{$size} {
+        --Grid-col_minWidth: var(--Grid-col--#{$size}_minWidth, #{map-get($Grid_sizes, $size)});
+    }
+}

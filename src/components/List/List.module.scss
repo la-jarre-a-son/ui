@@ -1,0 +1,176 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    box-sizing: border-box;
+    min-width: $List_minWidth;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    & li {
+        list-style: none;
+    }
+}
+
+
+.group {
+    padding: var(--List-group_padding, $List-group_padding);
+    background: var(--List-item_background, $List-item_background);
+}
+
+.groupHeader {
+    text-transform: var(--List-groupHeader_textTransform, $List-groupHeader_textTransform);
+    @include _textStyle(null, --List-groupHeader, $List-groupHeader_textStyle...);
+
+    padding: var(--List-item_padding, $List-item_padding);
+    color: var(--List-groupHeader_color, $List-groupHeader_color);
+}
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: var(--List-item_height, $List-item_height);
+    padding: var(--List-item_padding, $List-item_padding);
+    gap: var(--List-item_gap, $List-item_gap);
+    margin: 0;
+
+    list-style: none;
+    text-transform: var(--List-item_textTransform, $List-item_textTransform);
+    @include _textStyle(null, --List-item, $List-item_textStyle...);
+
+    background: var(--List-item_background, $List-item_background);
+    color: var(--List-item_color, $List-item_color);
+    outline: none;
+
+    transition:
+        background
+        var(--List-item_transitionDuration, $List-item_transitionDuration)
+        var(--List-item_transitionTimingFunction, $List-item_transitionTimingFunction),
+        color
+        var(--List-item_transitionDuration, $List-item_transitionDuration)
+        var(--List-item_transitionTimingFunction, $List-item_transitionTimingFunction);
+
+    &:after {
+        content: '';
+        flex-grow: 1;
+    }
+}
+
+.itemRight {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--List-item_gap, $List-item_gap);
+    min-width: var(--List-itemLeft_minWidth, $List-itemLeft_minWidth);
+    flex-shrink: 0;
+}
+
+.itemLeft {
+    order: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--List-item_gap, $List-item_gap);
+    min-width: var(--List-itemRight_minWidth, $List-itemRight_minWidth);
+    flex-shrink: 0;
+}
+
+// States
+
+.--disabled {
+    color: var(--List-item--disabled_color, $List-item--disabled_color);
+    background: var(
+        --List-item--disabled_background,
+        $List-item--disabled_background
+    );
+}
+
+.--selected {
+    color: var(--List-item--selected_color, $List-item--selected_color);
+    background: var(
+        --List-item--selected_background,
+        $List-item--selected_background
+    );
+
+    &.--disabled {
+        color: var(--List-item--disabled--selected_color, $List-item--disabled--selected_color);
+        background: var(
+            --List-item--disabled--selected_background,
+            $List-item--disabled--selected_background
+        );
+    }
+}
+
+// Interactive
+
+.--interactive {
+    cursor: pointer;
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--List-item--hover_color, $List-item--hover_color);
+            background: var(
+                --List-item--hover_background,
+                $List-item--hover_background
+            );
+        }
+    }
+
+    &:active {
+        color: var(--List-item--active_color, $List-item--active_color);
+        background: var(
+            --List-item--active_background,
+            $List-item--active_background
+        );
+    }
+
+    &.--selected {
+        @media (hover: hover) {
+            &:hover {
+                color: var(--List-item--selected--hover_color, $List-item--hover_color);
+                background: var(
+                    --List-item--selected--hover_background,
+                    $List-item--selected--hover_background
+                );
+            }
+        }
+        
+        &:active {
+            color: var(--List-item--selected--active_color, $List-item--selected--active_color);
+            background: var(
+                --List-item--selected--active_background,
+                $List-item--selected--active_background
+            );
+        }
+    }
+
+    &.--disabled {
+        pointer-events: none;
+    }
+}
+
+.--focused,
+.--interactive:focus-visible {
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: var(--List-itemFocus_width, $List-itemFocus_width);
+        background: var(--List-itemFocus_color, $List-itemFocus_color);
+    }
+
+    &.--selected:before {
+        background: var(--List-itemFocus--selected_color, $List-itemFocus--selected_color);
+    }
+}

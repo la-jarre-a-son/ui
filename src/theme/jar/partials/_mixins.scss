@@ -1,0 +1,53 @@
+$focus_selector: '&:focus-visible' !default;
+$focus_outlineStyle: solid !default;
+$focus_outlineWidth: $border-md !default;
+$focus_outlineColor: $color-primary-normal !default;
+$focus_outlineOffset: $space-sm !default;
+$focus_outlineTransition: (
+    outline-width 0s,
+    outline-color 0s,
+    outline-offset $duration_fast $timing_overshoot
+) !default;
+
+@mixin ljasOutlineBlur() {
+    outline-offset: 0;
+    outline-width: 0;
+}
+
+@mixin ljasOutlineFocus($outlineColor: var(--focus_outlineColor, $focus_outlineColor)) {
+    outline-color: $outlineColor;
+    outline-style: var(--focus_outlineStyle, $focus_outlineStyle);
+    outline-width: var(--focus_outlineWidth, $focus_outlineWidth);
+    outline-offset: var(--focus_outlineOffset, $focus_outlineOffset);
+    transition: $focus_outlineTransition;
+}
+
+@mixin ljasFocus($outlineColor: var(--focus_outlineColor, $focus_outlineColor)) {
+    @include ljasOutlineBlur();
+
+    #{$focus_selector} {
+        @include ljasOutlineFocus($outlineColor);
+    }
+}
+
+@mixin ljasScrollBar($width, $padding, $radius, $trackColor, $thumbColor) {
+    &::-webkit-scrollbar {
+        width: $width;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 $width $width $thumbColor;
+        border: solid $padding transparent;
+        border-radius: $radius;
+      }
+  
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 $width $width $trackColor;
+        border: solid $padding transparent;
+        border-radius: $radius;
+      }
+  
+      ::-webkit-scrollbar-button {
+        display: none;
+      }
+}

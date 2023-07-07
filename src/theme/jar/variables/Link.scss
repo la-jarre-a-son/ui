@@ -1,0 +1,37 @@
+$Link_transitionDuration: $duration_fast !default;
+$Link_transitionTimingFunction: ease !default;
+$Link_borderRadius: 0;
+
+$Link_intents: (
+    'primary': (
+        color: $color-primary-normal,
+        outlineColor: $color-primary-normal,
+        hoverColor: $color-primary-light,
+        activeColor: $color-primary-dark,
+    ),
+    'destructive': (
+        color: $color-danger-normal,
+        outlineColor: $color-danger-normal,
+        hoverColor: $color-danger-light,
+        activeColor: $color-danger-dark,
+    ),
+) !default;
+
+// Disabled
+
+$Link--disabled_opacity: 0.5 !default;
+$Link--disabled_forceNeutral: true !default;
+
+// Underlined
+
+$Link--underlined_textUnderlineOffset: $space-xs !default;
+
+// If forceNeutral is true, those will be used
+$Link--disabled_color: $color-neutral-normal !default;
+
+// Defaults
+
+$Link_color: map-get($Link_intents, 'primary', color) !default;
+$Link_outlineColor: map-get($Link_intents, 'primary', outlineColor) !default;
+$Link--hover_color: map-get($Link_intents, 'primary', hoverColor) !default;
+$Link--active_color: map-get($Link_intents, 'primary', activeColor) !default;

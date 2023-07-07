@@ -1,0 +1,76 @@
+@import 'ljas-ui-theme';
+
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: var(--Tooltip_zIndex, $Tooltip_zIndex);
+
+    padding: var(--Tooltip_padding, $Tooltip_padding);
+    gap: var(--Tooltip_gap, $Tooltip_gap);
+    border-radius: var(--Tooltip_borderRadius, $Tooltip_borderRadius);
+    max-width: var(--Tooltip_maxWidth, $Tooltip_maxWidth);
+
+    color: var(--Tooltip_color, $Tooltip_color);
+    background: var(--Tooltip_backgroundColor, $Tooltip_backgroundColor);
+    box-shadow: var(--Tooltip_boxShadow, $Tooltip_boxShadow);
+
+    @include _textStyle(null, --Tooltip, $Tooltip_textStyle...);
+}
+
+.title {
+    @include _textStyle(null, --Tooltip-title, $Tooltip-title_textStyle...);
+
+    color: var(--Tooltip-title_color, $Tooltip-title_color);
+}
+
+.arrow {
+    position: absolute;
+    background: var(--Tooltip_backgroundColor, $Tooltip_backgroundColor);
+    width: var(--Tooltip-arrow_size, $Tooltip-arrow_size);
+    height: var(--Tooltip-arrow_size, $Tooltip-arrow_size);
+    border-top-right-radius: 1px;
+    transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0);
+}
+
+// Animations
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+// States
+
+.--show {
+    animation:
+        show
+        var(--Tooltip_animationDuration, $Tooltip_animationDuration)
+        var(--Tooltip_animationTimingFunction, $Tooltip_animationTimingFunction);
+    animation-fill-mode: forwards;
+}
+
+.--hide {
+    animation:
+        hide
+        var(--Tooltip_animationDuration, $Tooltip_animationDuration)
+        var(--Tooltip_animationTimingFunction, $Tooltip_animationTimingFunction);
+    animation-fill-mode: forwards;
+}

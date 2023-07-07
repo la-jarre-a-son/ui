@@ -1,0 +1,12 @@
+@import 'ljas-ui-theme';
+
+.subMenuIcon {
+    transition:
+    opacity
+    var(--Menu-subMenuIcon_transitionDuration, $Menu-subMenuIcon_transitionDuration)
+    var(--Menu-subMenuIcon_transitionTimingFunction, $Menu-subMenuIcon_transitionTimingFunction);
+
+    &.--open {
+        opacity: var(--Menu-subMenuIcon--open_opacity, $Menu-subMenuIcon--open_opacity);
+    }
+}

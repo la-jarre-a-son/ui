@@ -1,0 +1,51 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import classNames from './classNames';
+
+<Meta title="Utilities/classNames" />
+
+# classNames
+
+Function used to compose classes at runtime.
+
+## Usage
+
+```ts
+// args notation
+classNames('class1', true && 'class2', false && 'class3'); // => 'class1 class2'
+
+// arrays notation
+classNames(['class1', 'class2'], ['class3', false && 'class4']); // => 'class1 class2 class3'
+
+// object notation
+classNames({
+    class1: true,
+    class2: true,
+    class3: false,
+}); // => 'class1 class2'
+```
+
+## bindClassNames
+
+The `bindClassNames` function create a className function bound to a css-mocule styles object.
+You can then directly pass keys of the css-mocule style object as argument.
+
+```css
+/* Comp.module.scss */
+
+.class1 {
+    /* ... */
+}
+
+.class2 {
+    /* ... */
+}
+```
+
+```ts
+import styles from "./Comp.module.scss";
+
+const cx = bindClassNames(styles);
+
+cx("class1", "class2", "class3") => 'ljas-Comp-class1 ljas-Comp-class2 class3'
+
+```

@@ -1,0 +1,44 @@
+// Field
+
+$FormField_color: inherit !default;
+$FormField_gap: $space-sm !default;
+
+$FormField-label_textStyle: (md, light) !default;
+$FormField-label_textTransform: uppercase !default;
+$FormField-label_marginBottom: $space-sm !default;
+
+$FormField-hint_textStyle: (sm, light) !default;
+$FormField-hint_color: $color-neutral-lighter !default;
+$FormField-hint--error_color: $color-danger-normal !default;
+
+// Fieldset
+
+
+$FormFieldset_gap: $space-sm !default;
+$FormFieldset_padding: 0 !default;
+$FormFieldset_borderRadius: 0 !default;
+$FormFieldset_borderWidth: $border-sm 0 0 !default; // only border-top
+$FormFieldset_borderColor: $color-neutral-normal !default;
+
+$FormFieldset-label_textStyle: (md, light) !default;
+$FormFieldset-label_textTransform: uppercase !default;
+$FormFieldset-label_padding: $space-md !default;
+$FormFieldset-label_textAlign: center !default;
+
+
+// Control Label
+
+$FormControlLabel_gap: $space-xl !default;
+$FormControlLabel_margin: $space-lg 0 !default;
+
+$FormControlLabel-container_padding: $space-xs 0 !default;
+
+$FormControlLabel-label_color: $color-white !default;
+$FormControlLabel-label_textStyle: (md, light) !default;
+$FormControlLabel-label_textTransform: uppercase !default;
+$FormControlLabel-label--disabled_color: $color-neutral-normal !default;
+
+$FormControlLabel-hint_textStyle: (sm, light) !default;
+$FormControlLabel-hint_color: $color-neutral-lighter !default;
+$FormControlLabel-hint--error_color: $color-danger-normal !default;
+$FormControlLabel-hint--disabled_color: $color-neutral-normal !default;

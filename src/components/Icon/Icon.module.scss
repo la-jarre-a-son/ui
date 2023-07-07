@@ -1,0 +1,46 @@
+@import 'ljas-ui-theme';
+
+// Mixins
+
+@mixin ljasIconSize($name, $map) {
+    --Icon_size: var(--Icon--#{$name}_size, #{map-get($map, size)});
+}
+
+@mixin ljasIconIntent($name, $map) {
+    --Icon_color: var(--Icon--#{$name}_color, #{map-get($map, color)});
+}
+
+// Classes
+
+.root {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    vertical-align: text-bottom;
+
+    overflow: visible;
+    white-space: nowrap;
+
+    width: var(--Icon_size, $Icon_size);
+    height: var(--Icon_size, $Icon_size);
+    font-size: calc(var(--Icon_size, $Icon_size) * var(--Icon_fontSizeRatio, $Icon_fontSizeRatio));
+
+    color: var(--Icon_color, $Icon_color);
+}
+
+// Sizes
+
+@each $size, $value in $Icon_sizes {
+    .--#{$size} {
+        @include ljasIconSize($size, $value);
+    }
+}
+
+// Intents
+
+@each $intent, $value in $Icon_intents {
+    .--#{$intent} {
+        @include ljasIconIntent($intent, $value);
+    }
+}

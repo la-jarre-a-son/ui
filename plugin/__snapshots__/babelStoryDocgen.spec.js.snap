@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babelStoryDocgen Add story description 1`] = `
+""use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Story = void 0;
+var _jsxRuntime = require("react/jsx-runtime");
+/** @storyDesc Test */
+const Story = () => {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {});
+};
+exports.Story = Story;
+Story.parameters = {
+  docs: {
+    description: {
+      story: " Test"
+    }
+  }
+};"
+`;
+
+exports[`babelStoryDocgen Disable stories 1`] = `
+""use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Story = void 0;
+var _jsxRuntime = require("react/jsx-runtime");
+/** @storyDisabled Test */
+const Story = () => {
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {});
+};
+exports.Story = Story;
+Story.parameters = {
+  docs: {
+    disable: true
+  }
+};"
+`;

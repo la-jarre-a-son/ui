@@ -1,0 +1,325 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    border-radius: var(--Card_borderRadius, $Card_borderRadius);
+    height: fit-content;
+    padding: 0;
+    position: relative;
+}
+
+// Variants
+
+.--disableGutter {
+    padding-left: 0;
+    padding-right: 0;
+
+    & .headerContent:first-child ,
+    & > .content,
+    & > .thumbnail,
+    & > .thumbnailGrid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+
+.--outlined {
+    &.--interactive {
+        border-color: var(
+            --Card--interactive_borderColor,
+            $Card--interactive_borderColor
+        );
+    }
+
+    &.--selected {
+        border-color: var(--Card--selected_borderColor, $Card--selected_borderColor);
+    }
+}
+
+.--interactive {
+    transition:
+        background
+        var(--Card_transitionDuration, $Card_transitionDuration)
+        var(--Card_transitionTimingFunction, $Card_transitionTimingFunction),
+        box-shadow 
+        var(--Card_transitionDuration, $Card_transitionDuration)
+        var(--Card_transitionTimingFunction, $Card_transitionTimingFunction),
+        border-color 
+        var(--Card_transitionDuration, $Card_transitionDuration)
+        var(--Card_transitionTimingFunction, $Card_transitionTimingFunction),
+        $focus_outlineTransition;
+    cursor: pointer;
+
+    background: var(
+        --Card--interactive_background,
+        $Card--interactive_background
+    );
+
+    &.--outlined {
+        border-color: var(
+            --Card--interactive_borderColor,
+            $Card--interactive_borderColor
+        );
+    }
+
+    &:hover {
+        background: var(
+            --Card--interactive--hover_background,
+            $Card--interactive--hover_background
+        );
+
+        &.--outlined {
+            border-color: var(
+                --Card--interactive--hover_borderColor,
+                $Card--interactive--hover_borderColor
+            );
+        }
+    }
+
+    @include ljasOutlineBlur();
+
+    #{$focus_selector},
+    &:focus-within {
+        @include ljasOutlineFocus();
+        transition:
+            background 
+            var(--Card_transitionDuration, $Card_transitionDuration)
+            var(--Card_transitionTimingFunction, $Card_transitionTimingFunction),
+            border-color 
+            var(--Card_transitionDuration, $Card_transitionDuration)
+            var(--Card_transitionTimingFunction, $Card_transitionTimingFunction),
+            $focus_outlineTransition;
+    }
+}
+
+.--selected {
+    box-shadow: var(--Box_boxShadow, 0 0 0 0 transparent),
+        0 0 0 var(--Card--selected_outlineWidth, $Card--selected_outlineWidth)
+            var(--Card--selected_outlineColor, $Card--selected_outlineColor);
+    background: var(
+        --Card--selected_background,
+        $Card--selected_background
+    );
+
+    &.--outlined {
+        border-color: var(
+            --Card--selected_borderColor,
+            $Card--selected_borderColor
+        );
+    }
+
+    &.--interactive {
+        #{$focus_selector},
+        &:focus-within {
+            outline-offset: calc(
+                var(--focus_outlineOffset, $focus_outlineOffset) +
+                    var(--Card--selected_outlineWidth, $Card--selected_outlineWidth)
+            );
+        }
+    }
+}
+
+// Thumbnail
+
+.thumbnail {
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+}
+
+.thumbnailWrapper {
+    position: relative;
+    border-radius: var(--Card_borderRadius, $Card_borderRadius);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    white-space: nowrap;
+    padding: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+    aspect-ratio: var(--Card-thumbnail_aspectRatio, $Card-thumbnail_aspectRatio);
+
+    & > img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: var(
+            --Card-thumbnailPlaceholder_background,
+            $Card-thumbnailPlaceholder_background
+        );
+    }
+}
+
+.thumbnailPlaceholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--Card-thumbnailPlaceholder_background, $Card-thumbnailPlaceholder_background);
+}
+
+.thumbnailOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    opacity: var(--Card-thumbnailOverlay_opacity, $Card-thumbnailOverlay_opacity);
+    background: var(
+        --Card-thumbnailOverlay_background,
+        $Card-thumbnailOverlay_background
+    );
+    transition:
+        opacity
+        var(--Card-thumbnailOverlay_transitionDuration, $Card-thumbnailOverlay_transitionDuration)
+        var(--Card-thumbnailOverlay_transitionTimingFunction, $Card-thumbnailOverlay_transitionTimingFunction);
+}
+
+.--thumbnailInteractive {
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+        opacity: var(--Card-thumbnailOverlay--hover_opacity, $Card-thumbnailOverlay--hover_opacity);
+    }
+}
+
+.thumbnailItem {
+    display: block;
+    z-index: 1;
+
+    &.--top-left {
+        position: absolute;
+        top: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+        left: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+    }
+
+    &.--bottom-left {
+        position: absolute;
+        bottom: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+        left: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+    }
+
+    &.--top-right {
+        position: absolute;
+        top: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+        right: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+    }
+
+    &.--bottom-right {
+        position: absolute;
+        bottom: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+        right: var(--Card-thumbnail_padding, $Card-thumbnail_padding);
+    }
+
+    &.--center {
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+.thumbnailGrid {
+    border-radius: var(--Card_borderRadius, $Card_borderRadius);
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    gap: var(--Card-thumbnailGrid_gap, $Card-thumbnailGrid_gap);
+    grid-template-columns: repeat(
+        2,
+        minmax(var(--Card-thumbnailGrid_minWidth, $Card-thumbnailGrid_minWidth), 1fr)
+    );
+    aspect-ratio: var(--Card-thumbnailGrid_aspectRatio, $Card-thumbnailGrid_aspectRatio);
+
+
+    & > * {
+        width: 100%;
+        height: 100%;
+    }
+
+    & > *:first-child {
+        grid-column: 1/-1;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        & > .thumbnailWrapper {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    & > *:nth-child(2),
+    & > *:nth-child(2) > .thumbnailWrapper {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+    & > *:nth-child(3),
+    & > *:nth-child(3) > .thumbnailWrapper {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+// Header
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--Card-header_gap, $Card-header_gap);
+    padding: var(--Card-header_padding, $Card-header_padding);
+
+    max-width: 100%;
+    min-height: var(--Card-header_minHeight, $Card-header_minHeight);
+
+    & + .content {
+        padding-top: 0;
+    }
+}
+
+.headerContent {
+    &:first-child {
+        padding-left: var(--Card-header_gap, $Card-header_gap);
+    }
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    word-break: break-all;
+    align-items: flex-start;
+    
+    @include _textStyle(null, --Card-header, $Card-header_textStyle...);
+}
+
+.headerLeft,
+.headerRight {
+    min-width: var(--Card-header_minHeight, $Card-header_minHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+// Content
+
+.content {
+    padding: var(--Card_padding, $Card_padding);
+}

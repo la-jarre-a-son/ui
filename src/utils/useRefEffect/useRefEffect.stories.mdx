@@ -1,0 +1,44 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import useRefEffect from './useRefEffect';
+
+<Meta title="Utilities/Hooks/useRefEffect" />
+
+# useRefEffect
+
+Hook that allow to manage callback ref with an effect-like api.
+Take a function that take the HTML element as argument and return a cleanup function.
+Take a dependencies array as a seconc argument.
+Return a callback ref.
+
+```tsx
+const MyComponent: React.FC = () => {
+    const ref = useRefEffect((el: HTMLElement) => {
+        const handleClick = () => {
+            // ...
+        };
+
+        el.addEventListener('click', handleClick);
+
+        return () => {
+            el.removeEventListener('click', handleClick);
+        };
+    }, []);
+
+    return <div ref={ref}>clickable</div>;
+};
+```
+
+## Accessing current element
+
+For convenience, the current node element is saved directly on the ref callback as a `nodeEl` property.
+
+```tsx
+const MyComponent = forwardRef((props, forwardedRef) => {
+    const ref = useRefEffect((el: HTMLElement) => {}, forwardedRef);
+
+    // will automatically be set with el
+    console.log(ref.nodeEl);
+
+    return <div ref={ref}>clickable</div>;
+});
+```

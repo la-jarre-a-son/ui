@@ -1,0 +1,46 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: var(--FormField_gap, $FormField_gap);
+    color: var(--FormField_color, $FormField_color);
+}
+
+.label {
+    @include _textStyle(null, --FormField-label, $FormField-label_textStyle...);
+    text-transform: var(--FormField-label_textTransform, $FormField-label_textTransform);
+    margin-bottom: var(--FormField-label_marginBottom, $FormField-label_marginBottom);
+}
+
+.hint {
+    @include _textStyle(null, --FormField-hint, $FormField-hint_textStyle...);
+    color: var(--FormField-hint_color, $FormField-hint_color);
+    display: flex;
+    align-items: center;
+    gap: var(--FormField_gap, $FormField_gap);
+}
+
+.hint--error {
+    color: var(--FormField-hint--error_color, $FormField-hint--error_color);
+}    
+
+// Variant
+
+.label--hide {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    height: 1px;
+    width: 1px;
+}
+
+.--block {
+    width: 100%;
+    & > * {
+        width: 100%;
+    }
+}

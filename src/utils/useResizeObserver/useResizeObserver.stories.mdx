@@ -1,0 +1,25 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Utilities/Hooks/useResizeObserver" />
+
+# useResizeObserver
+
+Hook to attach and manage a [resize observer](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) on the given HTML element.
+
+Take the target element as a first argument, the on resize callback as a second argument, and some resize observer options as an optionnal fird argument.
+
+```tsx
+const MyComponent: React.FC = () => {
+    const [element, ref] = useState<T | null>(null);
+
+    const handleResize = useCallback((entries) => {
+        if (entries.length) {
+            console.log(entries[0].contentRect);
+        }
+    }, []);
+
+    useResizeObserver<T>(element, handleResize);
+
+    return <div ref={ref}>a div</div>;
+};
+```

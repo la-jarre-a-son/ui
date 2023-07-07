@@ -1,0 +1,20 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    // margin is done with label
+    padding: var(--FormFieldset_padding, $FormFieldset_padding);
+    gap: var(--FormFieldset_gap, $FormFieldset_gap);
+    border-style: solid;
+    border-width: var(--FormFieldset_borderWidth, $FormFieldset_borderWidth);
+    border-color: var(--FormFieldset_borderColor, $FormFieldset_borderColor);
+    border-radius: var(--FormFieldset_borderRadius, $FormFieldset_borderRadius);
+}
+
+.label {
+    @include _textStyle(null, --FormFieldset-label, $FormFieldset-label_textStyle...);
+    text-transform: var(--FormFieldset-label_textTransform, $FormFieldset-label_textTransform);
+    padding: var(--FormFieldset-label_padding, $FormFieldset-label_padding);
+    text-align: var(--FormFieldset-label_textAlign, $FormFieldset-label_textAlign);
+}

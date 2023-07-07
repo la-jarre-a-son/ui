@@ -1,0 +1,265 @@
+@import 'ljas-ui-theme';
+
+// Mixins
+
+@mixin ljasButtonSize($size, $map) {
+    @include _textStyle(null, --Button--#{$size}, map-get($map, textStyle)...);
+
+    --Button_borderRadius: var(--Button--#{$size}_borderRadius, #{map-get($map, borderRadius)});
+    --Button_height: var(--Button--#{$size}_height, #{map-get($map, height)});
+    --Button_padding: var(--Button--#{$size}_padding, #{map-get($map, padding)});
+    --Button_gap: var(--Button--#{$size}_gap, #{map-get($map, gap)});
+}
+
+@mixin ljasButtonVariantIntent($variant, $intent, $map) {
+    --Button_color: var(--Button--#{$variant}--#{$intent}_color, #{map-get($map, color)});
+    --Button_background: var(
+        --Button--#{$variant}--#{$intent}_background,
+        #{map-get($map, background)}
+    );
+    --Button_borderColor: var(
+        --Button--#{$variant}--#{$intent}_borderColor,
+        #{map-get($map, borderColor)}
+    );
+    --Button--hover_color: var(
+        --Button--#{$variant}--#{$intent}--hover_color,
+        #{map-get($map, hoverColor)}
+    );
+    --Button--hover_borderColor: var(
+        --Button--#{$variant}--#{$intent}--hover_borderColor,
+        #{map-get($map, hoverBorderColor)}
+    );
+    --Button--hover_background: var(
+        --Button--#{$variant}--#{$intent}--hover_background,
+        #{map-get($map, hoverBackground)}
+    );
+    --Button--active_color: var(
+        --Button--#{$variant}--#{$intent}--active_color,
+        #{map-get($map, activeColor)}
+    );
+    --Button--active_borderColor: var(
+        --Button--#{$variant}--#{$intent}--active_borderColor,
+        #{map-get($map, activeBorderColor)}
+    );
+    --Button--active_background: var(
+        --Button--#{$variant}--#{$intent}--active_background,
+        #{map-get($map, activeBackground)}
+    );
+}
+
+
+@mixin ljasButtonHoverIntent($variant, $intent, $map, $neutral) {
+    --Button_color: var(--Button--#{$variant}--neutral_color, #{map-get( $neutral, color)});
+    --Button_background: var(
+        --Button--#{$variant}--neutral_background,
+        #{map-get( $neutral, background)}
+    );
+    --Button_borderColor: var(
+        --Button--#{$variant}--neutral_borderColor,
+        #{map-get( $neutral, borderColor)}
+    );
+    @if $variant == filled and $intent != neutral {
+        --Button--hover_color: var(
+            --Button--#{$variant}--#{$intent}_color,
+            #{map-get($map, color)}
+        );
+        --Button--hover_borderColor: var(
+            --Button--#{$variant}--#{$intent}_borderColor,
+            #{map-get($map, borderColor)}
+        );
+        --Button--hover_background: var(
+            --Button--#{$variant}--#{$intent}_background,
+            #{map-get($map, background)}
+        );
+    }
+}
+
+// Classes
+
+.root {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    
+    background: var(--Button_background, $Button_background);
+    color: var(--Button_color, $Button_color);
+    background-clip: border-box;
+    background-origin: border-box;
+
+    @include ljasFocus();
+
+    border-style: solid;
+    border-radius: var(--Button_borderRadius, $Button_borderRadius);
+    border-width: var(--Button_borderWidth, $Button_borderWidth);
+    border-color: var(--Button_borderColor, $Button_borderColor);
+    
+    height: var(--Button_height, $Button_height);
+    padding: var(--Button_padding, $Button_padding);
+    gap: var(--Button_gap, $Button_gap);
+
+    text-transform: var(--Button_textTransform, $Button_textTransform);
+
+    cursor: pointer;
+
+    transition:
+        border
+        var(--Button_transitionTimingFunction, $Button_transitionTimingFunction)
+        var(--Button_transitionDuration, $Button_transitionDuration),
+        color
+        var(--Button_transitionTimingFunction, $Button_transitionTimingFunction)
+        var(--Button_transitionDuration, $Button_transitionDuration),
+        background
+        var(--Button_transitionTimingFunction, $Button_transitionTimingFunction)
+        var(--Button_transitionDuration, $Button_transitionDuration),
+        $focus_outlineTransition;
+
+
+    &:not(:disabled):not(:active):not([disabled]):hover,
+    &:focus-visible {
+        z-index: var(--Button--focus_zIndex, $Button--focus_zIndex);
+        color: var(--Button--hover_color, $Button--hover_color);
+        border-color: var(--Button--hover_borderColor, $Button--hover_borderColor);
+        background: var(--Button--hover_background, $Button--hover_background);
+        background-origin: border-box;
+    }
+
+
+    &:active {
+        z-index: var(--Button--focus_zIndex, $Button--focus_zIndex);
+        color: var(--Button--active_color, $Button--active_color);
+        border-color: var(--Button--active_borderColor, $Button--active_borderColor);
+        background: var(--Button--active_background, $Button--active_background);
+        background-origin: border-box;
+    }
+
+    &:disabled,
+    &[disabled] {
+        opacity: var(--Button--disabled_opacity, $Button--disabled_opacity);
+        outline: 0;
+        cursor: not-allowed;
+    }
+}
+
+.--rounded {
+    border-radius: 9999px;
+}
+
+.--icon {
+    width: var(--Button_height);
+    max-width: var(--Button_height);
+    flex-basis: var(--Button_height);
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.label {
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-align: var(--Button_textAlign, $Button_textAlign);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Sizes
+
+@each $size, $value in $Button_sizes {
+    .--#{$size} {
+        @include ljasButtonSize($size, $value);
+    }
+}
+
+// Variants
+
+@each $variant, $variantValue in $Button_variants {
+    @each $intent, $value in $variantValue {
+        .--#{$variant}.--#{$intent} {
+            @include ljasButtonVariantIntent($variant, $intent, $value);
+        }
+        .--#{$variant}.--#{$intent}.--hoverIntent {
+            @include ljasButtonHoverIntent($variant, $intent, $value, map-get($Button_variants, $variant, neutral));
+        }
+    }
+}
+
+.--filled {
+    --ButtonGroup-cancelBorderWidth: var(--Button--filled_cancelBorderWidth, #{$Button--filled_cancelBorderWidth});
+
+    &:disabled,
+    &[disabled] {
+        @if $Button--disabled_forceNeutral {
+            color: var(--Button--filled--disabled_color, $Button--filled--disabled_color);
+            border-color: var(
+                --Button--filled--disabled_borderColor,
+                $Button--filled--disabled_borderColor
+            );
+            background: var(
+                --Button--filled--disabled_background,
+                $Button--filled--disabled_background
+            );
+        }
+    }
+}
+
+.--outlined {
+    background-color: transparent;
+    --ButtonGroup-cancelBorderWidth: var(--Button--outlined_cancelBorderWidth, #{$Button--outlined_cancelBorderWidth});
+
+    @media (hover: hover) {
+        &:hover {
+            border-color: var(--Button--hover_borderColor);
+        }
+    }
+
+    &:active {
+        border-color: var(--Button--active_borderColor);
+    }
+
+    &:disabled,
+    &[disabled] {
+        @if $Button--disabled_forceNeutral {
+            border-color: var(
+                --Button--outlined--disabled_borderColor,
+                $Button--outlined--disabled_borderColor
+            );
+            color: var(--Button--outlined--disabled_color, $Button--outlined--disabled_color);
+            background: var(--Button--outlined--disabled_background, $Button--outlined--disabled_background);
+        }
+    }
+}
+
+.--ghost {
+    @extend .--outlined;
+    border-color: transparent;
+    background-color: transparent;
+    --ButtonGroup-cancelBorderWidth: var(--Button--ghost_cancelBorderWidth, #{$Button--ghost_cancelBorderWidth});
+
+    
+    &:active,
+    &:focus-visible {
+        border-color: transparent;
+    }
+
+
+    &:disabled,
+    &[disabled] {
+        border-color: transparent;
+        @if $Button--disabled_forceNeutral {
+            color: var(--Button--outlined--disabled_color, $Button--outlined--disabled_color);
+        }
+    }
+
+    @media (hover: hover) {
+        &:not(:disabled):not([disabled]):not(:active):hover {
+            border-color: transparent;
+        }
+    }
+}
+
+.--block {
+    width: 100%;
+}

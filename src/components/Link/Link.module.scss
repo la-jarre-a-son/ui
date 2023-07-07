@@ -1,0 +1,69 @@
+@import 'ljas-ui-theme';
+
+// Mixins
+
+@mixin ljasLinkIntent($intent, $map) {
+    --Link_color: var(--Link--#{$intent}_color, #{map-get($map, color)});
+    --Link_outlineColor: var(--Link--#{$intent}_outlineColor, #{map-get($map, outlineColor)});
+    --Link--hover_color: var(--Link--#{$intent}--hover_color, #{map-get($map, hoverColor)});
+    --Link--active_color: var(--Link--#{$intent}--active_color, #{map-get($map, activeColor)});
+}
+
+// Classes
+
+.root {
+    color: var(--Link_color, $Link_color);
+
+    @include ljasFocus();
+
+    border-radius: var(--Link_borderRadius, $Link_borderRadius);
+
+    transition:
+        color
+        var(--Link_transitionTimingFunction, $Link_transitionTimingFunction)
+        var(--Link_transitionDuration, $Link_transitionDuration),
+        $focus_outlineTransition;
+
+    @media (hover: hover) {
+        &:hover:not(.--disabled) {
+            color: var(--Link--hover_color, $Link--hover_color);
+        }
+    }
+
+    &:active:not(.--disabled) {
+        color: var(--Link--active_color, $Link--active_color);
+    }
+}
+
+// Intents
+
+@each $intent, $value in $Link_intents {
+    .--#{$intent} {
+        @include ljasLinkIntent($intent, $value);
+    }
+}
+
+// Variants
+
+.--underlined {
+    text-decoration: underline;
+    text-decoration-color: inherit;
+    text-underline-offset: var(--Link--underlined_textUnderlineOffset, $Link--underlined_textUnderlineOffset);
+    text-decoration-thickness: from-font;
+}
+
+// Disabled
+
+.--disabled {
+    opacity: var(--Link--disabled_opacity, $Link--disabled_opacity);
+    outline: 0;
+    cursor: not-allowed;
+
+    #{$focus_selector} {
+        @include ljasOutlineBlur();
+    }
+
+    @if $Link--disabled_forceNeutral {
+        color: var(--Link--disabled_color, $Link--disabled_color);
+    }
+}

@@ -1,0 +1,29 @@
+$Radio_borderWidth: $border-sm !default;
+$Radio_size: $size-xs !default;
+$Radio_margin: $space-sm !default;
+$Radio_fontSize: $size-xs !default;
+$Radio_transitionDuration: $duration_medium !default;
+$Radio_transitionTimingFunction: ease !default;
+$Radio-dot_size: $space-md !default;
+
+$Radio_background: $color-neutral-dark $gradient-interactive !default;
+$Radio_color: $color-white !default;
+$Radio_borderColor: $color-neutral-dark !default;
+
+$Radio--hover_background: $color-neutral-normal $gradient-interactive !default;
+$Radio--hover_borderColor: $color-neutral-light !default;
+
+$Radio--checked_color: $color-white !default;
+$Radio--checked_background: $color-primary-normal $gradient-interactive !default;
+$Radio--checked_borderColor: $color-primary-normal !default;
+
+$Radio--checked--hover_background: lighten($color-primary-normal, 10%) $gradient-interactive !default;
+$Radio--checked--hover_borderColor: lighten($color-primary-normal, 10%) !default;
+
+$Radio--disabled_color: $color-neutral-normal !default;
+$Radio--disabled_background: $color-neutral-normal !default;
+$Radio--disabled_borderColor: $color-neutral-normal !default;
+
+$Radio--disabled--checked_color: $color-neutral-light !default;
+$Radio--disabled--checked_background: $color-neutral-normal !default;
+$Radio--disabled--checked_borderColor: $color-neutral-normal !default;

@@ -1,0 +1,13 @@
+$Toolbar_color: inherit !default;
+$Toolbar_backgroundColor: $color-neutral-lighter !default;
+$Toolbar_borderBottom: none !default;
+$Toolbar_zIndex: $zindex-header !default;
+
+$Toolbar_padding: 0 !default;
+$Toolbar_height: $size-md !default;
+$Toolbar_gap: $space-md !default;
+
+$Toolbar_transitionDuration: $duration_fast !default;
+$Toolbar_transitionTimingFunction: ease !default;
+
+$Toolbar--elevated_boxShadow: $shadow-md !default;

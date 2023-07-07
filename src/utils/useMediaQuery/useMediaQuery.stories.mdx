@@ -1,0 +1,17 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Utilities/Hooks/useMediaQuery" />
+
+# useMediaQuery
+
+The `useMediaQueryHook` manage a state variable corresponding to the result of the given media query string.
+
+```tsx
+const MyComponent: React.FC = () => {
+    const isMatching = useMediaQuery('@media (max-width: 30em)');
+
+    console.log(isMatching); // => true / false
+
+    return null;
+};
+```

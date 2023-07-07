@@ -1,0 +1,133 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    --Switch-handle--checked_offset: calc(
+        var(--Switch_width, #{$Switch_width})
+        - var(--Switch_padding, #{$Switch_padding}) * 2
+        - var(--Switch_borderWidth, #{$Switch_borderWidth}) * 2
+        - var(--Switch-handle_size, #{$Switch-handle_size})
+    );
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    height: var(--Switch_height, $Switch_height);
+    width: var(--Switch_width, $Switch_width);
+    margin: var(--Switch_margin, $Switch_margin);
+
+    & .wrapper {
+        cursor: pointer;
+    }
+
+    > input[type='checkbox'] {
+        appearance: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+
+        #{$focus_selector} {
+            & + .wrapper {
+                @include ljasOutlineFocus();
+            }
+        }
+    }
+
+    > input:disabled + .wrapper,
+    &.--disabled .wrapper {
+        --Switch_color: var(--Switch--disabled_color, #{$Switch--disabled_color});
+        --Switch_background: var(--Switch--disabled_background, #{$Switch--disabled_background});
+        --Switch_borderColor: var(--Switch--disabled_borderColor, #{$Switch--disabled_borderColor});
+        --Switch_handleBackground: var(--Switch--disabled_handleBackground, #{$Switch--disabled_handleBackground});
+    }
+
+    > input:checked + .wrapper,
+    &.--checked .wrapper {
+        .handle {
+            margin-left: var(--Switch-handle--checked_offset, auto);
+            margin-right: 0;
+        }
+    }
+
+    > input:checked:not(:disabled) + .wrapper,
+    &.--checked:not(.--disabled) .wrapper {
+        --Switch_color: var(--Switch--checked_color, #{$Switch--checked_color});
+        --Switch_background: var(--Switch--checked_background, #{$Switch--checked_background});
+        --Switch_borderColor: var(--Switch--checked_borderColor, #{$Switch--checked_borderColor});
+        --Switch_handleBackground: var(--Switch--checked_handleBackground, #{$Switch--checked_handleBackground});
+    }
+
+    @media (hover: hover) {
+        > input:not(:disabled):hover + .wrapper {
+            --Switch_color: var(--Switch--hover_color, #{$Switch--hover_color});
+            --Switch_background: var(--Switch--hover_background, #{$Switch--hover_background});
+            --Switch_borderColor: var(--Switch--hover_borderColor, #{$Switch--hover_borderColor});
+            --Switch_handleBackground: var(--Switch--hover_handleBackground, #{$Switch--hover_handleBackground});
+        }
+
+        > input:checked:not(:disabled):hover + .wrapper {
+            --Switch_color: var(--Switch--checked--hover_color, #{$Switch--checked--hover_color});
+            --Switch_background: var(--Switch--checked--hover_background, #{$Switch--checked--hover_background});
+            --Switch_borderColor: var(--Switch--checked--hover_borderColor, #{$Switch--checked--hover_borderColor});
+            --Switch_handleBackground: var(--Switch--checked--hover_handleBackground, #{$Switch--checked--hover_handleBackground});
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+
+    border-style: solid;
+    border-width: var(--Switch_borderWidth, $Switch_borderWidth);
+    border-radius: var(--Switch_borderRadius, $Switch_borderRadius);
+
+    background: var(--Switch_background, $Switch_background);
+    color: var(--Switch_color, $Switch_color);
+    border-color: var(--Switch_borderColor, $Switch_borderColor);
+
+    @include ljasOutlineBlur();
+
+    width: 100%;
+    height: 100%;
+    padding: var(--Switch_padding, $Switch_padding);
+
+    transition:
+        all
+        var(--Switch_transitionTimingFunction, $Switch_transitionTimingFunction)
+        var(--Switch_transitionDuration, $Switch_transitionDuration),
+        $focus_outlineTransition;
+}
+
+.handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--Switch_handleBackground, $Switch_handleBackground);
+
+    height: var(--Switch-handle_size, $Switch-handle_size);
+    width: var(--Switch-handle_size, $Switch-handle_size);
+    border-radius: var(--Switch-handle_borderRadius, $Switch-handle_borderRadius);
+
+    margin-left: 0;
+    margin-right: var(--Switch-handle--checked_offset, auto);
+
+    box-shadow: var(--Switch-handle_boxShadow, $Switch-handle_boxShadow);
+
+    transition:
+        all
+        var(--Switch_transitionTimingFunction, $Switch_transitionTimingFunction)
+        var(--Switch_transitionDuration, $Switch_transitionDuration);
+}
+
+.icon {
+    font-size: var(--Switch-icon_fontSize, $Switch-icon_fontSize);
+}

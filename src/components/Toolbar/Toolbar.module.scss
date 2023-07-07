@@ -1,0 +1,58 @@
+@import 'ljas-ui-theme';
+
+.root {
+    width: 100%;
+
+    display: flex;
+    min-height: var(--Toolbar_height, $Toolbar_height);
+    padding: var(--Toolbar_padding, $Toolbar_padding);
+    gap: var(--Toolbar_gap, $Toolbar_gap);
+    align-items: center;
+
+    z-index: var(--Toolbar_zIndex, $Toolbar_zIndex);
+
+    transition:
+        color
+        var(--Toolbar_transitionDuration, $Toolbar_transitionDuration)
+        var(--Toolbar_transitionTimingFunction, $Toolbar_transitionTimingFunction),
+        background-color
+        var(--Toolbar_transitionDuration, $Toolbar_transitionDuration)
+        var(--Toolbar_transitionTimingFunction, $Toolbar_transitionTimingFunction),
+        box-shadow
+        var(--Toolbar_transitionDuration, $Toolbar_transitionDuration)
+        var(--Toolbar_transitionTimingFunction, $Toolbar_transitionTimingFunction);
+}
+
+
+// Placement
+
+.--top {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    top: 0;
+    left: 0;
+}
+
+.--bottom {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    bottom: 0;
+    left: 0;
+}
+
+// Position variants
+
+.--fixed {
+    position: fixed;
+    padding-right: var(--ljas-scrollbarWidth, 0);
+}
+
+.--relative {
+    position: relative;
+}
+
+.--sticky {
+    position: sticky;
+}

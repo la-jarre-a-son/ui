@@ -1,0 +1,153 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--Slider_gap, $Slider_gap);
+
+    @include _textStyle(null, --Slider, $Slider_textStyle...);
+}
+
+.track {
+    background: var(--Slider-track_background, $Slider-track_background);
+
+}
+
+.thumb {
+    @include ljasFocus();
+
+    border-style: solid;
+    border-width: var(--Slider-thumb_borderWidth, $Slider-thumb_borderWidth); 
+    border-color: var(--Slider-thumb_borderColor, $Slider-thumb_borderColor); 
+    background: var(--Slider-thumb_background, $Slider-thumb_background);
+
+    @media (hover: hover) {
+        &:hover {
+            border-color: var(--Slider-thumb--hover_borderColor, $Slider-thumb--hover_borderColor);
+            background: var(--Slider-thumb--hover_background, $Slider-thumb--hover_background);
+        }
+    }
+
+    &--active, &--active:hover {
+        border-color: var(--Slider-thumb--active_borderColor, $Slider-thumb--active_borderColor);
+        background: var(--Slider-thumb--active_background, $Slider-thumb--active_background);
+    }
+}
+
+.mark {
+    border-radius: var(--Slider-mark_borderRadius, $Slider-mark_borderRadius);
+    background: var(--Slider-mark_background, $Slider-mark_background);
+}
+
+// Values
+
+.--single {
+    .track {    
+        &:global(-0) {
+            background: var(--Slider-track--active_background, $Slider-track--active_background);
+        }
+    }
+}
+
+.--range {
+    .track {    
+        &:global(-1) {
+            background: var(--Slider-track--active_background, $Slider-track--active_background);
+        }
+    }
+}
+
+.--multiple {
+    .track:nth-of-type(odd) {
+        background: var(--Slider-track--active_background, $Slider-track--active_background);
+    }
+}
+
+
+
+// Orientation
+
+.--horizontal {
+    flex-direction: row;
+    width: 100%;
+    min-width: var(--Slider_minSize, $Slider_minSize);
+
+    .text {
+        width: 6ch;
+        text-align: right;
+    }
+
+    .slider {
+        flex-grow: 1;
+        width: 100%;
+        height: var(--Slider_size, $Slider_size);
+    }
+
+    .track {
+        top: calc((var(--Slider_size, $Slider_size) - var(--Slider-track_size, $Slider-track_size)) / 2);
+        height: var(--Slider-track_size, $Slider-track_size);
+    }
+
+    .thumb {
+        top: calc((var(--Slider_size, $Slider_size) - var(--Slider-thumb_size, $Slider-thumb_size)) / 2);
+        width: var(--Slider-thumb_size, $Slider-thumb_size);
+        height: var(--Slider-thumb_size, $Slider-thumb_size);
+        line-height: var(--Slider-thumb_size, $Slider-thumb_size);
+    
+        cursor: col-resize;
+    }
+
+    .mark {
+        top: calc((var(--Slider_size, $Slider_size) - var(--Slider-mark_size, $Slider-mark_size)) / 2);
+        width: var(--Slider-mark_size, $Slider-mark_size);
+        height: var(--Slider-mark_size, $Slider-mark_size);
+    
+        margin-left: calc(0.5 * (var(--Slider-thumb_size, $Slider-thumb_size) - var(--Slider-mark_size, $Slider-mark_size)));
+    }
+
+    &.--invert .mark {
+        margin-left: 0;
+        margin-right: calc(0.5 * (var(--Slider-thumb_size, $Slider-thumb_size) - var(--Slider-mark_size, $Slider-mark_size)));
+    }
+}
+
+.--vertical {
+    flex-direction: column;
+    min-height: var(--Slider_minSize, $Slider_minSize);
+
+    .slider {
+        flex-grow: 1;
+        height: 100%;
+        width: var(--Slider_size, $Slider_size);
+    }
+
+    .track {
+        left: calc((var(--Slider_size, $Slider_size) - var(--Slider-track_size, $Slider-track_size)) / 2);
+        width: var(--Slider-track_size, $Slider-track_size);
+    }
+
+    .thumb {
+        left: calc((var(--Slider_size, $Slider_size) - var(--Slider-thumb_size, $Slider-thumb_size)) / 2);
+        width: var(--Slider-thumb_size, $Slider-thumb_size);
+        height: var(--Slider-thumb_size, $Slider-thumb_size);
+        line-height: var(--Slider-thumb_size, $Slider-thumb_size);
+    
+        cursor: row-resize;
+    }
+    
+    .mark {
+        left: calc((var(--Slider_size, $Slider_size) - var(--Slider-mark_size, $Slider-mark_size)) / 2);
+        width: var(--Slider-mark_size, $Slider-mark_size);
+        height: var(--Slider-mark_size, $Slider-mark_size);
+    
+        margin-bottom: calc(0.5 * (var(--Slider-thumb_size, $Slider-thumb_size) - var(--Slider-mark_size, $Slider-mark_size)));
+    }
+
+    &.--invert .mark {
+        margin-bottom: 0;
+        margin-top: calc(0.5 * (var(--Slider-thumb_size, $Slider-thumb_size) - var(--Slider-mark_size, $Slider-mark_size)));
+    }
+
+}

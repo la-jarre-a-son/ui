@@ -1,0 +1,44 @@
+$List_minWidth: $container-xs !default;
+
+$List-group_padding: 0 !default;
+$List-groupHeader_textTransform: uppercase !default;
+$List-groupHeader_textStyle: (sm, bold) !default;
+$List-groupHeader_color: inherit !default;
+
+$List-item_textStyle: (sm, light) !default;
+$List-item_textTransform: uppercase !default;
+$List-item_height: $size-md !default;
+$List-item_gap: $space-md !default;
+$List-item_padding: $space-sm $space-md !default;
+$List-item_transitionDuration: $duration_fast !default;
+$List-item_transitionTimingFunction: $timing_default !default;
+$List-itemLeft_minWidth: $size-xs !default;
+$List-itemRight_minWidth: $size-xs !default;
+
+$List-item_color: inherit !default;
+$List-item_background: transparent !default;
+
+// Interactive
+$List-item--hover_background: rgba($color-neutral-lighter, 0.2) $gradient-interactive !default;
+$List-item--hover_color: inherit !default;
+$List-item--active_background: rgba($color-neutral-darker, 0.2) $gradient-interactive  !default;
+$List-item--active_color: $color-white !default;
+
+// Focus indicator
+$List-itemFocus_width: $space-sm !default;
+$List-itemFocus_color: $color-primary-normal !default;
+$List-itemFocus--selected_color: $color-white !default;
+
+// States
+$List-item--disabled_color: $color-neutral-normal !default;
+$List-item--disabled_background: $List-item_background !default;
+
+$List-item--selected_color: $color-white !default;
+$List-item--selected_background: $color-primary-normal  $gradient-interactive !default;
+$List-item--selected--hover_color: $color-white !default;
+$List-item--selected--hover_background: lighten($color-primary-normal, 10%) $gradient-interactive !default;
+$List-item--selected--active_color: $color-white !default;
+$List-item--selected--active_background: darken($color-primary-normal, 10%) $gradient-interactive !default;
+
+$List-item--disabled--selected_color: rgba($color-primary-light, 0.5) !default;
+$List-item--disabled--selected_background: rgba($color-primary-normal, 0.5) !default;

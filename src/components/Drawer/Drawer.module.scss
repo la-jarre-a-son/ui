@@ -1,0 +1,146 @@
+@import 'ljas-ui-theme';
+
+.root {
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: var(--Drawer_zIndex, $Drawer_zIndex);
+}
+
+.container {
+    position: absolute;
+    background-color: var(--Drawer-container_backgroundColor, $Drawer-container_backgroundColor);
+    box-shadow: var(--Drawer-container_boxShadow, $Drawer-container_boxShadow);
+}
+
+.backdrop {
+    --Drawer-backdrop_opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: var(--Drawer-backdrop_zIndex, $Drawer-backdrop_zIndex);
+    background: var(--Drawer-backdrop_background, $Drawer-backdrop_background);
+    opacity: var(--Drawer-backdrop_opacity);
+
+    &.--noOverlay {
+        --Drawer-backdrop_opacity: 0;
+    }
+}
+
+// Sizes
+
+@each $size, $value in $Drawer_sizes {
+    .--#{$size} {
+        --Drawer_minSize: var(--Drawer--#{$size}_width, #{map-get($Drawer_sizes, $size)});
+    }
+}
+
+// Placements
+
+.--top {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: var(--Drawer_minSize, #{$Drawer_minSize});
+    --Drawer_from: 0px, calc(var(--Drawer_minSize, #{$Drawer_minSize}) * -1);
+}
+
+.--bottom {
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    min-height: var(--Drawer_minSize, #{$Drawer_minSize});
+    --Drawer_from: 0px, var(--Drawer_minSize, #{$Drawer_minSize});
+}
+
+.--left {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: var(--Drawer_minSize, #{$Drawer_minSize});
+    --Drawer_from: calc(var(--Drawer_minSize, #{$Drawer_minSize}) * -1), 0px;
+}
+
+.--right {
+    top: 0;
+    right: 0;
+    height: 100vh;
+    min-width: var(--Drawer_minSize, #{$Drawer_minSize});
+    --Drawer_from: var(--Drawer_minSize, #{$Drawer_minSize}), 0px;
+}
+
+// Animations
+
+@keyframes show {
+    0% {
+        transform: translate(var(--Drawer_from));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes hide {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(var(--Drawer_from));
+    }
+}
+
+@keyframes showBackdrop {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: var(--Drawer-backdrop_opacity, 0.5);
+    }
+}
+
+@keyframes hideBackdrop {
+    0% {
+        opacity: var(--Drawer-backdrop_opacity, 0.5);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+// States
+
+.--show {
+    animation:
+        show
+        var(--Drawer--show_animationDuration, $Drawer--show_animationDuration)
+        var(--Drawer--show_animationTimingFunction, $Drawer--show_animationTimingFunction);
+}
+
+.--hide {
+    animation:
+        hide
+        var(--Drawer--hide_animationDuration, $Drawer--hide_animationDuration)
+        var(--Drawer--hide_animationTimingFunction, $Drawer--hide_animationTimingFunction);
+}
+
+.--showBackdrop {
+    animation:
+        showBackdrop
+        var(--Drawer--show_animationDuration, $Drawer--show_animationDuration)
+        var(--Drawer--show_animationTimingFunction, $Drawer--show_animationTimingFunction);
+}
+
+.--hideBackdrop {
+    animation:
+        hideBackdrop
+        var(--Drawer--hide_animationDuration, $Drawer--hide_animationDuration)
+        var(--Drawer--hide_animationTimingFunction, $Drawer--hide_animationTimingFunction);
+}

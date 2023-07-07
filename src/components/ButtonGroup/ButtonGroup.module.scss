@@ -1,0 +1,58 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    display: inline-flex;
+}
+
+// Variants
+
+.root.--horizontal {
+    > * {
+        &:first-child {
+            border-top-left-radius: var(--Button_borderRadius, $Button_borderRadius);
+            border-bottom-left-radius: var(--Button_borderRadius, $Button_borderRadius);
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--Button_borderRadius, $Button_borderRadius);
+            border-bottom-right-radius: var(--Button_borderRadius, $Button_borderRadius);
+        }
+
+        & + * {
+            margin-left: calc(var(--ButtonGroup-cancelBorderWidth, 0) * -1);
+        }
+    }
+}
+
+.root.--vertical {
+    > * {
+        width: auto;
+        max-width: 100%;
+
+        &:first-child {
+            border-top-left-radius: var(--Button_borderRadius, $Button_borderRadius);
+            border-top-right-radius: var(--Button_borderRadius, $Button_borderRadius);
+        }
+
+        &:last-child {
+            border-bottom-left-radius: var(--Button_borderRadius, $Button_borderRadius);
+            border-bottom-right-radius: var(--Button_borderRadius, $Button_borderRadius);
+        }
+
+        & + * {
+            margin-top: calc(var(--ButtonGroup-cancelBorderWidth, 0) * -1);
+        }
+    }
+}
+
+
+.--stretch {
+    & > * {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0%;
+        max-width: var(--ButtonGroup-item_maxWidth, $ButtonGroup-item_maxWidth);
+    }
+}

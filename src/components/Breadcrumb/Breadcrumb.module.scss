@@ -1,0 +1,109 @@
+@import 'ljas-ui-theme';
+
+.root {
+    & > ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        > li:first-child .item {
+            padding: var(--Breadcrumb-item_padding, $Breadcrumb-item_padding);
+        }
+    }  
+}
+
+.item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    height: var(--Breadcrumb-item_height, $Breadcrumb-item_height);
+
+    gap: var(--Breadcrumb-item_gap, $Breadcrumb-item_gap);
+    padding: var(--Breadcrumb-item_padding, $Breadcrumb-item_padding);
+    padding-left: calc(var(--Breadcrumb-item_padding, $Breadcrumb-item_padding) + var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2);
+
+    color: var(--Breadcrumb-item_color, $Breadcrumb-item_color);
+    background: var(
+        --Breadcrumb-item_background,
+        $Breadcrumb-item_background
+    );
+
+    text-transform: var(--Breadcrumb-item_textTransform, $Breadcrumb-item_textTransform);
+    
+    @include _textStyle(null, --Breadcrumb-item, $Breadcrumb-item_textStyle...);
+
+    @include ljasFocus();
+
+    &, &:after {
+        transition:
+        border
+        var(--Breadcrumb_transitionTimingFunction, $Breadcrumb_transitionTimingFunction)
+        var(--Breadcrumb_transitionDuration, $Breadcrumb_transitionDuration),
+        color
+        var(--Breadcrumb_transitionTimingFunction, $Breadcrumb_transitionTimingFunction)
+        var(--Breadcrumb_transitionDuration, $Breadcrumb_transitionDuration),
+        background
+        var(--Breadcrumb_transitionTimingFunction, $Breadcrumb_transitionTimingFunction)
+        var(--Breadcrumb_transitionDuration, $Breadcrumb_transitionDuration),
+        $focus_outlineTransition;
+    }
+
+
+
+    &[aria-current] {
+        @include _textStyle(null, --Breadcrumb-item--current, $Breadcrumb-item--current_textStyle...);
+        --Breadcrumb-item_color: var(--Breadcrumb-item--current_color, #{$Breadcrumb-item--current_color});
+        --Breadcrumb-item_background: var(--Breadcrumb-item--current_background, #{$Breadcrumb-item--current_background});
+        --Breadcrumb-separator_color: var(--Breadcrumb-separator--current_color, #{$Breadcrumb-separator--current_color});
+        pointer-events: none;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            --Breadcrumb-item_background: var(
+                --Breadcrumb-item--hover_background,
+                #{$Breadcrumb-item--hover_background}
+            );
+            --Breadcrumb-item_color: var(
+                --Breadcrumb-item--hover_color,
+                #{$Breadcrumb-item--hover_color}
+            );
+            --Breadcrumb-separator_color: var(
+                --Breadcrumb-separator--hover_color,
+                #{$Breadcrumb-separator--hover_color}
+            );
+        }
+    }
+
+    &:active {
+        --Breadcrumb-item_background: var(
+            --Breadcrumb-item--active_background,
+            #{$Breadcrumb-item--active_background}
+        );
+        --Breadcrumb-item_color: var(
+            --Breadcrumb-item--active_color,
+            #{$Breadcrumb-item--active_color}
+        );
+        --Breadcrumb-separator_color: var(
+            --Breadcrumb-separator--active_color,
+            #{$Breadcrumb-separator--active_color}
+        );
+    }
+
+    &::after {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        content: ' ';
+        border: calc(var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2) solid transparent;
+        border-left-color: var(--Breadcrumb-separator_color, $Breadcrumb-separator_color);
+        z-index: 1;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,155 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    position: relative;
+}
+
+.label {
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-align: var(--Button_textAlign, $Button_textAlign);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.feedback {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition:
+        opacity
+        var(--StateButton-feedback_transitionDuration, $StateButton-feedback_transitionDuration)
+        var(--StateButton-feedback_transitionTimingFunction, $StateButton-feedback_transitionTimingFunction);
+}
+
+// Animations
+
+@keyframes nope {
+    0% {
+        left: 0;
+    }
+
+    25% {
+        left: var(--StateButton-feedback--error_animationAmplitude, $StateButton-feedback--error_animationAmplitude);
+    }
+
+    50% {
+        left: calc(-1 * var(--StateButton-feedback--error_animationAmplitude, $StateButton-feedback--error_animationAmplitude));
+    }
+
+    75% {
+        left: calc(0.6 * var(--StateButton-feedback--error_animationAmplitude, $StateButton-feedback--error_animationAmplitude));
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes yup {
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: var(--StateButton-feedback--success_animationAmplitude, $StateButton-feedback--success_animationAmplitude);
+    }
+
+    50% {
+        top: calc(-1 * var(--StateButton-feedback--success_animationAmplitude, $StateButton-feedback--success_animationAmplitude));
+    }
+
+    75% {
+        top: calc(0.6 * var(--StateButton-feedback--success_animationAmplitude, $StateButton-feedback--success_animationAmplitude));
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+// States
+
+.root.--success,
+.root.--error,
+.root.--pending {
+    background: var(--Button_background);
+    background-clip: border-box;
+    background-origin: border-box;
+    color: var(--Button_color);
+    border-color: var(--Button_borderColor);
+
+    pointer-events: none;
+
+    > * {
+        transition:
+            opacity
+            var(--StateButton-feedback_transitionDuration, $StateButton-feedback_transitionDuration)
+            var(--StateButton-feedback_transitionTimingFunction, $StateButton-feedback_transitionTimingFunction);
+        opacity: 0;
+    }
+
+    .feedback {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.root.--success {
+    
+    --Button_background: var(
+        --StateButton--success_background,
+        #{$StateButton--success_background}
+    );
+    --Button_color: var(--StateButton--success_color, #{$StateButton--success_color});
+    --Button_borderColor: var(
+        --StateButton--success_borderColor,
+        #{$StateButton--success_borderColor}
+    );
+
+    .feedback {
+        animation:
+            yup
+            var(--StateButton-feedback--success_animationDuration, $StateButton-feedback--success_animationDuration)
+            var(--StateButton-feedback--success_animationTimingFunction, $StateButton-feedback--success_animationTimingFunction)
+            1;
+    }
+}
+
+.root.--error {
+    --Button_background: var(
+        --StateButton--error_background,
+        #{$StateButton--error_background}
+    );
+    --Button_color: var(--StateButton--error_color, #{$StateButton--error_color});
+    --Button_borderColor: var(--StateButton--error_borderColor, #{$StateButton--error_borderColor});
+
+    .feedback {
+        animation:
+            nope
+            var(--StateButton-feedback--error_animationDuration, $StateButton-feedback--error_animationDuration)
+            var(--StateButton-feedback--error_animationTimingFunction, $StateButton-feedback--error_animationTimingFunction)
+            1;
+    }
+}
+
+.root.--pending {
+    --Button_background: var(
+        --StateButton--pending_background,
+        #{$StateButton--pending_background}
+    );
+    --Button_color: var(--StateButton--pending_color, #{$StateButton--pending_color});
+    --Button_borderColor: var(
+        --StateButton--pending_borderColor,
+        #{$StateButton--pending_borderColor}
+    );
+}

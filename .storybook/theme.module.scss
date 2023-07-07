@@ -1,0 +1,13 @@
+$ljas-ui-asset-path: '../src/theme/jar/assets';
+
+@import 'ljas-ui-theme';
+
+@import '../src/style/normalize.scss';
+@import '../src/theme/jar/fonts.scss';
+@import '../src/theme/jar/global.scss';
+@import '../src/theme/jar/dark.scss';
+
+:global(.docs-story) {
+    background: var(--body_background, $body_background);
+    color: var(--body_color, $body_color);
+}

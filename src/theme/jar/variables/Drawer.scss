@@ -1,0 +1,22 @@
+$Drawer_zIndex: $zindex-modal !default;
+$Drawer-backdrop_zIndex: $zindex-backdrop !default;
+$Drawer-backdrop_background: rgba($color-black, 0.5) !default;
+
+$Drawer-container_boxShadow: $shadow-md !default;
+$Drawer-container_backgroundColor: $color-neutral-darker !default;
+$Drawer-container_borderRadius: $radius-sm !default;
+
+$Drawer--show_animationDuration: $duration_fast !default;
+$Drawer--show_animationTimingFunction: $timing_default !default;
+$Drawer--hide_animationDuration: $duration_fast !default;
+$Drawer--hide_animationTimingFunction: $timing_default !default;
+
+$Drawer_sizes: (
+  'xs': $size-md,
+  'sm': $container-xs,
+  'md': $container-sm,
+  'lg': $container-md,
+  'xl': $container-lg,
+  ) !default;
+
+  $Drawer_minSize: $size-md !default;

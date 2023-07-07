@@ -1,0 +1,93 @@
+@import 'ljas-ui-theme';
+
+.root {
+    display: inline-flex;
+
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--TabList_borderColor, $TabList_borderColor);
+
+    @include ljasScrollBar($TabList-scrollbar_width, $TabList-scrollbar_padding, $TabList-scrollbar_radius, $TabList-scrollbarTrack_color, $TabList-scrollbarThumb_color);
+}
+
+.--stretch {
+    &.--horizontal {
+        justify-content: center;
+
+        & > * {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0%;
+            max-width: var(--TabList-item_maxWidth, $TabList-item_maxWidth);
+        }
+    }
+}
+
+
+// Directions
+
+.--horizontal {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-direction: row;
+    align-items: center;
+
+    &.--bordered {
+        border-bottom-width: var(--TabList_borderWidth, #{$TabList_borderWidth});
+    }
+}
+
+.--vertical {
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+
+    &.--bordered {
+      border-right-width: var(--TabList_borderWidth, #{$TabList_borderWidth});
+    }
+}
+
+// TAB component
+
+.tab {
+    position: relative;
+    overflow: visible;
+    flex-shrink: 0;
+
+    &:focus-visible {
+        outline-width: 0;
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        content: " ";
+        display: block;
+        background: var(--Tab-focus_background, $Tab-focus_background);
+        z-index: var(--Tab-focus_zIndex, $Tab-focus_zIndex);
+        opacity: 0;
+
+        transition: opacity $Tab-focus_transitionDuration $Tab-focus_transitionTimingFunction;
+    }
+
+    &--selected::after {
+        background: var(--Tab-focus--selected_background, $Tab-focus--selected_background);
+    }
+
+    &--horizontal::after {
+        bottom: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
+        left: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
+        right: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
+        height: var(--Tab-focus_size, $Tab-focus_size);
+    }
+
+    &--vertical::after {
+        top: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
+        bottom: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
+        left: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
+        width: var(--Tab-focus_size, $Tab-focus_size);
+    }
+}

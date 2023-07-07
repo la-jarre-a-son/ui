@@ -1,0 +1,137 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    height: var(--Radio_size, $Radio_size);
+    width: var(--Radio_size, $Radio_size);
+    font-size: var(--Radio_fontSize, $Radio_fontSize);
+    margin: var(--Radio_margin, $Radio_margin);
+
+    & {
+        cursor: pointer;
+    }
+
+    > input[type='radio'] {
+        z-index: 1;
+        appearance: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        opacity: 0;
+        outline: 0;
+        pointer-events: none;
+
+        #{$focus_selector} {
+            & + .wrapper {
+                @include ljasOutlineFocus();
+            }
+        }
+    }
+
+    > input:checked + .wrapper,
+    &.--checked > .wrapper {
+        --Radio-dot_opacity: 1;
+        --Radio_color: var(--Radio--checked_color, #{$Radio--checked_color});
+        --Radio_borderColor: var(--Radio--checked_borderColor, #{$Radio--checked_borderColor});
+        --Radio_background: var(
+            --Radio--checked_background,
+            #{$Radio--checked_background}
+        );
+        --Radio--hover_borderColor: var(
+            --Radio--checked--hover_borderColor,
+            #{$Radio--checked--hover_borderColor}
+        );
+        --Radio--hover_background: var(
+            --Radio--checked--hover_background,
+            #{$Radio--checked--hover_background}
+        );
+    }
+
+    // DISABLED
+
+    > input:disabled,
+    &.--disabled {
+        cursor: not-allowed;
+    }
+
+    > input:disabled + .wrapper,
+    &.--disabled > .wrapper {
+        --Radio_color: var(--Radio--disabled_color, #{$Radio--disabled_color});
+        --Radio_borderColor: var(--Radio--disabled_borderColor, #{$Radio--disabled_borderColor});
+        --Radio_background: var(
+            --Radio--disabled_background,
+            #{$Radio--disabled_background}
+        );
+        pointer-events: none;
+    }
+
+    // DISABLED + CHECKED
+    > input:disabled:checked + .wrapper,
+    &.--checked.--disabled > .wrapper {
+        --Radio_color: var(
+            --Radio--disabled--checked_color,
+            #{$Radio--disabled--checked_color}
+        );
+        --Radio_borderColor: var(
+            --Radio--disabled--checked_background,
+            #{$Radio--disabled--checked_background}
+        );
+        --Radio_background: var(
+            --Radio--disabled--checked_background,
+            #{$Radio--disabled--checked_background}
+        );
+    }
+
+    @media (hover: hover) {
+        > input:not(:disabled):hover + .wrapper {
+            --Radio_borderColor: var(--Radio--hover_borderColor, #{$Radio--hover_borderColor});
+            --Radio_background: var(
+                --Radio--hover_background,
+                #{$Radio--hover_background}
+            );
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--Radio_background, $Radio_background);
+    color: var(--Radio_color, $Radio_color);
+
+    border-style: solid;
+    border-width: var(--Radio_borderWidth, $Radio_borderWidth);
+    border-color: var(--Radio_borderColor, $Radio_borderColor);
+    border-radius: var(--Radio_size, $Radio_size);
+
+    @include ljasOutlineBlur();
+
+    width: 100%;
+    height: 100%;
+
+    transition:
+        all
+        var(--Radio_transitionTimingFunction, $Radio_transitionTimingFunction)
+        var(--Radio_transitionDuration, $Radio_transitionDuration),
+        $focus_outlineTransition;
+}
+
+.dot {
+    display: inline;
+    content: ' ';
+    width: var(--Radio-dot_size, $Radio-dot_size);
+    height: var(--Radio-dot_size, $Radio-dot_size);
+    border-radius: var(--Radio-dot_size, $Radio-dot_size);
+    opacity: var(--Radio-dot_opacity, 0);
+    background-color: currentColor;
+}

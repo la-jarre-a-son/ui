@@ -1,0 +1,141 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    height: var(--Checkbox_size, $Checkbox_size);
+    width: var(--Checkbox_size, $Checkbox_size);
+    font-size: var(--Checkbox_fontSize, $Checkbox_fontSize);
+    margin: var(--Checkbox_margin, $Checkbox_margin);
+
+    & {
+        cursor: pointer;
+    }
+
+    > input[type='checkbox'] {
+        z-index: 1;
+        appearance: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        opacity: 0;
+        outline: 0;
+        pointer-events: none;
+
+        #{$focus_selector} {
+            & + .wrapper {
+                @include ljasOutlineFocus();
+            }
+        }
+    }
+
+    > input:checked + .wrapper,
+    &.--indeterminate > .wrapper,
+    &.--checked > .wrapper {
+        appearance: initial;
+        --Checkbox-icon_opacity: 1;
+        --Checkbox_color: var(--Checkbox--checked_color, #{$Checkbox--checked_color});
+        --Checkbox_borderColor: var(
+            --Checkbox--checked_borderColor,
+            #{$Checkbox--checked_borderColor}
+        );
+        --Checkbox_background: var(
+            --Checkbox--checked_background,
+            #{$Checkbox--checked_background}
+        );
+        --Checkbox--hover_borderColor: var(
+            --Checkbox--checked--hover_borderColor,
+            #{$Checkbox--checked--hover_borderColor}
+        );
+        --Checkbox--hover_background: var(
+            --Checkbox--checked--hover_background,
+            #{$Checkbox--checked--hover_background}
+        );
+    }
+
+
+
+    // DISABLED
+    
+    > input:disabled,
+    &.--disabled {
+        cursor: not-allowed;
+    }
+
+    > input:disabled + .wrapper,
+    &.--disabled > .wrapper {
+        --Checkbox_color: var(--Checkbox--disabled_color, #{$Checkbox--disabled_color});
+        --Checkbox_borderColor: var(--Checkbox--disabled_borderColor, #{$Checkbox--disabled_borderColor});
+        --Checkbox_background: var(
+            --Checkbox--disabled_background,
+            #{$Checkbox--disabled_background}
+        );
+        pointer-events: none;
+    }
+
+    // DISABLED + CHECKED
+    > input:disabled:checked + .wrapper,
+    &.--checked.--disabled > .wrapper {
+        --Checkbox_color: var(
+            --Checkbox--disabled--checked_color,
+            #{$Checkbox--disabled--checked_color}
+        );
+        --Checkbox_borderColor: var(
+            --Checkbox--disabled--checked_background,
+            #{$Checkbox--disabled--checked_background}
+        );
+        --Checkbox_background: var(
+            --Checkbox--disabled--checked_background,
+            #{$Checkbox--disabled--checked_background}
+        );
+    }
+
+    @media (hover: hover) {
+        > input:not(:disabled):hover + .wrapper {
+            --Checkbox_borderColor: var(
+                --Checkbox--hover_borderColor,
+                #{$Checkbox--hover_borderColor}
+            );
+            --Checkbox_background: var(
+                --Checkbox--hover_background,
+                #{$Checkbox--hover_background}
+            );
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--Checkbox_background, $Checkbox_background);
+    color: var(--Checkbox_color, $Checkbox_color);
+
+    border-style: solid;
+    border-width: var(--Checkbox_borderWidth, $Checkbox_borderWidth);
+    border-color: var(--Checkbox_borderColor, $Checkbox_borderColor);
+    border-radius: var(--Checkbox_borderRadius, $Checkbox_borderRadius);
+
+    @include ljasOutlineBlur();
+
+    width: 100%;
+    height: 100%;
+
+    transition:
+        all
+        var(--Checkbox_transitionDuration, $Checkbox_transitionDuration)
+        var(--Checkbox_transitionTimingFunction, $Checkbox_transitionTimingFunction),
+        $focus_outlineTransition;
+}
+
+.icon {
+    opacity: var(--Checkbox-icon_opacity, 0);
+}

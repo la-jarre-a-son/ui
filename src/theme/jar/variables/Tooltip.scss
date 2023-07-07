@@ -1,0 +1,16 @@
+$Tooltip_zIndex: $zindex-tooltip !default;
+$Tooltip_maxWidth: $container-md !default;
+$Tooltip_textStyle: (sm, regular) !default;
+$Tooltip_padding: $space-md $space-lg !default;
+$Tooltip_gap: $space-sm !default;
+$Tooltip_borderRadius: $radius-sm !default;
+$Tooltip_boxShadow: $shadow-lg !default;
+$Tooltip_color: $color-neutral-lighter !default;
+$Tooltip_backgroundColor: $color-neutral-dark !default;
+$Tooltip_animationDuration: $duration_fast !default;
+$Tooltip_animationTimingFunction: $timing_default !default;
+
+$Tooltip-arrow_size: $space-md !default;
+
+$Tooltip-title_textStyle: (sm, regular) !default;
+$Tooltip-title_color: $color-white !default;

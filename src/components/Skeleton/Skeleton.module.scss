@@ -1,0 +1,53 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    animation:
+        skeleton
+        var(--Skeleton_animationDuration, $Skeleton_animationDuration)
+        var(--Skeleton_animationTimingFunction, $Skeleton_animationTimingFunction)
+        infinite;
+    background-color: var(--Skeleton_backgroundColor, $Skeleton_backgroundColor);
+    fill: var(--Skeleton_backgroundColor, $Skeleton_backgroundColor);
+    user-select: none;
+
+    &, &:hover, &:focus, &:active {
+        pointer-events: none;
+        background-color: var(--Skeleton_backgroundColor, $Skeleton_backgroundColor);
+        color: var(--Skeleton_backgroundColor, $Skeleton_backgroundColor);
+        border-color: var(--Skeleton_backgroundColor, $Skeleton_backgroundColor);
+    }
+}
+
+// Variants
+
+.--circle {
+    border-radius: 9999px;
+}
+
+.--rounded {
+    border-radius: var(--Skeleton--rounded_borderRadius, $Skeleton--rounded_borderRadius);
+}
+
+.--square {
+    border-radius: var(--Skeleton--square_borderRadius, $Skeleton--square_borderRadius);
+}
+
+.--transparent {
+    background-color: transparent;
+}
+
+// Animations
+
+@keyframes skeleton {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

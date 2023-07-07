@@ -1,0 +1,20 @@
+$StateButton--success_background: $color-success-normal $gradient-interactive !default;
+$StateButton--success_color: $color-white !default;
+$StateButton--success_borderColor: transparent !default;
+
+$StateButton--error_background: $color-danger-normal $gradient-interactive !default;
+$StateButton--error_color: $color-white !default;
+$StateButton--error_borderColor: transparent !default;
+
+$StateButton--pending_background: $color-primary-normal $gradient-interactive !default;
+$StateButton--pending_color: $color-white !default;
+$StateButton--pending_borderColor: transparent !default;
+
+$StateButton-feedback_transitionDuration: 300ms !default;
+$StateButton-feedback_transitionTimingFunction: ease !default;
+$StateButton-feedback--error_animationAmplitude: 0.3em !default;
+$StateButton-feedback--error_animationDuration: 300ms !default;
+$StateButton-feedback--error_animationTimingFunction: ease !default;
+$StateButton-feedback--success_animationAmplitude: 0.2em !default;
+$StateButton-feedback--success_animationDuration: 600ms !default;
+$StateButton-feedback--success_animationTimingFunction: ease !default;

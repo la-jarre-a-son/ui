@@ -1,0 +1,44 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: var(--Container_maxWidth);
+    padding: 0 var(--Container_padding, $Container_padding);
+}
+
+// Sizes
+
+@each $size, $value in $Container_sizes {
+    .--#{$size} {
+        --Container_maxWidth: var(
+            --Container--#{$size}_maxWidth,
+            #{map-get($Container_sizes, $size)}
+        );
+    }
+}
+
+// Responsive
+
+@media #{$Container-breakpoint-sm} {
+    .root {
+        --Container_padding: var(--Container--mobile_padding, #{$Container--mobile_padding});
+    }
+}
+
+// Align Variants
+
+.--center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.--left {
+    margin-right: auto;
+}
+
+.--right {
+    margin-left: auto;
+}

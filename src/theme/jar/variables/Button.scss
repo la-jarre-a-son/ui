@@ -1,0 +1,204 @@
+$Button_borderWidth: $border-sm !default;
+$Button--focus_zIndex: 1 !default;
+$Button_transitionDuration: $duration_fast !default;
+$Button_transitionTimingFunction: ease !default;
+$Button_textAlign: center !default;
+
+$Button_sizes: (
+    'sm': (
+        borderRadius: 0,
+        height: $size-xs,
+        textStyle: (sm, light),
+        padding: $space-xs $space-md,
+        gap: $space-sm,
+    ),
+    'md': (
+        borderRadius: 0,
+        height: $size-md,
+        textStyle: (md, light),
+        padding: $space-sm $space-lg,
+        gap: $space-md,
+    ),
+    'lg': (
+        borderRadius: 0,
+        height: $size-lg,
+        textStyle: (lg, light),
+        padding: $space-md $space-xl,
+        gap: $space-lg,
+    ),
+) !default;
+
+$Button_variants: (
+    'filled': (
+        'primary': (
+            color: $color-white,
+            borderColor: transparent,
+            background: $color-primary-normal $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: lighten($color-primary-normal, 10%) $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-primary-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'neutral': (
+            color: $color-white,
+            borderColor: transparent,
+            background: $color-neutral-dark $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: lighten($color-neutral-dark, 10%) $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-neutral-dark, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'warning': (
+            color: $color-white,
+            borderColor: transparent,
+            background: $color-warning-normal $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: lighten($color-warning-normal, 10%) $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-warning-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'danger': (
+            color: $color-white,
+            borderColor: transparent,
+            background: $color-danger-normal $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: lighten($color-danger-normal, 10%) $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-danger-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'success': (
+            color: $color-white,
+            borderColor: transparent,
+            background: $color-success-normal $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: lighten($color-success-normal, 10%) $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-success-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+    ),
+    'outlined': (
+        'primary': (
+            color: $color-primary-normal,
+            borderColor: $color-primary-normal,
+            background: $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: $color-primary-normal $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-primary-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'neutral': (
+            color: $color-white,
+            borderColor: $color-neutral-light,
+            background: $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: rgba($color-white, 0.1) $gradient-interactive,
+            hoverBorderColor: $color-neutral-light,
+            activeColor: $color-neutral-lighter,
+            activeBackground: rgba($color-black, 0.2) $gradient-interactive,
+            activeBorderColor: $color-neutral-light,
+        ),
+        'warning': (
+            color: $color-warning-normal,
+            borderColor: $color-warning-normal,
+            background: $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: $color-warning-normal $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-warning-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'danger': (
+            color: $color-danger-normal,
+            borderColor: $color-danger-normal,
+            background: $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: $color-danger-normal $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-danger-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+        'success': (
+            color: $color-success-normal,
+            borderColor: $color-success-normal,
+            background: $gradient-interactive,
+            hoverColor: $color-white,
+            hoverBackground: $color-success-normal $gradient-interactive,
+            hoverBorderColor: transparent,
+            activeColor: $color-neutral-lighter,
+            activeBackground: darken($color-success-normal, 10%) $gradient-interactive,
+            activeBorderColor: transparent,
+        ),
+    ),
+) !default;
+
+// Disabled
+
+$Button--disabled_opacity: 0.8 !default;
+$Button--disabled_forceNeutral: true !default;
+
+// If forceNeutral is true, those will be used
+$Button--filled--disabled_color: $color-neutral-normal;
+$Button--filled--disabled_borderColor: transparent;
+$Button--filled--disabled_background: $color-neutral-dark;
+
+$Button--outlined--disabled_borderColor: $color-neutral-normal;
+$Button--outlined--disabled_background: transparent;
+$Button--outlined--disabled_color: $color-neutral-normal;
+
+// Cancel border width depending on the variant
+// Can be useful depending on border visibility
+$Button--filled_cancelBorderWidth: 0 !default;
+$Button--outlined_cancelBorderWidth: $Button_borderWidth !default;
+$Button--ghost_cancelBorderWidth: 0 !default;
+
+// Defaults
+
+$Button_borderRadius: map-get($Button_sizes, 'sm', borderRadius) !default;
+$Button_height: map-get($Button_sizes, 'sm', height) !default;
+$Button_fontSize: map-get($Button_sizes, 'sm', fontSize) !default;
+$Button_padding: map-get($Button_sizes, 'sm', padding) !default;
+$Button_gap: map-get($Button_sizes, 'sm', gap) !default;
+$Button_color: map-get($Button_variants, 'filled', 'neutral', color) !default;
+$Button_background: map-get($Button_variants, 'filled', 'neutral', background) !default;
+$Button_borderColor: map-get($Button_variants, 'filled', 'neutral', borderColor) !default;
+$Button--hover_color: map-get($Button_variants, 'filled', 'neutral', hoverColor) !default;
+$Button--hover_borderColor: map-get(
+   $Button_variants,
+    'filled',
+    'neutral',
+    hoverBackground
+) !default;
+$Button--hover_background: map-get(
+   $Button_variants,
+    'filled',
+    'neutral',
+    hoverBackground
+) !default;
+$Button--active_color: map-get($Button_variants, 'filled', 'neutral', activeColor) !default;
+$Button--active_borderColor: map-get(
+   $Button_variants,
+    'filled',
+    'neutral',
+    activeBackground
+) !default;
+$Button--active_background: map-get(
+   $Button_variants,
+    'filled',
+    'neutral',
+    activeBackground
+) !default;
+$Button_textTransform: uppercase !default;

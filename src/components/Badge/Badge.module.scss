@@ -1,0 +1,76 @@
+@import 'ljas-ui-theme';
+
+// Mixins
+
+@mixin ljasBadgeSize($size, $map) {
+    @include _textStyle(--Badge, --Badge--#{$size}, map-get($map, textStyle)...);
+
+    --Badge_height: var(--Badge--#{$size}_height, #{map-get($map, height)});
+    --Badge_padding: var(--Badge--#{$size}_padding, #{map-get($map, padding)});
+}
+
+@mixin ljasBadgeIntent($intent, $map) {
+    --Badge_background: var(
+        --Badge--#{$intent}_background,
+        #{map-get($map, background)}
+    );
+    --Badge_color: var(--Badge--#{$intent}_color, #{map-get($map, color)});
+}
+
+// Classes
+
+.root {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    border-style: solid;
+    border-width: var(--Badge_borderWidth, $Badge_borderWidth);
+    border-radius: var(--Badge_borderRadius, $Badge_borderRadius);
+    padding: var(--Badge_padding, $Badge_padding);
+    gap: var(--Badge_gap, $Badge_gap);
+
+    min-width: var(--Badge_height, $Badge_height);
+    height: var(--Badge_height, $Badge_height);
+
+    background: var(--Badge_background, $Badge_background);
+    color: var(--Badge_color, $Badge_color);
+
+    text-transform: var(--Badge_textTransform, $Badge_textTransform);
+    @include _textStyle(null, --Badge, $Badge_textStyle...);
+}
+
+.label {
+    flex-shrink: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Interactive
+a.root,
+button.root {
+    cursor: pointer;
+
+    @include ljasFocus();
+}
+
+// Sizes
+
+@each $size, $value in $Badge_sizes {
+    .--#{$size} {
+        @include ljasBadgeSize($size, $value);
+    }
+}
+
+// Intents
+
+@each $intent, $value in $Badge_intents {
+    .--#{$intent} {
+        @include ljasBadgeIntent($intent, $value);
+    }
+}

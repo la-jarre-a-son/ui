@@ -1,0 +1,123 @@
+@import 'ljas-ui-theme';
+
+.root {
+    overflow: hidden;
+}
+
+.sidebar {
+    overflow: auto;
+
+    z-index: var(--Sidebar_zIndex, $Sidebar_zIndex);
+}
+
+.content {
+    overflow: auto;
+}
+
+.container {
+    background-color: var(--Sidebar-container_backgroundColor, $Sidebar-container_backgroundColor);
+    box-shadow: var(--Sidebar-container_boxShadow, $Sidebar-container_boxShadow);
+}
+
+
+// Sizes
+
+@each $size, $value in $Sidebar_sizes {
+    .--#{$size} {
+        --Sidebar_minSize: var(--Sidebar--#{$size}_width, #{map-get($Sidebar_sizes, $size)});
+    }
+}
+
+
+// Variants
+
+.--inset {
+    background: var(--Sidebar--inset_background, #{$Sidebar--inset_background});
+}
+
+// Shadow change direction when inset
+.--top .--inset {
+    box-shadow: var(--Sidebar--inset--top_boxShadow, #{$Sidebar--inset--top_boxShadow});
+}
+
+.--bottom .--inset {
+    box-shadow: var(--Sidebar--inset--bottom_boxShadow, #{$Sidebar--inset--bottom_boxShadow});
+}
+
+.--left .--inset {
+    box-shadow: var(--Sidebar--inset--left_boxShadow, #{$Sidebar--inset--left_boxShadow});
+}
+
+.--right .--inset {
+    box-shadow: var(--Sidebar--inset--right_boxShadow, #{$Sidebar--inset--right_boxShadow});
+}
+
+
+// Disable animation if sidebar is initially open
+
+.--show.--initiallyOpen .sidebar {
+    animation: none;
+    transform: translate(0, 0);
+}
+
+// Placements
+
+.--top .sidebar {
+    width: 100%;
+    height: var(--Sidebar_minSize, #{$Sidebar_minSize});
+    --Sidebar_from: 0px, calc(var(--Sidebar_minSize, #{$Sidebar_minSize}) * -1);
+}
+
+.--bottom .sidebar {
+    width: 100%;
+    height: var(--Sidebar_minSize, #{$Sidebar_minSize});
+    --Sidebar_from: 0px, var(--Sidebar_minSize, #{$Sidebar_minSize});
+}
+
+.--left .sidebar {
+    height: 100%;
+    width: var(--Sidebar_minSize, #{$Sidebar_minSize});
+    --Sidebar_from: calc(var(--Sidebar_minSize, #{$Sidebar_minSize}) * -1), 0px;
+}
+
+.--right .sidebar {
+    height: 100%;
+    width: var(--Sidebar_minSize, #{$Sidebar_minSize});
+    --Sidebar_from: var(--Sidebar_minSize, #{$Sidebar_minSize}), 0px;
+}
+
+// Animations
+
+@keyframes show {
+    0% {
+        transform: translate(var(--Sidebar_from));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes hide {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(var(--Sidebar_from));
+    }
+}
+
+// States
+
+.--show .sidebar {
+    animation:
+        show
+        var(--Sidebar--show_animationDuration, $Sidebar--show_animationDuration)
+        var(--Sidebar--show_animationTimingFunction, $Sidebar--show_animationTimingFunction);
+}
+
+.--hide .sidebar {
+    animation:
+        hide
+        var(--Sidebar--hide_animationDuration, $Sidebar--hide_animationDuration)
+        var(--Sidebar--hide_animationTimingFunction, $Sidebar--hide_animationTimingFunction);
+}

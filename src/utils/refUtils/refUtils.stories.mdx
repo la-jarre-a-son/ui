@@ -1,0 +1,79 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import refUtils from './refUtils';
+
+<Meta title="Utilities/refUtils" />
+
+# refUtils
+
+Set of utilities to manage React [ref](https://reactjs.org/docs/refs-and-the-dom.html).
+
+## setRef
+
+A React ref can be an object or a function.
+Setting the value of one of those can't be done in the same way for both object ref and function ref.
+So when setting a value to a ref without knowing what type of ref it is can be tricky, and it is necessary to test the type of it.
+The `setRef` function is here to facilitate it.
+
+```jsx
+const MyComponent: React.FC = () => {
+    const obectRef = useRef(null);
+    const [, callbackRef] = useState(null);
+
+    const handleSetRef = () => {
+        setRef(objectRef, 'foo');
+        setRef(callbackRef, 'foo');
+    };
+
+    // ...
+};
+```
+
+## useMergeRef
+
+Only one ref can be attached to a node in React. But sometime, we nedd to attach more than one (for example, we need to attach a ref in our reusable component, but the parent can set one as well).
+For this purpose, the `useMergeRef` hook can take a miximum of 3 refs as argument, and return a single function ref that will set all those passed in argument.
+
+```jsx
+const MyComponent = forwardRef((_, ref) => {
+    const innerRef = useRef(null);
+
+    // the mergedRef function will automatically set
+    // the ref and innerRef when needed
+    const mergedRef = useMergeRef(ref, innerRef);
+
+    return <button ref={mergedRef}>a button</button>;
+});
+```
+
+## mergeRef
+
+You can also directly use the `mergeRef` function rather than the `useMergeRef` hook if needed.
+
+## useForkRef
+
+Similare to `useMergeRef` but will also manage is own ref whose value will be exposed as the first argument of the returned tuple.
+
+```jsx
+const MyComponent = forwardRef((_, ref) => {
+    const [elementOwnRef, mergedRef] = useForkRef(ref);
+
+    console.log(elementOwnRef.current); // HTMLButtonElement | null
+
+    return <button ref={mergedRef}>a button</button>;
+});
+```
+
+## useForkCallbackRef
+
+Similare to `useForkRef` but the internal ref of the hook is managed in a state variable.
+As a result, changing the ref value will trigger a re-render. This is usefull when having code in the render function that depend directly on the ref value.
+
+```jsx
+const MyComponent = forwardRef((_, ref) => {
+    const [element, mergedRef] = useForkCallbackRef(ref);
+
+    console.log(element); // HTMLButtonElement | null, re-render when this value change
+
+    return <button ref={mergedRef}>a button</button>;
+});
+```

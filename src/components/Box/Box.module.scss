@@ -1,0 +1,49 @@
+@import 'ljas-ui-theme';
+
+// Mixins
+
+@mixin ljasBoxElevation($elevation, $map) {
+    --Box_background: var(--Box--elevation#{$elevation}_background, #{map-get($map, background)});
+    --Box_color: var(--Box--elevation#{$elevation}_color, #{map-get($map, color)});
+    --Box_borderColor: var(--Box--elevation#{$elevation}_borderColor, #{map-get($map, borderColor)});
+    --Box_borderRadius: var(--Box--elevation#{$elevation}_borderRadius, #{map-get($map, borderRadius)});
+    --Box_boxShadow: var(--Box--elevation#{$elevation}_boxShadow, #{map-get($map, boxShadow)});
+}
+
+.root {
+    background: var(--Box_background, $Box_background);
+    color: var(--Box_color, $Box_color);
+    padding: var(--Box_padding, $Box_padding);
+    border-color: var(--Box_borderColor, $Box_borderColor);
+    border-radius: var(--Box_borderRadius, $Box_borderRadius);
+    box-shadow: var(--Box_boxShadow, $Box_boxShadow);
+    border-style: solid;
+    border-width: 0;
+}
+
+// Elevations
+
+@each $elevation, $value in $Box_elevations {
+    .--elevation#{$elevation} {
+        @include ljasBoxElevation($elevation, $value);
+    }
+}
+
+
+// Gaps
+
+@each $pad, $value in $Box_pads {
+    .--pad-#{$pad} {
+        --Box_padding: var(--Box--pad-#{$pad}_padding, #{map-get($Box_pads, $pad)});
+    }
+}
+
+// Variants
+
+.--hideOverflow {
+    overflow: hidden;
+}
+
+.--outlined {
+    border-width: var(--Box--outlined_borderWidth, $Box--outlined_borderWidth);
+}

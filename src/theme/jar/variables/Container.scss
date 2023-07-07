@@ -1,0 +1,17 @@
+$Container_padding: $space-md !default;
+$Container--mobile_padding: $space-md !default;
+
+$Container_sizes: (
+    'sm': $container-sm,
+    'md': $container-md,
+    'lg': $container-lg,
+    'xl': $container-xl,
+) !default;
+
+// breakpoints
+
+$Container-breakpoint-sm: $breakpoint-sm !default;
+
+// defaults
+
+$Container_maxWidth: map-get($Container_sizes, 'xl') !default;

@@ -1,0 +1,13 @@
+@import 'ljas-ui-theme';
+
+.root {
+    & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.item {
+    padding-left: calc(var(--TreeView_depth) * var(--TreeView-item_depthIndent, $TreeView-item_depthIndent) + var(--TreeView-item_paddingLeft, $TreeView-item_paddingLeft));
+}

@@ -1,0 +1,13 @@
+@import './tokens';
+@import './ljas-ui-theme';
+
+$Theme--dark_selector: '.theme-jar--dark' !default;
+
+// Root styles
+
+:global(#{$Theme--dark_selector}) {
+    background: var(--body_background, $body_background);
+    color: var(--body_color, $body_color);
+
+    @include _textStyle(null, --body, $body_textStyle...);
+}

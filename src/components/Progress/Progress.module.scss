@@ -1,0 +1,74 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--Progress_gap, $Progress_gap);
+    color: var(--Progress_color, $Progress_color);
+
+    @include _textStyle(null, --Progress, $Progress_textStyle...);
+}
+
+.track {
+    border-radius: var(--Progress-track_borderRadius, $Progress-track_borderRadius);
+    height: var(--Progress_height, $Progress_height);
+    background: var(
+        --Progress-track_background,
+        $Progress-track_background
+    );
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--Progress-bar_borderRadius, $Progress-bar_borderRadius);
+    width: 100%;
+    height: 100%;
+    background: var(
+        --Progress-bar_background,
+        $Progress-bar_background
+    );
+    transition:
+        transform
+        var(--Progress_transitionDuration, $Progress_transitionDuration)
+        var(--Progress_transitionTimingFunction, $Progress_transitionTimingFunction);
+    transform: translateX(-100%);
+}
+
+.text {
+    min-width: 6ch;
+    text-align: right;
+}
+
+// States
+
+.--indeterminate {
+    animation: move
+        var(
+            --Progress--indeterminate_animationDuration,
+            $Progress--indeterminate_animationDuration
+        )
+        var(
+            --Progress--indeterminate_animationTimingFunction,
+            $Progress--indeterminate_animationTimingFunction
+        )
+        infinite;
+}
+
+// Animations
+
+@keyframes move {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

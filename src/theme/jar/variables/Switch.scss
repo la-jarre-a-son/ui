@@ -1,0 +1,93 @@
+$Switch_style: 'square';
+
+/* Square switch */
+
+$Switch_width: 2 * $size-xs !default;
+$Switch_height: $size-xs !default;
+$Switch_margin: $space-sm !default;
+
+$Switch_borderWidth: 0px !default;
+$Switch_borderRadius: 0 !default;
+
+$Switch-handle_size: $size-xs !default;
+$Switch-handle_boxShadow: $shadow-xs !default;
+$Switch-handle_borderRadius: 0 !default;
+
+$Switch-icon_fontSize: $space-xl !default;
+
+$Switch_padding: calc(($Switch_height - $Switch-handle_size - 2 * $Switch_borderWidth) / 2) !default;
+
+$Switch_transitionDuration: $duration_fast !default;
+$Switch_transitionTimingFunction: ease !default;
+
+$Switch_background: $color-neutral-dark $gradient-interactive !default;
+$Switch_color: $color-white !default;
+$Switch_borderColor: $color-neutral-dark !default;
+$Switch_handleBackground: $color-danger-normal $gradient-interactive !default;
+
+$Switch--hover_background: $color-neutral-normal $gradient-interactive !default;
+$Switch--hover_color: $color-white !default;
+$Switch--hover_borderColor: $color-neutral-light !default;
+$Switch--hover_handleBackground: lighten($color-danger-normal, 10%) $gradient-interactive !default;
+
+$Switch--checked_background: $color-neutral-dark $gradient-interactive !default;
+$Switch--checked_color: $color-white !default;
+$Switch--checked_borderColor: $color-neutral-dark !default;
+$Switch--checked_handleBackground: $color-success-normal $gradient-interactive !default;
+
+$Switch--checked--hover_background: $color-neutral-normal $gradient-interactive !default;
+$Switch--checked--hover_color: $color-white !default;
+$Switch--checked--hover_borderColor:  $color-neutral-light !default;
+$Switch--checked--hover_handleBackground: lighten($color-success-normal, 10%) $gradient-interactive !default;
+
+$Switch--disabled_background: $color-neutral-normal !default;
+$Switch--disabled_color: $color-neutral-light !default;
+$Switch--disabled_borderColor: $color-neutral-normal !default;
+$Switch--disabled_handleBackground: $color-neutral-lighter !default;
+
+@if ($Switch_style == 'classic') {
+  /* ios style round switch */
+
+  $Switch_width: $size-md;
+  $Switch_height: $size-xs;
+  $Switch_margin: $space-sm;
+
+  $Switch_borderWidth: $border-sm;
+  $Switch_borderRadius: $size-md;
+
+  $Switch-handle_size: $size-xs - $space-sm;
+  $Switch-handle_boxShadow: $shadow-xs;
+  $Switch-handle_borderRadius: $size-xs;
+
+  $Switch-icon_fontSize: $Switch-handle_size - $space-sm;
+
+  $Switch_padding: calc(($Switch_height - $Switch-handle_size - 2 * $Switch_borderWidth) / 2);
+
+  $Switch_transitionDuration: $duration_fast;
+  $Switch_transitionTimingFunction: ease;
+
+  $Switch_background: $color-neutral-dark $gradient-interactive;
+  $Switch_color: $color-neutral-normal;
+  $Switch_borderColor: $color-neutral-dark;
+  $Switch_handleBackground: $color-neutral-light;
+
+  $Switch--hover_background: $color-neutral-normal $gradient-interactive;
+  $Switch--hover_color: $color-neutral-lighter;
+  $Switch--hover_borderColor: $color-neutral-light;
+  $Switch--hover_handleBackground: $color-neutral-light;
+
+  $Switch--checked_background: $color-success-normal  $gradient-interactive;
+  $Switch--checked_color: $color-success-normal;
+  $Switch--checked_borderColor: $color-success-normal;
+  $Switch--checked_handleBackground: $color-white;
+
+  $Switch--checked--hover_background: lighten($color-success-normal, 10%)  $gradient-interactive;
+  $Switch--checked--hover_color: lighten($color-success-normal, 10%);
+  $Switch--checked--hover_borderColor: lighten($color-success-normal, 10%);
+  $Switch--checked--hover_handleBackground: $color-white;
+
+  $Switch--disabled_background: $color-neutral-normal $gradient-interactive;
+  $Switch--disabled_color: $color-neutral-light;
+  $Switch--disabled_borderColor: $color-neutral-normal;
+  $Switch--disabled_handleBackground: $color-neutral-lighter;
+}

@@ -1,0 +1,48 @@
+$Modal_zIndex: $zindex-modal !default;
+$Modal_padding: $size-md !default;
+$Modal_height: auto;
+
+$Modal-container_boxShadow: $shadow-lg !default;
+$Modal-container_backgroundColor: $color-neutral-darker !default;
+$Modal-container_borderRadius: $radius-sm !default;
+
+$Modal-header_padding: 0 !default;
+$Modal-header_gap: $space-md !default;
+$Modal-header_borderWidth: 0 !default;
+$Modal-header_borderColor: transparent !default;
+
+$Modal-title_padding: $space-md !default;
+$Modal-title_textStyle: (md, regular) !default;
+
+$Modal-content_padding: $space-md !default;
+$Modal-content_textStyle: (md, light) !default;
+
+$Modal-actions_padding: 0 !default;
+$Modal-actions_gap: $space-md !default;
+$Modal-actions_borderWidth: 0 !default;
+$Modal-actions_borderColor: transparent !default;
+
+$Modal-backdrop_zIndex: $zindex-backdrop !default;
+$Modal-backdrop_background: rgba($color-black, 0.5) !default;
+
+$Modal--mobile_padding: $space-sm !default;
+
+$Modal--show_animationDuration: $duration_fast !default;
+$Modal--show_animationTimingFunction: $timing_default !default;
+$Modal--hide_animationDuration: $duration_fast !default;
+$Modal--hide_animationTimingFunction: $timing_default !default;
+
+$Modal_sizes: (
+    'sm': $container-sm,
+    'md': $container-md,
+    'lg': $container-lg,
+    'xl': $container-xl,
+) !default;
+
+// breakpoint
+
+$Modal-breakpoint-mobile: $breakpoint-sm !default;
+$Modal-breakpoint-heightScroll: 'only screen and (max-height: 320px)' !default; // breakpoint when scroll for the whole header inside.
+
+// defaults
+$Modal_width: map-get($Modal_sizes, 'md') !default;

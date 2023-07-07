@@ -1,0 +1,51 @@
+$Icon_fontSizeRatio: 0.8 !default; // 1 / 1.25
+
+$Icon_sizes: (
+    'sm': (
+        size: $size-xs,
+    ),
+    'md': (
+        size: $size-md,
+    ),
+    'lg': (
+        size: $size-lg,
+    ),
+    'auto': (
+        size: 1.25em,
+    )
+) !default;
+
+$Icon_intents: (
+    'default': (
+        color: $color-white,
+    ),
+    'subtle': (
+        color: $color-neutral-lighter,
+    ),
+    'contrast': (
+        color: $color-neutral-darker,
+    ),
+    'neutral': (
+        color: $color-neutral-normal,
+    ),
+    'primary': (
+        color: $color-primary-normal,
+    ),
+    'danger': (
+        color: $color-danger-normal,
+    ),
+    'warning': (
+        color: $color-warning-normal,
+    ),
+    'success': (
+        color: $color-success-normal,
+    ),
+    'inherit': (
+        color: currentColor
+    ),
+) !default;
+
+// Defaults
+
+$Icon_size: map-get($Icon_sizes, 'md', size) !default;
+$Icon_color: map-get($Icon_intents, 'neutral', color) !default;

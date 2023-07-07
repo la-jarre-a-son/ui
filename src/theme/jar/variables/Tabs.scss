@@ -1,0 +1,22 @@
+// TabList
+$TabList_gap: $space-xs !default;
+$TabList-item_maxWidth: $container-md !default;
+
+$TabList_borderWidth: $border-sm !default;
+$TabList_borderColor: $color-neutral-normal !default;
+
+$TabList-scrollbar_width: $space-sm;
+$TabList-scrollbar_padding: 0;
+$TabList-scrollbar_radius: 0;
+$TabList-scrollbarTrack_color: $color-neutral-normal;
+$TabList-scrollbarThumb_color: $color-neutral-light;
+
+// Tab
+$Tab_textAlign: left !default;
+
+$Tab-focus_zIndex: 1 !default;
+$Tab-focus_size: $space-sm !default;
+$Tab-focus_transitionDuration: $duration_fast !default;
+$Tab-focus_transitionTimingFunction: ease !default;
+$Tab-focus_background: $color-primary-normal !default;
+$Tab-focus--selected_background: $color-white !default;

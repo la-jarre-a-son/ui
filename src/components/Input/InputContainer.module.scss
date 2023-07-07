@@ -1,0 +1,207 @@
+@import 'ljas-ui-theme';
+
+// Mixins
+
+@mixin ljasInputSize($size, $map) {
+    @include _textStyle(--InputContainer, --InputContainer--#{$size}, map-get($map, textStyle)...);
+
+    --InputContainer_height: var(--InputContainer--#{$size}_height, #{map-get($map, height)});
+    --InputContainer_padding: var(--InputContainer--#{$size}_padding, #{map-get($map, padding)});
+    --InputContainer_gap: var(--InputContainer--#{$size}_gap, #{map-get($map, gap)});
+}
+
+
+// Classes
+
+.root {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    position: relative;
+    overflow: auto;
+    gap: var(--InputContainer_gap, $InputContainer_gap);
+
+    min-width: var(--InputContainer_minWidth, $InputContainer_minWidth);
+
+    padding: var(--InputContainer_padding, $InputContainer_padding);
+    min-height: var(--InputContainer_height, $InputContainer_height);
+
+    background: var(--InputContainer_background, $InputContainer_background);
+    color: var(--InputContainer_color, $InputContainer_color);
+
+    border-style: solid;
+    border-width: var(--InputContainer_borderWidth, $InputContainer_borderWidth);
+    border-color: var(--InputContainer_borderColor, $InputContainer_borderColor);
+    border-radius: var(--InputContainer_borderRadius, $InputContainer_borderRadius);
+    box-shadow: var(--InputContainer_boxShadow, $InputContainer_boxShadow);
+
+    @include _textStyle(null, --InputContainer, $InputContainer_textStyle...);
+
+    @include ljasOutlineBlur();
+
+    transition: color $InputContainer_transitionDuration $InputContainer_transitionTimingFunction,
+        background-color $InputContainer_transitionDuration $InputContainer_transitionTimingFunction,
+        border-color $InputContainer_transitionDuration $InputContainer_transitionTimingFunction,
+        box-shadow $InputContainer_transitionDuration $InputContainer_transitionTimingFunction,
+        $focus_outlineTransition;
+
+    @media (hover: hover) {
+        &:hover {
+            --InputContainer_background: var(
+                --InputContainer--hover_background,
+                #{$InputContainer--hover_background}
+            );
+            --InputContainer_color: var(
+                --InputContainer--hover_color,
+                #{$InputContainer--hover_color}
+            );
+            --InputContainer_borderColor: var(
+                --InputContainer--hover_borderColor,
+                #{$InputContainer--hover_borderColor}
+            );
+
+            z-index: var(--InputContainer--focus_zIndex, $InputContainer--focus_zIndex);
+        }
+    }
+
+    &:has(input:focus-visible) {
+        @include ljasOutlineFocus();
+    }
+
+
+    &:focus,
+    &:focus-within,
+    &.--focused {
+        --InputContainer_background: var(
+            --InputContainer--focus_background,
+            #{$InputContainer--focus_background}
+        );
+        --InputContainer_color: var(
+            --InputContainer--focus_color,
+            #{$InputContainer--focus_color}
+        );
+        --InputContainer_borderColor: var(
+            --InputContainer--focus_borderColor,
+            #{$InputContainer--focus_borderColor}
+        );
+        --InputContainer_boxShadow: var(
+            --InputContainer--focus_boxShadow,
+            #{$InputContainer--focus_boxShadow}
+        );
+        z-index: var(--InputContainer--focus_zIndex, $InputContainer--focus_zIndex);
+    }
+
+    > * {
+        flex-grow: 0;
+    }
+
+    > input,
+    textarea {
+        @include _textStyle(null, --InputContainer, $InputContainer_textStyle...);
+        padding: 0;
+        flex-grow: 1;
+        border: none;
+        background: transparent;
+        color: inherit;
+        outline: 0;
+        min-width: 4ch; // No need to put a variable here, it's a safe guard
+        width: auto;
+
+        &::placeholder {
+            color: var(--InputContainer-placeholder_color, $InputContainer-placeholder_color);
+        }
+    }
+}
+
+.errorIcon {
+    color: var(--InputContainer-errorIcon_color, $InputContainer-errorIcon_color);
+}
+
+// Block variant
+
+.--block {
+    width: 100%;
+}
+
+// InputContainerLabel
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    label > & {
+        flex-grow: 0;
+    }
+
+    border-style: solid;
+    border-width: var(--InputContainer_borderWidth, $InputContainer_borderWidth);
+    border-color: var(--InputContainer_borderColor, $InputContainer_borderColor);
+    border-radius: var(--InputContainer_borderRadius, $InputContainer_borderRadius);
+    background: var(
+        --InputContainer-label_background,
+        $InputContainer-label_background
+    );
+    color: var(--InputContainer-label_color, $InputContainer-label_color);
+    padding: var(--InputContainer_padding, $InputContainer_padding);
+    gap: var(--InputContainer_gap, $InputContainer_gap);
+
+    @include _textStyle(null, --InputContainer, $InputContainer_textStyle...);
+}
+
+// trick for legend to be inlined
+legend.label {
+    float: left;
+}
+
+// Sizes
+
+@each $size, $value in $InputContainer_sizes {
+    .--#{$size} {
+        @include ljasInputSize($size, $value);
+    }
+}
+
+
+// States
+
+.--hasError {
+    --InputContainer_borderColor: var(
+        --InputContainer--hasError_borderColor,
+        #{$InputContainer--hasError_borderColor}
+    );
+    --InputContainer_color: var(
+        --InputContainer--hasError_color,
+        #{$InputContainer--hasError_color}
+    );
+    --InputContainer--hover_borderColor: var(
+        --InputContainer--hasError--hover_borderColor,
+        #{$InputContainer--hasError--hover_borderColor}
+    );
+    --InputContainer--focus_borderColor: var(
+        --InputContainer--hasError--focus_borderColor,
+        #{$InputContainer--hasError--focus_borderColor}
+    );
+}
+
+.--isDisabled {
+    outline: 0;
+    --InputContainer_color: var(
+        --InputContainer--disabled_color,
+        #{$InputContainer--disabled_color}
+    );
+    --InputContainer-placeholder_color: var(
+        --InputContainer-placeholder--disabled_color,
+        #{$InputContainer-placeholder--disabled_color}
+    );
+    --InputContainer_background: var(
+        --InputContainer--disabled_background,
+        #{$InputContainer--disabled_background}
+    );
+
+    &,
+    & * {
+        pointer-events: none;
+    }
+}

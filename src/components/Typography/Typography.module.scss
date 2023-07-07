@@ -1,0 +1,62 @@
+@import 'ljas-ui-theme';
+
+// Classes
+
+.root {
+    &:focus {
+        outline: none;
+    }
+    &:visited {
+        color: currentColor;
+    }
+}
+
+// Sizes
+
+@each $size in $Typography_sizes {
+    @each $weight in $Typography_weights {
+        .#{$size}--#{$weight} {
+            @include _textStyle(null, --Typography--#{$size}--#{$weight}, $size, $weight);
+        }
+    }
+}
+
+// Align variants
+
+.--start {
+    text-align: start;
+}
+
+.--center {
+    text-align: center;
+}
+
+.--end {
+    text-align: end;
+}
+
+// Color intents
+
+.--default {
+    color: var(--Typography-default_color, $Typography-default_color);
+}
+
+.--subtle {
+    color: var(--Typography-subtle_color, $Typography-subtle_color);
+}
+
+.--placeholder {
+    color: var(--Typography-placeholder_color, $Typography-placeholder_color);
+}
+
+.--contrast {
+    color: var(--Typography-contrast_color, $Typography-contrast_color);
+}
+
+.--error {
+    color: var(--Typography-error_color, $Typography-error_color)
+}
+
+.--inherit {
+    color: inherit;
+}

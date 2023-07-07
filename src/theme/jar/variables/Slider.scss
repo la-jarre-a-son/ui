@@ -1,0 +1,28 @@
+$Slider_textStyle: (sm, light) !default;
+$Slider_size: $size-md !default;
+$Slider_gap: $space-md !default;
+$Slider_minSize: $container-xs !default;
+
+$Slider_transitionDuration: $duration_fast !default;
+$Slider_transitionTimingFunction: ease !default;
+
+$Slider-track_size: $size-xs !default;
+$Slider-track_borderRadius: 0 !default;
+$Slider-track_background: $color-neutral-dark  $gradient-interactive !default;
+
+$Slider-track--active_background: $color-primary-normal $gradient-interactive !default;
+
+$Slider-thumb_size: $size-xs !default;
+$Slider-thumb_borderRadius: 0 !default;
+$Slider-thumb_borderWidth: $border-sm !default;
+
+$Slider-thumb_borderColor: $color-neutral-darker !default;
+$Slider-thumb_background: $color-neutral-dark $gradient-interactive !default;
+$Slider-thumb--hover_borderColor: $color-neutral-dark !default;
+$Slider-thumb--hover_background: lighten($color-neutral-normal, 10%) $gradient-interactive !default;
+$Slider-thumb--active_borderColor: $color-neutral-lighter !default;
+$Slider-thumb--active_background: $color-neutral-light $gradient-interactive !default;
+
+$Slider-mark_size: $space-sm !default;
+$Slider-mark_borderRadius: $space-sm !default;
+$Slider-mark_background: rgba(#fff, 0.5) !default;
