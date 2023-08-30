@@ -54,10 +54,6 @@ const Template: Story<StoryProps> = ({ error, ...props }) => (
 );
 
 const formStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 26,
-  alignItems: 'stretch',
   maxWidth: 400,
 };
 

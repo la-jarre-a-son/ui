@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    margin: var(--FormField_margin, $FormField_margin);
     gap: var(--FormField_gap, $FormField_gap);
     color: var(--FormField_color, $FormField_color);
 }

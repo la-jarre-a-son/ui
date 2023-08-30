@@ -2,6 +2,7 @@
 
 $FormField_color: inherit !default;
 $FormField_gap: $space-sm !default;
+$FormField_margin: $space-lg 0 !default;
 
 $FormField-label_textStyle: (md, light) !default;
 $FormField-label_textTransform: uppercase !default;
@@ -25,7 +26,6 @@ $FormFieldset-label_textTransform: uppercase !default;
 $FormFieldset-label_padding: $space-md !default;
 $FormFieldset-label_textAlign: center !default;
 
-
 // Control Label
 
 $FormControlLabel_gap: $space-xl !default;
@@ -33,6 +33,7 @@ $FormControlLabel_margin: $space-lg 0 !default;
 
 $FormControlLabel-container_padding: $space-xs 0 !default;
 
+$FormControlLabel-label_marginBottom: $space-sm !default;
 $FormControlLabel-label_color: $color-white !default;
 $FormControlLabel-label_textStyle: (md, light) !default;
 $FormControlLabel-label_textTransform: uppercase !default;
