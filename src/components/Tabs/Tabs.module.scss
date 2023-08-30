@@ -90,4 +90,6 @@
         left: calc(-1 * var(--Button_borderWidth, #{$Button_borderWidth}));
         width: var(--Tab-focus_size, $Tab-focus_size);
     }
+
+    --Button--outlined--neutral_background: transparent;
 }
