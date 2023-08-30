@@ -25,6 +25,7 @@
     "deploy": "gh-pages -d storybook-static",
     "predeploy": "npm run build:storybook",
     "prepare": "npm run build",
+    "release": "standard-version",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006 --no-open",
     "test": "npm run test:lint && npm run test:types && npm run test:jestTypes && npm run test:unit",
@@ -88,6 +89,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.66.1",
+    "standard-version": "^9.5.0",
     "storybook": "^7.3.2",
     "typescript": "^5.2.2",
     "typescript-plugin-css-modules": "^5.0.1"
