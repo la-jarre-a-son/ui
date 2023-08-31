@@ -33,6 +33,7 @@ $focus_outlineTransition: (
 @mixin ljasScrollBar($width, $padding, $radius, $trackColor, $thumbColor) {
     &::-webkit-scrollbar {
         width: $width;
+        height: $width;
       }
   
       &::-webkit-scrollbar-thumb {
