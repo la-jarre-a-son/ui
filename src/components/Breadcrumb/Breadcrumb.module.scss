@@ -20,6 +20,7 @@
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    vertical-align: middle;
     height: var(--Breadcrumb-item_height, $Breadcrumb-item_height);
 
     gap: var(--Breadcrumb-item_gap, $Breadcrumb-item_gap);
