@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/la-jarre-a-son/ui/compare/v1.1.0...v1.1.1) (2023-09-02)
+
+
+### Bug Fixes
+
+* **ModalContainer:** ref was not always passed ([2936ad4](https://github.com/la-jarre-a-son/ui/commit/2936ad42eb0ebf3c01b8649f7fac853bf7747ee7))
+
 ## [1.1.0](https://github.com/la-jarre-a-son/ui/compare/v1.0.2...v1.1.0) (2023-09-02)
 
 
