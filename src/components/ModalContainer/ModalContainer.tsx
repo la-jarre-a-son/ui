@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 import { ModalContainerProps } from './types';
 import { ModalContainerContext } from './ModalContainerContext';
@@ -7,12 +7,12 @@ import { ModalContainerContext } from './ModalContainerContext';
  * Provides a state context to define the container of modals (or similar components like Drawers);
  */
 export const ModalContainer: React.FC<ModalContainerProps> = ({ children }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
   return (
-    <ModalContainerContext.Provider value={{ container: containerRef.current }}>
+    <ModalContainerContext.Provider value={{ container: ref }}>
       {children}
-      <div ref={containerRef}></div>
+      <div ref={setRef}></div>
     </ModalContainerContext.Provider>
   );
 };
