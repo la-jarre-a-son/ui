@@ -1,7 +1,10 @@
 import { createContext, useContext } from 'react';
 
-export const ModalContainerContext = createContext<HTMLDivElement | null>(null);
+export const ModalContainerContext = createContext<{ container: HTMLDivElement | null }>({
+  container: null,
+});
 
 export function useModalContainer() {
-  return useContext(ModalContainerContext);
+  const context = useContext(ModalContainerContext);
+  return context?.container;
 }

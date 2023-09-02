@@ -10,7 +10,7 @@ export const ModalContainer: React.FC<ModalContainerProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <ModalContainerContext.Provider value={containerRef.current}>
+    <ModalContainerContext.Provider value={{ container: containerRef.current }}>
       {children}
       <div ref={containerRef}></div>
     </ModalContainerContext.Provider>
