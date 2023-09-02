@@ -42,7 +42,9 @@ const Template: Story<StoryProps> = ({
   };
   return (
     <Drawer aria-label={ariaLabel} open={open} onClose={handleClose} {...otherProps}>
-      <Typography>In the drawer</Typography>
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque enim quis.
+      </Typography>
     </Drawer>
   );
 };
@@ -62,7 +64,9 @@ export const Interactive = () => {
     <>
       <Button onClick={() => setOpen(true)}>Open left</Button>
       <Drawer aria-label="test drawer" open={open} onClose={() => setOpen(false)}>
-        <Typography>In the drawer</Typography>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque enim quis.
+        </Typography>
       </Drawer>
     </>
   );
@@ -95,7 +99,9 @@ export const Placement = () => {
         open={open}
         onClose={() => setOpen(false)}
       >
-        <Typography>In the drawer</Typography>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque enim quis.
+        </Typography>
       </Drawer>
     </>
   );
@@ -122,7 +128,41 @@ export const CustomOverlay = () => {
           },
         }}
       >
-        <Typography>In the drawer</Typography>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque enim quis.
+        </Typography>
+      </Drawer>
+    </>
+  );
+};
+
+/**
+ * @storyDesc you can use animationProps to handle open and close animations events.
+ */
+export const Events = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    alert('closing');
+    setOpen(false);
+  };
+
+  const handleEntered = () => alert('Opened');
+  const handleExited = () => alert('Closed');
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open left</Button>
+      <Drawer
+        aria-label={'drawer'}
+        open={open}
+        onClose={handleClose}
+        animationProps={{ onEntered: handleEntered, onExited: handleExited }}
+        size="md"
+      >
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque enim quis.
+        </Typography>
       </Drawer>
     </>
   );

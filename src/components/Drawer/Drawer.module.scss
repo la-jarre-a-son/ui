@@ -17,6 +17,7 @@
     position: absolute;
     background-color: var(--Drawer-container_backgroundColor, $Drawer-container_backgroundColor);
     box-shadow: var(--Drawer-container_boxShadow, $Drawer-container_boxShadow);
+    overflow: auto;
 }
 
 .backdrop {
@@ -49,7 +50,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    min-height: var(--Drawer_minSize, #{$Drawer_minSize});
+    height: var(--Drawer_minSize, #{$Drawer_minSize});
     --Drawer_from: 0px, calc(var(--Drawer_minSize, #{$Drawer_minSize}) * -1);
 }
 
@@ -57,7 +58,7 @@
     bottom: 0;
     left: 0;
     width: 100vw;
-    min-height: var(--Drawer_minSize, #{$Drawer_minSize});
+    height: var(--Drawer_minSize, #{$Drawer_minSize});
     --Drawer_from: 0px, var(--Drawer_minSize, #{$Drawer_minSize});
 }
 
@@ -65,7 +66,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    min-width: var(--Drawer_minSize, #{$Drawer_minSize});
+    width: var(--Drawer_minSize, #{$Drawer_minSize});
     --Drawer_from: calc(var(--Drawer_minSize, #{$Drawer_minSize}) * -1), 0px;
 }
 
@@ -73,7 +74,7 @@
     top: 0;
     right: 0;
     height: 100vh;
-    min-width: var(--Drawer_minSize, #{$Drawer_minSize});
+    width: var(--Drawer_minSize, #{$Drawer_minSize});
     --Drawer_from: var(--Drawer_minSize, #{$Drawer_minSize}), 0px;
 }
 
@@ -122,6 +123,7 @@
         show
         var(--Drawer--show_animationDuration, $Drawer--show_animationDuration)
         var(--Drawer--show_animationTimingFunction, $Drawer--show_animationTimingFunction);
+    animation-fill-mode: forwards;
 }
 
 .--hide {
@@ -129,6 +131,7 @@
         hide
         var(--Drawer--hide_animationDuration, $Drawer--hide_animationDuration)
         var(--Drawer--hide_animationTimingFunction, $Drawer--hide_animationTimingFunction);
+    animation-fill-mode: forwards;
 }
 
 .--showBackdrop {
@@ -136,6 +139,7 @@
         showBackdrop
         var(--Drawer--show_animationDuration, $Drawer--show_animationDuration)
         var(--Drawer--show_animationTimingFunction, $Drawer--show_animationTimingFunction);
+    animation-fill-mode: forwards;
 }
 
 .--hideBackdrop {
@@ -143,4 +147,5 @@
         hideBackdrop
         var(--Drawer--hide_animationDuration, $Drawer--hide_animationDuration)
         var(--Drawer--hide_animationTimingFunction, $Drawer--hide_animationTimingFunction);
+    animation-fill-mode: forwards;
 }
