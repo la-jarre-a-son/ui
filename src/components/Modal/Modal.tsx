@@ -5,8 +5,9 @@ import { Ref, useMergeRef } from '../../utils/refUtils';
 import usePopoverContainer from '../../utils/usePopoverContainer';
 import useCreatePortal from '../../utils/useCreatePortal';
 import useAnimationDuration from '../../utils/useAnimationDuration';
-import { ModalStack } from '../ModalStack';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { ModalStack } from '../ModalStack';
+import { useModalContainer } from '../ModalContainer';
 
 import { ModalContextValue, ModalProps } from './types';
 import { ModalContext } from './ModalContext';
@@ -44,6 +45,8 @@ export const Modal = forwardRefWithAs<ModalProps, 'div'>((props, ref) => {
 
   const createPortal = useCreatePortal(disablePortal);
 
+  const modalContainer = useModalContainer();
+
   const containerRef = usePopoverContainer({
     refocusOnClose: true,
     onClose,
@@ -76,7 +79,13 @@ export const Modal = forwardRefWithAs<ModalProps, 'div'>((props, ref) => {
           <ModalStack hideOnStack>
             <Element
               {...otherProps}
-              className={cx('root', size && `--${size}`, open ? '--show' : '--hide', className)}
+              className={cx(
+                'root',
+                !!modalContainer && '--contained',
+                size && `--${size}`,
+                open ? '--show' : '--hide',
+                className
+              )}
               ref={ref}
             >
               <div
@@ -96,7 +105,8 @@ export const Modal = forwardRefWithAs<ModalProps, 'div'>((props, ref) => {
               </div>
             </Element>
           </ModalStack>
-        </ModalContext.Provider>
+        </ModalContext.Provider>,
+        modalContainer
       )
     : null;
 });

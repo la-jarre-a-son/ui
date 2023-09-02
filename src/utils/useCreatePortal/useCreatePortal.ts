@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-type Container = Element | DocumentFragment;
+type Container = Element | DocumentFragment | null;
 
 type CreatePortal = (
   children: React.ReactNode,

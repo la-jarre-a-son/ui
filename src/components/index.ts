@@ -19,6 +19,7 @@ export * from './Link';
 export * from './List';
 export * from './Menu';
 export * from './Modal';
+export * from './ModalContainer';
 export * from './ModalStack';
 export * from './Popper';
 export * from './Progress';

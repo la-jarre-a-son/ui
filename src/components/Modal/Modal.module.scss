@@ -13,6 +13,10 @@
     align-items: center;
     padding: var(--Modal_padding, $Modal_padding);
     z-index: var(--Modal_zIndex, $Modal_zIndex);
+
+    &.--contained {
+        position: absolute;
+    }
 }
 
 .container {
@@ -32,7 +36,7 @@
 
 .backdrop {
     --Modal-backdrop_opacity: 1;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

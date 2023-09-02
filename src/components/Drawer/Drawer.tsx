@@ -1,10 +1,11 @@
 import React from 'react';
-import { ModalStack } from '../ModalStack';
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import useCreatePortal from '../../utils/useCreatePortal';
 import usePopoverContainer from '../../utils/usePopoverContainer';
 import useAnimationDuration from '../../utils/useAnimationDuration';
+import { ModalStack } from '../ModalStack';
+import { useModalContainer } from '../ModalContainer';
 
 import styles from './Drawer.module.scss';
 import { DrawerProps } from './types';
@@ -35,6 +36,8 @@ export const Drawer = forwardRefWithAs<DrawerProps, 'div'>((props, ref) => {
 
   const createPortal = useCreatePortal();
 
+  const modalContainer = useModalContainer();
+
   const containerRef = usePopoverContainer({
     refocusOnClose: true,
     onClose,
@@ -46,7 +49,7 @@ export const Drawer = forwardRefWithAs<DrawerProps, 'div'>((props, ref) => {
   return show
     ? createPortal(
         <ModalStack hideOnStack>
-          <div className={cx('root')} ref={ref}>
+          <div className={cx('root', !!modalContainer && '--contained')} ref={ref}>
             <div
               {...(overlayProps || {})}
               role="presentation"
@@ -74,7 +77,8 @@ export const Drawer = forwardRefWithAs<DrawerProps, 'div'>((props, ref) => {
               {children}
             </Element>
           </div>
-        </ModalStack>
+        </ModalStack>,
+        modalContainer
       )
     : null;
 });
