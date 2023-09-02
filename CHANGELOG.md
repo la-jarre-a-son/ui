@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/la-jarre-a-son/ui/compare/v1.0.2...v1.1.0) (2023-09-02)
+
+
+### Features
+
+* **ModalContainer:** provide container for Modal and Drawer ([863c753](https://github.com/la-jarre-a-son/ui/commit/863c753afa3271d2da4e5c7bd94cb637f7c3f7e1))
+
+
+### Bug Fixes
+
+* **Drawer:** ensure fixed width & animation forwards ([2a9e220](https://github.com/la-jarre-a-son/ui/commit/2a9e220638b8a18cf07b754a96ac0762db887e2d))
+
 ### [1.0.2](https://github.com/la-jarre-a-son/ui/compare/v1.0.1...v1.0.2) (2023-08-31)
 
 
