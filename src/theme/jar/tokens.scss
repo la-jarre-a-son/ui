@@ -97,21 +97,21 @@ $shadow-inset: inset 0 3px 6px 0 rgba($color-black, 0.3);
 $typo: (
   lg: (
     bold: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 700,
       font-size: 24px,
       letter-spacing: 0,
       line-height: 32px,
     ),
     regular: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 400,
       font-size: 24px,
       letter-spacing: 0,
       line-height: 32px,
     ),
     light: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 300,
       font-size: 24px,
       letter-spacing: 0,
@@ -120,21 +120,21 @@ $typo: (
   ),
   md: (
     bold: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 700,
       font-size: 16px,
       letter-spacing: 0,
       line-height: 20px,
     ),
     regular: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 400,
       font-size: 16px,
       letter-spacing: 0,
       line-height: 20px,
     ),
     light: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 300,
       font-size: 16px,
       letter-spacing: 0,
@@ -143,19 +143,19 @@ $typo: (
   ),
   sm: (
     bold: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 700,
       font-size: 12px,
       line-height: 16px,
     ),
     regular: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 400,
       font-size: 12px,
       line-height: 16px,
     ),
     light: (
-      font-family: "Lato",
+      font-family: $body_fontFamily,
       font-weight: 300,
       font-size: 12px,
       line-height: 16px,
