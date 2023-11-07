@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/la-jarre-a-son/ui/compare/v1.1.2...v1.1.3) (2023-11-07)
+
+
+### Bug Fixes
+
+* **theme/jar:** added font-family fallbacks ([35e3349](https://github.com/la-jarre-a-son/ui/commit/35e33498103839381988a248257b1fde9e1032b5))
+
 ### [1.1.2](https://github.com/la-jarre-a-son/ui/compare/v1.1.1...v1.1.2) (2023-09-02)
 
 
