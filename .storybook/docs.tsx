@@ -7,10 +7,12 @@ import {
     Controls,
     Stories,
 } from '@storybook/addon-docs';
+import darkTheme from './darkTheme';
 
 import { Theming } from './utils/Theming';
 
 const docs = {
+    theme: darkTheme,
     page: () => (
         <>
             <Title />

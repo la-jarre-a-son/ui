@@ -149,7 +149,7 @@ const mapVariablesToArgsTableRows = (variables: { css: Variable[],scss: Variable
 
 export const VariablesTable: React.FC<ThemingParameters> = (variables) => {
     const rows = useMemo(() => mapVariablesToArgsTableRows(variables), [variables]);
-    return (<PureArgsTable rows={rows} />);
+    return (<PureArgsTable rows={rows} initialExpandedArgs={false} />);
 }
 
 
