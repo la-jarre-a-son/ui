@@ -19,16 +19,12 @@ export default {
 
 export const Default: StoryObj<typeof Slider> = {
   render: (props) => {
-    const { value: propsValue, onChange, ...otherProps } = props;
+    const { value: propsValue, ...otherProps } = props;
 
     const [value, setValue] = useState(propsValue);
 
-    const handleChange = (v: number, t: number) => {
+    const handleChange = (v: number) => {
       setValue(v);
-
-      if (onChange) {
-        onChange(v, t);
-      }
     };
 
     useEffect(() => {
@@ -40,8 +36,8 @@ export const Default: StoryObj<typeof Slider> = {
         aria-label="Slider"
         value={value}
         valueText={`${value}%`}
-        onChange={handleChange}
         {...otherProps}
+        onChange={handleChange}
       />
     );
   },
@@ -57,18 +53,14 @@ export const Default: StoryObj<typeof Slider> = {
 
 export const Range: StoryObj<typeof Slider> = {
   render: (props) => {
-    const { value: propsValue, onChange, ...otherProps } = props;
+    const { value: propsValue, ...otherProps } = props;
 
     const [value, setValue] = useState<number[]>(
       Array.isArray(propsValue) ? propsValue : [propsValue ?? 0]
     );
 
-    const handleChange = (v: number[], t: number) => {
+    const handleChange = (v: number[]) => {
       setValue(v);
-
-      if (onChange) {
-        onChange(v, t);
-      }
     };
 
     useEffect(() => {
@@ -80,8 +72,8 @@ export const Range: StoryObj<typeof Slider> = {
         aria-label="Slider"
         value={value}
         valueText={`${value[0]} - ${value[1]}`}
-        onChange={handleChange}
         {...otherProps}
+        onChange={handleChange}
       />
     );
   },
@@ -99,18 +91,14 @@ export const Range: StoryObj<typeof Slider> = {
 
 export const Multiple: StoryObj<typeof Slider> = {
   render: (props) => {
-    const { value: propsValue, onChange, ...otherProps } = props;
+    const { value: propsValue, ...otherProps } = props;
 
     const [value, setValue] = useState<number[]>(
       Array.isArray(propsValue) ? propsValue : [propsValue ?? 0]
     );
 
-    const handleChange = (v: number[], t: number) => {
+    const handleChange = (v: number[]) => {
       setValue(v);
-
-      if (onChange) {
-        onChange(v, t);
-      }
     };
 
     useEffect(() => {
@@ -122,8 +110,8 @@ export const Multiple: StoryObj<typeof Slider> = {
         aria-label="Slider"
         value={value}
         ariaValueText={`${value[0]} - ${value[1]}`}
-        onChange={handleChange}
         {...otherProps}
+        onChange={handleChange}
       />
     );
   },
@@ -153,18 +141,14 @@ function findClosest(marks?: number[] | number | boolean | readonly number[], va
 
 export const Snap: StoryObj<typeof Slider> = {
   render: (props) => {
-    const { value: propsValue, marks, onChange, ...otherProps } = props;
+    const { value: propsValue, marks, ...otherProps } = props;
 
     const [value, setValue] = useState(propsValue);
 
-    const handleChange = (v: number, t: number) => {
+    const handleChange = (v: number) => {
       const closest = findClosest(marks, v);
 
       setValue(closest);
-
-      if (onChange) {
-        onChange(closest ?? v, t);
-      }
     };
 
     useEffect(() => {
@@ -177,8 +161,8 @@ export const Snap: StoryObj<typeof Slider> = {
         marks={marks}
         value={value}
         valueText={`${value}%`}
-        onChange={handleChange}
         {...otherProps}
+        onChange={handleChange}
       />
     );
   },

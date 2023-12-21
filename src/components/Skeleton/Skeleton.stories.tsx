@@ -8,8 +8,10 @@ import themeVariablesScss from '!!raw-loader!../../theme/jar/variables/Skeleton.
 
 import Badge from '../Badge';
 import Button from '../Button';
-import { Card, CardThumbnail, CardContent, CardHeader, CardThumbnailGrid } from '../Card';
+import StateButton from '../StateButton';
+import { Card, CardThumbnail, CardHeader, CardThumbnailGrid } from '../Card';
 import Stack from '../Stack';
+import Icon from '../Icon';
 import Typography from '../Typography';
 
 import { Skeleton } from '.';
@@ -109,40 +111,34 @@ export const Demo = () => {
     }
   }, [load]);
 
-  if (loading) {
-    return (
-      <>
+  return (
+    <>
+      {loading ? (
         <Card elevation={1} outlined style={{ width: 400 }}>
           <CardThumbnailGrid>
             <Skeleton shape="rounded" style={{ aspectRatio: '16/9' }} />
             <Skeleton shape="rounded" style={{ aspectRatio: '16/9' }} />
             <Skeleton shape="rounded" style={{ aspectRatio: '16/9' }} />
           </CardThumbnailGrid>
-          <CardContent>
-            <Stack align="center">
-              <Skeleton shape="circle" height={40} width={40} />
-              <Skeleton shape="rounded" width="12ch" height={16} />
-            </Stack>
-          </CardContent>
+          <CardHeader left={<Skeleton shape="circle" height={20} width={20} />}>
+            <Skeleton shape="rounded" width="12ch" height={16} />
+          </CardHeader>
         </Card>
-        <br />
-        <Skeleton shape="rounded" width={72} height={40} />
-      </>
-    );
-  }
+      ) : (
+        <Card elevation={1} outlined style={{ width: 400 }}>
+          <CardThumbnailGrid>
+            <CardThumbnail alt="thumbnail" src={src} />
+            <CardThumbnail alt="thumbnail" src={src} />
+            <CardThumbnail alt="thumbnail" src={src} />
+          </CardThumbnailGrid>
+          <CardHeader left={<Icon name="fa-solid fa-camera" />}>My card</CardHeader>
+        </Card>
+      )}
 
-  return (
-    <>
-      <Card elevation={1} outlined style={{ width: 400 }}>
-        <CardThumbnailGrid>
-          <CardThumbnail alt="thumbnail" src={src} />
-          <CardThumbnail alt="thumbnail" src={src} />
-          <CardThumbnail alt="thumbnail" src={src} />
-        </CardThumbnailGrid>
-        <CardHeader>My card</CardHeader>
-      </Card>
       <br />
-      <Button onClick={() => setLoad(true)}>reload</Button>
+      <StateButton onClick={() => setLoad(true)} loading={loading}>
+        reload
+      </StateButton>
     </>
   );
 };
