@@ -6,6 +6,7 @@ export * from './forwardRefWithStatic';
 export * from './refUtils';
 export * from './typeUtils';
 export * from './useAnimationDuration';
+export * from './useAutoScroll';
 export * from './useButtonEvents';
 export * from './useCreatePortal';
 export * from './useDelayTrigger';
