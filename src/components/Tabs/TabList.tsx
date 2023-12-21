@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
 import { useMergeRef } from '../../utils/refUtils';
@@ -6,6 +6,7 @@ import useRefEffect from '../../utils/useRefEffect';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { getFirstFocusableDescendant } from '../../utils/focusUtils';
 import useListNav from '../../utils/useListNav';
+import useAutoScroll from '../../utils/useAutoScroll';
 
 import ButtonGroup from '../ButtonGroup';
 
@@ -36,12 +37,15 @@ export const TabList = forwardRefWithAs<TabListProps, typeof ButtonGroup>((props
     ...otherProps
   } = props;
 
+  const containerRef = useRef<HTMLElement>();
+
   const listBoxRef = useListNav({
     direction,
     itemQuerySelector: '[role="tab"]',
   });
 
   const rootRef = useRefEffect((rootEl: HTMLElement) => {
+    containerRef.current = rootEl;
     // make the first tab focusable
     const firstChild = getFirstFocusableDescendant(rootEl, true);
     if (firstChild) {
@@ -50,6 +54,8 @@ export const TabList = forwardRefWithAs<TabListProps, typeof ButtonGroup>((props
   }, []);
 
   const mergedRef = useMergeRef(ref, listBoxRef, rootRef);
+
+  useAutoScroll(containerRef.current);
 
   const contextValue = useMemo(
     () => ({

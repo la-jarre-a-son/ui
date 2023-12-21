@@ -2,7 +2,10 @@
 
 .root {
     display: inline-flex;
+    position: relative;
     vertical-align: middle;
+    scroll-snap-type: both proximity;
+    scroll-behavior: smooth;
 
     border-width: 0;
     border-style: solid;
@@ -55,6 +58,8 @@
     position: relative;
     overflow: visible;
     flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-margin: 1em;
 
     &:focus-visible {
         outline-width: 0;

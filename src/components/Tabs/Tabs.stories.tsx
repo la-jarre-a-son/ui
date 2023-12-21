@@ -54,16 +54,19 @@ export const Default: Story<StoryProps> = ({
           </Badge>
         }
       >
-        My Details
+        Tab 0 with a badge
       </Tab>
-      <Tab id="1">Profile</Tab>
-      <Tab id="2">Password</Tab>
-      <Tab id="3">Team</Tab>
-      <Tab id="4">Plan</Tab>
-      <Tab id="5">Billing</Tab>
-      <Tab id="6" left={<Icon name="fa-solid fa-envelope" />}>
-        Email
+      <Tab id="1">Tab 1</Tab>
+      <Tab id="2">Tab 2</Tab>
+      <Tab id="3" left={<Icon name="fa-solid fa-envelope" />}>
+        Tab 3 with an icon and a long text
       </Tab>
+      <Tab id="4">Tab 4</Tab>
+      <Tab id="5">Tab 5</Tab>
+      <Tab id="6">Tab 3</Tab>
+      <Tab id="7">Tab 7</Tab>
+      <Tab id="8">Tab 8</Tab>
+      <Tab id="9">Last Tab</Tab>
     </TabList>
   );
 };
@@ -74,14 +77,14 @@ Default.args = {
   size: 'md',
   block: true,
   stretch: false,
-  selected: '',
+  selected: '8',
 };
 
 /**
  * @storyDesc By default, the `TabList` as an horizontal orientation. You can change this with the `direction` prop.
  */
-export const HorizontalTabs = () => {
-  const [selected, setSelected] = useState('0');
+export const HorizontalTabs: Story<StoryProps> = ({ selected: initialSelected }) => {
+  const [selected, setSelected] = useState(initialSelected);
   return (
     <div style={{ display: 'flex', gap: 32, flexDirection: 'column' }}>
       <TabList
@@ -158,10 +161,10 @@ export const HorizontalTabs = () => {
   );
 };
 
-export const VerticalTabs = () => {
-  const [selected, setSelected] = useState('0');
+export const VerticalTabs: Story<{ selected: string }> = ({ selected: initialSelected }) => {
+  const [selected, setSelected] = useState(initialSelected);
   return (
-    <div style={{ display: 'flex', gap: 32 }}>
+    <div style={{ display: 'flex', gap: 32, overflow: 'hidden', height: '200px' }}>
       <TabList
         aria-label="tabs example"
         direction="vertical"
@@ -242,6 +245,10 @@ export const VerticalTabs = () => {
       </TabList>
     </div>
   );
+};
+
+VerticalTabs.args = {
+  selected: '6',
 };
 
 /**
