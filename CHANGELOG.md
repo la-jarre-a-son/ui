@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/la-jarre-a-son/ui/compare/v1.1.3...v1.2.0) (2023-12-21)
+
+
+### Features
+
+* **hooks:**  useAutoScroll ([8b4a328](https://github.com/la-jarre-a-son/ui/commit/8b4a328f698ee524e23a1ac13c961d9ca09d4abc))
+* **Tabs:** auto scroll to active tab ([36c241f](https://github.com/la-jarre-a-son/ui/commit/36c241f15a04c76f7e0396d4711cee63a2f53f93))
+* **TreeView:** auto open and scroll to current item ([86d697b](https://github.com/la-jarre-a-son/ui/commit/86d697bd9f2dc91b314d5ba92f9bb8e4d20e2caf))
+
+
+### Bug Fixes
+
+* **ListItem:** set minWidth to 0 for sides ([b97a200](https://github.com/la-jarre-a-son/ui/commit/b97a200d589b716d7707e084110b78df82712c6f))
+* **TreeView:** controllable externally and clickable sub items ([730365d](https://github.com/la-jarre-a-son/ui/commit/730365d67ff45bd1ad0bfd37d8ee80f6c9746fbd))
+
 ### [1.1.3](https://github.com/la-jarre-a-son/ui/compare/v1.1.2...v1.1.3) (2023-11-07)
 
 
