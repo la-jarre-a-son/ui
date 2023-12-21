@@ -52,7 +52,10 @@ export const All = () => (
           {ButtonVariants.map((variant) => (
             <Fragment key={variant}>
               {ButtonSizes.map((size) => (
-                <div key={`${size}--${variant}`}>
+                <div
+                  style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}
+                  key={`${size}--${variant}`}
+                >
                   <Button
                     aria-label="label"
                     {...Default.args}
@@ -60,16 +63,36 @@ export const All = () => (
                     variant={variant}
                     intent={intent}
                   />
-                </div>
-              ))}
-              {ButtonSizes.map((size) => (
-                <div key={`${size}--${variant}--disabled`}>
                   <Button
                     aria-label="label"
                     {...Default.args}
                     size={size}
                     variant={variant}
                     intent={intent}
+                    rounded
+                  />
+                </div>
+              ))}
+              {ButtonSizes.map((size) => (
+                <div
+                  style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}
+                  key={`${size}--${variant}--disabled`}
+                >
+                  <Button
+                    aria-label="label"
+                    {...Default.args}
+                    size={size}
+                    variant={variant}
+                    intent={intent}
+                    disabled
+                  />
+                  <Button
+                    aria-label="label"
+                    {...Default.args}
+                    size={size}
+                    variant={variant}
+                    intent={intent}
+                    rounded
                     disabled
                   />
                 </div>
@@ -100,7 +123,10 @@ export const AllHoverIntent = () =>
         {ButtonVariants.map((variant) => (
           <Fragment key={variant}>
             {ButtonSizes.map((size) => (
-              <div key={`${size}--${variant}`}>
+              <div
+                style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}
+                key={`${size}--${variant}`}
+              >
                 <Button
                   aria-label="label"
                   {...Default.args}
@@ -109,16 +135,38 @@ export const AllHoverIntent = () =>
                   intent={intent}
                   hoverIntent
                 />
-              </div>
-            ))}
-            {ButtonSizes.map((size) => (
-              <div key={`${size}--${variant}--disabled`}>
                 <Button
                   aria-label="label"
                   {...Default.args}
                   size={size}
                   variant={variant}
                   intent={intent}
+                  hoverIntent
+                  rounded
+                />
+              </div>
+            ))}
+            {ButtonSizes.map((size) => (
+              <div
+                style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}
+                key={`${size}--${variant}--disabled`}
+              >
+                <Button
+                  aria-label="label"
+                  {...Default.args}
+                  size={size}
+                  variant={variant}
+                  intent={intent}
+                  disabled
+                  hoverIntent
+                />
+                <Button
+                  aria-label="label"
+                  {...Default.args}
+                  size={size}
+                  variant={variant}
+                  intent={intent}
+                  rounded
                   disabled
                   hoverIntent
                 />

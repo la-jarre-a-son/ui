@@ -23,5 +23,4 @@ Default.args = {
   disabled: false,
   interactive: false,
   focused: false,
-  rounded: false,
 };
