@@ -435,4 +435,77 @@ describe('TreeView', () => {
 
     expect(screen.queryByText('item12')).not.toBeInTheDocument();
   });
+
+  it('has clickable sub items', async () => {
+    const user = userEvent.setup();
+
+    const onClickHandler = jest.fn();
+
+    render(
+      <TreeView aria-label="tree view">
+        <TreeViewItem title="item1" defaultOpen>
+          <TreeViewItem title="item11" onClick={onClickHandler} />
+          <TreeViewItem title="item12" />
+        </TreeViewItem>
+        <TreeViewItem title="item2" />
+        <TreeViewItem title="item3" />
+      </TreeView>
+    );
+
+    const subItem = screen.getByText('item11');
+
+    await user.click(subItem);
+
+    await waitFor(async () => {
+      expect(onClickHandler).toBeCalled();
+    });
+  });
+
+  it('can be controlled externally', async () => {
+    const user = userEvent.setup();
+
+    const onOpenHandler = jest.fn();
+    const onCloseHandler = jest.fn();
+
+    render(
+      <TreeView aria-label="tree view">
+        <TreeViewItem title="item1" open={true} onOpen={onOpenHandler} onClose={onCloseHandler}>
+          <TreeViewItem title="item11" />
+          <TreeViewItem title="item12" />
+        </TreeViewItem>
+        <TreeViewItem title="item2" open={false} onOpen={onOpenHandler} onClose={onCloseHandler}>
+          <TreeViewItem title="item21" />
+          <TreeViewItem title="item22" />
+        </TreeViewItem>
+        <TreeViewItem title="item3" />
+      </TreeView>
+    );
+
+    await waitFor(async () => {
+      expect(screen.queryByText('item11')).toBeInTheDocument();
+      expect(screen.queryByText('item12')).toBeInTheDocument();
+    });
+
+    const firstItem = screen.getByText('item1');
+
+    await user.click(firstItem);
+
+    await waitFor(async () => {
+      expect(onCloseHandler).toBeCalled();
+      // Controlled elements should not be closed by itself
+      expect(screen.queryByText('item11')).toBeInTheDocument();
+      expect(screen.queryByText('item12')).toBeInTheDocument();
+    });
+
+    const secondItem = screen.getByText('item2');
+
+    await user.click(secondItem);
+
+    await waitFor(async () => {
+      expect(onOpenHandler).toBeCalled();
+      // Controlled elements should not be opened by itself
+      expect(screen.queryByText('item21')).not.toBeInTheDocument();
+      expect(screen.queryByText('item22')).not.toBeInTheDocument();
+    });
+  });
 });

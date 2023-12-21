@@ -39,9 +39,12 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
       style,
       current,
       onClick,
+      onOpen,
+      onClose,
       children,
       disabled,
       defaultOpen,
+      open: originalOpen,
       ...otherProps
     } = props;
 
@@ -54,6 +57,8 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
     // focus an element that will be unmounted soon
     const blocknav = useRef(false);
 
+    const _open = originalOpen ?? open;
+
     const itemStyle = {
       ...style,
       '--TreeView_depth': depth,
@@ -64,8 +69,14 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
      */
     const handleClick = useEvent((e: React.MouseEvent<HTMLAnchorElement>) => {
       if (!disabled) {
-        if (open) blocknav.current = true;
-        setOpen((p) => !p);
+        if (_open) {
+          blocknav.current = true;
+          setOpen(false);
+          if (onClose) onClose(e);
+        } else {
+          setOpen(true);
+          if (onOpen) onOpen(e);
+        }
         if (onClick) onClick(e);
       }
     });
@@ -84,13 +95,14 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
      */
     const handleKeyDown = useEvent((e: React.KeyboardEvent<HTMLLIElement>) => {
       if (e.key === 'ArrowLeft') {
-        if (open) {
+        if (_open) {
           e.stopPropagation();
 
           // close the item on arrow left if currently focusing it
           if (itemRef.current === e.target) {
             blocknav.current = true;
             setOpen(false);
+            if (onClose) onClose(e);
           }
 
           // refocus the root item on arrow left
@@ -100,9 +112,13 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
         e.stopPropagation();
 
         // open the content on ArrowRight
-        if (!open && !disabled) {
+        if (!_open && !disabled) {
           setOpen(true);
+          if (onOpen) onOpen(e);
         }
+      } else if (e.key === 'Enter' || e.code === 'Space') {
+        e.stopPropagation();
+        if (onClick) onClick(e);
       }
     });
 
@@ -145,7 +161,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
             </ListItem>
             <Collapse
               className={cx('collapse')}
-              open={open}
+              open={_open}
               role="none"
               wrapperProps={{ role: 'none' }}
               onTransitionEnd={handleTransitionEnd}
@@ -160,7 +176,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
     }
 
     return (
-      <li role="none">
+      <li role="none" onKeyDown={handleKeyDown} onKeyDownCapture={handlePreventNavDown}>
         <ListItem
           className={cx('item')}
           style={itemStyle}
@@ -170,6 +186,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
           as={as || 'a'}
           disabled={disabled}
           interactive
+          onClick={onClick}
           ref={ref}
           role="treeitem"
         >
@@ -180,7 +197,6 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
   }
 );
 
-TreeViewItem.ICON_OPEN = 'fa-solid fa-chevron-down';
 TreeViewItem.ICON_CLOSED = 'fa-solid fa-chevron-right';
 
 TreeViewItem.displayName = 'TreeViewItem';

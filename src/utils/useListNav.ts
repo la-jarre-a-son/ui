@@ -153,7 +153,6 @@ export function useListNav(options: ListNavOptions) {
           }
 
           case 'Enter': {
-            console;
             if (onEnter) {
               onEnter(currentIndex, triggerEl);
               prevent = true;

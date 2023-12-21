@@ -160,7 +160,7 @@ export const MenuHover = () => {
 
   return (
     <div onMouseEnter={handleOpen} onMouseLeave={handleClose} style={{ width: 'fit-content' }}>
-      <Menu open={open} onClose={handleClose} onOpen={handleOpen} trigger={'TRIGGER'}>
+      <Menu open={open} onClose={handleClose} onOpen={handleOpen} trigger={<span>TRIGGER</span>}>
         <CardHeader>
           <div>
             <Typography>Nicolas Cage</Typography>

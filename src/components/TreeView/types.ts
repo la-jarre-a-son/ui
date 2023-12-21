@@ -20,9 +20,13 @@ export type TreeViewItemProps = MergeProps<
      */
     title?: string;
     /**
-     * Specifies that the sub group is opened by default
+     * Specifies that the sub group is opened by default when uncontrolled
      */
     defaultOpen?: boolean;
+    /**
+     * Specifies that the sub group is opened when controlled externally
+     */
+    open?: boolean;
     /**
      * Specifies that the item disabled
      */
@@ -39,5 +43,17 @@ export type TreeViewItemProps = MergeProps<
      * The item content
      */
     children?: React.ReactNode;
+    /**
+     * Callback when item is opened when controlled externally
+     */
+    onClick?: (e: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLLIElement>) => void;
+    /**
+     * Callback when item is opened when controlled externally
+     */
+    onOpen?: (e: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLLIElement>) => void;
+    /**
+     * Callback when item is closed when controlled externally
+     */
+    onClose?: (e: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLLIElement>) => void;
   } & ListItemProps
 >;
