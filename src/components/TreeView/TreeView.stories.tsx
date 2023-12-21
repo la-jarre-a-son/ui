@@ -8,6 +8,7 @@ import moduleCss from '!!raw-loader!./TreeView.module.scss?raw';
 import Icon from '../Icon';
 
 import { TreeView, TreeViewItem } from '.';
+import Badge from '../Badge';
 
 export default {
   title: 'Components/Navigation/TreeView',
@@ -25,33 +26,44 @@ const projects = ['A', 'B', 'C', 'D'];
 const levels = ['1', '2', '3', '4'];
 
 export const Default = () => {
+  const [current, setCurrent] = useState<string>('C21');
+
   return (
-    <TreeView aria-label="tree example" style={{ width: 300 }}>
+    <TreeView aria-label="tree example" style={{ width: 300, height: 500 }}>
       {projects.map((p) => (
         <TreeViewItem
           left={<Icon name="fa-solid fa-box" />}
-          key={p}
+          key={'P' + p}
           title={`Project ${p}`}
+          selected={current.startsWith(p)}
           defaultOpen={p === 'A'}
         >
           {levels.map((l1) => (
             <TreeViewItem
-              key={l1}
+              key={'L1' + l1}
               title={`Folder ${l1}`}
               left={<Icon name="fa-solid fa-folder" />}
-              selected={l1 === '1'}
+              selected={current.startsWith(p + l1)}
             >
               {levels.map((l2) => (
                 <TreeViewItem
-                  key={l2}
+                  key={'L2' + l2}
                   title={`Sub folder ${l2}`}
                   left={<Icon name="fa-solid fa-folder" />}
+                  onClick={() => setCurrent(p + l1 + l2)}
+                  selected={current === p + l1 + l2}
+                  current={current === p + l1 + l2}
                 />
               ))}
             </TreeViewItem>
           ))}
         </TreeViewItem>
       ))}
+      <TreeViewItem
+        title="Go To P A, F 1, SF 2"
+        left={<Icon name="fa-solid fa-arrow-up" />}
+        onClick={() => setCurrent('A12')}
+      ></TreeViewItem>
       <TreeViewItem title="Disabled item" disabled left={<Icon name="fa-solid fa-box" />} />
     </TreeView>
   );
@@ -88,6 +100,16 @@ export const Controlled = () => {
     });
   };
 
+  const getItemBadge = (id: string) => {
+    let count = 0;
+    selectedSections.forEach((s) => {
+      if (s.startsWith(id)) count += 1;
+    });
+    if (count) return <Badge intent="primary">{count}</Badge>;
+
+    return null;
+  };
+
   return (
     <TreeView aria-label="tree example" style={{ width: 300 }}>
       {projects.map((p) => (
@@ -95,6 +117,7 @@ export const Controlled = () => {
           left={<Icon name="fa-solid fa-box" />}
           key={p}
           title={`Project ${p}`}
+          right={getItemBadge(p)}
           onOpen={handleOpen(p)}
           onClose={handleClose(p)}
           open={openSection.has(p)}
@@ -104,6 +127,7 @@ export const Controlled = () => {
               key={l1}
               title={`Folder ${l1}`}
               left={<Icon name="fa-solid fa-folder" />}
+              right={getItemBadge(p + l1)}
               onOpen={handleOpen(p + l1)}
               onClose={handleClose(p + l1)}
               open={openSection.has(p + l1)}

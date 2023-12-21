@@ -1,6 +1,6 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-import { classNames, bindClassNames } from '../../utils/classNames';
+import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import useId from '../../utils/useId';
 import useEvent from '../../utils/useEvent';
@@ -8,11 +8,13 @@ import { useForkRef } from '../../utils/refUtils';
 import { attemptFocus } from '../../utils/focusUtils';
 
 import Collapse from '../Collapse';
+import Icon from '../Icon';
 import { ListItem } from '../List';
 
 import { TreeViewContext, useTreeView } from './TreeViewContext';
 
 import { TreeViewItemProps } from './types';
+import { hasCurrentChildren } from './utils';
 
 import styles from './TreeView.module.scss';
 
@@ -36,8 +38,10 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
       as,
       id,
       title,
+      right,
       style,
       current,
+      selected,
       onClick,
       onOpen,
       onClose,
@@ -131,6 +135,11 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
 
     const contextState = useMemo(() => ({ depth: depth + 1, parentId: rootId }), [depth, rootId]);
 
+    useEffect(() => {
+      const hasCurrent = hasCurrentChildren(children, TreeViewItem);
+      setOpen((open) => open || hasCurrent);
+    }, [children]);
+
     if (children && typeof children !== 'string') {
       return (
         <TreeViewContext.Provider value={contextState}>
@@ -147,14 +156,15 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
               onClick={handleClick}
               ref={mergedRef}
               role="treeitem"
+              selected={selected}
               right={
-                <i
-                  aria-hidden
-                  className={classNames(
-                    open && TreeViewItem.ICON_OPEN,
-                    !open && TreeViewItem.ICON_CLOSED
-                  )}
-                />
+                <>
+                  {right}
+                  <Icon
+                    aria-hidden="true"
+                    name={open ? TreeViewItem.ICON_OPEN : TreeViewItem.ICON_CLOSED}
+                  />
+                </>
               }
             >
               {title}
@@ -181,6 +191,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
           className={cx('item')}
           style={itemStyle}
           tabIndex={-1}
+          selected={current || selected}
           aria-current={current ? 'page' : undefined}
           {...otherProps}
           as={as || 'a'}
@@ -198,6 +209,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
 );
 
 TreeViewItem.ICON_CLOSED = 'fa-solid fa-chevron-right';
+TreeViewItem.ICON_OPEN = 'fa-solid fa-chevron-down';
 
 TreeViewItem.displayName = 'TreeViewItem';
 

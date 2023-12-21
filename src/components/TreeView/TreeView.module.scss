@@ -1,6 +1,11 @@
 @import 'ljas-ui-theme';
 
 .root {
+    position: relative;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+
     & ul {
         list-style: none;
         padding: 0;
@@ -9,5 +14,8 @@
 }
 
 .item {
+    scroll-margin: 1em;
+    scroll-snap-align: start;
+
     padding-left: calc(var(--TreeView_depth) * var(--TreeView-item_depthIndent, $TreeView-item_depthIndent) + var(--TreeView-item_paddingLeft, $TreeView-item_paddingLeft));
 }
