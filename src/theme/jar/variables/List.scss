@@ -12,8 +12,8 @@ $List-item_gap: $space-md !default;
 $List-item_padding: $space-sm $space-md !default;
 $List-item_transitionDuration: $duration_fast !default;
 $List-item_transitionTimingFunction: $timing_default !default;
-$List-itemLeft_minWidth: $size-xs !default;
-$List-itemRight_minWidth: $size-xs !default;
+$List-itemLeft_minWidth: 0!default;
+$List-itemRight_minWidth: 0 !default;
 
 $List-item_color: inherit !default;
 $List-item_background: transparent !default;
