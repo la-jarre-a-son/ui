@@ -4,6 +4,7 @@ const getLocalIdent = require('./getLocalIdent');
 // Export a function. Accept the base config as the only param.
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  staticDirs: ['../public'],
   addons: ['@storybook/addon-links', {
     name: '@storybook/addon-essentials',
     options: {

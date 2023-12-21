@@ -1,7 +1,5 @@
 import { create } from '@storybook/theming';
 
-import brandImage from "../ljas-ui.png"
-
 export default create({
     base: 'dark',
     colorPrimary: '#3567f0',
@@ -17,5 +15,5 @@ export default create({
     brandTitle: 'LJAS UI',
     brandUrl: 'https://la-jarre-a-son.github.io/ui',
     brandTarget: '_self',
-    brandImage,
+    brandImage: '/logo.png',
 });
