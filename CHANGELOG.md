@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/la-jarre-a-son/ui/compare/v1.2.0...v1.2.1) (2023-12-22)
+
+
+### Bug Fixes
+
+* **TreeView:** add sticky + minor fixes ([6989908](https://github.com/la-jarre-a-son/ui/commit/698990881599cc9917d42d892404de3f8ebdb0d4))
+
 ## [1.2.0](https://github.com/la-jarre-a-son/ui/compare/v1.1.3...v1.2.0) (2023-12-21)
 
 
