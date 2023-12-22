@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/la-jarre-a-son/ui/compare/v1.2.1...v1.2.2) (2023-12-22)
+
+
+### Bug Fixes
+
+* **TreeView:** correctly walk children when auto opening current ([4e05a36](https://github.com/la-jarre-a-son/ui/commit/4e05a36c9dc5fd0787411a97c17764b2e04318db))
+
 ### [1.2.1](https://github.com/la-jarre-a-son/ui/compare/v1.2.0...v1.2.1) (2023-12-22)
 
 
