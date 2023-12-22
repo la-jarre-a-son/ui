@@ -161,3 +161,48 @@ export const Controlled = () => {
     </TreeView>
   );
 };
+
+export const DeeplyNested: StoryObj<typeof TreeView> = {
+  render: () => {
+    const [current, setCurrent] = useState<string>('Not Nested');
+
+    return (
+      <TreeView aria-label="tree example" style={{ width: 300, height: 500 }} sticky>
+        <TreeViewItem left={<Icon name="fa-solid fa-box" />} title="A">
+          <TreeViewItem title="B" left={<Icon name="fa-solid fa-folder" />}>
+            <TreeViewItem title="C" left={<Icon name="fa-solid fa-folder" />}>
+              <TreeViewItem title="D" left={<Icon name="fa-solid fa-folder" />}>
+                <TreeViewItem title="E" left={<Icon name="fa-solid fa-folder" />}>
+                  <TreeViewItem title="F" left={<Icon name="fa-solid fa-folder" />}>
+                    <TreeViewItem title="G" left={<Icon name="fa-solid fa-folder" />}>
+                      <TreeViewItem
+                        title="H"
+                        left={<Icon name="fa-solid fa-file" />}
+                        onClick={() => setCurrent('ABCDEFGH')}
+                        current={current === 'ABCDEFGH'}
+                      />
+                    </TreeViewItem>
+                  </TreeViewItem>
+                </TreeViewItem>
+              </TreeViewItem>
+            </TreeViewItem>
+          </TreeViewItem>
+        </TreeViewItem>
+        <TreeViewItem
+          title="Not Nested"
+          left={<Icon name="fa-solid fa-file" />}
+          onClick={() => setCurrent('Not Nested')}
+          current={current === 'Not Nested'}
+        ></TreeViewItem>
+        <TreeViewItem
+          title="Go to ABCDEFGH"
+          left={<Icon name="fa-solid fa-arrow-up" />}
+          onClick={() => setCurrent('ABCDEFGH')}
+        ></TreeViewItem>
+      </TreeView>
+    );
+  },
+  args: {
+    sticky: false,
+  },
+};
