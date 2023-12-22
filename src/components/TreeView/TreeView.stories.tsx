@@ -36,7 +36,6 @@ export const Default: StoryObj<typeof TreeView> = {
             left={<Icon name="fa-solid fa-box" />}
             key={'P' + p}
             title={`Project ${p}`}
-            selected={current.startsWith(p)}
             defaultOpen={p === 'A'}
           >
             {levels.map((l1) => (
@@ -44,7 +43,6 @@ export const Default: StoryObj<typeof TreeView> = {
                 key={'L1' + l1}
                 title={`Folder ${l1}`}
                 left={<Icon name="fa-solid fa-folder" />}
-                selected={current.startsWith(p + l1)}
               >
                 {levels.map((l2) => (
                   <TreeViewItem
@@ -52,7 +50,6 @@ export const Default: StoryObj<typeof TreeView> = {
                     title={`Sub folder ${l2}`}
                     left={<Icon name="fa-solid fa-folder" />}
                     onClick={() => setCurrent(p + l1 + l2)}
-                    selected={current === p + l1 + l2}
                     current={current === p + l1 + l2}
                   />
                 ))}

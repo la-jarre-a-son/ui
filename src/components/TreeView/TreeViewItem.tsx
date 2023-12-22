@@ -55,6 +55,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
 
     const { depth = 0 } = useTreeView() || {};
     const [open, setOpen] = useState(disabled ? false : defaultOpen);
+    const [hasCurrent, setHasCurrent] = useState(false);
     const rootId = useId(id);
     const [itemRef, mergedRef] = useForkRef(ref);
 
@@ -139,6 +140,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
     useEffect(() => {
       const hasCurrent = hasCurrentChildren(children, TreeViewItem);
       setOpen((open) => open || hasCurrent);
+      setHasCurrent(hasCurrent);
     }, [children]);
 
     if (children && typeof children !== 'string') {
@@ -157,7 +159,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
               onClick={handleClick}
               ref={mergedRef}
               role="treeitem"
-              selected={selected}
+              selected={selected || hasCurrent}
               right={
                 <>
                   {right}
