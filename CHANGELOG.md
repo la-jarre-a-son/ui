@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/la-jarre-a-son/ui/compare/v1.2.2...v1.2.3) (2023-12-22)
+
+
+### Bug Fixes
+
+* **TreeView:** auto select group when hasCurrent ([376e708](https://github.com/la-jarre-a-son/ui/commit/376e708c150e6b73bd13b96726a77cec67d62e4f))
+
 ### [1.2.2](https://github.com/la-jarre-a-son/ui/compare/v1.2.1...v1.2.2) (2023-12-22)
 
 
