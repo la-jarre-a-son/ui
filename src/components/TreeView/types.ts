@@ -8,6 +8,10 @@ export type TreeViewProps = {
    */
   'aria-label': string;
   /**
+   * Makes List header sticky to top
+   */
+  sticky?: boolean;
+  /**
    * The tree view content - should contain TreeViewItem elements
    */
   children?: React.ReactNode;

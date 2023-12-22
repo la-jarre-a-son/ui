@@ -32,27 +32,31 @@ export function useAutoScroll<T extends HTMLElement>(
           // to the element... so scrollTo method is prefered here
           // scrollToElement.scrollIntoView({ behavior, block: 'nearest', inline: 'nearest' });
 
+          const computedStyle = getComputedStyle(scrollToElement);
+          const scrollMarginTop = parseFloat(computedStyle.getPropertyValue('scroll-margin-top'));
+          const scrollMarginLeft = parseFloat(computedStyle.getPropertyValue('scroll-margin-left'));
+
           let top = 0,
             left = 0;
 
           if (containerEl.scrollTop > scrollToElement.offsetTop) {
-            top = scrollToElement.offsetTop;
+            top = scrollToElement.offsetTop - scrollMarginTop;
           } else if (
             containerEl.scrollTop + containerEl.offsetHeight <
             scrollToElement.offsetTop + scrollToElement.offsetHeight
           ) {
-            top = scrollToElement.offsetTop;
+            top = scrollToElement.offsetTop - scrollMarginTop;
           } else {
             top = containerEl.scrollTop;
           }
 
           if (containerEl.scrollLeft > scrollToElement.offsetLeft) {
-            left = scrollToElement.offsetLeft;
+            left = scrollToElement.offsetLeft - scrollMarginLeft;
           } else if (
             containerEl.scrollLeft + containerEl.offsetWidth <
             scrollToElement.offsetLeft + scrollToElement.offsetWidth
           ) {
-            left = scrollToElement.offsetLeft;
+            left = scrollToElement.offsetLeft - scrollMarginLeft;
           } else {
             left = containerEl.scrollLeft;
           }

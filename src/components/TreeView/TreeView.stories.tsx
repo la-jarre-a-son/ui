@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 
@@ -23,50 +23,55 @@ export default {
 } as Meta;
 
 const projects = ['A', 'B', 'C', 'D'];
-const levels = ['1', '2', '3', '4'];
+const levels = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-export const Default = () => {
-  const [current, setCurrent] = useState<string>('C21');
+export const Default: StoryObj<typeof TreeView> = {
+  render: ({ sticky }) => {
+    const [current, setCurrent] = useState<string>('C21');
 
-  return (
-    <TreeView aria-label="tree example" style={{ width: 300, height: 500 }}>
-      {projects.map((p) => (
+    return (
+      <TreeView aria-label="tree example" style={{ width: 300, height: 500 }} sticky={sticky}>
+        {projects.map((p) => (
+          <TreeViewItem
+            left={<Icon name="fa-solid fa-box" />}
+            key={'P' + p}
+            title={`Project ${p}`}
+            selected={current.startsWith(p)}
+            defaultOpen={p === 'A'}
+          >
+            {levels.map((l1) => (
+              <TreeViewItem
+                key={'L1' + l1}
+                title={`Folder ${l1}`}
+                left={<Icon name="fa-solid fa-folder" />}
+                selected={current.startsWith(p + l1)}
+              >
+                {levels.map((l2) => (
+                  <TreeViewItem
+                    key={'L2' + l2}
+                    title={`Sub folder ${l2}`}
+                    left={<Icon name="fa-solid fa-folder" />}
+                    onClick={() => setCurrent(p + l1 + l2)}
+                    selected={current === p + l1 + l2}
+                    current={current === p + l1 + l2}
+                  />
+                ))}
+              </TreeViewItem>
+            ))}
+          </TreeViewItem>
+        ))}
         <TreeViewItem
-          left={<Icon name="fa-solid fa-box" />}
-          key={'P' + p}
-          title={`Project ${p}`}
-          selected={current.startsWith(p)}
-          defaultOpen={p === 'A'}
-        >
-          {levels.map((l1) => (
-            <TreeViewItem
-              key={'L1' + l1}
-              title={`Folder ${l1}`}
-              left={<Icon name="fa-solid fa-folder" />}
-              selected={current.startsWith(p + l1)}
-            >
-              {levels.map((l2) => (
-                <TreeViewItem
-                  key={'L2' + l2}
-                  title={`Sub folder ${l2}`}
-                  left={<Icon name="fa-solid fa-folder" />}
-                  onClick={() => setCurrent(p + l1 + l2)}
-                  selected={current === p + l1 + l2}
-                  current={current === p + l1 + l2}
-                />
-              ))}
-            </TreeViewItem>
-          ))}
-        </TreeViewItem>
-      ))}
-      <TreeViewItem
-        title="Go To P A, F 1, SF 2"
-        left={<Icon name="fa-solid fa-arrow-up" />}
-        onClick={() => setCurrent('A12')}
-      ></TreeViewItem>
-      <TreeViewItem title="Disabled item" disabled left={<Icon name="fa-solid fa-box" />} />
-    </TreeView>
-  );
+          title="Go To P A, F 1, SF 2"
+          left={<Icon name="fa-solid fa-arrow-up" />}
+          onClick={() => setCurrent('A12')}
+        ></TreeViewItem>
+        <TreeViewItem title="Disabled item" disabled left={<Icon name="fa-solid fa-box" />} />
+      </TreeView>
+    );
+  },
+  args: {
+    sticky: false,
+  },
 };
 
 /**

@@ -13,9 +13,43 @@
     }
 }
 
-.item {
-    scroll-margin: 1em;
-    scroll-snap-align: start;
+.group {
+    --List-item_background: #{var(--TreeView-group_background, $TreeView-group_background)};
+    --List-item_color: #{var(--TreeView-group_color, $TreeView-group_color)};
+    --List-item--hover_background: #{var(--TreeView-group--hover_background, $TreeView-group--hover_background)};
+    --List-item--hover_color: #{var(--TreeView-group--hover_color, $TreeView-group--hover_color)};
+    --List-item--active_background: #{var(--TreeView-group--active_background, $TreeView-group--active_background)};
+    --List-item--active_color: #{var(--TreeView-group--active_color, $TreeView-group--active_color)};
 
     padding-left: calc(var(--TreeView_depth) * var(--TreeView-item_depthIndent, $TreeView-item_depthIndent) + var(--TreeView-item_paddingLeft, $TreeView-item_paddingLeft));
+
+    scroll-margin-top: 0;
+    scroll-snap-align: start;
+}
+
+.item {
+    padding-left: calc(var(--TreeView_depth) * var(--TreeView-item_depthIndent, $TreeView-item_depthIndent) + var(--TreeView-item_paddingLeft, $TreeView-item_paddingLeft));
+    scroll-margin-top: 0;
+    scroll-snap-align: start;
+}
+
+// Variant
+
+.--sticky {
+    .group {
+        position: sticky;
+        z-index: calc(50 - var(--TreeView_depth));
+        top: calc(var(--TreeView_depth) * var(--List-item_height, $List-item_height));
+        scroll-margin-top: calc(var(--TreeView_depth) * var(--List-item_height, $List-item_height));
+    }
+
+    .item {
+        scroll-margin: 0;
+        scroll-snap-align: unset;
+    }
+    
+    .item[aria-current=page] {
+        scroll-snap-align: start;
+        scroll-margin-top: calc(var(--TreeView_depth) * var(--List-item_height, $List-item_height));
+    }
 }

@@ -18,7 +18,7 @@ const cx = bindClassNames(styles);
  * Provides an TreeView context and wraps a hierarchical list of collapsible items, with multiple depth.
  */
 export const TreeView = forwardRefWithAs<TreeViewProps, 'nav'>((props, ref) => {
-  const { children, as, className, id, ...otherProps } = props;
+  const { children, as, className, id, sticky, ...otherProps } = props;
 
   const containerRef = useRef<HTMLElement>();
   const parentId = useId(id);
@@ -39,7 +39,11 @@ export const TreeView = forwardRefWithAs<TreeViewProps, 'nav'>((props, ref) => {
 
   return (
     <TreeViewContext.Provider value={{ depth: 0, parentId }}>
-      <Element ref={mergedRef} className={cx('root', className)} {...otherProps}>
+      <Element
+        ref={mergedRef}
+        className={cx('root', sticky && '--sticky', className)}
+        {...otherProps}
+      >
         <ul role="tree" id={parentId}>
           {React.Children.map(children, (c) => {
             // setting tabIndex 0 to the first TreeViewItem

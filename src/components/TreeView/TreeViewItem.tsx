@@ -37,6 +37,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
     const {
       as,
       id,
+      className,
       title,
       right,
       style,
@@ -145,7 +146,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
         <TreeViewContext.Provider value={contextState}>
           <li role="none" onKeyDown={handleKeyDown} onKeyDownCapture={handlePreventNavDown}>
             <ListItem
-              className={cx('item')}
+              className={cx('group', className)}
               style={itemStyle}
               tabIndex={-1}
               {...otherProps}
@@ -188,7 +189,7 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
     return (
       <li role="none" onKeyDown={handleKeyDown} onKeyDownCapture={handlePreventNavDown}>
         <ListItem
-          className={cx('item')}
+          className={cx('item', className)}
           style={itemStyle}
           tabIndex={-1}
           selected={current || selected}

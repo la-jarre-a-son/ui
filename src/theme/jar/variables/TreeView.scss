@@ -1,2 +1,12 @@
 $TreeView-item_paddingLeft: $space-md !default;
 $TreeView-item_depthIndent: $space-lg !default;
+
+$TreeView-group_color: $color-white !default;
+$TreeView-group_borderColor: transparent !default;
+$TreeView-group_background: $color-neutral-dark $gradient-interactive !default;
+$TreeView-group--hover_color: $color-white !default;
+$TreeView-group--hover_background: lighten($color-neutral-dark, 10%) $gradient-interactive !default;
+$TreeView-group--hover_borderColor: transparent !default;
+$TreeView-group--active_color: $color-neutral-lighter !default;
+$TreeView-group--active_background: darken($color-neutral-dark, 10%) $gradient-interactive !default;
+$TreeView-group--active_borderColor: transparent !default;
