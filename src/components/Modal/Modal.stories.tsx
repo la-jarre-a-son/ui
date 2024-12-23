@@ -13,6 +13,7 @@ import Select from '../Select';
 import Typography from '../Typography';
 import ToggleButton from '../ToggleButton';
 import Icon from '../Icon';
+import Input from '../Input';
 
 import { Modal, ModalHeader, ModalContent, ModalActions, ModalActionsSeparator } from '.';
 
@@ -195,13 +196,21 @@ export const FullScreen = () => {
 export const Example = () => {
   const [open, setOpen] = React.useState(false);
   const [fullscreen, setFullscreen] = React.useState(false);
+  const [inputValue, setInputValue] = React.useState('');
+
+  const handleInputChange = (val: string) => setInputValue(val);
 
   const toggleFullscreen = () => setFullscreen((f) => !f);
 
   return (
     <>
       <Button onClick={() => setOpen((p) => !p)}>open modal</Button>
-      <Modal open={open} onClose={() => setOpen(false)} size={fullscreen ? 'fullscreen' : 'md'}>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        size={fullscreen ? 'fullscreen' : 'md'}
+        disableAutoFocus
+      >
         <ModalHeader title={fullscreen ? 'Fullscreen modal' : 'Medium modal'}>
           <ToggleButton
             variant="ghost"
@@ -213,7 +222,16 @@ export const Example = () => {
             <Icon name={fullscreen ? 'fa-solid fa-expand' : 'fa-solid fa-compress'} />
           </ToggleButton>
         </ModalHeader>{' '}
-        <ModalContent>{content}</ModalContent>
+        <ModalContent tabIndex={-1}>
+          <Input
+            value={inputValue}
+            onChange={handleInputChange}
+            placeholder="First input"
+            block
+            autoFocus
+          />
+          <div>{content}</div>
+        </ModalContent>
         <ModalActions>
           <Button variant="ghost" intent="neutral" onClick={() => setOpen(false)}>
             Cancel

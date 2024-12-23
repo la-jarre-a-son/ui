@@ -223,6 +223,7 @@ export const CustomChildren = () => {
           onOpen: () => {
             setSearch('');
           },
+          disableAutoFocus: true,
         }}
         placeholder="Choose a user"
         navOptions={{
@@ -251,6 +252,7 @@ export const CustomChildren = () => {
                 aria-label="Search"
                 left={<i className="fa-solid fa-search" />}
                 onChange={setSearch}
+                autoFocus
               />
             </div>
             <Divider />
