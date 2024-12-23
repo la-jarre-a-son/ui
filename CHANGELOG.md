@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/la-jarre-a-son/ui/compare/v1.2.3...v1.3.0) (2024-12-23)
+
+
+### Features
+
+* **Modal:** added disableAutoFocus prop to allow manual autofocus ([13b1bc1](https://github.com/la-jarre-a-son/ui/commit/13b1bc1d075f431399fa591ff1fd7b718ba2a106))
+
 ### [1.2.3](https://github.com/la-jarre-a-son/ui/compare/v1.2.2...v1.2.3) (2023-12-22)
 
 
