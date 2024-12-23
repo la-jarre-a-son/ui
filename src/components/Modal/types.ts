@@ -44,6 +44,10 @@ export type ModalProps = MergeProps<{
    */
   disablePortal?: boolean;
   /**
+   * Disable the autofocus behaviour, useful when using an autoFocus props on a particular element
+   */
+  disableAutoFocus?: boolean;
+  /**
    * Props to pass to the `useAnimationDuration` hook
    */
   animationProps?: AnimationDurationOptions;

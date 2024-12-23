@@ -37,6 +37,7 @@ export const Modal = forwardRefWithAs<ModalProps, 'div'>((props, ref) => {
     className,
     size,
     disablePortal,
+    disableAutoFocus,
     animationProps = {},
     ...otherProps
   } = props;
@@ -49,6 +50,7 @@ export const Modal = forwardRefWithAs<ModalProps, 'div'>((props, ref) => {
 
   const containerRef = usePopoverContainer({
     refocusOnClose: true,
+    autoFocus: !disableAutoFocus,
     onClose,
     open,
   });
