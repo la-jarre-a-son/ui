@@ -42,7 +42,7 @@ export default {
   },
 } as Meta;
 
-const src = 'https://loremflickr.com/640/480/music,gear/all';
+const src = '/placeholderBackground.svg';
 
 const cardStyle: React.CSSProperties = {
   height: 160,

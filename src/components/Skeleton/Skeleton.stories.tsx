@@ -16,8 +16,7 @@ import Typography from '../Typography';
 
 import { Skeleton } from '.';
 
-const src =
-  'https://images.unsplash.com/photo-1511613022134-eb3d095e6869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80';
+const src = '/placeholderBackground.svg';
 
 export default {
   title: 'Components/Data/Skeleton',

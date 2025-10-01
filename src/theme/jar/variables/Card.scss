@@ -1,12 +1,6 @@
 // Defaults
 $Card_borderRadius: $radius-sm !default;
 $Card--interactive--outlined_borderColor: $color-neutral-normal !default;
-$Card-thumbnailPlaceholder_background: linear-gradient(
-    45deg,
-    #{$color-neutral-dark} 10%,
-    #{$color-neutral-darker} 90%
-) !default;
-
 $Card_padding: $space-md !default;
 $Card_transitionDuration: $duration_fast !default;
 $Card_transitionTimingFunction: ease !default;
@@ -23,6 +17,17 @@ $Card--interactive--hover_background: $color-neutral-normal $gradient-interactiv
 $Card--interactive--hover_borderColor: $color-neutral-light !default;
 
 $Card_animationDuration: $duration_fast !default;
+
+// Image
+
+$Card-thumbnailImage_transitionDuration: $duration_fast !default;
+$Card-thumbnailImage_transitionTimingFunction: ease !default;
+$Card-thumbnailPlaceholder_background: linear-gradient(
+    45deg,
+    #{$color-neutral-dark} 10%,
+    #{$color-neutral-darker} 90%
+) !default;
+
 
 // Header
 
