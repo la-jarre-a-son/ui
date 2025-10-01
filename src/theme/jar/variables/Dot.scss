@@ -1,0 +1,49 @@
+$Dot_boxShadow: none !default;
+$Dot_margin: $space-md !default;
+$Dot--active_animationDuration: 2s !default;
+$Dot--active_animationTimingFunction: ease-in-out !default;
+$Dot--active_glowWidth: $space-md !default;
+
+$Dot_sizes: (
+    'sm': (
+        size: $space-sm,
+    ),
+    'md': (
+        size: $space-md,
+    ),
+    'lg': (
+        size: $space-lg,
+    ),
+) !default;
+
+$Dot_intents: (
+    'neutral': (
+        color: $color-white,
+        activeGlowColor: rgba($color-white, 0.5),
+    ),
+    'primary': (
+        color: $color-primary-normal,
+        activeGlowColor: rgba($color-primary-normal, 0.5),
+    ),
+    'secondary': (
+        color: $color-secondary-normal,
+        activeGlowColor: rgba($color-secondary-normal, 0.5),
+    ),
+    'error': (
+        color: $color-danger-normal,
+        activeGlowColor: rgba($color-danger-normal, 0.5),
+    ),
+    'warning': (
+        color: $color-warning-normal,
+        activeGlowColor: rgba($color-warning-normal, 0.5),
+    ),
+    'success': (
+        color: $color-success-normal,
+        activeGlowColor: rgba($color-success-normal, 0.5),
+    ),
+) !default;
+
+// Defaults
+$Dot_size: map-get($Dot_sizes, 'md', size) !default;
+$Dot_color: map-get($Dot_intents, 'neutral', color) !default;
+$Dot--active_glowColor: map-get($Dot_intents, 'neutral', activeGlowColor) !default;

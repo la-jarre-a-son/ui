@@ -8,6 +8,7 @@ import themeVariablesScss from '!!raw-loader!../../theme/jar/variables/Menu.scss
 
 import Button from '../Button';
 import { CardHeader } from '../Card';
+import Dot from '../Dot';
 import Divider from '../Divider';
 import Icon from '../Icon';
 import Box from '../Box';
@@ -61,7 +62,7 @@ export const MenuButton = () => {
       <MenuItem>Account settings</MenuItem>
       <Divider />
       <MenuItem>Company profile</MenuItem>
-      <MenuItem>Organization #A</MenuItem>
+      <MenuItem right={<Dot intent="success" active />}>Organization #A</MenuItem>
       <MenuItem>Organization #B</MenuItem>
       <MenuItem>Organization #C</MenuItem>
       <Divider />

@@ -8,6 +8,7 @@ export * from './Checkbox';
 export * from './Collapse';
 export * from './Container';
 export * from './ContextMenu';
+export * from './Dot';
 export * from './Divider';
 export * from './Drawer';
 export * from './Dropdown';

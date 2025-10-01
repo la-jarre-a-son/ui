@@ -1,0 +1,68 @@
+@import 'ljas-ui-theme';
+
+// Animation
+
+@keyframes ljasDotActive {
+  0% {
+    box-shadow: 0 0 0 0 var(--Dot--active_glowColor, $Dot--active_glowColor);
+  }
+  100% {
+    box-shadow: 0 0 0 var(--Dot--active_glowWidth, $Dot--active_glowWidth) transparent,
+  }
+}
+
+// Mixins
+
+@mixin ljasDotSize($size, $map) {
+  --Dot_size: var(--Dot--#{$size}_size, #{map-get($map, size)});
+}
+
+@mixin ljasDotIntent($intent, $map) {
+    --Dot_color: var(--Dot--#{$intent}_color, #{map-get($map, color)});
+    --Dot--active_glowColor: var(
+        --Dot--#{$intent}--active_glowColor,
+        #{map-get($map, activeGlowColor)}
+    );
+}
+
+// Classes
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+
+  background: var(--Dot_color, $Dot_color);
+  --Dot--active_glowColor: var(--Dot--active_glowColor, $Dot--active_glowColor);
+  border-radius: 100%;
+  box-shadow: var(--Dot_boxShadow, $Dot_boxShadow);
+
+  height: var(--Dot_size, $Dot_size);
+  width: var(--Dot_size, $Dot_size);
+  margin: var(--Dot_margin, $Dot_margin);
+}
+
+// Sizes
+
+@each $size, $value in $Dot_sizes {
+  .root.--#{$size} {
+    @include ljasDotSize($size, $value);
+  }
+}
+
+// Intents
+
+@each $intent, $value in $Dot_intents {
+    .--#{$intent} {
+        @include ljasDotIntent($intent, $value);
+    }
+}
+
+// States
+
+.--active {
+    animation: var(--Dot--active_animationDuration, $Dot--active_animationDuration) ljasDotActive var(--Dot--active_animationTimingFunction, $Dot--active_animationTimingFunction) infinite;
+}
