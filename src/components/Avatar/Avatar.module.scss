@@ -1,0 +1,132 @@
+@import 'ljas-ui-theme';
+
+// Animation
+
+@keyframes ljasAvatarOnline {
+  0% {
+    box-shadow:
+    0 0 0 var(--Avatar--online_outlineWidth, $Avatar--online_outlineWidth) var(--Avatar--online_outlineColor, $Avatar--online_outlineColor),
+    0 0 0 0 var(--Avatar--online_glowColor, $Avatar--online_glowColor),
+    var(--Avatar_boxShadow, $Avatar_boxShadow);
+  }
+  100% {
+    box-shadow:
+    0 0 0 var(--Avatar--online_outlineWidth, $Avatar--online_outlineWidth) var(--Avatar--online_outlineColor, $Avatar--online_outlineColor),
+    0 0 0 var(--Avatar--online_glowWidth, $Avatar--online_glowWidth) transparent,
+    var(--Avatar_boxShadow, $Avatar_boxShadow);
+  }
+}
+
+// Mixins
+
+@mixin ljasAvatarSize($size, $map) {
+  --Avatar_size: var(--Avatar--#{$size}_size, #{map-get($map, size)});
+  --Avatar_borderRadius: var(--Avatar--#{$size}_borderRadius, #{map-get($map, borderRadius)});
+  --Avatar_boxShadow: var(--Avatar--#{$size}_boxShadow, #{map-get($map, boxShadow)});
+  --Avatar_outlineWidth: var(--Avatar--#{$size}_outlineWidth, #{map-get($map, outlineWidth)});
+
+  @if (map-has-key($map, textStyle)) {
+    @include _textStyle(--Avatar, --Avatar--#{$size}, map-get($map, textStyle)...);
+  } @else {
+    --Avatar_lineHeight: var(--Avatar_size);
+    --Avatar_fontSize: calc(
+      var(--Avatar_size) * var(--Avatar_fontSizeRatio, #{$Avatar_fontSizeRatio})
+    );
+  }
+}
+
+// Classes
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+
+  background: var(--Avatar_background, $Avatar_background);
+  color: var(--Avatar_color, $Avatar_color);
+  border-radius: var(--Avatar_borderRadius, $Avatar_borderRadius);
+  box-shadow: var(--Avatar_boxShadow, $Avatar_boxShadow);
+
+  height: var(--Avatar_size, $Avatar_size);
+  width: var(--Avatar_size, $Avatar_size);
+  min-height: var(--Avatar_size, $Avatar_size);
+  min-width: var(--Avatar_size, $Avatar_size);
+
+  @include _textStyle(null, --Avatar, $Avatar_textStyle...);
+}
+
+.image {
+  position: absolute;
+  width: 100%;
+  height: auto;
+
+  opacity: 0;
+
+  transition:
+    opacity
+    var(--Avatar-image_transitionDuration, $Avatar-image_transitionDuration)
+    var(--Avatar-image_transitionTimingFunction, $Avatar-image_transitionTimingFunction);
+}
+
+// Interactive
+
+a.root,
+button.root {
+  cursor: pointer;
+
+  @include ljasFocus();
+}
+
+// States
+
+.--isLoaded {
+  .image {
+    opacity: 1;
+  }
+}
+
+.--hasError {
+  .image {
+    display: none;
+  }
+}
+
+.skipTransition {
+  .image {
+    transition: none;
+  }
+}
+
+
+// Sizes
+
+@each $size, $value in $Avatar_sizes {
+  .root.--#{$size} {
+    @include ljasAvatarSize($size, $value);
+  }
+}
+
+// Shapes
+
+.--round {
+    border-radius: var(--Avatar--round_borderRadius, $Avatar--round_borderRadius);
+}
+
+.--square {
+    border-radius: var(--Avatar_borderRadius, $Avatar_borderRadius);
+}
+
+.--outlined {
+    box-shadow: 0 0 0 var(--Avatar_outlineWidth, $Avatar_outlineWidth)
+      var(--Avatar_outlineColor, $Avatar_outlineColor),
+      var(--Avatar_boxShadow, $Avatar_boxShadow);
+}
+
+// States
+
+.--online {
+    animation: var(--Avatar--online_animationDuration, $Avatar--online_animationDuration) ljasAvatarOnline var(--Avatar--online_animationTimingFunction, $Avatar--online_animationTimingFunction) infinite;
+}
