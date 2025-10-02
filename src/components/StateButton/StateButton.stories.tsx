@@ -45,8 +45,8 @@ export const Default: StoryObj<typeof StateButton> = {
     intent: 'primary',
     size: 'md',
     disabled: false,
-    left: <Icon name="fa-solid fa-circle" />,
-    right: <Icon name="fa-solid fa-check" />,
+    left: <Icon name="fi fi-rr-circle" />,
+    right: <Icon name="fi fi-rr-check" />,
     onClick: randomPromiseClickHandler,
     loading: false,
   },
@@ -60,9 +60,9 @@ export const CustomIcons: StoryObj<typeof StateButton> = {
   ...Default,
   args: {
     ...Default.args,
-    iconPending: 'fa-solid fa-hourglass fa-spin',
-    iconSuccess: 'fa-solid fa-floppy-disk',
-    iconError: 'fa-solid fa-triangle-exclamation',
+    iconPending: 'fi fi-rr-hourglass',
+    iconSuccess: 'fi fi-rr-disk',
+    iconError: 'fi fi-rr-triangle-warning',
   },
 };
 

@@ -94,7 +94,7 @@ export const Avatar = forwardRefWithAs<AvatarProps, 'div', AvatarStatics>((props
   );
 });
 
-Avatar.ICON_USER = 'fa-regular fa-user';
+Avatar.ICON_USER = 'fi fi-rr-user';
 Avatar.AVATAR_TRANSITION_THRESHOLD = 60; // in milliseconds
 
 Avatar.displayName = 'Avatar';

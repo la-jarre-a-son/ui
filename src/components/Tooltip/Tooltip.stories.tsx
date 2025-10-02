@@ -37,7 +37,7 @@ export const Default: Story<StoryProps> = (props) => (
     <br />
     <Tooltip {...props}>
       <Button icon aria-label="with tooltip" variant="ghost">
-        <Icon name="fa-solid fa-star" />
+        <Icon name="fi fi-rr-star" />
       </Button>
     </Tooltip>
   </>
@@ -77,7 +77,7 @@ export const Placement = () => {
 export const OnIcon = () => {
   return (
     <Tooltip content="46 favorites">
-      <Icon name="fa-solid fa-star" aria-label="favorites" tabIndex={0} />
+      <Icon name="fi fi-rr-star" aria-label="favorites" tabIndex={0} />
     </Tooltip>
   );
 };

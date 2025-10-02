@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import { bindClassNames, forwardRefWithAs, useForkRef } from '../../utils';
 
+import Icon from '../Icon';
 import { CheckboxProps } from './types';
 
 import styles from './Checkbox.module.scss';
@@ -77,17 +78,17 @@ export const Checkbox = forwardRefWithAs<CheckboxProps, 'input', CheckboxStatic>
         {...otherProps}
       />
       <div className={cx('wrapper')}>
-        <i
-          aria-hidden="true"
-          className={cx('icon', checked ? Checkbox.ICON_CHECKED : Checkbox.ICON_INDETERMINATE)}
+        <Icon
+          className={cx('icon')}
+          name={checked ? Checkbox.ICON_CHECKED : Checkbox.ICON_INDETERMINATE}
         />
       </div>
     </Element>
   );
 });
 
-Checkbox.ICON_CHECKED = 'fa-solid fa-check';
-Checkbox.ICON_INDETERMINATE = 'fa-solid fa-minus';
+Checkbox.ICON_CHECKED = 'fi fi-rr-check';
+Checkbox.ICON_INDETERMINATE = 'fi fi-rr-minus';
 
 Checkbox.displayName = 'Checkbox';
 

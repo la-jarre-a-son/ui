@@ -91,19 +91,19 @@ Default.args = {
 export const CreateButtonExample = () => {
   return (
     <ButtonGroup>
-      <Button left={<Icon name="fa-solid fa-cloud-arrow-up" />}>Upload 3D model</Button>
+      <Button left={<Icon name="fi fi-rr-upload" />}>Upload</Button>
       <Menu
         trigger={
           <Button>
-            <Icon name="fa-solid fa-plus" />
+            <Icon name="fi fi-rr-plus" />
           </Button>
         }
       >
-        <MenuItem>Create project</MenuItem>
-        <MenuItem>Create folder</MenuItem>
+        <MenuItem>Create Project</MenuItem>
+        <MenuItem>Create Folder</MenuItem>
         <Divider />
-        <MenuItem>Create 3D material</MenuItem>
-        <MenuItem>Upload 3D model</MenuItem>
+        <MenuItem>Import Project</MenuItem>
+        <MenuItem>Import Folder</MenuItem>
       </Menu>
     </ButtonGroup>
   );

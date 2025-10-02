@@ -62,7 +62,7 @@ export const InputContainer = forwardRefWithAs<InputContainerProps, 'div', Input
   }
 );
 
-InputContainer.ICON_ERROR = 'fa-solid fa-exclamation-circle';
+InputContainer.ICON_ERROR = 'fi fi-rr-exclamation';
 
 InputContainer.displayName = 'InputContainer';
 

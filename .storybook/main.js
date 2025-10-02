@@ -29,6 +29,7 @@ module.exports = {
     autodocs: 'tag', // require use of tags: ['autodocs']
   },
   webpackFinal: async (config) => {
+    config.resolve.alias["assets"] = path.resolve(__dirname, "../src/theme/jar/assets");
     config.module.rules.push(
       {
         test: /\.s(a|c)ss$/,
@@ -44,11 +45,16 @@ module.exports = {
               },
             },
           },
+          'resolve-url-loader',
           {
             loader: 'sass-loader',
             options: {
+              sourceMap: true,
               sassOptions: {
-                includePaths: ['src/theme/jar/']
+                includePaths: [
+                  path.resolve(__dirname, '../node_modules'),
+                  path.resolve(__dirname, '../src/theme/jar')
+                ]
               }
             }
           },
@@ -59,3 +65,4 @@ module.exports = {
     return config;
   },
 };
+

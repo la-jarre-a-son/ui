@@ -36,12 +36,12 @@ export const Default: StoryObj<typeof Toolbar> = {
         <Container>
           <Stack align="center">
             <Button aria-label="menu" icon variant="ghost" intent="neutral">
-              <Icon name="fa-solid fa-bars" />
+              <Icon name="fi fi-rr-burger-menu" />
             </Button>
             <Typography weight="bold">My App</Typography>
             <StackSeparator />
             <Button aria-label="menu" icon variant="ghost" intent="neutral">
-              <Icon name="fa-solid fa-user" />
+              <Icon name="fi fi-rr-user" />
             </Button>
           </Stack>
         </Container>

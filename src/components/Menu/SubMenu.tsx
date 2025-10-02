@@ -112,8 +112,8 @@ export const SubMenu = forwardRefWithStatic<HTMLLIElement, SubMenuProps, SubMenu
   }
 );
 
-SubMenu.ICON_OPEN = 'fa-solid fa-chevron-right';
-SubMenu.ICON_CLOSED = 'fa-solid fa-chevron-right';
+SubMenu.ICON_OPEN = 'fi fi-rr-angle-right';
+SubMenu.ICON_CLOSED = 'fi fi-rr-angle-right';
 
 SubMenu.displayName = 'SubMenu';
 

@@ -1,4 +1,4 @@
-$ljas-ui-asset-path: '../src/theme/jar/assets';
+$ljas-ui-asset-path: '~assets';
 
 @import 'ljas-ui-theme';
 
@@ -7,7 +7,7 @@ $ljas-ui-asset-path: '../src/theme/jar/assets';
 @import '../src/theme/jar/global.scss';
 @import '../src/theme/jar/dark.scss';
 
-:global(.docs-story) {
+.docs-story {
     background: var(--body_background, $body_background);
     color: var(--body_color, $body_color);
 }

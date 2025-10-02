@@ -62,6 +62,6 @@ export const MenuItem = forwardRefWithAs<MenuItemProps, 'button', MenuStatic>(
 
 MenuItem.displayName = 'MenuItem';
 
-MenuItem.ICON_SELECTED = 'fa-solid fa-check';
+MenuItem.ICON_SELECTED = 'fi fi-rr-check';
 
 export default MenuItem;

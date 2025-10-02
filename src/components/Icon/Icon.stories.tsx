@@ -25,7 +25,8 @@ export const Default = Template.bind({});
 Default.args = {
   intent: 'default',
   size: 'md',
-  name: 'fa-solid fa-arrow-up',
+  name: 'fi fi-rr-home',
+  spin: false,
 };
 
 /**
@@ -45,7 +46,7 @@ export const All = () => (
     {IconIntents.map((intent) =>
       IconSizes.map((size) => (
         <div key={`${size}--${intent}`}>
-          <Icon size={size} intent={intent} name="fa-solid fa-home" />
+          <Icon size={size} intent={intent} name="fi fi-rr-home" />
         </div>
       ))
     )}
@@ -61,20 +62,21 @@ const IconShapeStyle = { backgroundColor: 'rgba(127,127,127, 0.3)' };
 export const Shapes = () => {
   return (
     <div style={{ display: 'flex', gap: '8px' }}>
-      <Icon size="lg" name="fa-solid fa-circle" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-page" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-envelope" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-caret-up" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-caret-down" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-plus" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-minus" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-ellipsis-vertical" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-period" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-pipe" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-tick" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-link" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-city" style={IconShapeStyle} />
-      <Icon size="lg" name="fa-solid fa-school" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-circle" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-file" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-envelope" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-caret-up" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-caret-down" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-plus" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-minus" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-menu-dots-vertical" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-heart" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-star" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-upload" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-download" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-link" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-city" style={IconShapeStyle} />
+      <Icon size="lg" name="fi fi-rr-school" style={IconShapeStyle} />
     </div>
   );
 };
@@ -85,9 +87,9 @@ export const Shapes = () => {
 export const AutoSize = () => {
   return (
     <Typography size="lg">
-      <Icon size="auto" name="fa-solid fa-circle" />
+      <Icon size="auto" name="fi fi-rr-circle" />
       &nbsp;This is a text&nbsp;
-      <Icon size="auto" name="fa-solid fa-home" />
+      <Icon size="auto" name="fi fi-rr-home" />
     </Typography>
   );
 };
@@ -99,8 +101,8 @@ export const AutoSize = () => {
 export const AsProps = () => {
   return (
     <>
-      <Icon as="span" name="fa-solid fa-circle" />
-      <Icon as="a" href="https://reactjs.org/" target="_blank" name="fa-solid fa-link" />
+      <Icon as="span" name="fi fi-rr-circle" />
+      <Icon as="a" href="https://reactjs.org/" target="_blank" name="fi fi-rr-link" />
     </>
   );
 };

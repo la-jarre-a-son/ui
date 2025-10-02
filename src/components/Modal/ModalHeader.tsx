@@ -77,7 +77,7 @@ export const ModalHeader = forwardRefWithAs<ModalHeaderProps, 'header', ModalHea
   }
 );
 
-ModalHeader.ICON_CLOSE = 'fa-solid fa-xmark';
+ModalHeader.ICON_CLOSE = 'fi fi-rr-cross';
 
 ModalHeader.displayName = 'ModalHeader';
 

@@ -66,7 +66,7 @@ export const DefaultStory = () => {
       >
         <Breadcrumb>
           <BreadcrumbItem aria-label="Home">
-            <Icon name="fa-solid fa-house" />
+            <Icon name="fi fi-rr-home" />
             My App
           </BreadcrumbItem>
           <BreadcrumbItem current>Settings</BreadcrumbItem>
@@ -75,7 +75,7 @@ export const DefaultStory = () => {
         <ButtonGroup>
           <Tooltip title="Settings">
             <Button variant="filled" intent="primary" icon hoverIntent aria-label="Settings">
-              <Icon name="fa-solid fa-cog" />
+              <Icon name="fi fi-rr-settings" />
             </Button>
           </Tooltip>
           <Tooltip title="Always on Top">
@@ -89,24 +89,24 @@ export const DefaultStory = () => {
               aria-label="Always on Top"
               onClick={toggleAlwaysOnTop}
             >
-              <Icon name="fa-solid fa-thumbtack" />
+              <Icon name="fi fi-rr-thumbtack" />
             </ToggleButton>
           </Tooltip>
           <Tooltip title="Quit">
             <Button variant="filled" intent="danger" icon hoverIntent aria-label="Close">
-              <Icon name="fa-solid fa-power-off" />
+              <Icon name="fi fi-rr-power" />
             </Button>
           </Tooltip>
         </ButtonGroup>
         <ButtonGroup>
           <Button variant="filled" intent="warning" icon hoverIntent aria-label="Minimize">
-            <Icon name="fa-solid fa-window-minimize" />
+            <Icon name="fi fi-rr-window-minimize" />
           </Button>
           <Button variant="filled" intent="success" icon hoverIntent aria-label="Maximize">
-            <Icon name="fa-solid fa-window-maximize" />
+            <Icon name="fi fi-rr-arrow-up-right-and-arrow-down-left-from-center" />
           </Button>
           <Button variant="filled" intent="danger" icon hoverIntent aria-label="Close">
-            <Icon name="fa-solid fa-xmark" />
+            <Icon name="fi fi-rr-cross" />
           </Button>
         </ButtonGroup>
       </Toolbar>
@@ -123,13 +123,13 @@ export const DefaultStory = () => {
               aria-label="Navigation"
               variant="ghost"
             >
-              <Tab left={<Icon name="fa-solid fa-sliders" />} selected>
+              <Tab left={<Icon name="fi fi-rr-settings-sliders" />} selected>
                 General
               </Tab>
-              <Tab left={<Icon name="fa-solid fa-music" />}>Music Notation</Tab>
-              <Tab left={<Icon name="fa-solid fa-globe" />}>Server</Tab>
-              <Tab left={<Icon name="fa-solid fa-heart" />}>Credits</Tab>
-              <Tab left={<Icon name="fa-solid fa-gavel" />}>Licenses</Tab>
+              <Tab left={<Icon name="fi fi-rr-music-alt" />}>Music Notation</Tab>
+              <Tab left={<Icon name="fi fi-rr-globe" />}>Server</Tab>
+              <Tab left={<Icon name="fi fi-rr-heart" />}>Credits</Tab>
+              <Tab left={<Icon name="fi fi-rr-gavel" />}>Licenses</Tab>
             </TabList>
             <Toolbar
               as={Stack}
@@ -225,7 +225,7 @@ export const DefaultStory = () => {
           </Container>
         </Box>
         <Toolbar elevation={3}>
-          <Button left={<Icon name="fa-solid fa-trash" />} intent="neutral">
+          <Button left={<Icon name="fi fi-rr-trash" />} intent="neutral">
             Reset to defaults
           </Button>
         </Toolbar>

@@ -130,7 +130,7 @@ export const Demo = () => {
             <CardThumbnail alt="thumbnail" src={src} />
             <CardThumbnail alt="thumbnail" src={src} />
           </CardThumbnailGrid>
-          <CardHeader left={<Icon name="fa-solid fa-camera" />}>My card</CardHeader>
+          <CardHeader left={<Icon name="fi fi-rr-camera" />}>My card</CardHeader>
         </Card>
       )}
 

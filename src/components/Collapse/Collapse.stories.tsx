@@ -104,11 +104,7 @@ export const CollapseMenu = () => {
             as="button"
             onClick={handleClick(id)}
             right={
-              open === id ? (
-                <Icon name="fa-regular fa-chevron-up" />
-              ) : (
-                <Icon name="fa-regular fa-chevron-down" />
-              )
+              open === id ? <Icon name="fi fi-rr-angle-up" /> : <Icon name="fi fi-rr-angle-down" />
             }
           >
             <strong>{`Menu ${id}`}</strong>

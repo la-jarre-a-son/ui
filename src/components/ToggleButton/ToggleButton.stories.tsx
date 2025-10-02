@@ -52,10 +52,10 @@ export const ToggleGroup = () => {
   return (
     <ButtonGroup>
       <ToggleButton selected={selected} onClick={handleClick(true)} icon aria-label="grid view">
-        <Icon name="fa-solid fa-grid-2" />
+        <Icon name="fi fi-rr-apps" />
       </ToggleButton>
       <ToggleButton selected={!selected} onClick={handleClick(false)} icon aria-label="list view">
-        <Icon name="fa-solid fa-list" />
+        <Icon name="fi fi-rr-list" />
       </ToggleButton>
     </ButtonGroup>
   );

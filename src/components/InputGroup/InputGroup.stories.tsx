@@ -45,13 +45,13 @@ const Template: Story<StoryProps> = ({ ...rest }) => (
   <FormField label="Website URL">
     <InputGroup {...rest}>
       <InputContainerLabel>
-        <Icon name="fa-solid fa-check" />
+        <Icon name="fi fi-rr-check" />
         <span>https://</span>
       </InputContainerLabel>
       <ControlledInput value="ljas.fr" />
       <Tooltip content="blabla blabla bla bla blablabla">
         <InputContainerLabel>
-          <Icon name="fa-solid fa-circle-info" aria-label="info" />
+          <Icon name="fi fi-rr-info" aria-label="info" />
         </InputContainerLabel>
       </Tooltip>
       <Button size="md">Verify</Button>
@@ -99,7 +99,7 @@ export const InputSizes = () => {
       <FormField label="BIG SEARCH">
         <InputGroup block>
           <InputContainerLabel size="lg">
-            <Icon name="fa-solid fa-search" />
+            <Icon name="fi fi-rr-search" />
           </InputContainerLabel>
           <ControlledInput value="Cassettes" size="lg" block />
           <Button size="lg" style={{ flexShrink: 0 }}>

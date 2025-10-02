@@ -136,7 +136,7 @@ export const NestedMenus = () => {
   return (
     <Menu trigger={<Button>open menu</Button>}>
       <MenuItem>View profile</MenuItem>
-      <SubMenu text="Profile" right={<Icon name="fa-solid fa-star" />}>
+      <SubMenu text="Profile" right={<Icon name="fi fi-rr-star" />}>
         <MenuItem>Personal profile</MenuItem>
         <MenuItem>Company profile</MenuItem>
       </SubMenu>
@@ -145,9 +145,9 @@ export const NestedMenus = () => {
         <MenuItem>Organization #B</MenuItem>
       </SubMenu>
       <SubMenu text="Actions">
-        <MenuItem right={<Icon name="fa-solid fa-pen-to-square" />}>Edit</MenuItem>
-        <MenuItem right={<Icon name="fa-solid fa-trash-can" />}>Delete</MenuItem>
-        <MenuItem right={<Icon name="fa-solid fa-copy" />}>Duplicate</MenuItem>
+        <MenuItem right={<Icon name="fi fi-rr-edit" />}>Edit</MenuItem>
+        <MenuItem right={<Icon name="fi fi-rr-trash" />}>Delete</MenuItem>
+        <MenuItem right={<Icon name="fi fi-rr-duplicate" />}>Duplicate</MenuItem>
       </SubMenu>
     </Menu>
   );
@@ -254,8 +254,8 @@ export const MenuMixed = () => {
   return (
     <Menu trigger={<Button>menu</Button>}>
       <MenuGroup header="Navigation">
-        <MenuItem left={<Icon name="fa-solid fa-user" />}>Profile</MenuItem>
-        <MenuItem left={<Icon name="fa-solid fa-file" />}>Account</MenuItem>
+        <MenuItem left={<Icon name="fi fi-rr-user" />}>Profile</MenuItem>
+        <MenuItem left={<Icon name="fi fi-rr-file" />}>Account</MenuItem>
       </MenuGroup>
       <Divider />
       <MenuGroup header="Theme">

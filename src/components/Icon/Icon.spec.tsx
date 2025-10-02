@@ -5,7 +5,7 @@ import Icon from './Icon';
 
 describe('Icon', () => {
   it('render without crashing', async () => {
-    render(<Icon name="fa-solid fa-star" />);
+    render(<Icon name="fi fi-rr-star" />);
 
     const icon = screen.getByRole('img', { hidden: true });
 
@@ -14,7 +14,7 @@ describe('Icon', () => {
 
   it('make use of the as prop', () => {
     render(
-      <Icon as="span" name="fa-solid fa-star">
+      <Icon as="span" name="fi fi-rr-star">
         content
       </Icon>
     );
@@ -25,14 +25,14 @@ describe('Icon', () => {
   });
 
   it('has accessible hidden attribute if no label', () => {
-    render(<Icon name="fa-solid fa-star" />);
+    render(<Icon name="fi fi-rr-star" />);
 
     const icon = screen.getByRole('img', { hidden: true });
     expect(icon).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('can have accessible label', () => {
-    render(<Icon name="fa-solid fa-star" aria-label="Star" />);
+    render(<Icon name="fi fi-rr-star" aria-label="Star" />);
 
     const icon = screen.getByRole('img', { hidden: false });
     expect(icon).toHaveAccessibleName('Star');

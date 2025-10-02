@@ -54,7 +54,7 @@ export const TriggerProps: Story<StoryProps> = () => {
     <Dropdown
       trigger={
         <Button icon aria-label="Open dropdown">
-          <Icon name="fa-solid fa-bars" />
+          <Icon name="fi fi-rr-menu-burger" />
         </Button>
       }
     >
@@ -123,9 +123,7 @@ export const RenderPropsDropdown = () => {
       trigger={({ open, triggerRef }) => (
         <Button
           ref={triggerRef as React.Ref<HTMLButtonElement>}
-          right={
-            open ? <Icon name="fa-solid fa-chevron-up" /> : <Icon name="fa-solid fa-chevron-down" />
-          }
+          right={open ? <Icon name="fi fi-rr-angle-up" /> : <Icon name="fi fi-rr-angle-down" />}
         >
           Log in
         </Button>

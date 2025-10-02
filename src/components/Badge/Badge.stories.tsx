@@ -40,8 +40,8 @@ export const WithIcons: StoryObj<typeof Badge> = {
     children: 'With icons',
     intent: 'primary',
     size: 'md',
-    left: <Icon name="fa-solid fa-arrow-up" />,
-    right: <Icon name="fa-solid fa-close" />,
+    left: <Icon name="fi fi-rr-angle-up" />,
+    right: <Icon name="fi fi-rr-cross" />,
   },
 };
 
@@ -50,7 +50,7 @@ export const IconOnly: StoryObj<typeof Badge> = {
   args: {
     intent: 'primary',
     size: 'md',
-    right: <Icon name="fa-solid fa-close" />,
+    right: <Icon name="fi fi-rr-cross" />,
   },
 };
 
@@ -72,7 +72,7 @@ export const InButton: StoryObj<typeof Badge> = {
   args: {
     intent: 'primary',
     size: 'md',
-    right: <Icon name="fa-solid fa-close" />,
+    right: <Icon name="fi fi-rr-cross" />,
   },
 };
 
@@ -110,17 +110,12 @@ export const InInput: StoryObj<typeof Badge> = {
           <Stack gap="sm" wrap style={{ maxWidth: '100%' }}>
             {tags.map((tag, index) => (
               <Badge
+                as="button"
+                onClick={() => handleRemove(index)}
                 key={index}
                 {...rest}
                 size={size}
-                right={
-                  <Icon
-                    as="button"
-                    onClick={() => handleRemove(index)}
-                    name="fa-solid fa-xmark"
-                    aria-label="Remove"
-                  />
-                }
+                right={<Icon name="fi fi-rr-cross" aria-label="Remove" />}
               >
                 {tag}
               </Badge>

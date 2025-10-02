@@ -70,8 +70,8 @@ export const Switch = forwardRefWithAs<SwitchProps, 'input', SwitchStatic>(
   }
 );
 
-Switch.ICON_UNCHECKED = 'fa-solid fa-xmark';
-Switch.ICON_CHECKED = 'fa-solid fa-check';
+Switch.ICON_UNCHECKED = 'fi fi-rr-cross';
+Switch.ICON_CHECKED = 'fi fi-rr-check';
 
 Switch.displayName = 'Switch';
 

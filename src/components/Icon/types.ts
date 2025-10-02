@@ -28,4 +28,8 @@ export interface IconProps {
    * The Icon size (in teeshirt size)
    */
   size?: IconSize;
+  /**
+   * Make the icon spin (clockwise)
+   */
+  spin?: boolean;
 }

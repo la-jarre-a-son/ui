@@ -40,8 +40,8 @@ Default.args = {
   value: 'Text value',
   placeholder: 'Placeholder Value',
   error: '',
-  left: <Icon name="fa-solid fa-at" />,
-  right: <Icon name="fa-solid fa-search" />,
+  left: <Icon name="fi fi-rr-at" />,
+  right: <Icon name="fi fi-rr-search" />,
   disabled: false,
   size: 'md',
   block: false,
@@ -53,7 +53,7 @@ Default.args = {
  */
 export const CustomInput = () => {
   return (
-    <Input right={<Icon name="fa-solid fa-floppy-disk" />}>
+    <Input right={<Icon name="fi fi-rr-disk" />}>
       <div style={{ width: '100%' }}>Choose a file</div>
       <input
         type="file"

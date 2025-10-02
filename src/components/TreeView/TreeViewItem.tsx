@@ -211,8 +211,8 @@ export const TreeViewItem = forwardRefWithAs<TreeViewItemProps, 'a', TreeViewSta
   }
 );
 
-TreeViewItem.ICON_CLOSED = 'fa-solid fa-chevron-right';
-TreeViewItem.ICON_OPEN = 'fa-solid fa-chevron-down';
+TreeViewItem.ICON_CLOSED = 'fi fi-rr-angle-right';
+TreeViewItem.ICON_OPEN = 'fi fi-rr-angle-down';
 
 TreeViewItem.displayName = 'TreeViewItem';
 

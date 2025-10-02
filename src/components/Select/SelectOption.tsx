@@ -71,7 +71,7 @@ export const SelectOption = forwardRefWithAs<
   );
 });
 
-SelectOption.ICON_SELECTED = 'fa-solid fa-check';
+SelectOption.ICON_SELECTED = 'fi fi-rr-check';
 
 SelectOption.displayName = 'SelectOption';
 

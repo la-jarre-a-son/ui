@@ -219,7 +219,13 @@ export const Example = () => {
             selected={fullscreen}
             onClick={toggleFullscreen}
           >
-            <Icon name={fullscreen ? 'fa-solid fa-expand' : 'fa-solid fa-compress'} />
+            <Icon
+              name={
+                fullscreen
+                  ? 'fi fi-rr-down-left-and-up-right-to-center'
+                  : 'fi fi-rr-arrow-up-right-and-arrow-down-left-from-center'
+              }
+            />
           </ToggleButton>
         </ModalHeader>{' '}
         <ModalContent tabIndex={-1}>

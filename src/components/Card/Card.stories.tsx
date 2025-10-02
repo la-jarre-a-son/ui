@@ -100,7 +100,7 @@ export const Header = () => {
         <CardHeader
           right={
             <Button aria-label="edit" icon variant="ghost" intent="neutral">
-              <Icon name="fa-solid fa-ellipsis" />
+              <Icon name="fi fi-rr-menu-dots" />
             </Button>
           }
         >
@@ -172,14 +172,14 @@ export const ThumbnailItem = () => {
       <CardThumbnail src={src} alt="img">
         <CardThumbnailOverlay></CardThumbnailOverlay>
         <CardThumbnailItem position="top-left">
-          <Icon name="fa-solid fa-heart" />
+          <Icon name="fi fi-rr-heart" />
         </CardThumbnailItem>
         <CardThumbnailItem position="center">
           <Button>show more</Button>
         </CardThumbnailItem>
         <CardThumbnailItem position="bottom-right">
           <Button icon aria-label="add">
-            <Icon name="fa-solid fa-plus" />
+            <Icon name="fi fi-rr-plus" />
           </Button>
         </CardThumbnailItem>
       </CardThumbnail>
@@ -211,7 +211,7 @@ export const ThumbnailOverlay = () => {
           </CardThumbnailOverlay>
           <CardThumbnailItem position="top-right">
             <Button aria-label="delete" icon intent="danger" hoverIntent>
-              <Icon name="fa-solid fa-trash" />
+              <Icon name="fi fi-rr-trash" />
             </Button>
           </CardThumbnailItem>
         </CardThumbnail>
@@ -234,7 +234,7 @@ export const ThumbnailOverlay = () => {
           </CardThumbnailOverlay>
           <CardThumbnailItem position="top-right">
             <Button aria-label="delete" icon intent="danger" hoverIntent>
-              <Icon name="fa-solid fa-trash" />
+              <Icon name="fi fi-rr-trash" />
             </Button>
           </CardThumbnailItem>
         </CardThumbnail>
@@ -327,7 +327,7 @@ export const Interactive = () => {
         aria-pressed={selected}
       >
         <CardHeader
-          left={selected ? <Checkbox as="span" checked /> : <Icon name="fa-solid fa-folder" />}
+          left={selected ? <Checkbox as="span" checked /> : <Icon name="fi fi-rr-folder" />}
         >
           Selectable card
         </CardHeader>
@@ -357,7 +357,7 @@ export const GlobalClickHandler = () => {
     <Menu
       trigger={
         <Button aria-label="action" icon variant="ghost" intent="neutral">
-          <Icon name="fa-solid fa-ellipsis" />
+          <Icon name="fi fi-rr-menu-dots" />
         </Button>
       }
     >
@@ -383,7 +383,7 @@ export const GlobalClickHandler = () => {
             <Checkbox as="span" checked />
           ) : (
             <Typography intent="placeholder">
-              <Icon name="fa-solid fa-folder" />
+              <Icon name="fi fi-rr-folder" />
             </Typography>
           )
         }

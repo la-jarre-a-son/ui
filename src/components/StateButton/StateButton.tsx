@@ -147,9 +147,9 @@ export const StateButton = forwardRefWithAs<StateButtonProps, typeof Button, Sta
 );
 
 StateButton.FEEDBACK_DURATION = 1500;
-StateButton.ICON_PENDING = 'fa-solid fa-circle-notch fa-spin';
-StateButton.ICON_SUCCESS = 'fa-solid fa-check';
-StateButton.ICON_ERROR = 'fa-solid fa-xmark';
+StateButton.ICON_PENDING = 'fi fi-rr-spinner';
+StateButton.ICON_SUCCESS = 'fi fi-rr-check';
+StateButton.ICON_ERROR = 'fi fi-rr-cross';
 
 StateButton.displayName = 'StateButton';
 
@@ -166,7 +166,7 @@ function FeedbackRender({
 }): JSX.Element {
   return (
     <span className={cx('feedback')}>
-      {status === 'pending' && <Icon name={iconPending ?? StateButton.ICON_PENDING} />}
+      {status === 'pending' && <Icon name={iconPending ?? StateButton.ICON_PENDING} spin />}
       {status === 'success' && <Icon name={iconSuccess ?? StateButton.ICON_SUCCESS} />}
       {status === 'error' && <Icon name={iconError ?? StateButton.ICON_ERROR} />}
     </span>

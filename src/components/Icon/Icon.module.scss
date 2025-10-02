@@ -1,5 +1,16 @@
 @import 'ljas-ui-theme';
 
+// Animations
+
+@keyframes ljasIconSpin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 // Mixins
 
 @mixin ljasIconSize($name, $map) {
@@ -44,4 +55,10 @@
     .--#{$intent} {
         @include ljasIconIntent($intent, $value);
     }
+}
+
+// Effects
+
+.--spin {
+    animation: ljasIconSpin var(--Icon_animationDuration, $Icon_animationDuration) linear infinite;
 }

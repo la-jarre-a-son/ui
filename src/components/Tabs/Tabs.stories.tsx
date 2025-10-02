@@ -58,7 +58,7 @@ export const Default: Story<StoryProps> = ({
       </Tab>
       <Tab id="1">Tab 1</Tab>
       <Tab id="2">Tab 2</Tab>
-      <Tab id="3" left={<Icon name="fa-solid fa-envelope" />}>
+      <Tab id="3" left={<Icon name="fi fi-rr-envelope" />}>
         Tab 3 with an icon and a long text
       </Tab>
       <Tab id="4">Tab 4</Tab>
@@ -108,7 +108,7 @@ export const HorizontalTabs: Story<StoryProps> = ({ selected: initialSelected })
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -133,7 +133,7 @@ export const HorizontalTabs: Story<StoryProps> = ({ selected: initialSelected })
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -153,7 +153,7 @@ export const HorizontalTabs: Story<StoryProps> = ({ selected: initialSelected })
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -187,7 +187,7 @@ export const VerticalTabs: Story<{ selected: string }> = ({ selected: initialSel
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -213,7 +213,7 @@ export const VerticalTabs: Story<{ selected: string }> = ({ selected: initialSel
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -239,7 +239,7 @@ export const VerticalTabs: Story<{ selected: string }> = ({ selected: initialSel
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -280,7 +280,7 @@ export const StretchTabs = () => {
         <Tab id="4">Team</Tab>
         <Tab id="5">Plan</Tab>
         <Tab id="6">Billing</Tab>
-        <Tab id="7" left={<Icon name="fa-solid fa-envelope" />}>
+        <Tab id="7" left={<Icon name="fi fi-rr-envelope" />}>
           Email
         </Tab>
       </TabList>
@@ -343,17 +343,17 @@ export const TabsComposed = () => {
     >
       <Tooltip content="My favorites">
         <Tab id="0">
-          <Icon name="fa-solid fa-star" />
+          <Icon name="fi fi-rr-star" />
         </Tab>
       </Tooltip>
       <Tooltip content="My messages">
         <Tab id="1">
-          <Icon name="fa-solid fa-envelope" />
+          <Icon name="fi fi-rr-envelope" />
         </Tab>
       </Tooltip>
       <Tooltip content="My messages">
         <Tab id="3">
-          <Icon name="fa-solid fa-cog" />
+          <Icon name="fi fi-rr-settings" />
         </Tab>
       </Tooltip>
     </TabList>

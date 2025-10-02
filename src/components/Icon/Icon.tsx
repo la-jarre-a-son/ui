@@ -17,7 +17,7 @@ type IconStatics = {
  * Renders an icon with icon classes and standardized styling
  */
 export const Icon = forwardRefWithAs<IconProps, 'i', IconStatics>((props, ref) => {
-  const { name, intent, size, className, as, ...otherProps } = props;
+  const { name, intent, size, spin, className, as, ...otherProps } = props;
 
   const Element = as || Icon.IconComponent;
 
@@ -25,7 +25,14 @@ export const Icon = forwardRefWithAs<IconProps, 'i', IconStatics>((props, ref) =
     <Element
       ref={ref}
       role="img"
-      className={cx('root', intent && `--${intent}`, size && `--${size}`, name, className)}
+      className={cx(
+        'root',
+        intent && `--${intent}`,
+        size && `--${size}`,
+        spin && `--spin`,
+        name,
+        className
+      )}
       aria-hidden={otherProps?.['aria-label'] ? 'false' : 'true'}
       name={Element !== 'i' ? name : undefined}
       {...otherProps}

@@ -26,8 +26,8 @@ export const Default: StoryObj<typeof Button> = {
     intent: 'primary',
     size: 'md',
     disabled: false,
-    left: <Icon name="fa-regular fa-circle" />,
-    right: <Icon name="fa-regular fa-check" />,
+    left: <Icon name="fi fi-rr-circle" />,
+    right: <Icon name="fi fi-rr-check" />,
   },
 };
 
@@ -205,7 +205,7 @@ export const IconButton = () => {
                   variant={variant}
                   intent={intent}
                 >
-                  <Icon name="fa-regular fa-check" />
+                  <Icon name="fi fi-rr-check" />
                 </Button>
               </div>
               <div key={`${size}--${variant}--${intent}--rounded`}>
@@ -217,7 +217,7 @@ export const IconButton = () => {
                   intent={intent}
                   rounded
                 >
-                  <Icon name="fa-regular fa-check" />
+                  <Icon name="fi fi-rr-check" />
                 </Button>
               </div>
             </Fragment>

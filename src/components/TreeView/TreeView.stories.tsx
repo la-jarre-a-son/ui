@@ -33,7 +33,7 @@ export const Default: StoryObj<typeof TreeView> = {
       <TreeView aria-label="tree example" style={{ width: 300, height: 500 }} sticky={sticky}>
         {projects.map((p) => (
           <TreeViewItem
-            left={<Icon name="fa-solid fa-box" />}
+            left={<Icon name="fi fi-rr-box" />}
             key={'P' + p}
             title={`Project ${p}`}
             defaultOpen={p === 'A'}
@@ -42,13 +42,13 @@ export const Default: StoryObj<typeof TreeView> = {
               <TreeViewItem
                 key={'L1' + l1}
                 title={`Folder ${l1}`}
-                left={<Icon name="fa-solid fa-folder" />}
+                left={<Icon name="fi fi-rr-folder" />}
               >
                 {levels.map((l2) => (
                   <TreeViewItem
                     key={'L2' + l2}
                     title={`Sub folder ${l2}`}
-                    left={<Icon name="fa-solid fa-folder" />}
+                    left={<Icon name="fi fi-rr-folder" />}
                     onClick={() => setCurrent(p + l1 + l2)}
                     current={current === p + l1 + l2}
                   />
@@ -59,10 +59,10 @@ export const Default: StoryObj<typeof TreeView> = {
         ))}
         <TreeViewItem
           title="Go To P A, F 1, SF 2"
-          left={<Icon name="fa-solid fa-arrow-up" />}
+          left={<Icon name="fi fi-rr-angle-up" />}
           onClick={() => setCurrent('A12')}
         ></TreeViewItem>
-        <TreeViewItem title="Disabled item" disabled left={<Icon name="fa-solid fa-box" />} />
+        <TreeViewItem title="Disabled item" disabled left={<Icon name="fi fi-rr-box" />} />
       </TreeView>
     );
   },
@@ -116,7 +116,7 @@ export const Controlled = () => {
     <TreeView aria-label="tree example" style={{ width: 300 }}>
       {projects.map((p) => (
         <TreeViewItem
-          left={<Icon name="fa-solid fa-box" />}
+          left={<Icon name="fi fi-rr-box" />}
           key={p}
           title={`Project ${p}`}
           right={getItemBadge(p)}
@@ -128,7 +128,7 @@ export const Controlled = () => {
             <TreeViewItem
               key={l1}
               title={`Folder ${l1}`}
-              left={<Icon name="fa-solid fa-folder" />}
+              left={<Icon name="fi fi-rr-folder" />}
               right={getItemBadge(p + l1)}
               onOpen={handleOpen(p + l1)}
               onClose={handleClose(p + l1)}
@@ -138,7 +138,7 @@ export const Controlled = () => {
                 <TreeViewItem
                   key={l2}
                   title={`Sub folder ${l2}`}
-                  left={<Icon name="fa-solid fa-folder" />}
+                  left={<Icon name="fi fi-rr-folder" />}
                   onClick={handleClick(p + l1 + l2)}
                   selected={selectedSections.has(p + l1 + l2)}
                 />
@@ -148,13 +148,13 @@ export const Controlled = () => {
                 onClick={handleClick('disabled')}
                 selected={selectedSections.has('disabled')}
                 disabled
-                left={<Icon name="fa-solid fa-box" />}
+                left={<Icon name="fi fi-rr-box" />}
               />
             </TreeViewItem>
           ))}
         </TreeViewItem>
       ))}
-      <TreeViewItem title="Disabled item" disabled left={<Icon name="fa-solid fa-box" />} />
+      <TreeViewItem title="Disabled item" disabled left={<Icon name="fi fi-rr-box" />} />
     </TreeView>
   );
 };
@@ -165,16 +165,16 @@ export const DeeplyNested: StoryObj<typeof TreeView> = {
 
     return (
       <TreeView aria-label="tree example" style={{ width: 300, height: 500 }} sticky>
-        <TreeViewItem left={<Icon name="fa-solid fa-box" />} title="A">
-          <TreeViewItem title="B" left={<Icon name="fa-solid fa-folder" />}>
-            <TreeViewItem title="C" left={<Icon name="fa-solid fa-folder" />}>
-              <TreeViewItem title="D" left={<Icon name="fa-solid fa-folder" />}>
-                <TreeViewItem title="E" left={<Icon name="fa-solid fa-folder" />}>
-                  <TreeViewItem title="F" left={<Icon name="fa-solid fa-folder" />}>
-                    <TreeViewItem title="G" left={<Icon name="fa-solid fa-folder" />}>
+        <TreeViewItem left={<Icon name="fi fi-rr-box" />} title="A">
+          <TreeViewItem title="B" left={<Icon name="fi fi-rr-folder" />}>
+            <TreeViewItem title="C" left={<Icon name="fi fi-rr-folder" />}>
+              <TreeViewItem title="D" left={<Icon name="fi fi-rr-folder" />}>
+                <TreeViewItem title="E" left={<Icon name="fi fi-rr-folder" />}>
+                  <TreeViewItem title="F" left={<Icon name="fi fi-rr-folder" />}>
+                    <TreeViewItem title="G" left={<Icon name="fi fi-rr-folder" />}>
                       <TreeViewItem
                         title="H"
-                        left={<Icon name="fa-solid fa-file" />}
+                        left={<Icon name="fi fi-rr-file" />}
                         onClick={() => setCurrent('ABCDEFGH')}
                         current={current === 'ABCDEFGH'}
                       />
@@ -187,13 +187,13 @@ export const DeeplyNested: StoryObj<typeof TreeView> = {
         </TreeViewItem>
         <TreeViewItem
           title="Not Nested"
-          left={<Icon name="fa-solid fa-file" />}
+          left={<Icon name="fi fi-rr-file" />}
           onClick={() => setCurrent('Not Nested')}
           current={current === 'Not Nested'}
         ></TreeViewItem>
         <TreeViewItem
           title="Go to ABCDEFGH"
-          left={<Icon name="fa-solid fa-arrow-up" />}
+          left={<Icon name="fi fi-rr-angle-up" />}
           onClick={() => setCurrent('ABCDEFGH')}
         ></TreeViewItem>
       </TreeView>

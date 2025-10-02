@@ -12,13 +12,13 @@ describe('Breadcrumb', () => {
     const { container } = render(
       <Breadcrumb>
         <BreadcrumbItem aria-label="Home">
-          <Icon name="fa-solid fa-house" />
+          <Icon name="fi fi-rr-home" />
         </BreadcrumbItem>
         <BreadcrumbItem>Organization</BreadcrumbItem>
         <BreadcrumbItem>Models</BreadcrumbItem>
         <BreadcrumbItem current>
           Detail
-          <Icon name="fa-solid fa-magnifying-glass" />
+          <Icon name="fi fi-rr-search" />
         </BreadcrumbItem>
       </Breadcrumb>
     );

@@ -103,14 +103,14 @@ export const RenderInput = () => {
           ref={triggerRef}
           left={
             <Icon
-              name="fa-solid fa-chevron-down"
+              name="fi fi-rr-angle-down"
               style={{
                 transition: 'transform 200ms',
                 transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
               }}
             />
           }
-          right={value ? <Icon name="fa-solid fa-pencil" /> : ''}
+          right={value ? <Icon name="fi fi-rr-pencil" /> : ''}
         >
           {selectedOption?.label || 'Select user'}
         </Button>
@@ -144,7 +144,7 @@ export const RenderFunctionAsChild = () => {
             <SelectOption
               left={
                 <>
-                  <Icon name="fa-solid fa-user" />
+                  <Icon name="fi fi-rr-user" />
                 </>
               }
               key={o.value}
@@ -250,7 +250,7 @@ export const CustomChildren = () => {
                 placeholder="Search"
                 block
                 aria-label="Search"
-                left={<i className="fa-solid fa-search" />}
+                left={<Icon name="fi fi-rr-search" />}
                 onChange={setSearch}
                 autoFocus
               />

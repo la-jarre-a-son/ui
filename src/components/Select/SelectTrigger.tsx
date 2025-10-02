@@ -62,7 +62,7 @@ SelectTrigger.defaultProps = {
 
 SelectTrigger.displayName = 'SelectTrigger';
 
-SelectTrigger.ICON_OPEN = 'fa-solid fa-angle-up';
-SelectTrigger.ICON_CLOSED = 'fa-solid fa-angle-down';
+SelectTrigger.ICON_OPEN = 'fi fi-rr-angle-up';
+SelectTrigger.ICON_CLOSED = 'fi fi-rr-angle-down';
 
 export default SelectTrigger;
