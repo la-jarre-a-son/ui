@@ -3,13 +3,13 @@
 
 $Theme_selector: '.theme-jar' !default;
 
-:global(#{$Theme_selector}) {
+#{$Theme_selector} {
   &, * {
     @include ljasScrollBar($scrollbar_width, $scrollbar_padding, $scrollbar_radius, $scrollbar-track_color, $scrollbar-thumb_color);
   }
 }
 
-body:global(.ljas-hide-scroll) {
+body.ljas-hide-scroll {
   overflow: hidden;
   padding-right: var(--ljas-scrollbarWidth, 0px) !important;
 }

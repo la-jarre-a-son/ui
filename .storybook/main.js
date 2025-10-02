@@ -1,5 +1,4 @@
 const path = require('path');
-const getLocalIdent = require('./getLocalIdent');
 
 // Export a function. Accept the base config as the only param.
 module.exports = {
@@ -40,8 +39,11 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]__[hash:base62:5]',
-                getLocalIdent
+                auto: true,
+                namedExport: false,
+                exportLocalsConvention: 'as-is',
+                localIdentRegExp: /[/\\]([^/\\]+?)(?:\.module)?\.[^./\\]+$/,
+                localIdentName: '[1]-[local]_[hash:base64:5]',
               },
             },
           },
