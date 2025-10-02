@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { arrow as arrowMiddleware, flip, Middleware, offset, shift } from '@floating-ui/react-dom';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { useMergeRef } from '../../utils/refUtils';
+
 import { usePopper } from '../Popper';
 
 import styles from './Tooltip.module.scss';

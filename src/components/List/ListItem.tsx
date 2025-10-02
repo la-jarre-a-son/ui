@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
 import styles from './List.module.scss';
 

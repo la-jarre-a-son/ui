@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 
-import List from '../List';
-import Box from '../Box';
+import { List } from '../List';
+import { Box } from '../Box';
 
 import styles from './Dropdown.module.scss';
 

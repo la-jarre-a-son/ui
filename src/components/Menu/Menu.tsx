@@ -2,10 +2,11 @@ import React, { forwardRef, useMemo } from 'react';
 
 import { MergeProps } from '../../utils/typeUtils';
 import { useMergeRef } from '../../utils/refUtils';
-import useListNav from '../../utils/useListNav';
-import useEvent from '../../utils/useEvent';
 
-import Dropdown, { DropdownList, DropdownListProps, DropdownProps } from '../Dropdown';
+import { useListNav } from '../../hooks/useListNav';
+import { useEvent } from '../../hooks/useEvent';
+
+import { Dropdown, DropdownList, DropdownListProps, DropdownProps } from '../Dropdown';
 
 import { MenuContext } from './MenuContext';
 

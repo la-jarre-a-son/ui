@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 
-import useVirtualGrid, { VirtualGridRenderItem, VirtualGridOptions } from './useVirtualGrid';
-import Grid, { GridProps } from './Grid';
+import { useVirtualGrid, VirtualGridRenderItem, VirtualGridOptions } from './useVirtualGrid';
+import { Grid, GridProps } from './Grid';
 
 /* Props */
 

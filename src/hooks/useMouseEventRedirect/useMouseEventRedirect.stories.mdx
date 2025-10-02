@@ -1,0 +1,93 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+<Meta title="Hooks/useMouseEventRedirect" />
+
+# useMouseEventRedirect
+
+The `useMouseEventRedirect` hook can be used to catch and redirect event of type `click` and `auxclick` from an element to another.
+It is usefull when you wan't a container element to trigger an action (from a button or link) without having to nest interactive elements.
+
+> ⚠️ Beware of the possible side effects of using this pattern.
+> Use it sparingly and only if necessary.
+
+This hook return a tuple container the ref to pass to the event capture container as a first entry and the ref to pass to the event handler redirect as a second entry.
+
+```tsx
+const CardLikeComponent: React.FC = () => {
+    const [cardRef, triggerRef] = useMouseEventRedirect<HTMLDivElement, HTMLAnchorElement>();
+
+    return (
+        <div ref={cardRef} interactive selected={selected} outlined>
+            <div>clicking here will also trigger the main link</div>
+            <a ref={triggerRef}>main link triggered on div click</a>
+        </div>
+    );
+};
+```
+
+## Options
+
+The `useMouseEventRedirect` hook can accept a configuration object as parameter.
+
+### Disable
+
+You can completly shut down the redirection with the `disabled` boolean prop.
+
+```tsx
+const CardLikeComponent: React.FC = () => {
+    const [cardRef, triggerRef] = useMouseEventRedirect<HTMLDivElement, HTMLAnchorElement>({
+        disabled: true,
+    });
+
+    return (
+        <div ref={cardRef} interactive selected={selected} outlined>
+            <div>clicking here will do nothing</div>
+            <a ref={triggerRef}>main link triggered on div click</a>
+        </div>
+    );
+};
+```
+
+### Non interactive element only
+
+You can redirect when clicking on non-interactive element only with the `nonInteractiveOnly` boolean prop.
+
+```tsx
+const CardLikeComponent: React.FC = () => {
+    const [cardRef, triggerRef] = useMouseEventRedirect<HTMLDivElement, HTMLAnchorElement>({
+        nonInteractiveOnly: true,
+    });
+
+    return (
+        <div ref={cardRef} interactive selected={selected} outlined>
+            <div>clicking here will trigger the main link</div>
+            <a ref={triggerRef}>main link triggered on div click</a>
+            <a>clicking here will not trigger the main link</a>
+            <input type="text" placeholder="clicking here will not trigger the main link" />
+        </div>
+    );
+};
+```
+
+
+### Conditionnal redirection
+
+You can pass a custom redirect condition function with the `checkRedirect` prop.
+
+```tsx
+const CardLikeComponent: React.FC = () => {
+    const [cardRef, triggerRef] = useMouseEventRedirect<HTMLDivElement, HTMLAnchorElement>({
+        checkRedirect: (e: MouseEvent, card: HTMLDivElement, mainLink: HTMLAnchorElement) => {
+            // to conditions
+            return true;
+        },
+    });
+
+    return (
+        <div ref={cardRef} interactive selected={selected} outlined>
+            <div>clicking here will trigger the main link</div>
+            <a ref={triggerRef}>main link triggered on div click</a>
+        </div>
+    );
+};
+```

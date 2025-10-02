@@ -2,9 +2,9 @@ import React, { useEffect, CSSProperties } from 'react';
 import { MiddlewareData } from '@floating-ui/core';
 
 import { useMergeRef } from '../../utils/refUtils';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
-import usePopper, { PopperOptions } from './usePopper';
+import { usePopper, PopperOptions } from './usePopper';
 
 /* Props */
 

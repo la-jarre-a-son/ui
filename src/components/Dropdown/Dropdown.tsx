@@ -1,18 +1,18 @@
 import React, { cloneElement, isValidElement } from 'react';
 
-import { MergeProps } from '../../utils/typeUtils';
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+import { MergeProps } from '../../utils/typeUtils';
 import { getChildRef, useMergeRef, useForkRef } from '../../utils/refUtils';
 import { attemptFocus } from '../../utils/focusUtils';
-import useEvent from '../../utils/useEvent';
-import useCreatePortal from '../../utils/useCreatePortal';
-import usePopoverContainer from '../../utils/usePopoverContainer';
-import usePopoverTrigger from '../../utils/usePopoverTrigger';
-import useAnimationDuration from '../../utils/useAnimationDuration';
+
+import { useEvent } from '../../hooks/useEvent';
+import { useCreatePortal } from '../../hooks/useCreatePortal';
+import { usePopoverContainer, usePopoverTrigger } from '../../hooks/usePopover';
+import { useAnimationDuration } from '../../hooks/useAnimationDuration';
 
 import { ModalStack } from '../ModalStack';
-import Popper, { PopperProps } from '../Popper';
+import { Popper, PopperProps } from '../Popper';
 
 import { CloseDropdownOptions, DropdownContext, useDropdown } from './DropdownContext';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps, PropsWithAs } from '../../utils/typeUtils';
 
 import { useFormField } from '../Form';
 
-import InputContainer, { InputContainerProps } from './InputContainer';
+import { InputContainer, InputContainerProps } from './InputContainer';
 
 /* Props */
 

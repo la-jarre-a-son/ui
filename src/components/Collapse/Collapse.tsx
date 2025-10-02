@@ -1,12 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
-import useStateMachine from '../../utils/useStateMachine';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { useMergeRef } from '../../utils/refUtils';
-import useEvent from '../../utils/useEvent';
-import usePropsRef from '../../utils/usePropsRef';
-import { isAnimationDisabled } from '../../utils/useAnimationDuration';
+
+import { isAnimationDisabled } from '../../hooks/useAnimationDuration';
+import { useEvent } from '../../hooks/useEvent';
+import { usePropsRef } from '../../hooks/usePropsRef';
+import { useStateMachine } from '../../hooks/useStateMachine';
 
 import styles from './Collapse.module.scss';
 

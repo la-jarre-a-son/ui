@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useId from '../../utils/useId';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+
+import { useId } from '../../hooks/useId';
 
 import { useTabsActive } from './TabsProvider';
 

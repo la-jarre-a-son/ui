@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useCreatePortal from '../../utils/useCreatePortal';
-import usePopoverContainer, { CloseReason } from '../../utils/usePopoverContainer';
-import useAnimationDuration, { AnimationDurationOptions } from '../../utils/useAnimationDuration';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+
+import { useCreatePortal } from '../../hooks/useCreatePortal';
+import { usePopoverContainer, CloseReason } from '../../hooks/usePopover';
+import { useAnimationDuration, AnimationDurationOptions } from '../../hooks/useAnimationDuration';
 
 import { ModalStack } from '../ModalStack';
 import { useModalContainer } from '../ModalContainer';

@@ -1,15 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 import { useForkRef } from '../../utils/refUtils';
 import { attemptFocus } from '../../utils/focusUtils';
-import useId from '../../utils/useId';
-import useEvent from '../../utils/useEvent';
 
-import Collapse from '../Collapse';
-import Icon from '../Icon';
+import { useId } from '../../hooks/useId';
+import { useEvent } from '../../hooks/useEvent';
+
+import { Collapse } from '../Collapse';
+import { Icon } from '../Icon';
 import { ListItem, ListItemProps } from '../List';
 
 import { hasCurrentChildren } from './utils';

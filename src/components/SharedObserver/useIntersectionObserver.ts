@@ -1,6 +1,6 @@
 import { useContext, useRef } from 'react';
 
-import { useRefEffect } from '../../utils/useRefEffect';
+import { useRefEffect } from '../../hooks/useRefEffect';
 
 import { IntersectionContext } from './SharedObserver';
 
@@ -9,7 +9,7 @@ export type OnIntersect = (entry: IntersectionObserverEntry) => void;
 /**
  * Hook that observer the interction of the given element
  */
-function useIntersectionObserver<T extends HTMLElement>(
+export function useIntersectionObserver<T extends HTMLElement>(
   onIntersect: OnIntersect,
   options?: IntersectionObserverInit
 ) {

@@ -1,4 +1,6 @@
 export { default, SharedObserver, useSharedObserver } from './SharedObserver';
-export { default as useIsIntersecting } from './useIsIntersecting';
-export { default as useIntersectionObserver } from './useIntersectionObserver';
-export { default as useOnIntersect } from './useOnIntersect';
+export { useIsIntersecting } from './useIsIntersecting';
+export { useIntersectionObserver } from './useIntersectionObserver';
+export { useOnIntersect } from './useOnIntersect';
+
+export type { OnIntersectOptions } from './useOnIntersect';

@@ -6,7 +6,7 @@ import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 import moduleCss from '!!raw-loader!./Card.module.scss?raw';
 import themeVariablesScss from '!!raw-loader!../../theme/jar/variables/Card.scss?raw';
 
-import useMouseEventRedirect from '../../utils/useMouseEventRedirect';
+import useMouseEventRedirect from '../../hooks/useMouseEventRedirect';
 import Grid from '../Grid';
 import Button from '../Button';
 import Checkbox from '../Checkbox';

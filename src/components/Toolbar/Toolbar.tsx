@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 
-import Box, { BoxProps } from '../Box';
+import { Box, BoxProps } from '../Box';
 
 import styles from './Toolbar.module.scss';
 

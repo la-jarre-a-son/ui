@@ -1,4 +1,5 @@
-import useRefEffect from '../../utils/useRefEffect';
+import useRefEffect from '../../hooks/useRefEffect';
+
 import modalStackManager from './modalStackManager';
 
 export type ModalStackRegister = {

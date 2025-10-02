@@ -4,13 +4,13 @@ import { MergeProps } from '../../utils/typeUtils';
 import { attemptFocus } from '../../utils/focusUtils';
 import { useForkRef } from '../../utils/refUtils';
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithStatic } from '../../utils/forwardRefWithStatic';
+import { forwardRefWithStatic } from '../../utils/forwardRef/forwardRefWithStatic';
 
 import type { DropdownProps } from '../Dropdown';
 import { ListItem } from '../List';
 
 import type { MenuItemProps } from './MenuItem';
-import Menu, { MenuProps } from './Menu';
+import { Menu, MenuProps } from './Menu';
 
 import styles from './Menu.module.scss';
 

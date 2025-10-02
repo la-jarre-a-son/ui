@@ -1,13 +1,15 @@
 import React, { useRef } from 'react';
-import useId from '../../utils/useId';
+
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { useMergeRef } from '../../utils/refUtils';
-import useListNav from '../../utils/useListNav';
-import useAutoScroll from '../../utils/useAutoScroll';
+
+import { useId } from '../../hooks/useId';
+import { useListNav } from '../../hooks/useListNav';
+import { useAutoScroll } from '../../hooks/useAutoScroll';
 
 import { TreeViewContext } from './TreeViewContext';
-import TreeViewItem from './TreeViewItem';
+import { TreeViewItem } from './TreeViewItem';
 
 import styles from './TreeView.module.scss';
 

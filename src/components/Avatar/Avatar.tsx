@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import styles from './Avatar.module.scss';
 

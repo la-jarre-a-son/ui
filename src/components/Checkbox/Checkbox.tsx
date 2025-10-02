@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { PropsWithAs } from '../../utils/typeUtils';
 import { useForkRef } from '../../utils/refUtils';
 
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
 import styles from './Checkbox.module.scss';
 

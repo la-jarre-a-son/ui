@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { getChildRef, mergeRef } from '../../utils/refUtils';
 
 import styles from './Stack.module.scss';

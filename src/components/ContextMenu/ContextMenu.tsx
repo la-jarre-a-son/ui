@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'rea
 
 import { MergeProps } from '../../utils/typeUtils';
 
-import Menu, { MenuProps } from '../Menu';
+import { Menu, MenuProps } from '../Menu';
 
 type Position = {
   x: number;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useIntersectionObserver, { OnIntersect } from './useIntersectionObserver';
+import { useIntersectionObserver, OnIntersect } from './useIntersectionObserver';
 
 export type OnIntersectOptions = IntersectionObserverInit & {
   onIntersect?: OnIntersect;
@@ -9,7 +9,7 @@ export type OnIntersectOptions = IntersectionObserverInit & {
 /**
  * Hook that observes the intersection change of the given element
  */
-function useOnIntersect<T extends HTMLElement>(
+export function useOnIntersect<T extends HTMLElement>(
   onIntersectChange?: (isIntersecting: boolean) => void,
   options?: OnIntersectOptions
 ) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useEvent from '../../utils/useEvent';
+import { useEvent } from '../../hooks/useEvent';
 
 import { useDropdown } from '../Dropdown';
 

@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
-import Button from '../Button';
-import Icon from '../Icon';
+import { Button } from '../Button';
+import { Icon } from '../Icon';
 
 import styles from './StateButton.module.scss';
 

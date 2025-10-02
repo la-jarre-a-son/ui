@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { forwardRefWithAs, bindClassNames } from '../../utils';
+import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
 import styles from './Card.module.scss';
 

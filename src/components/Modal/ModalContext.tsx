@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { CloseReason } from '../../utils/usePopoverContainer';
+import { CloseReason } from '../../hooks/usePopover';
 
 export type OnModalClose = (reason?: CloseReason) => void;
 

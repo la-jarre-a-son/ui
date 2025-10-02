@@ -1,0 +1,32 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import useDelayTrigger from './useDelayTrigger';
+
+<Meta title="Hooks/useDelayTrigger" />
+
+# useDelayTrigger
+
+Hook used to delay the triggering of a boolean state variable after a given delay.
+
+It take an optionnal time in millisecond as a first argument (default `200`) and the flag initial value as a second optionnal argument (default to `false`).
+
+It return a tuple with the flag state as a first entry and the flag setter function as a second entry.
+
+The delay will be active only when setting the variable to `true`.
+
+You can make the raise of the flag immediate by passing true as a second argument of the setter function.
+
+```tsx
+// some code here
+const MyComponent: React.FC = () => {
+    const [isTriggered, trigger] = useDelayTrigger(200, false);
+
+    console.log(isTriggered);
+
+    return (
+        <>
+            <button onClick={() => trigger(true)}>trigger after 200ms</button>
+            <button onClick={() => trigger(true, true)}>immediate trigger</button>
+        </>
+    );
+};
+```

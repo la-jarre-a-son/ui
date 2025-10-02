@@ -8,9 +8,10 @@ import React, {
   useState,
 } from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { useForkCallbackRef } from '../../utils/refUtils';
-import useEvent from '../../utils/useEvent';
+
+import useEvent from '../../hooks/useEvent';
 
 export type TabsProviderState = {
   selectedTab?: string;

@@ -1,10 +1,11 @@
 import React, { useMemo, useRef } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { PropsWithAs, As } from '../../utils/typeUtils';
-import useAnimationDuration, { AnimationDurationOptions } from '../../utils/useAnimationDuration';
-import useId from '../../utils/useId';
+
+import { useId } from '../../hooks/useId';
+import { useAnimationDuration, AnimationDurationOptions } from '../../hooks/useAnimationDuration';
 
 import styles from './Sidebar.module.scss';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { bindClassNames } from '../../utils/classNames';
-import { useEvent } from '../../utils/useEvent';
+import { useEvent } from '../../hooks/useEvent';
 
 import { ListItem } from '../List';
-import Icon from '../Icon';
+import { Icon } from '../Icon';
 
-import useOptionEvents from './useOptionEvents';
+import { useOptionEvents } from './useOptionEvents';
 
 import styles from './Select.module.scss';
 

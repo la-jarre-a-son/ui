@@ -1,12 +1,13 @@
 import React, { useMemo, useState } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 import { Ref, useMergeRef } from '../../utils/refUtils';
-import usePopoverContainer from '../../utils/usePopoverContainer';
-import useCreatePortal from '../../utils/useCreatePortal';
-import useAnimationDuration, { AnimationDurationOptions } from '../../utils/useAnimationDuration';
+
+import { usePopoverContainer } from '../../hooks/usePopover';
+import { useCreatePortal } from '../../hooks/useCreatePortal';
+import { useAnimationDuration, AnimationDurationOptions } from '../../hooks/useAnimationDuration';
 
 import { ModalStack } from '../ModalStack';
 import { useModalContainer } from '../ModalContainer';

@@ -1,15 +1,16 @@
 import React, { useMemo, useRef } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { useMergeRef } from '../../utils/refUtils';
 import { MergeProps } from '../../utils/typeUtils';
-import useRefEffect from '../../utils/useRefEffect';
 import { getFirstFocusableDescendant } from '../../utils/focusUtils';
-import useListNav from '../../utils/useListNav';
-import useAutoScroll from '../../utils/useAutoScroll';
 
-import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
+import { useRefEffect } from '../../hooks/useRefEffect';
+import { useListNav } from '../../hooks/useListNav';
+import { useAutoScroll } from '../../hooks/useAutoScroll';
+
+import { ButtonGroup, ButtonGroupProps } from '../ButtonGroup';
 
 import { TabListContext, TabsVariant, TabsSize } from './TabListContext';
 

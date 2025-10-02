@@ -2,7 +2,7 @@ import React from 'react';
 import ReactSlider, { ReactSliderProps } from 'react-slider';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 
 import styles from './Slider.module.scss';

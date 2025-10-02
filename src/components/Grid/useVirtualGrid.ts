@@ -1,4 +1,5 @@
 import React, { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+
 import {
   getFirstReferenceElement,
   getItemFullSize,

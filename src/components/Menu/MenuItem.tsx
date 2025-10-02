@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useEvent from '../../utils/useEvent';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+import { useEvent } from '../../hooks/useEvent';
 
 import { useDropdown } from '../Dropdown';
 import { ListItem } from '../List';

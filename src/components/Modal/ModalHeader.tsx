@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import { useId } from '../../utils/useId';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
-import Button from '../Button';
-import Icon from '../Icon';
+import { useId } from '../../hooks/useId';
+
+import { Button } from '../Button';
+import { Icon } from '../Icon';
 
 import { useModal, OnModalClose } from './ModalContext';
 

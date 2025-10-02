@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { MergeProps } from '../../utils/typeUtils';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+import { MergeProps } from '../../utils/typeUtils';
 
-import Box, { BoxProps } from '../Box';
+import { Box, BoxProps } from '../Box';
 
 import styles from './Card.module.scss';
 

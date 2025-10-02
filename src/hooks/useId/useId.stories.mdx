@@ -1,0 +1,18 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import useId from './useId';
+
+<Meta title="Hooks/useId" />
+
+# useId
+
+Hook that generate a unique string if no id is given as parameter.
+
+> This hook will use the React `useId` if using React >=18, otherwise, will generate a unique indentifier on client side only.
+
+```tsx
+const MyComponent: React.FC<{ id?: string }> = ({ id }) => {
+    const uid = useId(id);
+
+    return <button id={uid}>button</button>;
+};
+```

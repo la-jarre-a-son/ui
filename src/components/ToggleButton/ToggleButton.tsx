@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { MergeProps } from '../../utils/typeUtils';
 
-import Button, { ButtonIntent, ButtonVariant, ButtonProps } from '../Button';
+import { Button, ButtonIntent, ButtonVariant, ButtonProps } from '../Button';
 
 /* Props */
 

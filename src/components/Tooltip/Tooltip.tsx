@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { useMergeRef } from '../../utils/refUtils';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useCreatePortal from '../../utils/useCreatePortal';
-import useAnimationDuration from '../../utils/useAnimationDuration';
-import useDelayTrigger from '../../utils/useDelayTrigger';
-import useId from '../../utils/useId';
-import useRefEffect from '../../utils/useRefEffect';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
-import TooltipPopper, { TooltipPlacement } from './TooltipPopper';
+import { useId } from '../../hooks/useId';
+import { useRefEffect } from '../../hooks/useRefEffect';
+import { useCreatePortal } from '../../hooks/useCreatePortal';
+import { useDelayTrigger } from '../../hooks/useDelayTrigger';
+import { useAnimationDuration, AnimationDurationOptions } from '../../hooks/useAnimationDuration';
+
+import { TooltipPopper, TooltipPlacement } from './TooltipPopper';
 
 type TooltipStatic = {
   /**
@@ -22,8 +23,6 @@ type TooltipStatic = {
 };
 
 /* Props */
-
-import { AnimationDurationOptions } from '../../utils';
 
 export type TooltipProps = {
   /**

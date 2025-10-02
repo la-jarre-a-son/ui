@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MergeProps } from '../../utils/typeUtils';
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithStatic } from '../../utils/forwardRefWithStatic';
+import { forwardRefWithStatic } from '../../utils/forwardRef';
 
 import { Input, InputProps } from '../Input';
 import { Icon } from '../Icon';

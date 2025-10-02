@@ -32,6 +32,7 @@ const preview: Preview = {
                     ['Introduction'],
                     'Components',
                     ['Default'],
+                    'Hooks',
                     'Utilities',
                     'Showcase',
                     '*',

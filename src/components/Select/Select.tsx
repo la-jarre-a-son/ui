@@ -3,19 +3,20 @@ import React, { useMemo } from 'react';
 import { MergeProps } from '../../utils/typeUtils';
 import { attemptFocus } from '../../utils/focusUtils';
 import { useForkRef } from '../../utils/refUtils';
-import { forwardRefWithStatic } from '../../utils/forwardRefWithStatic';
-import { useEvent } from '../../utils/useEvent';
-import { useId } from '../../utils/useId';
-import { useListNav, ListNavOptions } from '../../utils/useListNav';
+import { forwardRefWithStatic } from '../../utils/forwardRef';
+
+import { useEvent } from '../../hooks/useEvent';
+import { useId } from '../../hooks/useId';
+import { useListNav, ListNavOptions } from '../../hooks/useListNav';
 
 import { Dropdown, DropdownList, DropdownTriggerInternal, DropdownProps } from '../Dropdown';
 import { useFormField } from '../Form';
 import { InputProps } from '../Input';
 import { Typography } from '../Typography';
 
-import SelectOption from './SelectOption';
-import SelectTrigger, { SelectTriggerProps } from './SelectTrigger';
 import { SelectContext } from './SelectContext';
+import { SelectTrigger, SelectTriggerProps } from './SelectTrigger';
+import { SelectOption } from './SelectOption';
 
 type SelectStatic = {
   /**

@@ -1,14 +1,15 @@
 import React, { useCallback } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useId from '../../utils/useId';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+
+import { useId } from '../../hooks/useId';
 
 import { useTabList } from './TabListContext';
 import { useTabsActive } from './TabsProvider';
 
 import type { ToggleButtonProps } from '../ToggleButton';
-import Button from '../Button';
+import { Button } from '../Button';
 
 import styles from './Tabs.module.scss';
 

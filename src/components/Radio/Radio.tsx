@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 import { bindClassNames } from '../../utils/classNames';
 import { PropsWithAs } from '../../utils/typeUtils';
 
-import { useRadioGroup } from '../RadioGroup/RadioGroupContext';
+import { useRadioGroup } from '../RadioGroup';
 
 import styles from './Radio.module.scss';
 

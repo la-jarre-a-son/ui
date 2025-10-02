@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { forwardRefWithAs } from '../../utils/forwardRef';
 
-import Stack, { StackProps } from '../Stack';
+import { Stack, StackProps } from '../Stack';
 
 import styles from './ButtonGroup.module.scss';
 

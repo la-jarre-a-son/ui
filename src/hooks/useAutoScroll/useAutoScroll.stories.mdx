@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Hooks/useAutoScroll" />
+
+# useAutoScroll
+
+A hook to scroll automatically on each render to a specific  `targetElement`, or to an element selected by a `targetQuerySelector` (by default to the first `[aria-selected=true]`)
+
+```tsx
+const ref = useRef<HTMLDivElement>();
+const bottomRef = useRef<HTMLDivElement>();
+
+useAutoScroll<HTMLDivElement>(ref.current, { targetElement: bottomRef.current });
+
+<div ref={ref}>
+    This div should scroll to its bottom automatically
+    <div ref={bottomRef} />
+</div>
+```
+
+```tsx
+const ref = useRef<HTMLDivElement>();
+
+useAutoScroll<HTMLDivElement>(ref.current);
+
+<div ref={ref}>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 1</li>
+        ...
+        <li>Item 100</li>
+        <li aria-selected="true">Item 101</li>
+        ...
+        <li>Item 199</li>
+        <li>Item 200</li>
+</div>
+```

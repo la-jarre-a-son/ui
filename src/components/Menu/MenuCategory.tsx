@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import Typography from '../Typography';
 
+import { Typography } from '../Typography';
 import { ListItem } from '../List';
 
 /**

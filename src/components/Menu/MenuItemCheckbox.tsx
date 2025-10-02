@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useEvent from '../../utils/useEvent';
+import { forwardRefWithAs } from '../../utils/forwardRef';
+import { useEvent } from '../../hooks/useEvent';
 
 import { ListItem } from '../List';
-import Checkbox, { CheckboxProps } from '../Checkbox';
-import Switch from '../Switch';
+import { Checkbox, CheckboxProps } from '../Checkbox';
+import { Switch } from '../Switch';
 
 import { useMenu } from './MenuContext';
 import type { MenuItemProps } from './MenuItem';
