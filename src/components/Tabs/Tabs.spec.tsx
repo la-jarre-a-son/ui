@@ -9,6 +9,9 @@ import TabProvider from './TabProvider';
 import { axe } from 'jest-axe';
 
 describe('Tabs', () => {
+  beforeAll(() => {
+    Element.prototype.scrollTo = () => {};
+  });
   describe('Tab', () => {
     it('render without crashing', () => {
       render(<Tab>content</Tab>);

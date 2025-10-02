@@ -83,7 +83,7 @@ Default.args = {
 /**
  * @storyDesc By default, the `TabList` as an horizontal orientation. You can change this with the `direction` prop.
  */
-export const HorizontalTabs: Story<StoryProps> = ({ selected: initialSelected }) => {
+export const HorizontalTabs: Story<{ selected?: string }> = ({ selected: initialSelected }) => {
   const [selected, setSelected] = useState(initialSelected);
   return (
     <div style={{ display: 'flex', gap: 32, flexDirection: 'column' }}>
@@ -161,7 +161,7 @@ export const HorizontalTabs: Story<StoryProps> = ({ selected: initialSelected })
   );
 };
 
-export const VerticalTabs: Story<{ selected: string }> = ({ selected: initialSelected }) => {
+export const VerticalTabs: Story<{ selected?: string }> = ({ selected: initialSelected }) => {
   const [selected, setSelected] = useState(initialSelected);
   return (
     <div style={{ display: 'flex', gap: 32, overflow: 'hidden', height: '200px' }}>

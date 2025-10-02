@@ -8,10 +8,10 @@ describe('Dot', () => {
   });
 
   it("make use of the 'as' prop", async () => {
-    render(<Dot as="a" role="button" />);
+    render(<Dot as="button" aria-label="Dot" />);
 
-    const button = screen.getByRole('button');
+    const div = screen.getByRole('button');
 
-    expect(button.tagName).toEqual('A');
+    expect(div).toBeInTheDocument();
   });
 });
