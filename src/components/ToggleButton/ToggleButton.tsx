@@ -1,8 +1,29 @@
 import React from 'react';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import Button from '../Button';
 
-import { ToggleButtonProps } from './types';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { MergeProps } from '../../utils/typeUtils';
+
+import Button, { ButtonIntent, ButtonVariant, ButtonProps } from '../Button';
+
+/* Props */
+
+export type ToggleButtonProps = MergeProps<
+  {
+    /**
+     * Specifies that the button is selected
+     */
+    selected?: boolean;
+    /**
+     * The color intent to apply when selected
+     */
+    selectedIntent?: ButtonIntent;
+    /**
+     * The stylistic variant to apply when selected
+     */
+    selectedVariant?: ButtonVariant;
+  },
+  ButtonProps
+>;
 
 /**
  * Renders a Button with an aditionnal pressed state controlled with the `selected` prop.
@@ -12,12 +33,12 @@ import { ToggleButtonProps } from './types';
 export const ToggleButton = forwardRefWithAs<ToggleButtonProps, 'button'>((props, ref) => {
   const {
     as,
-    variant,
-    intent,
-    selected,
+    variant = 'filled',
+    intent = 'neutral',
+    selected = false,
     children,
-    selectedIntent,
-    selectedVariant,
+    selectedIntent = 'primary',
+    selectedVariant = 'filled',
     ...otherProps
   } = props;
 
@@ -36,13 +57,5 @@ export const ToggleButton = forwardRefWithAs<ToggleButtonProps, 'button'>((props
 });
 
 ToggleButton.displayName = 'ToggleButton';
-
-ToggleButton.defaultProps = {
-  selected: false,
-  variant: 'filled',
-  intent: 'neutral',
-  selectedIntent: 'primary',
-  selectedVariant: 'filled',
-};
 
 export default ToggleButton;

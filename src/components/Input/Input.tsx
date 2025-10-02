@@ -1,10 +1,31 @@
 import React from 'react';
 
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { MergeProps, PropsWithAs } from '../../utils/typeUtils';
 
-import { InputProps } from './types';
-import InputContainer from './InputContainer';
 import { useFormField } from '../Form';
+
+import InputContainer, { InputContainerProps } from './InputContainer';
+
+/* Props */
+
+export type InputProps = MergeProps<
+  InputContainerProps & {
+    /**
+     * Callbacks when the text value changes.
+     *
+     * First argument is the value as `string`, second argument is the raw event of the input.
+     */
+    onChange?: (value: string, event?: React.ChangeEvent<HTMLInputElement>) => void;
+    /**
+     * Props to pass to the root InputContainer
+     *
+     * NOTE: other props are passed to the input element.
+     */
+    containerProps?: PropsWithAs<'div', InputContainerProps>;
+  },
+  React.ComponentProps<'input'>
+>;
 
 /**
  * Renders a basic text input with style and additional states.

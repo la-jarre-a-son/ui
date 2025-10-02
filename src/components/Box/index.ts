@@ -1,2 +1,3 @@
-export { default, Box } from './Box';
-export * from './types';
+export { default, Box, BoxElevations, BoxPads } from './Box';
+
+export type { BoxElevation, BoxPad, BoxProps } from './Box';

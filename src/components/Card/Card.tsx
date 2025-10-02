@@ -1,14 +1,34 @@
 import React from 'react';
 
+import { MergeProps } from '../../utils/typeUtils';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
 
-import Box from '../Box';
+import Box, { BoxProps } from '../Box';
 
-import { CardProps } from './types';
 import styles from './Card.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type CardProps = MergeProps<
+  {
+    /**
+     * Is the card interactive
+     */
+    interactive?: boolean;
+    /**
+     * Is the card selected
+     */
+    selected?: boolean;
+    /**
+     * Remove all the horizontal padding on child components
+     */
+    disableGutter?: boolean;
+  },
+  BoxProps
+>;
 
 /**
  * Renders a box used to display a group of organized content.
@@ -26,7 +46,7 @@ export const Card = forwardRefWithAs<CardProps, 'div'>((props, ref) => {
     className,
     children,
     outlined,
-    elevation,
+    elevation = 0,
     selected,
     interactive,
     disableGutter,
@@ -54,11 +74,5 @@ export const Card = forwardRefWithAs<CardProps, 'div'>((props, ref) => {
 });
 
 Card.displayName = 'Card';
-
-Card.defaultProps = {
-  elevation: 0,
-  outlined: false,
-  hideOverflow: false,
-};
 
 export default Card;

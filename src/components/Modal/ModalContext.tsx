@@ -1,5 +1,13 @@
 import { createContext, useContext } from 'react';
-import { ModalContextValue } from './types';
+
+import { CloseReason } from '../../utils/usePopoverContainer';
+
+export type OnModalClose = (reason?: CloseReason) => void;
+
+export type ModalContextValue = {
+  onClose?: OnModalClose;
+  dialogEl?: HTMLDivElement | null;
+};
 
 export const ModalContext = createContext<ModalContextValue>({});
 

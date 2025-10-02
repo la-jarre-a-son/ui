@@ -1,18 +1,43 @@
 import React from 'react';
-import { Input } from '../Input';
-import { bindClassNames, forwardRefWithStatic } from '../../utils';
 
+import { MergeProps } from '../../utils/typeUtils';
+import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithStatic } from '../../utils/forwardRefWithStatic';
+
+import { Input, InputProps } from '../Input';
 import { Icon } from '../Icon';
 
 import styles from './Select.module.scss';
-import { SelectTriggerProps } from './types';
 
 const cx = bindClassNames(styles);
 
 type SelectTriggerStatic = {
+  /**
+   * Icon when Select is open
+   */
   ICON_OPEN: string;
+  /**
+   * Icon when Select is closed
+   */
   ICON_CLOSED: string;
 };
+
+/* Props */
+
+export type SelectTriggerProps = MergeProps<
+  {
+    onChange?: (event?: React.ChangeEvent<HTMLInputElement>) => void;
+    /**
+     * The input value
+     */
+    value?: string;
+    /**
+     * Is the corresponding Select opened ?
+     */
+    open?: boolean;
+  },
+  InputProps
+>;
 
 /**
  * Trigger input for the Select component
@@ -22,8 +47,16 @@ export const SelectTrigger = forwardRefWithStatic<
   SelectTriggerProps,
   SelectTriggerStatic
 >((props, ref) => {
-  const { open, value, disabled, className, size, placeholder, containerProps, ...otherProps } =
-    props;
+  const {
+    open,
+    value = '',
+    disabled,
+    className,
+    size,
+    placeholder,
+    containerProps,
+    ...otherProps
+  } = props;
 
   return (
     <Input
@@ -55,10 +88,6 @@ export const SelectTrigger = forwardRefWithStatic<
     </Input>
   );
 });
-
-SelectTrigger.defaultProps = {
-  value: '',
-};
 
 SelectTrigger.displayName = 'SelectTrigger';
 

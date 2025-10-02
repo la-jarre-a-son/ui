@@ -2,11 +2,18 @@ import React from 'react';
 
 import { forwardRefWithAs, bindClassNames } from '../../utils';
 
-import { CardThumbnailGridProps } from './types';
-
 import styles from './Card.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type CardThumbnailGridProps = {
+  /**
+   * content of the card thumbnail grid
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Wraps multiple thumbnails of a Card in an organized grid.
@@ -30,7 +37,5 @@ export const CardThumbnailGrid = forwardRefWithAs<CardThumbnailGridProps, 'div'>
 });
 
 CardThumbnailGrid.displayName = 'CardThumbnailGrid';
-
-CardThumbnailGrid.defaultProps = {};
 
 export default CardThumbnailGrid;

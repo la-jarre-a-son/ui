@@ -1,11 +1,24 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
 import styles from './Breadcrumb.module.scss';
-import { BreadcrumbProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type BreadcrumbProps = {
+  /**
+   * The aria label for the breadcrumb
+   */
+  label?: string;
+  /**
+   * The breadcrumb items - should be BreadcrumbItem elements
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Renders a list of links that reflects the current page hierarchy, and provides navigation to parent elements.

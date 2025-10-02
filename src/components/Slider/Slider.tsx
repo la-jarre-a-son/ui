@@ -1,13 +1,43 @@
 import React from 'react';
-import ReactSlider from 'react-slider';
+import ReactSlider, { ReactSliderProps } from 'react-slider';
 
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { MergeProps } from '../../utils/typeUtils';
 
 import styles from './Slider.module.scss';
-import { SliderProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type SliderDirection = 'horizontal' | 'vertical';
+
+export type SliderProps = MergeProps<
+  {
+    /**
+     * The text for the current value of slider
+     */
+    valueText?: string;
+    /**
+     * The direction of the slider.
+     *
+     * Replaces ReactSlider's `orientation` prop.
+     */
+    direction?: SliderDirection;
+    /**
+     * Inverts the direction of the slider.
+     *
+     * Default horizontal direction is left to right, vertical direction is bottom to top (inverted with ReactSlider)
+     */
+    invert?: boolean;
+    /**
+     * ClassName to apply to the value text
+     */
+    textClassName?: string;
+  },
+  Omit<ReactSliderProps<number | number[]>, 'orientation'>
+>;
 
 /**
  * Renders a Slider bar to get a numerical value from user.
@@ -21,11 +51,13 @@ export const Slider = forwardRefWithAs<SliderProps, 'div'>((props, ref) => {
     markClassName,
     thumbActiveClassName,
     textClassName,
-    value,
+    value = 0,
     valueText,
     ariaValuetext,
-    direction,
-    invert,
+    direction = 'horizontal',
+    min = 0,
+    max = 100,
+    invert = false,
     ...otherProps
   } = props;
 
@@ -52,6 +84,8 @@ export const Slider = forwardRefWithAs<SliderProps, 'div'>((props, ref) => {
         {...otherProps}
         orientation={direction}
         invert={direction === 'horizontal' ? invert : !invert}
+        min={min}
+        max={max}
         value={value}
         ariaValuetext={ariaValuetext ?? valueText}
       ></ReactSlider>
@@ -65,13 +99,5 @@ export const Slider = forwardRefWithAs<SliderProps, 'div'>((props, ref) => {
 });
 
 Slider.displayName = 'Slider';
-
-Slider.defaultProps = {
-  direction: 'horizontal',
-  value: 0,
-  min: 0,
-  max: 100,
-  invert: false,
-};
 
 export default Slider;

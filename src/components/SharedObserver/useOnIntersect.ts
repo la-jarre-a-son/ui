@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useIntersectionObserver, { OnIntersect } from './useIntersectionObserver';
 
 export type OnIntersectOptions = IntersectionObserverInit & {

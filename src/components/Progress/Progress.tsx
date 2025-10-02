@@ -1,26 +1,51 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
 import styles from './Progress.module.scss';
-import { LinearProgressProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type ProgressProps = {
+  /**
+   * The current value of progress
+   */
+  value?: number;
+  /**
+   * The minimum value that represents the start of progress
+   */
+  min?: number;
+  /**
+   * The maximum vlaue that represents the end of progress
+   */
+  max?: number;
+  /**
+   * The text for the current value of progress
+   */
+  valueText?: string;
+  /**
+   * Makes the progress animated indefinitely
+   */
+  indeterminate?: boolean;
+};
 
 /**
  * Renders a horizontal progress bar to give some feedback on a loading state.
  *
  * Its value can be clamped to any minimum and maximum values (e.g. 0...1, or 0...100), or indeterminate (with a looping animation).
  */
-export const Progress = forwardRefWithAs<LinearProgressProps, 'div'>((props, ref) => {
+export const Progress = forwardRefWithAs<ProgressProps, 'div'>((props, ref) => {
   const {
     as,
     valueText,
     min = 0,
     max = 100,
-    value,
+    value = 0,
     className,
-    indeterminate,
+    indeterminate = false,
     ...otherProps
   } = props;
 
@@ -64,12 +89,5 @@ export const Progress = forwardRefWithAs<LinearProgressProps, 'div'>((props, ref
 });
 
 Progress.displayName = 'Progress';
-
-Progress.defaultProps = {
-  value: 0,
-  min: 0,
-  max: 100,
-  indeterminate: false,
-};
 
 export default Progress;

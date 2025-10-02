@@ -1,20 +1,71 @@
 import React, { useMemo, useState } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { MergeProps } from '../../utils/typeUtils';
 import { Ref, useMergeRef } from '../../utils/refUtils';
 import usePopoverContainer from '../../utils/usePopoverContainer';
 import useCreatePortal from '../../utils/useCreatePortal';
-import useAnimationDuration from '../../utils/useAnimationDuration';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import useAnimationDuration, { AnimationDurationOptions } from '../../utils/useAnimationDuration';
+
 import { ModalStack } from '../ModalStack';
 import { useModalContainer } from '../ModalContainer';
 
-import { ModalContextValue, ModalProps } from './types';
-import { ModalContext } from './ModalContext';
+import { ModalContext, ModalContextValue, OnModalClose } from './ModalContext';
 
 import styles from './Modal.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export const ModalSizes = ['sm', 'md', 'lg', 'xl', 'fullscreen'] as const;
+
+export type ModalSize = (typeof ModalSizes)[number];
+
+export type ModalProps = MergeProps<{
+  /**
+   * Is the modal opened
+   */
+  open?: boolean;
+  /**
+   * The size of the modal (in teeeshirt size, or `fullscreen`)
+   */
+  size?: ModalSize;
+  /**
+   * Makes the backdrop fully transparent
+   */
+  noOverlay?: boolean;
+  /**
+   * Props to pass to the dialog element
+   */
+  dialogProps?: React.ComponentPropsWithRef<'div'>;
+  /**
+   * Props to pass to the overlay element
+   */
+  overlayProps?: React.HTMLProps<HTMLDivElement>;
+  /**
+   * Callback fired when the modal need to close.
+   * Take the cause of closing as parameter.
+   */
+  onClose?: OnModalClose;
+  /**
+   * The modal content
+   */
+  children?: React.ReactNode;
+  /**
+   * Disable the portal behaviour
+   */
+  disablePortal?: boolean;
+  /**
+   * Disable the autofocus behaviour, useful when using an autoFocus props on a particular element
+   */
+  disableAutoFocus?: boolean;
+  /**
+   * Props to pass to the `useAnimationDuration` hook
+   */
+  animationProps?: AnimationDurationOptions;
+}>;
 
 /**
  * Wraps any content in a floating Box centered in the application, conditionally mounted & displayed.

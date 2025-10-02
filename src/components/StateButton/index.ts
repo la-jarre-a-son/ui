@@ -1,2 +1,3 @@
 export { default, StateButton } from './StateButton';
-export * from './types';
+
+export type { StateButtonProps } from './StateButton';

@@ -1,11 +1,24 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
 import styles from './FormField.module.scss';
-import { FieldHintProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type FieldHintProps = {
+  /**
+   * The hint text content
+   */
+  hint?: React.ReactNode;
+  /**
+   * The error to be rendered instead of a hint
+   */
+  error?: React.ReactNode;
+};
 
 /**
  * Renders a hint or error for a field.

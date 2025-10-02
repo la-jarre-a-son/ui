@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
 import useStateMachine from '../../utils/useStateMachine';
@@ -7,7 +8,6 @@ import useEvent from '../../utils/useEvent';
 import usePropsRef from '../../utils/usePropsRef';
 import { isAnimationDisabled } from '../../utils/useAnimationDuration';
 
-import { CollapseProps } from './types';
 import styles from './Collapse.module.scss';
 
 const cx = bindClassNames(styles);
@@ -37,6 +37,31 @@ const transitionMachine = {
   },
 };
 
+/* Props */
+
+export type CollapseProps = {
+  /**
+   * Opens the collapse content
+   */
+  open?: boolean;
+  /**
+   * The minimum height (in px) when content is collapsed
+   */
+  collapsedHeight?: number;
+  /**
+   * Keeps the children mouned when collapsed
+   */
+  keepMounted?: boolean;
+  /**
+   * Props to pass to the wrapper element containing the collapse content
+   */
+  wrapperProps?: React.ComponentPropsWithRef<'div'>;
+  /**
+   * The collapse content
+   */
+  children?: React.ReactNode;
+};
+
 /**
  * Wraps any content to be conditionally displayed, with an expanding animation.
  *
@@ -50,7 +75,7 @@ export const Collapse = forwardRefWithAs<CollapseProps, 'div'>((props, ref) => {
     className,
     keepMounted,
     wrapperProps,
-    collapsedHeight,
+    collapsedHeight = 0,
     onTransitionEnd,
     ...otherProps
   } = props;
@@ -171,11 +196,5 @@ export const Collapse = forwardRefWithAs<CollapseProps, 'div'>((props, ref) => {
 });
 
 Collapse.displayName = 'Collapse';
-
-Collapse.defaultProps = {
-  collapsedHeight: 0,
-  keepMounted: false,
-  open: false,
-};
 
 export default Collapse;

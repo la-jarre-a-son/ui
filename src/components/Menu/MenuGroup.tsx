@@ -1,8 +1,10 @@
 import React, { forwardRef } from 'react';
 
-import { ListGroup } from '../List';
+import { ListGroup, ListGroupProps } from '../List';
 
-import { MenuGroupProps } from './types';
+/* Props */
+
+export type MenuGroupProps = Omit<ListGroupProps, 'listAs'>;
 
 /**
  * Renders a menu group containing other menu items and with a

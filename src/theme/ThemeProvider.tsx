@@ -24,7 +24,7 @@ const getThemeVariantClassName = (theme: string | null, variant?: string | null)
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   theme,
   variant,
-  element,
+  element = document.body,
   children,
 }) => {
   useEffect(() => {
@@ -54,10 +54,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   );
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
-};
-
-ThemeProvider.defaultProps = {
-  element: document.body,
 };
 
 ThemeProvider.displayName = 'ThemeProvider';

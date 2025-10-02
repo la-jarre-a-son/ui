@@ -1,11 +1,14 @@
 import React from 'react';
-import useEvent from '../../utils/useEvent';
+
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import { useMenu } from './MenuContext';
-import ListItem from '../List/ListItem';
-import Checkbox from '../Checkbox';
-import { MenuItemCheckboxProps } from './types';
+import useEvent from '../../utils/useEvent';
+
+import { ListItem } from '../List';
+import Checkbox, { CheckboxProps } from '../Checkbox';
 import Switch from '../Switch';
+
+import { useMenu } from './MenuContext';
+import type { MenuItemProps } from './MenuItem';
 
 function addOrRemove<T>(arr: T[], value: T): T[] {
   if (!Array.isArray(arr)) {
@@ -20,6 +23,32 @@ function addOrRemove<T>(arr: T[], value: T): T[] {
 
   return [...arr, value];
 }
+
+/* Props */
+
+export type MenuItemCheckboxVariant = 'checkbox' | 'switch';
+
+export type MenuItemCheckboxProps = Omit<MenuItemProps, 'value' | 'selected' | 'left'> & {
+  /**
+   * The component to use as the input component
+   *
+   * `checkbox`: the Checkbox component
+   * `switch`: the Switch component
+   */
+  variant?: MenuItemCheckboxVariant;
+  /**
+   * The value of the checkbox item
+   */
+  value?: string;
+  /**
+   * Specifies that the checkbox is checked
+   */
+  checked?: boolean;
+  /**
+   * Props to pass to the Checkbox component used internally
+   */
+  checkboxProps?: CheckboxProps;
+};
 
 /**
  * Renders a menu item with a checkbox on left, interactions and accessibility `menuitemcheckbox` role.
@@ -36,7 +65,7 @@ export const MenuItemCheckbox = forwardRefWithAs<MenuItemCheckboxProps, 'button'
     checked,
     onClick,
     as,
-    variant,
+    variant = 'checkbox',
     checkboxProps,
     ...otherProps
   } = props;
@@ -82,9 +111,5 @@ export const MenuItemCheckbox = forwardRefWithAs<MenuItemCheckboxProps, 'button'
 });
 
 MenuItemCheckbox.displayName = 'MenuItemCheckbox';
-
-MenuItemCheckbox.defaultProps = {
-  variant: 'checkbox',
-};
 
 export default MenuItemCheckbox;

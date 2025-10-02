@@ -1,11 +1,27 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
 import styles from './Card.module.scss';
-import { CardThumbnailItemProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type CardThumbnailItemPosition =
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'center';
+
+export type CardThumbnailItemProps = {
+  /**
+   * The position of the thumbnail item container
+   */
+  position: CardThumbnailItemPosition;
+};
 
 /**
  * Wraps content in a CardThumbnail with specific anchor placements relative to the thumbnail.
@@ -13,7 +29,7 @@ const cx = bindClassNames(styles);
  * Must be used inside a CardThumbnail.
  */
 export const CardThumbnailItem = forwardRefWithAs<CardThumbnailItemProps, 'div'>((props, ref) => {
-  const { children, as, className, position, ...otherProps } = props;
+  const { children, as, className, position = 'center', ...otherProps } = props;
 
   const Element = as || 'div';
 
@@ -29,9 +45,5 @@ export const CardThumbnailItem = forwardRefWithAs<CardThumbnailItemProps, 'div'>
 });
 
 CardThumbnailItem.displayName = 'CardThumbnailItem';
-
-CardThumbnailItem.defaultProps = {
-  position: 'center',
-};
 
 export default CardThumbnailItem;

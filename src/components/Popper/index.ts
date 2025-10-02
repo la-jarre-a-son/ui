@@ -1,3 +1,5 @@
 export { default, Popper } from './Popper';
 export { usePopper } from './usePopper';
-export * from './types';
+
+export type { PopperProps, PopperState } from './Popper';
+export type { PopperOptions } from './usePopper';

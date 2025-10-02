@@ -4,15 +4,19 @@ import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import useId from '../../utils/useId';
 
-import { TabProps } from './types';
-import { useTabListContext } from './TabListContext';
-import { useTabsActive } from './TabProvider';
+import { useTabList } from './TabListContext';
+import { useTabsActive } from './TabsProvider';
 
+import type { ToggleButtonProps } from '../ToggleButton';
 import Button from '../Button';
 
 import styles from './Tabs.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type TabProps = ToggleButtonProps;
 
 /**
  * Renders a tab, and inherits from its parent state and stylistic props.
@@ -39,7 +43,7 @@ export const Tab = forwardRefWithAs<TabProps, typeof Button>((props, ref) => {
     variant: tabListVariant,
     size: tabListSize,
     direction: tabListDirection,
-  } = useTabListContext() || {};
+  } = useTabList() || {};
 
   const _variant = tabListVariant ?? variant;
   const _size = tabListSize ?? size;

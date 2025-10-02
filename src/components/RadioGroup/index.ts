@@ -1,3 +1,5 @@
 export { default, RadioGroup } from './RadioGroup';
-export { useRadioGroup, RadioGroupContext } from './RadioGroupContext';
-export * from './types';
+export { useRadioGroup } from './RadioGroupContext';
+
+export type { RadioGroupProps } from './RadioGroup';
+export type { RadioGroupState, RadioGroupOnChange } from './RadioGroupContext';

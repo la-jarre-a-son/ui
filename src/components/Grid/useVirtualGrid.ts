@@ -35,7 +35,7 @@ export type VirtualGridOptions = {
 /**
  * A function for rendering an item by its `index`, passed in an `options` object as first argument.
  */
-export type RenderItem = (options: {
+export type VirtualGridRenderItem = (options: {
   index: number;
   first: boolean;
   last: boolean;
@@ -214,7 +214,7 @@ export function useVirtualGrid(options: VirtualGridOptions) {
 
   const [renderChildren, containerStyle] = useMemo(() => {
     // item rendering function
-    const render = (r: RenderItem) => {
+    const render = (r: VirtualGridRenderItem) => {
       const visibleItems: React.ReactNode[] = [];
       for (let i = startIndex; i <= endIndex; i += 1) {
         visibleItems.push(

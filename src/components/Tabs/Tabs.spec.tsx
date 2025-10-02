@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import Tab from './Tab';
 import TabList from './TabList';
 import TabPanel from './TabPanel';
-import TabProvider from './TabProvider';
+import TabsProvider from './TabsProvider';
 import { axe } from 'jest-axe';
 
 describe('Tabs', () => {
@@ -97,17 +97,17 @@ describe('Tabs', () => {
     });
   });
 
-  describe('TabProvider', () => {
+  describe('TabsProvider', () => {
     it('bind ids', async () => {
       const { container } = render(
-        <TabProvider>
+        <TabsProvider>
           <TabList aria-label="tab list">
             <Tab id="0">Tab 1</Tab>
             <Tab>Tab 2</Tab>
           </TabList>
           <TabPanel>Panel 1</TabPanel>
           <TabPanel>Panel 2</TabPanel>
-        </TabProvider>
+        </TabsProvider>
       );
 
       expect(await axe(container)).toHaveNoViolations();
@@ -117,14 +117,14 @@ describe('Tabs', () => {
       const user = userEvent.setup();
 
       const { container } = render(
-        <TabProvider>
+        <TabsProvider>
           <TabList aria-label="tab list">
             <Tab id="0">Tab 1</Tab>
             <Tab>Tab 2</Tab>
           </TabList>
           <TabPanel>Panel 1</TabPanel>
           <TabPanel>Panel 2</TabPanel>
-        </TabProvider>
+        </TabsProvider>
       );
 
       expect(screen.queryByText('Panel 2')).not.toBeInTheDocument();

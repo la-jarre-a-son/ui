@@ -1,2 +1,2 @@
-export { default, Icon } from './Icon';
-export * from './types';
+export { default, Icon, IconSizes, IconIntents } from './Icon';
+export type { IconSize, IconIntent, IconProps } from './Icon';

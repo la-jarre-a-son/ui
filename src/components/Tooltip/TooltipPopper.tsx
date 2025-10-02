@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { arrow as arrowMiddleware, flip, Middleware, offset, shift } from '@floating-ui/react-dom';
-import { usePopper } from '../Popper';
+
+import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { useMergeRef } from '../../utils/refUtils';
-import { bindClassNames } from '../../utils/classNames';
+import { usePopper } from '../Popper';
 
 import styles from './Tooltip.module.scss';
-import { TooltipPopperProps } from './types';
 
 const cx = bindClassNames(styles);
 
@@ -18,6 +18,33 @@ const statics = {
 } as const;
 
 type StaticSide = keyof typeof statics;
+
+/* Props */
+
+export type TooltipPlacement = 'top' | 'right' | 'bottom' | 'left';
+
+export type TooltipPopperProps = {
+  /**
+   * The anchor element taken as a reference to place the floating element
+   */
+  anchorEl: HTMLElement | null;
+  /**
+   * The tooltip placement
+   */
+  placement?: TooltipPlacement;
+  /**
+   * SHow the content
+   */
+  show?: boolean;
+  /**
+   * The tooltip title
+   */
+  title?: string;
+  /**
+   * The tooltip content
+   */
+  content?: string;
+};
 
 export const TooltipPopper = forwardRefWithAs<TooltipPopperProps, 'div'>((props, ref) => {
   const {

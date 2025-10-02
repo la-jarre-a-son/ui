@@ -3,17 +3,63 @@ import React from 'react';
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
-import { TypographyProps } from './types';
-
 import styles from './Typography.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export const TypographyWeights = ['light', 'regular', 'bold'] as const;
+export const TypographySizes = ['lg', 'md', 'sm'] as const;
+
+export type TypographyWeight = (typeof TypographyWeights)[number];
+export type TypographySize = (typeof TypographySizes)[number];
+export type TypographyAlign = 'center' | 'start' | 'end';
+export type TypographyIntent =
+  | 'default'
+  | 'subtle'
+  | 'contrast'
+  | 'placeholder'
+  | 'inherit'
+  | 'error';
+
+export type TypographyProps = {
+  /*
+   * The text size
+   */
+  size?: TypographySize;
+  /**
+   * The text alignment
+   */
+  align?: TypographyAlign;
+  /**
+   * The text weight
+   */
+  weight?: TypographyWeight;
+  /**
+   * The text intent color
+   */
+  intent?: TypographyIntent;
+  /**
+   * The content to style
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Wraps any content, with typographic styling.
  */
 export const Typography = forwardRefWithAs<TypographyProps, 'div'>((props, ref) => {
-  const { size, weight, className, children, as, align, intent, ...otherProps } = props;
+  const {
+    className,
+    children,
+    as,
+    align,
+    size = 'md',
+    weight = 'light',
+    intent = 'inherit',
+    ...otherProps
+  } = props;
 
   const Element = as || 'div';
 
@@ -29,12 +75,6 @@ export const Typography = forwardRefWithAs<TypographyProps, 'div'>((props, ref) 
     </Element>
   );
 });
-
-Typography.defaultProps = {
-  intent: 'inherit',
-  weight: 'light',
-  size: 'md',
-};
 
 Typography.displayName = 'Typography';
 

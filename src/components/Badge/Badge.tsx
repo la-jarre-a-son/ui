@@ -3,17 +3,63 @@ import React from 'react';
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
-import { BadgeProps } from './types';
-
 import styles from './Badge.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export const BadgeSizes = ['sm', 'md', 'lg'] as const;
+export const BadgeIntents = [
+  'neutral',
+  'primary',
+  'secondary',
+  'error',
+  'warning',
+  'success',
+] as const;
+
+export type BadgeSize = (typeof BadgeSizes)[number];
+
+export type BadgeIntent = (typeof BadgeIntents)[number];
+
+export interface BadgeProps {
+  /**
+   * The badge semantic intent
+   */
+  intent?: BadgeIntent;
+  /**
+   * The badge size (in teeshirt size)
+   */
+  size?: BadgeSize;
+  /**
+   * Content on the left side of the badge
+   */
+  left?: React.ReactNode;
+  /**
+   * Content on the right side of the badge
+   */
+  right?: React.ReactNode;
+  /**
+   * The content of the badge
+   */
+  children?: React.ReactNode;
+}
 
 /**
  * Renders a pill with a text, and any elements on the sides of it (e.g. icons).
  */
 export const Badge = forwardRefWithAs<BadgeProps, 'div'>((props, ref) => {
-  const { intent, size, className, children, right, left, as, ...otherProps } = props;
+  const {
+    intent = 'neutral',
+    size = 'md',
+    className,
+    children,
+    right,
+    left,
+    as,
+    ...otherProps
+  } = props;
 
   const Element = as || 'div';
 
@@ -31,10 +77,5 @@ export const Badge = forwardRefWithAs<BadgeProps, 'div'>((props, ref) => {
 });
 
 Badge.displayName = 'Badge';
-
-Badge.defaultProps = {
-  intent: 'neutral',
-  size: 'md',
-};
 
 export default Badge;

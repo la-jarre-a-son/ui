@@ -3,11 +3,22 @@ import React from 'react';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import { bindClassNames } from '../../utils/classNames';
 
-import { DividerProps } from './types';
-
 import styles from './Divider.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export const DividerAlignments = ['left', 'center', 'right'] as const;
+
+export type DividerAlign = (typeof DividerAlignments)[number];
+
+export type DividerProps = {
+  /**
+   * Specifies how the elements should be aligned
+   */
+  align?: DividerAlign;
+};
 
 /**
  * Renders an horizontal line, used as a separator in lists.

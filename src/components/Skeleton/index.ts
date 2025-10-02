@@ -1,2 +1,3 @@
 export { default, Skeleton } from './Skeleton';
-export * from './types';
+
+export type { SkeletonShape, SkeletonProps } from './Skeleton';

@@ -1,2 +1,3 @@
-export { default, SidebarContainer } from './SidebarContainer';
-export * from './types';
+export { default, SidebarContainer, SidebarSizes, SidebarPlacements } from './SidebarContainer';
+
+export type { SidebarSize, SidebarPlacement, SidebarContainerProps } from './SidebarContainer';

@@ -1,10 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, CSSProperties } from 'react';
+import { MiddlewareData } from '@floating-ui/core';
 
 import { useMergeRef } from '../../utils/refUtils';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
-import { PopperProps, PopperState } from './types';
-import usePopper from './usePopper';
+import usePopper, { PopperOptions } from './usePopper';
+
+/* Props */
+
+export type PopperState = {
+  ref: React.ForwardedRef<HTMLDivElement>;
+  arrow?: MiddlewareData['arrow'];
+  style: CSSProperties;
+};
+
+export type PopperProps = {
+  /**
+   * The anchor element to use as a reference
+   * for the popperplacement
+   */
+  anchorEl?: HTMLElement | null;
+  /**
+   * The floating content
+   */
+  children?: React.ReactNode | ((state: PopperState) => React.ReactNode);
+} & PopperOptions;
 
 /**
  * Utility component used to position an element relatively to an anchor element using [floating-ui](https://floating-ui.com/).

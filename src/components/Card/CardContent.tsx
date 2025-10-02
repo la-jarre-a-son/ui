@@ -1,12 +1,20 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-
-import { CardContentProps } from './types';
 
 import styles from './Card.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type CardContentProps = {
+  /**
+   * content of the card
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Wraps the content of a card.

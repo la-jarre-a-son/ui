@@ -2,14 +2,67 @@ import React, { useMemo, useRef } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import useAnimationDuration from '../../utils/useAnimationDuration';
+import { PropsWithAs, As } from '../../utils/typeUtils';
+import useAnimationDuration, { AnimationDurationOptions } from '../../utils/useAnimationDuration';
 import useId from '../../utils/useId';
-
-import { SidebarContainerProps, SidebarPlacement } from './types';
 
 import styles from './Sidebar.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export const SidebarSizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+export const SidebarPlacements = ['top', 'bottom', 'left', 'right'] as const;
+
+export type SidebarSize = (typeof SidebarSizes)[number];
+
+export type SidebarPlacement = (typeof SidebarPlacements)[number];
+
+export type SidebarContainerProps = {
+  /**
+   * Opens the sidebar
+   */
+  open?: boolean;
+  /**
+   * The placement of the Sidebar
+   */
+  placement?: SidebarPlacement;
+  /**
+   * Callbacks when the Sidebar is closed.
+   *
+   * NOTE: component must be controlled externally
+   */
+  onClose?: () => void;
+  /**
+   * The size of the Sidebar (in teeeshirt size)
+   */
+  size?: SidebarSize;
+  /**
+   * Display an inset shadow and background
+   */
+  inset?: boolean;
+  /**
+   * The Sidebar content
+   */
+  sidebar?: React.ReactNode;
+  /**
+   * The content
+   */
+  children?: React.ReactNode;
+  /**
+   * Props to pass to the `useAnimationDuration` hook
+   */
+  animationProps?: AnimationDurationOptions;
+  /**
+   * Props to pass to the sidebar container
+   */
+  sidebarProps?: Partial<PropsWithAs<As, null>>;
+  /**
+   * Props to pass to the content container
+   */
+  contentProps?: Partial<PropsWithAs<As, null>>;
+};
 
 /**
  * Generates a grid style with unique ids corresponding to a placement
@@ -51,9 +104,7 @@ function getGridStyle(id: string, placement: SidebarPlacement) {
 }
 
 /**
- * Provides a state context to manage a group of `Radio` component relative to the same data.
- *
- * It accepts the name of the selected radio as a `value` and an `onChange` function.
+ * Provides a container for a Sidebar with show/hide control and custom placement & size
  */
 export const SidebarContainer = forwardRefWithAs<SidebarContainerProps, 'div'>(
   (
@@ -62,7 +113,7 @@ export const SidebarContainer = forwardRefWithAs<SidebarContainerProps, 'div'>(
       className,
       open,
       placement = 'left',
-      size,
+      size = 'md',
       inset,
       style: originalStyle,
       children,
@@ -138,11 +189,6 @@ export const SidebarContainer = forwardRefWithAs<SidebarContainerProps, 'div'>(
     );
   }
 );
-
-SidebarContainer.defaultProps = {
-  placement: 'left',
-  size: 'md',
-};
 
 SidebarContainer.displayName = 'SidebarContainer';
 

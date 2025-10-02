@@ -1,11 +1,25 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
 import styles from './Card.module.scss';
-import { CardHeaderProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type CardHeaderProps = {
+  /**
+   * Content on the left of the header
+   */
+  left?: React.ReactNode;
+
+  /**
+   * Content on the right of the header
+   */
+  right?: React.ReactNode;
+};
 
 /**
  * Wraps the header of a card, with left and right contents on the sides.

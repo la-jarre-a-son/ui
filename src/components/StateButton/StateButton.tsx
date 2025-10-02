@@ -6,17 +6,96 @@ import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import Button from '../Button';
 import Icon from '../Icon';
 
-import { StateButtonProps, StateButtonStatus } from './types';
-
 import styles from './StateButton.module.scss';
+
+type StateButtonStatus = null | 'success' | 'error' | 'pending';
+
+type StateButtonStatics = {
+  /**
+   * Duration (in ms) of feedback (sucess/error) after promise is resolved
+   */
+  FEEDBACK_DURATION: number;
+  /**
+   * Icon for the pending state (automatic spin)
+   */
+  ICON_PENDING: string;
+  /**
+   * Icon for the success state (automatic spin)
+   */
+  ICON_SUCCESS: string;
+  /**
+   * Icon for the error state (automatic spin)
+   */
+  ICON_ERROR: string;
+};
 
 const cx = bindClassNames(styles);
 
-type StateButtonStatics = {
-  FEEDBACK_DURATION: number;
-  ICON_PENDING: string;
-  ICON_SUCCESS: string;
-  ICON_ERROR: string;
+function FeedbackRender({
+  status,
+  iconPending,
+  iconError,
+  iconSuccess,
+}: {
+  status: StateButtonStatus;
+  iconPending: string;
+  iconError: string;
+  iconSuccess: string;
+}): JSX.Element {
+  return (
+    <span className={cx('feedback')}>
+      {status === 'pending' && <Icon name={iconPending} spin />}
+      {status === 'success' && <Icon name={iconSuccess} />}
+      {status === 'error' && <Icon name={iconError} />}
+    </span>
+  );
+}
+
+/* Props */
+
+export type StateButtonProps = {
+  /**
+   * Callback fired on button click
+   *
+   * If the handler returns a Promise, the button will automatically handle its state.
+   */
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void | Promise<unknown>;
+  /**
+   * A promise to give the button a state
+   */
+  promise?: Promise<unknown>;
+  /**
+   * Specifies that the button is in pending state
+   */
+  loading?: boolean;
+  /**
+   * Disables the button and its interactions
+   */
+  disabled?: boolean;
+  /**
+   * Content on the left of the button
+   */
+  left?: React.ReactNode;
+  /**
+   * Content on the right of the button
+   */
+  right?: React.ReactNode;
+  /**
+   * Content of the button
+   */
+  children: React.ReactNode;
+  /**
+   * Icon classname when status is pending
+   */
+  iconPending?: string;
+  /**
+   * Icon classname when status is success
+   */
+  iconSuccess?: string;
+  /**
+   * Icon classname when status is error
+   */
+  iconError?: string;
 };
 
 /**
@@ -137,9 +216,9 @@ export const StateButton = forwardRefWithAs<StateButtonProps, typeof Button, Sta
         {typeof children === 'string' ? <span className={cx('label')}>{children}</span> : children}
         <FeedbackRender
           status={loading ? 'pending' : status}
-          iconPending={iconPending}
-          iconSuccess={iconSuccess}
-          iconError={iconError}
+          iconPending={iconPending ?? StateButton.ICON_PENDING}
+          iconSuccess={iconSuccess ?? StateButton.ICON_SUCCESS}
+          iconError={iconError ?? StateButton.ICON_ERROR}
         />
       </Element>
     );
@@ -152,25 +231,5 @@ StateButton.ICON_SUCCESS = 'fi fi-rr-check';
 StateButton.ICON_ERROR = 'fi fi-rr-cross';
 
 StateButton.displayName = 'StateButton';
-
-function FeedbackRender({
-  status,
-  iconPending,
-  iconError,
-  iconSuccess,
-}: {
-  status: StateButtonStatus;
-  iconPending?: string;
-  iconError?: string;
-  iconSuccess?: string;
-}): JSX.Element {
-  return (
-    <span className={cx('feedback')}>
-      {status === 'pending' && <Icon name={iconPending ?? StateButton.ICON_PENDING} spin />}
-      {status === 'success' && <Icon name={iconSuccess ?? StateButton.ICON_SUCCESS} />}
-      {status === 'error' && <Icon name={iconError ?? StateButton.ICON_ERROR} />}
-    </span>
-  );
-}
 
 export default StateButton;

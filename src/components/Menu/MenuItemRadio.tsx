@@ -1,10 +1,30 @@
 import React from 'react';
-import useEvent from '../../utils/useEvent';
+
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import Radio from '../Radio';
+import useEvent from '../../utils/useEvent';
+
+import Radio, { RadioProps } from '../Radio';
+import { ListItem } from '../List';
+
 import { useMenu } from './MenuContext';
-import ListItem from '../List/ListItem';
-import { MenuItemRadioProps } from './types';
+import type { MenuItemProps } from './MenuItem';
+
+/* Props */
+
+export type MenuItemRadioProps = Omit<MenuItemProps, 'value' | 'selected' | 'left'> & {
+  /**
+   * The value of the radio item
+   */
+  value?: string;
+  /**
+   * Specifies that the radio is checked
+   */
+  checked?: boolean;
+  /**
+   * Props to pass to the Radio component used internally
+   */
+  radioProps?: RadioProps;
+};
 
 /**
  * Renders a menu item with a radio on left, interactions and accessibility `menuitemradio` role.
@@ -23,7 +43,7 @@ export const MenuItemRadio = forwardRefWithAs<MenuItemRadioProps, 'button'>((pro
     if (menuOnchange && value) menuOnchange(value);
   });
 
-  const isChecked = checked ?? selectedValue === value ?? false;
+  const isChecked = checked ?? (selectedValue === value || false);
 
   return (
     <ListItem

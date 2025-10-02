@@ -1,15 +1,28 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 
-import Menu from '../Menu';
-import { ContextMenuProps } from './types';
+import { MergeProps } from '../../utils/typeUtils';
+
+import Menu, { MenuProps } from '../Menu';
 
 type Position = {
   x: number;
   y: number;
 };
 
+/* Props */
+
+export type ContextMenuProps = MergeProps<
+  {
+    /**
+     * The element triggering the contextual menu (default to document)
+     */
+    triggerEl?: HTMLElement | null;
+  },
+  MenuProps
+>;
+
 /**
- * A `Menu` component that trigger specificaly on right click.
+ * A `Menu` component that trigger specifically on right click.
  */
 export const ContextMenu = forwardRef<HTMLDivElement, ContextMenuProps>((props, ref) => {
   const { children, triggerEl, ...otherProps } = props;

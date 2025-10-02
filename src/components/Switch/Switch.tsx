@@ -2,18 +2,42 @@ import React from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { PropsWithAs } from '../../utils/typeUtils';
 
 import { Icon } from '../Icon';
 
-import { SwitchProps } from './types';
-
 import styles from './Switch.module.scss';
-
-const cx = bindClassNames(styles);
 
 type SwitchStatic = {
   ICON_CHECKED: string;
   ICON_UNCHECKED: string;
+};
+
+const cx = bindClassNames(styles);
+
+/* Props */
+
+export type SwitchProps = {
+  /**
+   * Specifies that the switch is checked
+   */
+  checked?: boolean;
+  /**
+   * Disables the switch and all its interactions
+   */
+  disabled?: boolean;
+  /**
+   * Props to pass to the root container element.
+   *
+   * NOTE: rest of props are passed to the input element
+   */
+  wrapperProps?: PropsWithAs<React.ElementType, React.ComponentProps<'div'>>;
+  /**
+   * Callback when the switch state changes.
+   *
+   * First argument is the state as a `boolean`, second argument is the raw event of the input.
+   */
+  onChange?: (value: boolean, event?: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 /**

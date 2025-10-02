@@ -3,11 +3,18 @@ import React from 'react';
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
-import { ListProps } from './types';
-
 import styles from './List.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type ListProps = {
+  /**
+   * Content of the list
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Wraps an unordered list of elements.

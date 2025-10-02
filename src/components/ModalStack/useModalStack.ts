@@ -1,7 +1,10 @@
 import useRefEffect from '../../utils/useRefEffect';
 import modalStackManager from './modalStackManager';
 
-import { ModalStackRegister } from './types';
+export type ModalStackRegister = {
+  hideOnStack?: boolean;
+  disableStacking?: boolean;
+};
 
 export const modalStack = modalStackManager();
 

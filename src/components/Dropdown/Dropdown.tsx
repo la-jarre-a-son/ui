@@ -1,27 +1,113 @@
 import React, { cloneElement, isValidElement } from 'react';
 
-import {
-  bindClassNames,
-  forwardRefWithAs,
-  getChildRef,
-  useForkRef,
-  useMergeRef,
-  usePopoverContainer,
-  useAnimationDuration,
-  useCreatePortal,
-  usePopoverTrigger,
-  attemptFocus,
-  useEvent,
-} from '../../utils';
+import { MergeProps } from '../../utils/typeUtils';
+import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { getChildRef, useMergeRef, useForkRef } from '../../utils/refUtils';
+import { attemptFocus } from '../../utils/focusUtils';
+import useEvent from '../../utils/useEvent';
+import useCreatePortal from '../../utils/useCreatePortal';
+import usePopoverContainer from '../../utils/usePopoverContainer';
+import usePopoverTrigger from '../../utils/usePopoverTrigger';
+import useAnimationDuration from '../../utils/useAnimationDuration';
 
 import { ModalStack } from '../ModalStack';
-import Popper from '../Popper';
-import { DropdownProps } from './types';
+import Popper, { PopperProps } from '../Popper';
+
 import { CloseDropdownOptions, DropdownContext, useDropdown } from './DropdownContext';
 
 import styles from './Dropdown.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type DropdownInternal = {
+  handleClose: () => void;
+  triggerEl?: HTMLElement | null;
+};
+
+export type DropdownTriggerInternal = {
+  open: boolean;
+  triggerRef: React.Ref<HTMLElement>;
+  handleClose: () => void;
+};
+
+export type DropdownProps = MergeProps<
+  {
+    /**
+     * The dropdown trigger element. Accepts a render function
+     */
+    trigger?: React.ReactNode | ((internals: DropdownTriggerInternal) => React.ReactNode);
+    /**
+     * The content of the dropdown. Accepts a render function
+     */
+    children?: React.ReactNode | ((internals: DropdownInternal) => React.ReactNode);
+    /**
+     * Controls the dropdown open state.
+     *
+     * Dropdown is controlled internally if `undefined`
+     */
+    open?: boolean;
+    /**
+     * Optional anchor element used as a reference for the placement
+     */
+    anchorEl?: HTMLElement | null;
+    /**
+     * Optional trigger element to attache event to manage openning
+     */
+    triggerEl?: HTMLElement | null;
+    /**
+     * Callback fired when dropdown is closed
+     */
+    onClose?: () => void;
+    /**
+     * Callback fired when dropdown is open
+     */
+    onOpen?: () => void;
+    /**
+     * Disables the use of a portal
+     */
+    disablePortal?: boolean;
+    /**
+     * Disables the popover stacking management for this dropdown
+     */
+    disableStacking?: boolean;
+    /**
+     * Disables the focus trapping behaviour
+     */
+    disableFocusTrap?: boolean;
+    /**
+     * Overrides the list of key event codes (; separated) to trigger the focused dropdown opening
+     */
+    triggerKeys?: string[];
+    /**
+     * Close the dropdown when tabing
+     */
+    closeOnTab?: boolean;
+    /**
+     * Callback fired when the dropdown enter/ecit animation end
+     */
+    onAnimationEnd?: () => void;
+    /**
+     * On exit transition end callback
+     */
+    onExited?: () => void;
+    /**
+     * On enter transition end callback
+     */
+    onEntered?: () => void;
+    /**
+     * An addition ref to merge onto the oassed trigger element
+     */
+    triggerRef?: React.Ref<HTMLElement>;
+    /**
+     * Disable the auto focuseing of the first focusable element on open
+     */
+    disableAutoFocus?: boolean;
+  },
+  PopperProps
+>;
 
 /**
  * Wraps any content to be conditionally displayed in a temporary box relative to an anchor element.
@@ -49,6 +135,7 @@ export const Dropdown = forwardRefWithAs<DropdownProps, 'div'>((props, ref) => {
     disableAutoFocus,
     anchorEl: anchorElProp,
     triggerEl: triggerElProp,
+    placement = 'bottom-start',
     ...popperProps
   } = props;
 
@@ -133,6 +220,7 @@ export const Dropdown = forwardRefWithAs<DropdownProps, 'div'>((props, ref) => {
               ref={mergedContainerRef}
               anchorEl={anchorEl}
               onAnimationEnd={handleAnimationEnd}
+              placement={placement}
               {...popperProps}
               className={cx('container', open ? '--show' : '--hide', className)}
             >
@@ -145,14 +233,5 @@ export const Dropdown = forwardRefWithAs<DropdownProps, 'div'>((props, ref) => {
 });
 
 Dropdown.displayName = 'Dropdown';
-
-Dropdown.defaultProps = {
-  open: undefined, // uncontrolled
-  disablePortal: false,
-  disableStacking: false,
-  disableFocusTrap: false,
-  closeOnTab: false,
-  placement: 'bottom-start',
-};
 
 export default Dropdown;

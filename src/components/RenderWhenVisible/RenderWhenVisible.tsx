@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
+
 import { useOnIntersect } from '../SharedObserver';
 
-import { RenderWhenVisibleProps } from './types';
+/* Props */
+
+export type RenderWhenVisibleProps = {
+  /**
+   * The fallback element to render when out of the viewport
+   */
+  placeholder: React.ReactNode | ((rect: DOMRect | null) => React.ReactNode);
+  /**
+   * The content to render when in viewport
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Renders the children when entering the viewport

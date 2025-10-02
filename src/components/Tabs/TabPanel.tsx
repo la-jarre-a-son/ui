@@ -1,10 +1,22 @@
 import React from 'react';
 
-import useId from '../../utils/useId';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import useId from '../../utils/useId';
 
-import { TabPanelProps } from './types';
-import { useTabsActive } from './TabProvider';
+import { useTabsActive } from './TabsProvider';
+
+/* Props */
+
+export type TabPanelProps = {
+  /**
+   * Specifies that the panel is selected
+   */
+  selected?: boolean;
+  /**
+   * Content of the panel - rendered only when corresponding tab is selected
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Wraps a content to be conditionally rendered when its associated Tab is selected.

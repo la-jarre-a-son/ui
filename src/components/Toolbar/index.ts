@@ -1,2 +1,3 @@
 export { default, Toolbar } from './Toolbar';
-export * from './types';
+
+export type { ToolbarPlacement, ToolbarPosition, ToolbarProps } from './Toolbar';

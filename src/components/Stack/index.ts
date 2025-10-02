@@ -1,3 +1,5 @@
-export { default, Stack } from './Stack';
+export { default, Stack, StackDirections, StackAligns, StackJustifies, StackGaps } from './Stack';
 export { StackSeparator } from './StackSeparator';
-export * from './types';
+
+export type { StackDirection, StackJustify, StackAlign, StackGap, StackProps } from './Stack';
+export type { StackSeparatorProps } from './StackSeparator';

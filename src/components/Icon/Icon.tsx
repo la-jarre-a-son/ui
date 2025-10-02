@@ -3,8 +3,6 @@ import React from 'react';
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
-import { IconProps } from './types';
-
 import styles from './Icon.module.scss';
 
 const cx = bindClassNames(styles);
@@ -13,11 +11,50 @@ type IconStatics = {
   IconComponent: React.ElementType;
 };
 
+/* Props */
+
+export const IconSizes = ['auto', 'lg', 'md', 'sm'] as const;
+export const IconIntents = [
+  'default',
+  'subtle',
+  'contrast',
+  'neutral',
+  'primary',
+  'secondary',
+  'danger',
+  'warning',
+  'success',
+  'inherit',
+] as const;
+
+export type IconSize = (typeof IconSizes)[number];
+
+export type IconIntent = (typeof IconIntents)[number];
+
+export interface IconProps {
+  /**
+   * The Icon name
+   */
+  name: string;
+  /**
+   * The Icon semantic intent
+   */
+  intent?: IconIntent;
+  /**
+   * The Icon size (in teeshirt size)
+   */
+  size?: IconSize;
+  /**
+   * Make the icon spin (clockwise)
+   */
+  spin?: boolean;
+}
+
 /**
  * Renders an icon with icon classes and standardized styling
  */
 export const Icon = forwardRefWithAs<IconProps, 'i', IconStatics>((props, ref) => {
-  const { name, intent, size, spin, className, as, ...otherProps } = props;
+  const { name, intent = 'inherit', size = 'auto', spin, className, as, ...otherProps } = props;
 
   const Element = as || Icon.IconComponent;
 
@@ -43,10 +80,5 @@ export const Icon = forwardRefWithAs<IconProps, 'i', IconStatics>((props, ref) =
 Icon.IconComponent = 'i';
 
 Icon.displayName = 'Icon';
-
-Icon.defaultProps = {
-  intent: 'inherit',
-  size: 'auto',
-};
 
 export default Icon;

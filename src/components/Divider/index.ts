@@ -1,3 +1,4 @@
-export { default, Divider } from './Divider';
+export { default, Divider, DividerAlignments } from './Divider';
 export { DividerContent } from './DividerContent';
-export * from './types';
+
+export type { DividerAlign, DividerProps } from './Divider';

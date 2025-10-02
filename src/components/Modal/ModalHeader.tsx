@@ -2,19 +2,45 @@ import React, { useCallback, useEffect } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import { useId } from '../../utils';
+import { useId } from '../../utils/useId';
+
 import Button from '../Button';
 import Icon from '../Icon';
 
-import { ModalHeaderProps } from './types';
-import { useModal } from './ModalContext';
+import { useModal, OnModalClose } from './ModalContext';
 
 import styles from './Modal.module.scss';
 
 const cx = bindClassNames(styles);
 
 type ModalHeaderStatics = {
+  /**
+   * Icon for the close button
+   */
   ICON_CLOSE: string;
+};
+
+/* Props */
+
+export type ModalTitleProps = React.ComponentPropsWithRef<'div'>;
+
+export type ModalHeaderProps = {
+  /**
+   * The modal title
+   */
+  title?: string;
+  /**
+   * Props to pass to the title element
+   */
+  titleProps?: ModalTitleProps;
+  /**
+   * Callbacks fired after triggering the close button
+   */
+  onClose?: OnModalClose;
+  /**
+   * The modal header content
+   */
+  children?: React.ReactNode;
 };
 
 /**

@@ -1,3 +1,4 @@
+import { useMemo, useRef } from 'react';
 import {
   useFloating,
   flip,
@@ -5,15 +6,50 @@ import {
   UseFloatingProps,
   autoUpdate as autoUpdateFunc,
   Rect,
+  Placement,
+  Strategy,
   size,
 } from '@floating-ui/react-dom';
-import { useMemo, useRef } from 'react';
+import { Middleware } from '@floating-ui/core';
+
 import disableROError from '../../utils/disableROError';
-import { PopperOptions } from './types';
 
 disableROError();
 
 export const defaultMiddleware = [flip(), shift()];
+
+/* Options */
+
+export type PopperOptions = {
+  /**
+   * The popper placement
+   */
+  placement?: Placement;
+  /**
+   * Automatically update the placement when
+   * reference change size/position/scroll
+   * (note that auto update as some performance overhead)
+   */
+  autoUpdate?: boolean;
+  /**
+   * The floating-ui popper placement strategy
+   */
+  strategy?: Strategy;
+  /**
+   * The floating-ui middleware to use, override the defaults ones
+   */
+  middleware?: Middleware[];
+  /**
+   * Match the width of the popper with the one of the
+   * reference element
+   */
+  matchWidth?: boolean;
+  /**
+   * Set a max height to the popper container equal to the available space
+   * When passing a number, use this value as a minimal height limit
+   */
+  limitHeight?: boolean | number;
+};
 
 /**
  * Hook used to position an element relatively to a

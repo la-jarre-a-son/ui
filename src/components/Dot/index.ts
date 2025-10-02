@@ -1,2 +1,3 @@
-export { default, Dot } from './Dot';
-export * from './types';
+export { default, Dot, DotSizes, DotIntents } from './Dot';
+
+export type { DotSize, DotIntent, DotProps } from './Dot';

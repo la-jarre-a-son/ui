@@ -1,4 +1,7 @@
 export { default, Input } from './Input';
-export { InputContainer } from './InputContainer';
+export { InputContainer, InputSizes } from './InputContainer';
 export { InputContainerLabel } from './InputContainerLabel';
-export * from './types';
+
+export type { InputProps } from './Input';
+export type { InputSize, InputContainerProps } from './InputContainer';
+export type { InputContainerLabelProps } from './InputContainerLabel';

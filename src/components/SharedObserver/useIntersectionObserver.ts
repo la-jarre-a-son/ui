@@ -1,5 +1,7 @@
 import { useContext, useRef } from 'react';
+
 import { useRefEffect } from '../../utils/useRefEffect';
+
 import { IntersectionContext } from './SharedObserver';
 
 export type OnIntersect = (entry: IntersectionObserverEntry) => void;

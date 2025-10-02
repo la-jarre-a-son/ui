@@ -1,20 +1,65 @@
 import React from 'react';
 
+import { useMergeRef } from '../../utils/refUtils';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 import useCreatePortal from '../../utils/useCreatePortal';
 import useAnimationDuration from '../../utils/useAnimationDuration';
 import useDelayTrigger from '../../utils/useDelayTrigger';
 import useId from '../../utils/useId';
 import useRefEffect from '../../utils/useRefEffect';
-import { useMergeRef } from '../../utils/refUtils';
 
-import { TooltipProps } from './types';
-import TooltipPopper from './TooltipPopper';
-
-const IS_MOBILE_QUERY = '(hover: none) and (pointer: coarse)';
+import TooltipPopper, { TooltipPlacement } from './TooltipPopper';
 
 type TooltipStatic = {
+  /**
+   * Delay (in ms) before showing the tooltip
+   */
   TOOLTIP_DELAY: number;
+  /**
+   * Media query to detect mobile
+   */
+  IS_MOBILE_QUERY: string;
+};
+
+/* Props */
+
+import { AnimationDurationOptions } from '../../utils';
+
+export type TooltipProps = {
+  /**
+   * The tooltip content
+   */
+  content?: string;
+  /**
+   * The tooltip title
+   */
+  title?: string;
+  /**
+   * The tooltip placement
+   */
+  placement?: TooltipPlacement;
+  /**
+   * The content to decorate with a tooltip
+   */
+  children?: React.ReactNode;
+  /**
+   * Disable the portal behaviour of the tooltip content
+   */
+  disablePortal?: boolean;
+  /**
+   * Add an `aria-label` or `aria-description` to the trigger element
+   * Use `none` if the trigger element already have it
+   */
+  describeAs?: 'label' | 'description' | 'none';
+  /**
+   * Props to pass to the `useAnimationDuration` hook
+   */
+  animationProps?: AnimationDurationOptions;
+
+  /**
+   * Forces the tooltip to show
+   */
+  forceOpen?: boolean;
 };
 
 /**
@@ -47,7 +92,7 @@ export const Tooltip = forwardRefWithAs<TooltipProps, 'div', TooltipStatic>((pro
 
   const ownRef = useRefEffect(
     (element) => {
-      const isMobile = window.matchMedia(IS_MOBILE_QUERY).matches;
+      const isMobile = window.matchMedia(Tooltip.IS_MOBILE_QUERY).matches;
 
       function handleOpen() {
         trigger(true);
@@ -132,5 +177,6 @@ export const Tooltip = forwardRefWithAs<TooltipProps, 'div', TooltipStatic>((pro
 Tooltip.displayName = 'Tooltip';
 
 Tooltip.TOOLTIP_DELAY = 200;
+Tooltip.IS_MOBILE_QUERY = '(hover: none) and (pointer: coarse)';
 
 export default Tooltip;

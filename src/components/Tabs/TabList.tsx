@@ -1,21 +1,57 @@
 import React, { useMemo, useRef } from 'react';
 
 import { bindClassNames } from '../../utils/classNames';
-import { useMergeRef } from '../../utils/refUtils';
-import useRefEffect from '../../utils/useRefEffect';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { useMergeRef } from '../../utils/refUtils';
+import { MergeProps } from '../../utils/typeUtils';
+import useRefEffect from '../../utils/useRefEffect';
 import { getFirstFocusableDescendant } from '../../utils/focusUtils';
 import useListNav from '../../utils/useListNav';
 import useAutoScroll from '../../utils/useAutoScroll';
 
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup, { ButtonGroupProps } from '../ButtonGroup';
 
-import { TabListProps } from './types';
-import { TabListContext } from './TabListContext';
+import { TabListContext, TabsVariant, TabsSize } from './TabListContext';
 
 import styles from './Tabs.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type TabListProps = MergeProps<
+  {
+    /**
+     * The currently selected tab id
+     */
+    selected?: string;
+    /**
+     * Callback fired when the selected tab changes
+     */
+    onChange?: (id: string) => void;
+    /**
+     * The stylistic variant of the list and nested tabs
+     */
+    variant?: TabsVariant;
+    /**
+     * The size of the list and nested tabs
+     */
+    size?: TabsSize;
+    /**
+     * Adds a border to the bottom/left depending on direction
+     */
+    bordered?: boolean;
+    /**
+     * Mandatory aria label for accesibility
+     */
+    'aria-label': string;
+    /**
+     * The items in the list - should be Tab elements
+     */
+    children?: React.ReactNode;
+  },
+  ButtonGroupProps
+>;
 
 /**
  * Wraps a list of navigation tabs, with accessibility role `tablist`.
@@ -26,13 +62,13 @@ const cx = bindClassNames(styles);
 export const TabList = forwardRefWithAs<TabListProps, typeof ButtonGroup>((props, ref) => {
   const {
     as,
-    size,
+    size = 'md',
     variant,
     bordered,
     selected,
     onChange,
     children,
-    direction,
+    direction = 'horizontal',
     className,
     ...otherProps
   } = props;
@@ -88,10 +124,5 @@ export const TabList = forwardRefWithAs<TabListProps, typeof ButtonGroup>((props
 });
 
 TabList.displayName = 'TabList';
-
-TabList.defaultProps = {
-  size: 'md',
-  direction: 'horizontal',
-};
 
 export default TabList;

@@ -1,19 +1,44 @@
 import React from 'react';
 
-import { useEvent, bindClassNames, forwardRefWithAs } from '../../utils';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { bindClassNames } from '../../utils/classNames';
+import { useEvent } from '../../utils/useEvent';
 
 import { ListItem } from '../List';
 import Icon from '../Icon';
 
-import { SelectOptionProps } from './types';
 import useOptionEvents from './useOptionEvents';
 
 import styles from './Select.module.scss';
 
+type SelectOptionStatics = {
+  /**
+   * Icon when option is selected
+   */
+  ICON_SELECTED: string;
+};
+
 const cx = bindClassNames(styles);
 
-type SelectOptionStatics = {
-  ICON_SELECTED: string;
+/* Props */
+
+export type SelectOptionProps = {
+  /**
+   * Specifies that the option is selected
+   */
+  selected?: boolean;
+  /**
+   * The option associated value
+   */
+  value?: string | null;
+  /**
+   * Specifies that the option is focused
+   */
+  focused?: boolean;
+  /**
+   * Callback fired when the option is selected
+   */
+  onSelect?: (value: string | null) => void;
 };
 
 /**

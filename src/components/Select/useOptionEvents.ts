@@ -1,9 +1,12 @@
 import React from 'react';
+
 import useEvent from '../../utils/useEvent';
-import { useDropdown } from '../Dropdown/DropdownContext';
+
+import { useDropdown } from '../Dropdown';
+
 import { useSelect } from './SelectContext';
 
-type OptionEvents = {
+export type OptionEvents = {
   /**
    * The onChange callback to call when selecting an item
    */

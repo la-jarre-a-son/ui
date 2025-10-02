@@ -120,7 +120,7 @@ export const MenuSelect = () => {
         <MenuItem
           value={o.value}
           key={o.value}
-          right={o.value === selected ? <Icon name={MenuItem.ICON_SELECTED} /> : null}
+          right={o.value === selected ? <Icon name="fi fi-rr-check" /> : null}
         >
           {o.label}
         </MenuItem>

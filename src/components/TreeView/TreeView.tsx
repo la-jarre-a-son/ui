@@ -6,13 +6,29 @@ import { useMergeRef } from '../../utils/refUtils';
 import useListNav from '../../utils/useListNav';
 import useAutoScroll from '../../utils/useAutoScroll';
 
-import { TreeViewProps } from './types';
 import { TreeViewContext } from './TreeViewContext';
 import TreeViewItem from './TreeViewItem';
 
 import styles from './TreeView.module.scss';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type TreeViewProps = {
+  /**
+   * Mandatory aria label
+   */
+  'aria-label': string;
+  /**
+   * Makes List header sticky to top
+   */
+  sticky?: boolean;
+  /**
+   * The tree view content - should contain TreeViewItem elements
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Provides an TreeView context and wraps a hierarchical list of collapsible items, with multiple depth.

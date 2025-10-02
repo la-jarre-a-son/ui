@@ -14,7 +14,7 @@ type BoundClassNames<T extends ClassDef> = (
 const _styles = Symbol();
 
 /**
- * Recurcive internal classNames function that work with
+ * Recursive internal classNames function that work with
  * a shared Set instance passed by reference
  */
 function _classNames(clsx: Set<string>, ...classes: ClassesArg[]) {

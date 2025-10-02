@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useOnIntersect, { OnIntersectOptions } from './useOnIntersect';
 
 /**

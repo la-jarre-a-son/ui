@@ -1,2 +1,3 @@
 export { default, ButtonGroup } from './ButtonGroup';
-export * from './types';
+
+export type { ButtonGroupProps } from './ButtonGroup';

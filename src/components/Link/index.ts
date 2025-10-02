@@ -1,2 +1,2 @@
-export { default, Link } from './Link';
-export * from './types';
+export { default, Link, LinkIntents } from './Link';
+export type { LinkIntent, LinkProps } from './Link';

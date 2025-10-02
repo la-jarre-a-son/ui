@@ -1,5 +1,9 @@
 import { hideScroll, releaseScroll } from './hideScroll';
-import { ModalStackItem } from './types';
+
+export type ModalStackItem = {
+  rootEl: HTMLElement;
+  hideOnStack?: boolean;
+};
 
 /**
  * Manage a set of stacking modal

@@ -1,22 +1,29 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { MergeProps } from '../../utils/typeUtils';
 import { attemptFocus } from '../../utils/focusUtils';
 import { useForkRef } from '../../utils/refUtils';
 import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithStatic } from '../../utils/forwardRefWithStatic';
 
-import { DropdownProps } from '../Dropdown/types';
-import ListItem from '../List/ListItem';
+import type { DropdownProps } from '../Dropdown';
+import { ListItem } from '../List';
 
-import { SubMenuProps } from './types';
-import Menu from './Menu';
+import type { MenuItemProps } from './MenuItem';
+import Menu, { MenuProps } from './Menu';
 
 import styles from './Menu.module.scss';
-import { forwardRefWithStatic } from '../../utils/forwardRefWithStatic';
 
 const cx = bindClassNames(styles);
 
 type SubMenuStatic = {
+  /**
+   * Icon when submenu is open
+   */
   ICON_OPEN: string;
+  /**
+   * Icon when submenu is closed
+   */
   ICON_CLOSED: string;
 };
 
@@ -26,6 +33,17 @@ const dropdownProps = {
   placement: 'right-start',
   triggerKeys: ['ArrowRight', 'ArrowLeft', 'Enter'],
 } as DropdownProps;
+
+/* Props */
+
+type SubMenuOwnProps = {
+  /**
+   * Content of the SubMenu item
+   */
+  text: React.ReactNode;
+};
+
+export type SubMenuProps = MergeProps<MenuProps, MenuItemProps & SubMenuOwnProps>;
 
 /**
  * Renders a sub menu / nested menu that will open as a separate floating menu.

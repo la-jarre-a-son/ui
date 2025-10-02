@@ -8,17 +8,34 @@ import React, {
   useState,
 } from 'react';
 
-import { useForkCallbackRef } from '../../utils/refUtils';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { useForkCallbackRef } from '../../utils/refUtils';
 import useEvent from '../../utils/useEvent';
 
-import { TabsProviderProps, TabsProviderState } from './types';
+export type TabsProviderState = {
+  selectedTab?: string;
+  selectedPanel?: string;
+  setActive: (id: string) => void;
+  bindIds: () => void;
+};
+
+export type TabsProviderProps = {
+  /**
+   * Specifies the index of the tab selected by default
+   */
+  defaultSelected?: number;
+  /**
+   * Content that will use the TabsProvider context,
+   * or a render function that receives the state of the provided context
+   */
+  children: React.ReactNode | ((providerState: TabsProviderState) => React.ReactNode);
+};
 
 const defaultProviderValue: TabsProviderState = {
   setActive: () => undefined,
   bindIds: () => undefined,
 };
-const TabProviderContext = createContext<TabsProviderState>(defaultProviderValue);
+const TabsProviderContext = createContext<TabsProviderState>(defaultProviderValue);
 
 /**
  * Query by the given role on the given element
@@ -34,7 +51,7 @@ function queryByRole(element: HTMLElement, role: string): HTMLElement[] {
 /**
  * Provides a navigation context for TabList and TabPanel to be in sync, and accessible with correct aria attributes.
  */
-export const TabProvider = forwardRefWithAs<TabsProviderProps, 'div'>((props, ref) => {
+export const TabsProvider = forwardRefWithAs<TabsProviderProps, 'div'>((props, ref) => {
   const { children, as, defaultSelected, ...otherProps } = props;
 
   const [rootEl, mergedRef] = useForkCallbackRef(ref);
@@ -101,18 +118,18 @@ export const TabProvider = forwardRefWithAs<TabsProviderProps, 'div'>((props, re
   const Element = as || 'div';
 
   return (
-    <TabProviderContext.Provider value={state}>
+    <TabsProviderContext.Provider value={state}>
       <Element ref={mergedRef} {...otherProps}>
         {typeof children === 'function' ? children(state) : children}
       </Element>
-    </TabProviderContext.Provider>
+    </TabsProviderContext.Provider>
   );
 });
 
 export function useTabsActive(): TabsProviderState {
-  return useContext(TabProviderContext) || defaultProviderValue;
+  return useContext(TabsProviderContext) || defaultProviderValue;
 }
 
-TabProvider.displayName = 'TabProvider';
+TabsProvider.displayName = 'TabsProvider';
 
-export default TabProvider;
+export default TabsProvider;

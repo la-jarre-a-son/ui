@@ -1,12 +1,21 @@
 import React from 'react';
-import { getChildRef, mergeRef } from '../../utils/refUtils';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { getChildRef, mergeRef } from '../../utils/refUtils';
 
 import styles from './Stack.module.scss';
-import { StackSeparatorProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type StackSeparatorProps = {
+  /**
+   * Optionnal element to add the separator style to
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Renders a growing element to create space between elements in a Stack.

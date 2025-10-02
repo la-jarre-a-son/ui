@@ -1,4 +1,4 @@
 export { default, ModalContainer } from './ModalContainer';
-export { ModalContainerContext, useModalContainer } from './ModalContainerContext';
+export { useModalContainer } from './ModalContainerContext';
 
-export * from './types';
+export type { ModalContainerProps } from './ModalContainer';

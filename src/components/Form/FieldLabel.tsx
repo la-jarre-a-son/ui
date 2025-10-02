@@ -1,11 +1,24 @@
 import React from 'react';
+
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
 
 import styles from './FormField.module.scss';
-import { FieldLabelProps } from './types';
 
 const cx = bindClassNames(styles);
+
+/* Props */
+
+export type FieldLabelProps = {
+  /**
+   * Specifies that the label is hidden (still available for screenreaders)
+   */
+  hide?: boolean;
+  /**
+   * Content of the label
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Renders a label for a field.

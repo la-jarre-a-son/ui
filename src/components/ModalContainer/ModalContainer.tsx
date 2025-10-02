@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 
-import { ModalContainerProps } from './types';
 import { ModalContainerContext } from './ModalContainerContext';
+
+/* Props */
+
+export type ModalContainerProps = {
+  /**
+   * The modal header content
+   */
+  children?: React.ReactNode;
+};
 
 /**
  * Provides a state context to define the container of modals (or similar components like Drawers);

@@ -1,9 +1,28 @@
 import React from 'react';
-import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
-import Grid from './Grid';
-import useVirtualGrid from './useVirtualGrid';
 
-import { VirtualGridProps } from './types';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { MergeProps } from '../../utils/typeUtils';
+
+import useVirtualGrid, { VirtualGridRenderItem, VirtualGridOptions } from './useVirtualGrid';
+import Grid, { GridProps } from './Grid';
+
+/* Props */
+
+export type VirtualGridProps = MergeProps<
+  {
+    /**
+     * A function to render an item, accepting an `options` object as the first argument.
+     *
+     * `options` contains the `index` of the item to render.
+     */
+    children: VirtualGridRenderItem;
+    /**
+     * Props to pass to the wrapper root element.
+     */
+    containerProps?: React.ComponentProps<'div'>;
+  },
+  GridProps & VirtualGridOptions
+>;
 
 /**
  * Wraps elements in a virtualized grid allowing to display very large number of items.

@@ -1,17 +1,54 @@
 import React, { useEffect } from 'react';
 
-import { bindClassNames, forwardRefWithAs, useForkRef } from '../../utils';
+import { bindClassNames } from '../../utils/classNames';
+import { forwardRefWithAs } from '../../utils/forwardRefWithAsProp';
+import { PropsWithAs } from '../../utils/typeUtils';
+import { useForkRef } from '../../utils/refUtils';
 
 import Icon from '../Icon';
-import { CheckboxProps } from './types';
 
 import styles from './Checkbox.module.scss';
 
 const cx = bindClassNames(styles);
 
 type CheckboxStatic = {
+  /**
+   * Icon when checked
+   */
   ICON_CHECKED: string;
+  /**
+   * Icon when indeterminate
+   */
   ICON_INDETERMINATE: string;
+};
+
+/* Props */
+
+export type CheckboxProps = {
+  /**
+   * Specifies that the checkbox is checked
+   */
+  checked?: boolean;
+  /**
+   * Specifies that the checkbox (when checked) targets elements partially checked
+   */
+  indeterminate?: boolean;
+  /**
+   * Disables the checkbox and all its interactions
+   */
+  disabled?: boolean;
+  /**
+   * Props to pass to the root container element.
+   *
+   * NOTE: rest of props are passed to the input element
+   */
+  wrapperProps?: PropsWithAs<React.ElementType, React.ComponentProps<'div'>>;
+  /**
+   * Callback when the checkbox state changes.
+   *
+   * First argument is the state as a `boolean`, second argument is the raw event of the input.
+   */
+  onChange?: (value: boolean, event?: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 /**
@@ -91,10 +128,5 @@ Checkbox.ICON_CHECKED = 'fi fi-rr-check';
 Checkbox.ICON_INDETERMINATE = 'fi fi-rr-minus';
 
 Checkbox.displayName = 'Checkbox';
-
-Checkbox.defaultProps = {
-  indeterminate: false,
-  disabled: false,
-};
 
 export default Checkbox;
