@@ -49,7 +49,7 @@ const Template: Story<StoryProps> = ({
   return (
     <label>
       <Checkbox {...rest} checked={checked} indeterminate={indeterminate} onChange={handleChange} />
-      value is {checked ? 'checked' : indeterminate ? 'indeterminate' : 'not checked'}
+      value is {indeterminate ? 'indeterminate' : checked ? 'checked' : 'not checked'}
     </label>
   );
 };

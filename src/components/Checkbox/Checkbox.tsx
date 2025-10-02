@@ -60,7 +60,7 @@ export const Checkbox = forwardRefWithAs<CheckboxProps, 'input', CheckboxStatic>
       className={cx(
         'root',
         {
-          '--indeterminate': !checked && indeterminate,
+          '--indeterminate': indeterminate,
           '--checked': checked,
           '--disabled': disabled,
         },
@@ -80,7 +80,7 @@ export const Checkbox = forwardRefWithAs<CheckboxProps, 'input', CheckboxStatic>
       <div className={cx('wrapper')}>
         <Icon
           className={cx('icon')}
-          name={checked ? Checkbox.ICON_CHECKED : Checkbox.ICON_INDETERMINATE}
+          name={indeterminate ? Checkbox.ICON_INDETERMINATE : Checkbox.ICON_CHECKED}
         />
       </div>
     </Element>
