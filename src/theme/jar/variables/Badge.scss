@@ -22,27 +22,27 @@ $Badge_sizes: (
 
 $Badge_intents: (
     'neutral': (
-        background: $color-neutral-normal,
+        background: $color-neutral-500,
         color: $color-white,
     ),
     'primary': (
-        background: $color-primary-normal,
+        background: $color-primary-500,
         color: $color-white,
     ),
     'secondary': (
-        background: $color-secondary-normal,
+        background: $color-secondary-500,
         color: $color-white,
     ),
     'error': (
-        background: $color-danger-normal,
+        background: $color-danger-500,
         color: $color-white,
     ),
     'warning': (
-        background: $color-warning-normal,
+        background: $color-warning-500,
         color: $color-white,
     ),
     'success': (
-        background: $color-success-normal,
+        background: $color-success-500,
         color: $color-white,
     ),
 ) !default;

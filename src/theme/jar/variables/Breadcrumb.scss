@@ -7,20 +7,20 @@ $Breadcrumb-item_padding: $space-md !default;
 $Breadcrumb_transitionDuration: $duration_fast !default;
 $Breadcrumb_transitionTimingFunction: ease !default;
 
-$Breadcrumb-item_color: $color-white !default;
-$Breadcrumb-item_background: $color-neutral-dark $gradient-interactive-alt !default;
-$Breadcrumb-separator_color: $color-neutral-dark !default;
+$Breadcrumb-item_color: $color-neutral-1000 !default;
+$Breadcrumb-item_background: $color-neutral-300 $gradient-interactive-alt !default;
+$Breadcrumb-separator_color: $color-neutral-300 !default;
 
 $Breadcrumb-item--current_textStyle: (md, regular) !default;
 
-$Breadcrumb-item--hover_color: $color-white !default;
-$Breadcrumb-item--hover_background: lighten($color-neutral-dark, 10%) $gradient-interactive-alt !default;
-$Breadcrumb-separator--hover_color: lighten($color-neutral-dark, 10%) !default;
+$Breadcrumb-item--hover_color: $color-neutral-1000 !default;
+$Breadcrumb-item--hover_background: $color-neutral-400 $gradient-interactive-alt !default;
+$Breadcrumb-separator--hover_color: $color-neutral-400 !default;
 
-$Breadcrumb-item--active_color: $color-white !default;
-$Breadcrumb-item--active_background: darken($color-neutral-dark, 10%) $gradient-interactive-alt !default;
-$Breadcrumb-separator--active_color: darken($color-neutral-dark, 10%) !default;
+$Breadcrumb-item--active_color: $color-neutral-1000 !default;
+$Breadcrumb-item--active_background: $color-neutral-200 $gradient-interactive-alt !default;
+$Breadcrumb-separator--active_color: $color-neutral-200 !default;
 
-$Breadcrumb-item--current_color: $color-white !default;
-$Breadcrumb-item--current_background: $color-primary-normal $gradient-interactive-alt !default;
-$Breadcrumb-separator--current_color: $color-primary-normal !default;
+$Breadcrumb-item--current_color: $color-neutral-1000 !default;
+$Breadcrumb-item--current_background: $color-primary-500 $gradient-interactive-alt !default;
+$Breadcrumb-separator--current_color: $color-primary-500 !default;

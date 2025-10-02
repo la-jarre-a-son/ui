@@ -57,7 +57,7 @@ export const DefaultStory = () => {
     <main className={styles.layout}>
       <Toolbar
         as={Stack}
-        elevation={1}
+        elevation={3}
         className={styles.header}
         block
         align="center"

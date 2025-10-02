@@ -19,26 +19,26 @@ $List-item_color: inherit !default;
 $List-item_background: transparent !default;
 
 // Interactive
-$List-item--hover_background: rgba($color-neutral-lighter, 0.2) $gradient-interactive !default;
+$List-item--hover_background: rgba($color-neutral-800, 0.2) $gradient-interactive !default;
 $List-item--hover_color: inherit !default;
-$List-item--active_background: rgba($color-neutral-darker, 0.2) $gradient-interactive  !default;
+$List-item--active_background: rgba($color-neutral-200, 0.2) $gradient-interactive  !default;
 $List-item--active_color: $color-white !default;
 
 // Focus indicator
 $List-itemFocus_width: $space-sm !default;
-$List-itemFocus_color: $color-primary-normal !default;
+$List-itemFocus_color: $color-primary-500 !default;
 $List-itemFocus--selected_color: $color-white !default;
 
 // States
-$List-item--disabled_color: $color-neutral-normal !default;
+$List-item--disabled_color: $color-neutral-500 !default;
 $List-item--disabled_background: $List-item_background !default;
 
 $List-item--selected_color: $color-white !default;
-$List-item--selected_background: $color-primary-normal  $gradient-interactive !default;
+$List-item--selected_background: $color-primary-500  $gradient-interactive !default;
 $List-item--selected--hover_color: $color-white !default;
-$List-item--selected--hover_background: lighten($color-primary-normal, 10%) $gradient-interactive !default;
+$List-item--selected--hover_background: $color-primary-600 $gradient-interactive !default;
 $List-item--selected--active_color: $color-white !default;
-$List-item--selected--active_background: darken($color-primary-normal, 10%) $gradient-interactive !default;
+$List-item--selected--active_background: $color-primary-400 $gradient-interactive !default;
 
-$List-item--disabled--selected_color: rgba($color-primary-light, 0.5) !default;
-$List-item--disabled--selected_background: rgba($color-primary-normal, 0.5) !default;
+$List-item--disabled--selected_color: rgba($color-primary-700, 0.5) !default;
+$List-item--disabled--selected_background: rgba($color-primary-500, 0.5) !default;

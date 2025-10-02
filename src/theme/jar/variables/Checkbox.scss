@@ -6,24 +6,24 @@ $Checkbox_fontSize: $space-xl !default;
 $Checkbox_transitionDuration: $duration_fast !default;
 $Checkbox_transitionTimingFunction: ease !default;
 
-$Checkbox_background: $color-neutral-dark $gradient-interactive !default;
+$Checkbox_background: $color-neutral-300 $gradient-interactive !default;
 $Checkbox_color: $color-white !default;
-$Checkbox_borderColor: $color-neutral-dark !default;
+$Checkbox_borderColor: $color-neutral-300 !default;
 
-$Checkbox--hover_background: $color-neutral-normal $gradient-interactive !default;
-$Checkbox--hover_borderColor: $color-neutral-light !default;
+$Checkbox--hover_background: $color-neutral-500 $gradient-interactive !default;
+$Checkbox--hover_borderColor: $color-neutral-700 !default;
 
 $Checkbox--checked_color: $color-white !default;
-$Checkbox--checked_background: $color-primary-normal $gradient-interactive !default;
-$Checkbox--checked_borderColor: $color-primary-normal !default;
+$Checkbox--checked_background: $color-primary-500 $gradient-interactive !default;
+$Checkbox--checked_borderColor: $color-primary-500 !default;
 
-$Checkbox--checked--hover_background: lighten($color-primary-normal, 10%) $gradient-interactive !default;
-$Checkbox--checked--hover_borderColor: lighten($color-primary-normal, 10%) !default;
+$Checkbox--checked--hover_background: $color-primary-600 $gradient-interactive !default;
+$Checkbox--checked--hover_borderColor: $color-primary-600 !default;
 
-$Checkbox--disabled_color: $color-neutral-normal !default;
-$Checkbox--disabled_background: $color-neutral-normal !default;
-$Checkbox--disabled_borderColor: $color-neutral-normal !default;
+$Checkbox--disabled_color: $color-neutral-500 !default;
+$Checkbox--disabled_background: $color-neutral-500 !default;
+$Checkbox--disabled_borderColor: $color-neutral-500 !default;
 
-$Checkbox--disabled--checked_color: $color-neutral-light !default;
-$Checkbox--disabled--checked_background: $color-neutral-normal !default;
-$Checkbox--disabled--checked_borderColor: $color-neutral-normal !default;
+$Checkbox--disabled--checked_color: $color-neutral-700 !default;
+$Checkbox--disabled--checked_background: $color-neutral-500 !default;
+$Checkbox--disabled--checked_borderColor: $color-neutral-500 !default;

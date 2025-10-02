@@ -10,28 +10,29 @@ $Box_elevations: (
     0: (
         background: transparent,
         color: inherit,
-        borderColor: $color-black,
+        borderColor: $color-neutral-0,
         boxShadow: none,
     ),
     1: (
-        background: $color-neutral-darker,
-        color: $color-white,
-        borderColor: $color-black,
+        background: $color-neutral-100,
+        color: $color-neutral-1000,
+        borderColor: $color-neutral-0,
         boxShadow: $shadow-sm,
     ),
     2: (
-        background: lighten($color-neutral-darker, 5%),
-        color: $color-white,
-        borderColor: $color-neutral-darker,
+        background: $color-neutral-200,
+        color: $color-neutral-1000,
+        borderColor: $color-neutral-100,
         boxShadow: $shadow-md,
     ),
     3: (
-        background: $color-neutral-dark,
-        color: $color-white,
-        borderColor: $color-neutral-dark,
+        background: $color-neutral-300,
+        color: $color-neutral-1000,
+        borderColor: $color-neutral-200,
         boxShadow: $shadow-lg,
     ),
 ) !default;
+
 
 $Box_padding: 0 !default;
 $Box_color: map-get($Box_elevations, 0, color) !default;

@@ -91,7 +91,7 @@ export const Intent = () => {
       <Typography intent="placeholder">Placeholder intent</Typography>
       <Typography intent="error">Error intent</Typography>
       <Typography intent="inherit">Inherit intent</Typography>
-      <div style={{ backgroundColor: 'var(--body_color, #000)' }}>
+      <div style={{ backgroundColor: '#fff' }}>
         <Typography intent="contrast">Contrast intent</Typography>
       </div>
     </>

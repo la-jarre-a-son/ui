@@ -1,20 +1,20 @@
 // Defaults
 $Card_borderRadius: $radius-sm !default;
-$Card--interactive--outlined_borderColor: $color-neutral-normal !default;
+$Card--interactive--outlined_borderColor: $color-neutral-500 !default;
 $Card_padding: $space-md !default;
 $Card_transitionDuration: $duration_fast !default;
 $Card_transitionTimingFunction: ease !default;
 $Card-header_minHeight: $size-md !default;
 
-$Card--selected_outlineColor: $color-primary-normal !default;
+$Card--selected_outlineColor: $color-primary-500 !default;
 $Card--selected_outlineWidth: 2px !default;
-$Card--selected_background: $color-primary-dark !default;
-$Card--selected_borderColor: $color-primary-normal !default;
+$Card--selected_background: $color-primary-300 !default;
+$Card--selected_borderColor: $color-primary-500 !default;
 
-$Card--interactive_background: $color-neutral-dark $gradient-interactive !default;
-$Card--interactive_borderColor: $color-neutral-normal !default;
-$Card--interactive--hover_background: $color-neutral-normal $gradient-interactive !default;
-$Card--interactive--hover_borderColor: $color-neutral-light !default;
+$Card--interactive_background: $color-neutral-300 $gradient-interactive !default;
+$Card--interactive_borderColor: $color-neutral-500 !default;
+$Card--interactive--hover_background: $color-neutral-500 $gradient-interactive !default;
+$Card--interactive--hover_borderColor: $color-neutral-700 !default;
 
 $Card_animationDuration: $duration_fast !default;
 
@@ -24,8 +24,8 @@ $Card-thumbnailImage_transitionDuration: $duration_fast !default;
 $Card-thumbnailImage_transitionTimingFunction: ease !default;
 $Card-thumbnailPlaceholder_background: linear-gradient(
     45deg,
-    #{$color-neutral-dark} 10%,
-    #{$color-neutral-darker} 90%
+    #{$color-neutral-300} 10%,
+    #{$color-neutral-200} 90%
 ) !default;
 
 
@@ -43,7 +43,7 @@ $Card-thumbnailGrid_aspectRatio: list.slash(16, 13.5) !default;
 // Thumbnail
 $Card-thumbnail_aspectRatio: list.slash(16, 9) !default;
 
-$Card-thumbnailOverlay_background: $color-neutral-darker !default;
+$Card-thumbnailOverlay_background: $color-neutral-200 !default;
 $Card-thumbnailOverlay_opacity: 0.5 !default;
 $Card-thumbnailOverlay--hover_opacity: 0 !default;
 $Card-thumbnailOverlay_transitionDuration: $duration_fast !default;

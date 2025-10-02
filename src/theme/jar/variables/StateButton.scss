@@ -1,12 +1,12 @@
-$StateButton--success_background: $color-success-normal $gradient-interactive !default;
+$StateButton--success_background: $color-success-500 $gradient-interactive !default;
 $StateButton--success_color: $color-white !default;
 $StateButton--success_borderColor: transparent !default;
 
-$StateButton--error_background: $color-danger-normal $gradient-interactive !default;
+$StateButton--error_background: $color-danger-500 $gradient-interactive !default;
 $StateButton--error_color: $color-white !default;
 $StateButton--error_borderColor: transparent !default;
 
-$StateButton--pending_background: $color-primary-normal $gradient-interactive !default;
+$StateButton--pending_background: $color-primary-500 $gradient-interactive !default;
 $StateButton--pending_color: $color-white !default;
 $StateButton--pending_borderColor: transparent !default;
 

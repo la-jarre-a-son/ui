@@ -1,34 +1,90 @@
 $body_fontSize: 16px;
 $body_fontFamily: 'Lato', 'Arial Unicode MS', 'Arial', sans-serif;
 
+
 $color-black: #0e0e0e;
 $color-white: #ffffff;
 
-$color-neutral-darker: #191919;
-$color-neutral-dark: #303030;
-$color-neutral-normal: #5c5c5c;
-$color-neutral-light: #999999;
-$color-neutral-lighter: #cccccc;
+$color-neutral-0: #141414;
+$color-neutral-100: #191919;
+$color-neutral-200: #252525;
+$color-neutral-300: #303030;
+$color-neutral-400: #4a4a4a;
+$color-neutral-500: #5c5c5c;
+$color-neutral-600: #757575;
+$color-neutral-700: #999999;
+$color-neutral-800: #cccccc;
+$color-neutral-900: #eeeeee;
+$color-neutral-1000: #ffffff;
 
-$color-primary-normal: #3567f0;
-$color-primary-dark: darken($color-primary-normal, 15%); // #142452
-$color-primary-light: lighten($color-primary-normal, 15%); // #6f8cdd
+// PRIMARY
+$color-primary-300: #0f41ca;
+$color-primary-400: #1148e1;
+$color-primary-500: #3567f0;
+$color-primary-600: #648bf4;
+$color-primary-700: #7c9df5;
 
-$color-secondary-normal: #d84547;
-$color-secondary-dark: darken($color-secondary-normal, 15%); // #6d1718
-$color-secondary-light: lighten($color-secondary-normal, 15%); // #e58486
+$color-secondary-300: #442d83;
+$color-secondary-400: #4e3496;
+$color-secondary-500: #6241bc;
+$color-secondary-600: #8166ca;
+$color-secondary-700: #9079d1;
 
-$color-danger-normal: #d84547;
-$color-danger-dark: darken($color-danger-normal, 15%);
-$color-danger-light: lighten($color-danger-normal, 15%);
+$color-danger-300: #ac2426;
+$color-danger-400: #c1292b;
+$color-danger-500: #d84547;
+$color-danger-600: #e16f71;
+$color-danger-700: #e58486;
 
-$color-warning-normal: #d89845;
-$color-warning-dark: darken($color-warning-normal, 15%);
-$color-warning-light: lighten($color-warning-normal, 15%);
+$color-warning-300: #ac7124;
+$color-warning-400: #c17f29;
+$color-warning-500: #d89845;
+$color-warning-600: #e1af6f;
+$color-warning-700: #e5bb84;
 
-$color-success-normal: #19a86c;
-$color-success-dark: darken($color-success-normal, 15%);
-$color-success-light: lighten($color-success-normal, 15%);
+$color-success-300: #0f6541;
+$color-success-400: #127c4f;
+$color-success-500: #19a86c;
+$color-success-600: #20d489;
+$color-success-700: #2ee095;
+
+// Deprecated Palette naming - for compatibility
+
+$color-neutral-darker:     $color-neutral-200;
+$color-neutral-dark:       $color-neutral-300;
+$color-neutral-normal:     $color-neutral-500;
+$color-neutral-light:      $color-neutral-700;
+$color-neutral-lighter:    $color-neutral-800;
+
+$color-primary-darker:     $color-primary-300;
+$color-primary-dark:       $color-primary-400;
+$color-primary-normal:     $color-primary-500;
+$color-primary-light:      $color-primary-600;
+$color-primary-lighter:    $color-primary-700;
+
+$color-secondary-darker:   $color-secondary-300;
+$color-secondary-dark:     $color-secondary-400;
+$color-secondary-normal:   $color-secondary-500;
+$color-secondary-light:    $color-secondary-600;
+$color-secondary-lighter:  $color-secondary-700;
+
+$color-danger-darker:      $color-danger-300;
+$color-danger-dark:        $color-danger-400;
+$color-danger-normal:      $color-danger-500;
+$color-danger-light:       $color-danger-600;
+$color-danger-lighter:     $color-danger-700;
+
+$color-warning-darker:     $color-warning-300;
+$color-warning-dark:       $color-warning-400;
+$color-warning-normal:     $color-warning-500;
+$color-warning-light:      $color-warning-600;
+$color-warning-lighter:    $color-warning-700;
+
+$color-success-darker:     $color-success-300;
+$color-success-dark:       $color-success-400;
+$color-success-normal:     $color-success-500;
+$color-success-light:      $color-success-600;
+$color-success-lighter:    $color-success-700;
 
 $gradient-interactive: linear-gradient(
   135deg,

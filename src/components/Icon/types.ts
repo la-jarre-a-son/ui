@@ -5,6 +5,7 @@ export const IconIntents = [
   'contrast',
   'neutral',
   'primary',
+  'secondary',
   'danger',
   'warning',
   'success',

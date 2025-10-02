@@ -4,16 +4,16 @@ $Link_borderRadius: 0;
 
 $Link_intents: (
     'primary': (
-        color: $color-primary-normal,
-        outlineColor: $color-primary-normal,
-        hoverColor: $color-primary-light,
-        activeColor: $color-primary-dark,
+        color: $color-primary-500,
+        outlineColor: $color-primary-500,
+        hoverColor: $color-primary-600,
+        activeColor: $color-primary-400,
     ),
     'destructive': (
-        color: $color-danger-normal,
-        outlineColor: $color-danger-normal,
-        hoverColor: $color-danger-light,
-        activeColor: $color-danger-dark,
+        color: $color-danger-500,
+        outlineColor: $color-danger-500,
+        hoverColor: $color-danger-600,
+        activeColor: $color-danger-400,
     ),
 ) !default;
 
@@ -27,7 +27,7 @@ $Link--disabled_forceNeutral: true !default;
 $Link--underlined_textUnderlineOffset: $space-xs !default;
 
 // If forceNeutral is true, those will be used
-$Link--disabled_color: $color-neutral-normal !default;
+$Link--disabled_color: $color-neutral-500 !default;
 
 // Defaults
 

@@ -3,10 +3,10 @@
 $Typography_weights: (light, regular, bold) !default;
 $Typography_sizes: (xs, sm, md, lg) !default;
 $Typography-default_color: $color-white !default;
-$Typography-subtle_color: $color-neutral-lighter !default;
-$Typography-placeholder_color: $color-neutral-light !default;
-$Typography-contrast_color: $color-neutral-darker !default;
-$Typography-error_color: $color-danger-normal !default;
+$Typography-subtle_color: $color-neutral-800 !default;
+$Typography-placeholder_color: $color-neutral-700 !default;
+$Typography-contrast_color: $color-neutral-100 !default;
+$Typography-error_color: $color-danger-500 !default;
 
 @mixin _textStyle($parentPrefix, $prefix, $size, $weight) {
   @if mixin-exists(textStyle) {

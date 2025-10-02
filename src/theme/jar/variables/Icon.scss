@@ -21,25 +21,28 @@ $Icon_intents: (
         color: $color-white,
     ),
     'subtle': (
-        color: $color-neutral-lighter,
+        color: $color-neutral-800,
     ),
     'contrast': (
-        color: $color-neutral-darker,
+        color: $color-neutral-200,
     ),
     'neutral': (
-        color: $color-neutral-normal,
+        color: $color-neutral-500,
     ),
     'primary': (
-        color: $color-primary-normal,
+        color: $color-primary-500,
+    ),
+    'secondary': (
+        color: $color-secondary-500,
     ),
     'danger': (
-        color: $color-danger-normal,
+        color: $color-danger-500,
     ),
     'warning': (
-        color: $color-warning-normal,
+        color: $color-warning-500,
     ),
     'success': (
-        color: $color-success-normal,
+        color: $color-success-500,
     ),
     'inherit': (
         color: currentColor

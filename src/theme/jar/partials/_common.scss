@@ -2,12 +2,12 @@
 
 $ljas-ui-asset-path: '../assets' !default;
 
-$body_background: $color-neutral-darker url('#{$ljas-ui-asset-path}/images/cassettes-tiled.png') !default;
+$body_background: $color-neutral-100 url('#{$ljas-ui-asset-path}/images/cassettes-tiled.png') !default;
 $body_color: $color-white !default;
 $body_textStyle: (md, light) !default;
 
 $scrollbar_width: $space-lg !default;
 $scrollbar_padding: $space-sm !default;
 $scrollbar_radius: $space-lg !default;
-$scrollbar-track_color: darken($color-neutral-darker, 2%) !default;
-$scrollbar-thumb_color: $color-neutral-light !default;
+$scrollbar-track_color: $color-black !default;
+$scrollbar-thumb_color: $color-neutral-700 !default;

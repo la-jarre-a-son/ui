@@ -2,7 +2,14 @@ import React from 'react';
 
 export const ButtonSizes = ['sm', 'md', 'lg'] as const;
 export const ButtonVariants = ['filled', 'outlined', 'ghost'] as const;
-export const ButtonIntents = ['neutral', 'primary', 'danger', 'warning', 'success'] as const;
+export const ButtonIntents = [
+  'neutral',
+  'primary',
+  'secondary',
+  'danger',
+  'warning',
+  'success',
+] as const;
 
 export type ButtonSize = (typeof ButtonSizes)[number];
 export type ButtonVariant = (typeof ButtonVariants)[number];

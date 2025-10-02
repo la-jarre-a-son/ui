@@ -1,7 +1,7 @@
 $Sidebar_zIndex: $zindex-side !default;
 
 $Sidebar-container_boxShadow: $shadow-md !default;
-$Sidebar-container_backgroundColor: $color-neutral-darker !default;
+$Sidebar-container_backgroundColor: $color-neutral-200 !default;
 $Sidebar-container_borderRadius: $radius-sm !default;
 
 $Sidebar--show_animationDuration: $duration_fast !default;
@@ -9,7 +9,7 @@ $Sidebar--show_animationTimingFunction: $timing_default !default;
 $Sidebar--hide_animationDuration: $duration_fast !default;
 $Sidebar--hide_animationTimingFunction: $timing_default !default;
 
-$Sidebar--inset_background: darken($color-neutral-darker, 2%) !default;
+$Sidebar--inset_background: $color-neutral-0 !default;
 $Sidebar--inset--top_boxShadow: inset 0 -36px 12px -24px rgba($color-black, 0.5) !default;
 $Sidebar--inset--bottom_boxShadow: inset 0 36px 12px -24px rgba($color-black, 0.5) !default;
 $Sidebar--inset--left_boxShadow: inset -36px 0 12px -24px rgba($color-black, 0.5) !default;

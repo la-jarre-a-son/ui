@@ -1,5 +1,5 @@
-$Avatar_background: $color-neutral-darker !default;
-$Avatar_color: $color-neutral-lighter !default;
+$Avatar_background: $color-neutral-200 !default;
+$Avatar_color: $color-neutral-800 !default;
 $Avatar_fontSizeRatio: 0.5 !default;
 
 $Avatar_borderRadius: 0 !default;
@@ -11,14 +11,14 @@ $Avatar-image_transitionDuration: $duration_fast !default;
 $Avatar-image_transitionTimingFunction: ease !default;
 
 $Avatar_outlineWidth: $border-md!default;
-$Avatar_outlineColor: $color-neutral-dark !default;
+$Avatar_outlineColor: $color-neutral-300 !default;
 
 $Avatar--online_outlineWidth: $border-md!default;
-$Avatar--online_outlineColor: $color-success-normal !default;
+$Avatar--online_outlineColor: $color-success-500 !default;
 $Avatar--online_animationDuration: 2s !default;
 $Avatar--online_animationTimingFunction: ease-in-out !default;
 $Avatar--online_glowWidth: $space-lg !default;
-$Avatar--online_glowColor: rgba($color-success-normal, 0.5) !default;
+$Avatar--online_glowColor: rgba($color-success-500, 0.5) !default;
 $Avatar--round_borderRadius: 100% !default;
 
 $Avatar_sizes: (

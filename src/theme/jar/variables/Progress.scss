@@ -3,9 +3,9 @@ $Progress_height: $size-xs !default;
 $Progress_gap: $space-md !default;
 $Progress_color: inherit !default;
 $Progress-track_borderRadius: 0 !default;
-$Progress-track_background: $color-neutral-dark $gradient-interactive !default;
+$Progress-track_background: $color-neutral-300 $gradient-interactive !default;
 $Progress-bar_borderRadius: 0 !default;
-$Progress-bar_background: $color-primary-normal $gradient-interactive !default;
+$Progress-bar_background: $color-primary-500 $gradient-interactive !default;
 
 $Progress_transitionDuration: $duration_fast !default;
 $Progress_transitionTimingFunction: ease !default;

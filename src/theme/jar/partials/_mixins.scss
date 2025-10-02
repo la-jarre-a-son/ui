@@ -1,7 +1,7 @@
 $focus_selector: '&:focus-visible' !default;
 $focus_outlineStyle: solid !default;
 $focus_outlineWidth: $border-md !default;
-$focus_outlineColor: $color-primary-normal !default;
+$focus_outlineColor: $color-primary-500 !default;
 $focus_outlineOffset: $space-sm !default;
 $focus_outlineTransition: (
     outline-width 0s,

@@ -22,24 +22,24 @@ $Dot_intents: (
         activeGlowColor: rgba($color-white, 0.5),
     ),
     'primary': (
-        color: $color-primary-normal,
-        activeGlowColor: rgba($color-primary-normal, 0.5),
+        color: $color-primary-500,
+        activeGlowColor: rgba($color-primary-500, 0.5),
     ),
     'secondary': (
-        color: $color-secondary-normal,
-        activeGlowColor: rgba($color-secondary-normal, 0.5),
+        color: $color-secondary-500,
+        activeGlowColor: rgba($color-secondary-500, 0.5),
     ),
     'error': (
-        color: $color-danger-normal,
-        activeGlowColor: rgba($color-danger-normal, 0.5),
+        color: $color-danger-500,
+        activeGlowColor: rgba($color-danger-500, 0.5),
     ),
     'warning': (
-        color: $color-warning-normal,
-        activeGlowColor: rgba($color-warning-normal, 0.5),
+        color: $color-warning-500,
+        activeGlowColor: rgba($color-warning-500, 0.5),
     ),
     'success': (
-        color: $color-success-normal,
-        activeGlowColor: rgba($color-success-normal, 0.5),
+        color: $color-success-500,
+        activeGlowColor: rgba($color-success-500, 0.5),
     ),
 ) !default;
 
