@@ -39,8 +39,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
       }
 
       return () => {
-        document.body.classList.remove(themeClassName);
-        document.body.classList.remove(variantClassName);
+        if (themeClassName) {
+          document.body.classList.remove(themeClassName);
+        }
+        if (variantClassName) {
+          document.body.classList.remove(variantClassName);
+        }
       };
     }
   }, [theme, variant, element]);

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 
 import moduleCss from '!!raw-loader!./Button.module.scss?raw';

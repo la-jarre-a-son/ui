@@ -1,5 +1,4 @@
-import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import useEvent from './useEvent';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Hooks/useEvent" />
 
@@ -21,4 +20,4 @@ const MyComponent: React.FC = () => {
 
 ## When to use this hook instead of the useCallback one ?
 
-Don't use this hook if the callback as to be somehow executed directly in the render function (for example when passed to a render prop).
+Don't use this hook if the callback has to be somehow executed directly in the render function (for example when passed to a render prop).

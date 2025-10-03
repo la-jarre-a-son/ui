@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import moduleCss from '!!raw-loader!./Avatar.module.scss?raw';
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
@@ -10,14 +10,16 @@ import { Avatar, AvatarSizes, AvatarShapes } from '.';
 
 const imageSrc = '/placeholderImage.svg';
 
-export default {
+const meta = {
   title: 'Components/Data/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   parameters: {
     theming: extractThemeVariables([moduleCss, themeVariablesScss], 'Avatar'),
   },
-} as Meta;
+} satisfies Meta<typeof Avatar>;
+
+export default meta;
 
 export const Default: StoryObj<typeof Avatar> = {
   render: ({ children, ...rest }) => <Avatar {...rest}>{children}</Avatar>,

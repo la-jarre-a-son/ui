@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from '@storybook/react-webpack5';
 
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 

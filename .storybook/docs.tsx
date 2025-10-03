@@ -6,7 +6,7 @@ import {
     Primary,
     Controls,
     Stories,
-} from '@storybook/addon-docs';
+} from '@storybook/addon-docs/blocks';
 import darkTheme from './darkTheme';
 
 import { Theming } from './utils/Theming';

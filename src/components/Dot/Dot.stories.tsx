@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import moduleCss from '!!raw-loader!./Dot.module.scss?raw';
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';

@@ -1,5 +1,4 @@
-import React from 'react';
-import { DecoratorFn } from '@storybook/react';
+import { Decorator } from '@storybook/react-webpack5';
 
 import "@flaticon/flaticon-uicons/css/regular/rounded.css";
 import "@flaticon/flaticon-uicons/css/brands/all.css";
@@ -26,12 +25,12 @@ export const themeGlobalTypes = {
     },
 };
 
-export const withTheme: DecoratorFn = (StoryFn, context) => {
+export const withTheme: Decorator = (Story, context) => {
     const theme = context.parameters.theme || context.globals.theme;
     return (
         <main>
             <ThemeProvider theme={'jar'} variant={theme}>
-                <StoryFn />
+                <Story />
             </ThemeProvider>
         </main>
     );

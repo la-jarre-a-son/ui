@@ -1,0 +1,91 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Utilities/forwardRef" />
+
+# forwardRef
+
+## forwardRefWithAs
+
+React forwardRef wrapped with typings to correctly handle `as` prop to change root Element of components.
+
+Also enable adding typed statics to the components to embed class-level data to the components (such as icon names, and behaviour variables).
+
+```tsx
+/* ComponentAs.tsx */
+
+import { forwardRefWithAs } from '@la-jarre-a-son/ui';
+
+type ComponentStatics = {
+  propDefaultValue: string;
+}
+
+export type ComponentProps = {
+  prop: string,
+};
+
+export const ComponentAs = forwardRefWithAs<ComponentProps, 'div', ComponentStatics>((props, ref) => {
+  const {
+    as,
+    children,
+    prop = ComponentAs.propDefaultValue,
+    ...otherProps
+  } = props;
+  const Element = as || 'div';
+  return (
+    <Element
+      ref={ref}
+      {...otherProps}
+    >
+      {children}
+    </Element>
+  );
+}
+
+ComponentAs.propDefaultValue = 'default';
+
+ComponentAs.displayName = 'ComponentAs';
+
+export default ComponentAs;
+```
+
+## forwardRefWithStatic
+
+React forwardRef wrapped with typings to correctly add statics to a component.
+
+
+```tsx
+/* ComponentAs.tsx */
+
+import { forwardRefWithAs } from '@la-jarre-a-son/ui';
+
+type ComponentStatics = {
+  propDefaultValue: string;
+}
+
+export type ComponentProps = {
+  prop: string,
+};
+
+export const ComponentAs = forwardRefWithStatic<HTMLDivElement, ComponentProps,  ComponentStatics>((props, ref) => {
+  const {
+    children,
+    prop = ComponentAs.propDefaultValue,
+    ...otherProps
+  } = props;
+
+  return (
+    <div
+      ref={ref}
+      {...otherProps}
+    >
+      {children}
+    </div>
+  );
+}
+
+ComponentAs.propDefaultValue = 'default';
+
+ComponentAs.displayName = 'ComponentAs';
+
+export default ComponentAs;
+```

@@ -1,5 +1,5 @@
 import React, { KeyboardEventHandler, useState } from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 
 import moduleCss from '!!raw-loader!./Badge.module.scss?raw';
@@ -12,14 +12,16 @@ import Stack from '../Stack';
 
 import { Badge, BadgeSizes, BadgeIntents } from '.';
 
-export default {
+const meta = {
   title: 'Components/Data/Badge',
   component: Badge,
   tags: ['autodocs'],
   parameters: {
-    theming: extractThemeVariables([moduleCss, themeVariablesScss], 'Badge'),
+    // theming: extractThemeVariables([moduleCss, themeVariablesScss], 'Badge'),
   },
-} as Meta;
+} satisfies Meta<typeof Badge>;
+
+export default meta;
 
 export const Default: StoryObj<typeof Badge> = {
   render: ({ children, ...rest }) => <Badge {...rest}>{children}</Badge>,

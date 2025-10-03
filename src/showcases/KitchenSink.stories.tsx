@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-webpack5';
 
 import { Container } from '../components';
 import { All as AllBadges } from '../components/Badge/Badge.stories';

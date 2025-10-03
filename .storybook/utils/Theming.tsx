@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
-import { PureArgsTable } from '@storybook/addon-docs';
-import { DocsContext, Heading } from '@storybook/addon-docs';
+import { PureArgsTable } from '@storybook/addon-docs/blocks';
+import { DocsContext, Heading } from '@storybook/addon-docs/blocks';
 
 type Variable = { name: string; value: string; isDefault?: boolean };
 type ThemingParameters = { css: Variable[]; scss: Variable[]; external: Variable[] };

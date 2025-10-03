@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Container, ContainerSize, ContainerSizes } from '../Container';
 import { Grid, GridSize, GridSizes, GridGap, GridGaps } from '.';
