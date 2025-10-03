@@ -46,8 +46,11 @@ export const Popper = forwardRefWithAs<PopperProps, 'div'>((props, ref) => {
   const {
     x,
     y,
-    floating,
-    reference,
+    refs: {
+      floating,
+      setReference,
+    },
+    update,
     strategy: position,
     middlewareData: { arrow },
   } = usePopper({
@@ -62,9 +65,11 @@ export const Popper = forwardRefWithAs<PopperProps, 'div'>((props, ref) => {
   // pass the given anchor ref to the popper hook
   useEffect(() => {
     if (anchorEl) {
-      reference(anchorEl);
+      console.log(anchorEl)
+      setReference(anchorEl);
+      update();
     }
-  }, [anchorEl, reference]);
+  }, [anchorEl, setReference]);
 
   const mergedRef = useMergeRef(ref, floating);
 

@@ -36,7 +36,7 @@
     "test:unit": "jest --detectOpenHandles"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^0.7.2",
+    "@floating-ui/react-dom": "^2.1.6",
     "react-slider": "^2.0.6"
   },
   "peerDependencies": {

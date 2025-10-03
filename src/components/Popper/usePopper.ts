@@ -3,7 +3,7 @@ import {
   useFloating,
   flip,
   shift,
-  UseFloatingProps,
+  UseFloatingOptions,
   autoUpdate as autoUpdateFunc,
   Rect,
   Placement,
@@ -68,7 +68,7 @@ export function usePopper(popperOptions?: PopperOptions) {
   const rect = useRef<Rect | null>(null);
 
   const defaultOptions = useMemo(() => {
-    const otps: UseFloatingProps = {
+    const otps: UseFloatingOptions = {
       strategy,
       placement,
       middleware: [

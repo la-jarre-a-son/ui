@@ -76,8 +76,10 @@ export const TooltipPopper = forwardRefWithAs<TooltipPopperProps, 'div'>((props,
   const {
     x,
     y,
-    floating,
-    reference,
+    refs: {
+      floating,
+      setReference,
+    },
     strategy,
     update,
     placement,
@@ -89,8 +91,9 @@ export const TooltipPopper = forwardRefWithAs<TooltipPopperProps, 'div'>((props,
   });
 
   useEffect(() => {
-    reference(anchorEl);
-  }, [anchorEl, reference]);
+    setReference(anchorEl);
+    update();
+  }, [anchorEl, setReference]);
 
   const handleArrowRef = useCallback(
     (el: HTMLElement | null) => {
