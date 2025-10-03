@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactSlider, { ReactSliderProps } from 'react-slider';
+import ReactSlider, { ReactSliderProps } from './ReactSlider';
 
 import { bindClassNames } from '../../utils/classNames';
 import { forwardRefWithAs } from '../../utils/forwardRef';
@@ -11,7 +11,8 @@ const cx = bindClassNames(styles);
 
 /* Props */
 
-export type SliderDirection = 'horizontal' | 'vertical';
+export const SliderDirections = ['horizontal', 'vertical'] as const;
+export type SliderDirection = (typeof SliderDirections)[number];
 
 export type SliderProps = MergeProps<
   {

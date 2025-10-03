@@ -1,3 +1,3 @@
-export { default, Slider } from './Slider';
+export { default, Slider, SliderDirections } from './Slider';
 
 export type { SliderDirection, SliderProps } from './Slider';

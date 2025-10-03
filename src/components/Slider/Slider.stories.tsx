@@ -47,7 +47,7 @@ export const Default: StoryObj<typeof Slider> = {
     max: 100,
     step: 10,
     marks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-    orientation: 'horizontal',
+    direction: 'horizontal',
   },
 };
 
@@ -83,7 +83,7 @@ export const Range: StoryObj<typeof Slider> = {
     max: 100,
     step: 10,
     marks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-    orientation: 'horizontal',
+    direction: 'horizontal',
     pearling: true,
     minDistance: 10,
   },
@@ -120,7 +120,7 @@ export const Multiple: StoryObj<typeof Slider> = {
     min: 0,
     max: 100,
     marks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-    orientation: 'horizontal',
+    direction: 'horizontal',
     pearling: true,
     minDistance: 1,
   },
@@ -171,6 +171,6 @@ export const Snap: StoryObj<typeof Slider> = {
     min: 0,
     max: 100,
     marks: [0, 5, 15, 50, 85, 95, 100],
-    orientation: 'horizontal',
+    direction: 'horizontal',
   },
 };

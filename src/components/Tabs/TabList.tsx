@@ -74,7 +74,7 @@ export const TabList = forwardRefWithAs<TabListProps, typeof ButtonGroup>((props
     ...otherProps
   } = props;
 
-  const containerRef = useRef<HTMLElement>();
+  const containerRef = useRef<HTMLElement>(null);
 
   const listBoxRef = useListNav({
     direction,

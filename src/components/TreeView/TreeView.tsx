@@ -38,7 +38,7 @@ export type TreeViewProps = {
 export const TreeView = forwardRefWithAs<TreeViewProps, 'nav'>((props, ref) => {
   const { children, as, className, id, sticky, ...otherProps } = props;
 
-  const containerRef = useRef<HTMLElement>();
+  const containerRef = useRef<HTMLElement>(null);
   const parentId = useId(id);
 
   const Element = as || 'nav';

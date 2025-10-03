@@ -100,7 +100,7 @@ export function useListNav(options: ListNavOptions) {
   } = options;
 
   const [getSearch, setSearch] = useKeySearch();
-  const prevItem = useRef<ItemToFocus>();
+  const prevItem = useRef<ItemToFocus>(null);
   const containerElRef = usePropsRef(containerEl);
 
   return useRefEffect(

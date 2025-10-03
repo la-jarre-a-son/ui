@@ -41,7 +41,7 @@ function FeedbackRender({
   iconPending: string;
   iconError: string;
   iconSuccess: string;
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <span className={cx('feedback')}>
       {status === 'pending' && <Icon name={iconPending} spin />}

@@ -141,7 +141,7 @@ export const Tooltip = forwardRefWithAs<TooltipProps, 'div', TooltipStatic>((pro
   let desc = {};
   if (describeAs !== 'none' && show) {
     const descAttribute = describeAs === 'description' ? 'aria-describedby' : 'aria-labelledby';
-    const childDesc = React.isValidElement(children) ? children?.props?.[descAttribute] || '' : '';
+    const childDesc = React.isValidElement(children) ? (children?.props as React.ComponentProps<any>)[descAttribute] || '' : '';
     desc = {
       [descAttribute]: `${childDesc} ${uid}`,
     };

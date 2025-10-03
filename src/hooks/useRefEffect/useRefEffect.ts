@@ -14,7 +14,7 @@ export function useRefEffect<T extends HTMLElement>(
   func: RefEffect<T>,
   deps: React.DependencyList
 ) {
-  const cleanup = useRef<(() => void) | null>();
+  const cleanup = useRef<(() => void) | null>(null);
 
   const effect = useEvent(func);
 

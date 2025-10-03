@@ -28,7 +28,7 @@ export const StackSeparator = forwardRefWithAs<StackSeparatorProps, 'div'>((prop
   if (React.isValidElement(children)) {
     return React.cloneElement<React.ComponentPropsWithRef<React.ElementType>>(children, {
       ref: mergeRef(getChildRef(children), ref),
-      className: cx('grow', children.props.className),
+      className: cx('grow', (children.props as React.ComponentProps<any>).className),
     });
   }
 
