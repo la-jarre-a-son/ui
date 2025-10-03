@@ -1,7 +1,261 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, PureArgsTable } from '@storybook/addon-docs/blocks';
 
 <Meta title="Utilities/focusUtils" />
 
 # focusUtils
 
 A set of utilities to manage focus.
+
+
+## isFocusable(element, allowNegativeTabIndex?)
+
+Tests if an DOM element is focusable.
+
+Set `allowNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'The element to test',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    allowNegativeTabIndex: {
+      name: 'allowNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    }
+  }}
+/>
+
+## attemptFocus(element, allowNegativeTabIndex?, options?)
+
+Try to focus a given DOM elements
+
+Set `allowNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+Returns true if focus went well, false if the element was not focusable or if an error occured
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    allowNegativeTabIndex: {
+      name: 'allowNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    },
+    options: {
+      name: 'options',
+      description: 'Focus options for htmlElement.focus(options)',
+      table: { type: { summary: 'FocusOptions' } }
+    }
+  }}
+/>
+
+## focusFirstDescendant(element, includeNegativeTabIndex?, options?)
+
+Focus the first focusable descendant of a given DOM element
+
+Set `includeNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+Returns `true` if the focus went well, false if no focusable element was found
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    includeNegativeTabIndex: {
+      name: 'includeNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    },
+    options: {
+      name: 'options',
+      description: 'Focus options for htmlElement.focus(options)',
+      table: { type: { summary: 'FocusOptions' } }
+    }
+  }}
+/>
+
+## focusLastDescendant(element, includeNegativeTabIndex?, options?)
+
+Focus the last focusable descendant of a given DOM element
+
+Set `includeNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+Returns `true` if the focus went well, false if no focusable element was found
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    includeNegativeTabIndex: {
+      name: 'includeNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    },
+    options: {
+      name: 'options',
+      description: 'Focus options for htmlElement.focus(options)',
+      table: { type: { summary: 'FocusOptions' } }
+    }
+  }}
+/>
+
+## getFirstFocusableDescendant(element, allowNegativeTabIndex?)
+
+Focus the first focusable descendant of a given DOM element
+
+Set `allowNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    allowNegativeTabIndex: {
+      name: 'allowNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    }
+  }}
+/>
+
+## getLastFocusableDescendant(element, allowNegativeTabIndex?)
+
+Focus the last focusable descendant of a given DOM element
+
+Set `allowNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    allowNegativeTabIndex: {
+      name: 'allowNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    }
+  }}
+/>
+
+## getNextFocusable(element, allowNegativeTabIndex?)
+
+Return the next focusable sibling element
+
+Set `allowNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    allowNegativeTabIndex: {
+      name: 'allowNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    }
+  }}
+/>
+
+## getPreviousFocusable(element, allowNegativeTabIndex?)
+
+Return the previous focusable sibling element
+
+Set `allowNegativeTabIndex` to indicate if elements with tabIndex "-1" must be considered focusable.
+
+<PureArgsTable
+  rows={{
+    element: {
+      name: 'element',
+      description: 'Element to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    allowNegativeTabIndex: {
+      name: 'allowNegativeTabIndex',
+      description: 'Indicate if elements with tabIndex "-1" must be considered focusable',
+      defaultValue: { summary: false },
+      table: { type: { summary: 'boolean' } }
+    }
+  }}
+/>
+
+## isOutside(container, element?)
+
+Test is the given element is outside the given container
+
+<PureArgsTable
+  rows={{
+    container: {
+      name: 'container',
+      description: 'Container to check to focus',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    element: {
+      name: 'element',
+      description: 'Element to check',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+  }}
+/>
+
+## focusByText(\{rootEl, startEl?, text\})
+
+Function that will find and focus the next element of the given container containing the given text as innterText, starting with the given start element
+
+<PureArgsTable
+  rows={{
+    rootEl: {
+      name: 'rootEl',
+      description: 'Container element',
+      type: { required: true},
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    startEl: {
+      name: 'startEl',
+      description: 'Element after which focus will be done',
+      defaultValue: { summary: 'rootEl' },
+      table: { type: { summary: 'HTMLElement' } }
+    },
+    text: {
+      name: 'text',
+      description: 'Params to search for text',
+      type: { required: true},
+      table: { type: { summary: 'string' } }
+    },
+  }}
+/>

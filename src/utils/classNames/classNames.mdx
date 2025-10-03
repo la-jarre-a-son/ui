@@ -6,7 +6,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 Function used to compose classes at runtime.
 
-## classNames()
+## classNames(...classNames)
 
 ```ts
 // args notation
@@ -23,7 +23,7 @@ classNames({
 }); // => 'class1 class2'
 ```
 
-## bindClassNames()
+## bindClassNames(...classNames)
 
 The `bindClassNames` function create a className function bound to a css-mocule styles object.
 You can then directly pass keys of the css-mocule style object as argument.

@@ -137,7 +137,7 @@ export function getFirstFocusableDescendant(
 }
 
 /**
- * Return the last docusable descendant of the given element
+ * Return the last focusable descendant of the given element
  */
 export function getLastFocusableDescendant(
   element?: HTMLElement | null,
