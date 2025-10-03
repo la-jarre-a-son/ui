@@ -35,9 +35,9 @@ $Box_elevations: (
 
 
 $Box_padding: 0 !default;
-$Box_color: map-get($Box_elevations, 0, color) !default;
-$Box_background: map-get($Box_elevations, 0, background) !default;
-$Box_borderColor: map-get($Box_elevations, 0, borderColor) !default;
-$Box_boxShadow: map-get($Box_elevations, 0, boxShadow) !default;
+$Box_color: map.get($Box_elevations, 0, color) !default;
+$Box_background: map.get($Box_elevations, 0, background) !default;
+$Box_borderColor: map.get($Box_elevations, 0, borderColor) !default;
+$Box_boxShadow: map.get($Box_elevations, 0, boxShadow) !default;
 $Box_borderRadius: 0 !default;
 $Box--outlined_borderWidth: $border-sm !default;

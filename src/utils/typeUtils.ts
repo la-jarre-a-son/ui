@@ -25,7 +25,7 @@ export type WithAs<T extends As, P = {}> = MergeProps<{ as?: T }, P>;
 /**
  * Type to use to manage an "as" prop for polymorphic components
  */
-export type PropsType = {} | null;
+export type PropsType = React.PropsWithoutRef<any> | null;
 
 export type PropsWithAs<T extends As, P extends PropsType> = MergeProps<
   WithAs<T, P>,

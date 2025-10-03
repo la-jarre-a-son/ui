@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Animations
@@ -14,11 +15,11 @@
 // Mixins
 
 @mixin ljasIconSize($name, $map) {
-    --Icon_size: var(--Icon--#{$name}_size, #{map-get($map, size)});
+    --Icon_size: var(--Icon--#{$name}_size, #{map.get($map, size)});
 }
 
 @mixin ljasIconIntent($name, $map) {
-    --Icon_color: var(--Icon--#{$name}_color, #{map-get($map, color)});
+    --Icon_color: var(--Icon--#{$name}_color, #{map.get($map, color)});
 }
 
 // Classes

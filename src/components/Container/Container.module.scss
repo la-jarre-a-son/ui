@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Classes
@@ -15,7 +16,7 @@
     .--#{$size} {
         --Container_maxWidth: var(
             --Container--#{$size}_maxWidth,
-            #{map-get($Container_sizes, $size)}
+            #{map.get($Container_sizes, $size)}
         );
     }
 }

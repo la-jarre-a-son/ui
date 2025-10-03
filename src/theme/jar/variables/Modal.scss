@@ -45,4 +45,4 @@ $Modal-breakpoint-mobile: $breakpoint-sm !default;
 $Modal-breakpoint-heightScroll: 'only screen and (max-height: 320px)' !default; // breakpoint when scroll for the whole header inside.
 
 // defaults
-$Modal_width: map-get($Modal_sizes, 'md') !default;
+$Modal_width: map.get($Modal_sizes, 'md') !default;

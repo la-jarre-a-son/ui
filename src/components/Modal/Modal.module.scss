@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Classes
@@ -148,7 +149,7 @@
 
 @each $size, $value in $Modal_sizes {
     .--#{$size} {
-        --Modal_width: var(--Modal--#{$size}_width, #{map-get($Modal_sizes, $size)});
+        --Modal_width: var(--Modal--#{$size}_width, #{map.get($Modal_sizes, $size)});
     }
 }
 

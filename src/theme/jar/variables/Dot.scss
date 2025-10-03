@@ -44,6 +44,6 @@ $Dot_intents: (
 ) !default;
 
 // Defaults
-$Dot_size: map-get($Dot_sizes, 'md', size) !default;
-$Dot_color: map-get($Dot_intents, 'neutral', color) !default;
-$Dot--active_glowColor: map-get($Dot_intents, 'neutral', activeGlowColor) !default;
+$Dot_size: map.get($Dot_sizes, 'md', size) !default;
+$Dot_color: map.get($Dot_intents, 'neutral', color) !default;
+$Dot--active_glowColor: map.get($Dot_intents, 'neutral', activeGlowColor) !default;

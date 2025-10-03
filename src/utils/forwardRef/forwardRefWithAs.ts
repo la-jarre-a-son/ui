@@ -26,7 +26,7 @@ export interface ForwardRefWithAsRenderFunction<
   T extends As,
   P extends PropsType = Record<string, any>,
 > {
-  (props: OwnPropsWithAs<T, P>, ref: React.Ref<React.ElementRef<T>>): React.ReactNode;
+  (props: React.PropsWithoutRef<OwnPropsWithAs<T, P>>, ref: React.Ref<React.ElementRef<T>>): React.ReactNode;
   displayName?: string;
   // explicit rejected with `never` required due to
   // https://github.com/microsoft/TypeScript/issues/36826

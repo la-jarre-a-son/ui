@@ -49,9 +49,9 @@ $Badge_intents: (
 
 // Defaults
 
-$Badge_height: map-get($Badge_sizes, 'md', height) !default;
-$Badge_padding: map-get($Badge_sizes, 'md', padding) !default;
-$Badge_textStyle: map-get($Badge_sizes, 'md', textStyle) !default;
+$Badge_height: map.get($Badge_sizes, 'md', height) !default;
+$Badge_padding: map.get($Badge_sizes, 'md', padding) !default;
+$Badge_textStyle: map.get($Badge_sizes, 'md', textStyle) !default;
 $Badge_textTransform: uppercase !default;
-$Badge_background: map-get($Badge_intents, 'neutral', background) !default;
-$Badge_color: map-get($Badge_intents, 'neutral', color) !default;
+$Badge_background: map.get($Badge_intents, 'neutral', background) !default;
+$Badge_color: map.get($Badge_intents, 'neutral', color) !default;

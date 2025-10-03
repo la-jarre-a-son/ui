@@ -31,7 +31,7 @@ $Link--disabled_color: $color-neutral-500 !default;
 
 // Defaults
 
-$Link_color: map-get($Link_intents, 'primary', color) !default;
-$Link_outlineColor: map-get($Link_intents, 'primary', outlineColor) !default;
-$Link--hover_color: map-get($Link_intents, 'primary', hoverColor) !default;
-$Link--active_color: map-get($Link_intents, 'primary', activeColor) !default;
+$Link_color: map.get($Link_intents, 'primary', color) !default;
+$Link_outlineColor: map.get($Link_intents, 'primary', outlineColor) !default;
+$Link--hover_color: map.get($Link_intents, 'primary', hoverColor) !default;
+$Link--active_color: map.get($Link_intents, 'primary', activeColor) !default;

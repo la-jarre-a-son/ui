@@ -1,75 +1,76 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Mixins
 
 @mixin ljasButtonSize($size, $map) {
-    @include _textStyle(null, --Button--#{$size}, map-get($map, textStyle)...);
+    @include _textStyle(null, --Button--#{$size}, map.get($map, textStyle)...);
 
-    --Button_borderRadius: var(--Button--#{$size}_borderRadius, #{map-get($map, borderRadius)});
-    --Button_height: var(--Button--#{$size}_height, #{map-get($map, height)});
-    --Button_padding: var(--Button--#{$size}_padding, #{map-get($map, padding)});
-    --Button_gap: var(--Button--#{$size}_gap, #{map-get($map, gap)});
+    --Button_borderRadius: var(--Button--#{$size}_borderRadius, #{map.get($map, borderRadius)});
+    --Button_height: var(--Button--#{$size}_height, #{map.get($map, height)});
+    --Button_padding: var(--Button--#{$size}_padding, #{map.get($map, padding)});
+    --Button_gap: var(--Button--#{$size}_gap, #{map.get($map, gap)});
 }
 
 @mixin ljasButtonVariantIntent($variant, $intent, $map) {
-    --Button_color: var(--Button--#{$variant}--#{$intent}_color, #{map-get($map, color)});
+    --Button_color: var(--Button--#{$variant}--#{$intent}_color, #{map.get($map, color)});
     --Button_background: var(
         --Button--#{$variant}--#{$intent}_background,
-        #{map-get($map, background)}
+        #{map.get($map, background)}
     );
     --Button_borderColor: var(
         --Button--#{$variant}--#{$intent}_borderColor,
-        #{map-get($map, borderColor)}
+        #{map.get($map, borderColor)}
     );
     --Button--hover_color: var(
         --Button--#{$variant}--#{$intent}--hover_color,
-        #{map-get($map, hoverColor)}
+        #{map.get($map, hoverColor)}
     );
     --Button--hover_borderColor: var(
         --Button--#{$variant}--#{$intent}--hover_borderColor,
-        #{map-get($map, hoverBorderColor)}
+        #{map.get($map, hoverBorderColor)}
     );
     --Button--hover_background: var(
         --Button--#{$variant}--#{$intent}--hover_background,
-        #{map-get($map, hoverBackground)}
+        #{map.get($map, hoverBackground)}
     );
     --Button--active_color: var(
         --Button--#{$variant}--#{$intent}--active_color,
-        #{map-get($map, activeColor)}
+        #{map.get($map, activeColor)}
     );
     --Button--active_borderColor: var(
         --Button--#{$variant}--#{$intent}--active_borderColor,
-        #{map-get($map, activeBorderColor)}
+        #{map.get($map, activeBorderColor)}
     );
     --Button--active_background: var(
         --Button--#{$variant}--#{$intent}--active_background,
-        #{map-get($map, activeBackground)}
+        #{map.get($map, activeBackground)}
     );
 }
 
 
 @mixin ljasButtonHoverIntent($variant, $intent, $map, $neutral) {
-    --Button_color: var(--Button--#{$variant}--neutral_color, #{map-get( $neutral, color)});
+    --Button_color: var(--Button--#{$variant}--neutral_color, #{map.get( $neutral, color)});
     --Button_background: var(
         --Button--#{$variant}--neutral_background,
-        #{map-get( $neutral, background)}
+        #{map.get( $neutral, background)}
     );
     --Button_borderColor: var(
         --Button--#{$variant}--neutral_borderColor,
-        #{map-get( $neutral, borderColor)}
+        #{map.get( $neutral, borderColor)}
     );
     @if $variant == filled and $intent != neutral {
         --Button--hover_color: var(
             --Button--#{$variant}--#{$intent}_color,
-            #{map-get($map, color)}
+            #{map.get($map, color)}
         );
         --Button--hover_borderColor: var(
             --Button--#{$variant}--#{$intent}_borderColor,
-            #{map-get($map, borderColor)}
+            #{map.get($map, borderColor)}
         );
         --Button--hover_background: var(
             --Button--#{$variant}--#{$intent}_background,
-            #{map-get($map, background)}
+            #{map.get($map, background)}
         );
     }
 }
@@ -181,7 +182,7 @@
             @include ljasButtonVariantIntent($variant, $intent, $value);
         }
         .--#{$variant}.--#{$intent}.--hoverIntent {
-            @include ljasButtonHoverIntent($variant, $intent, $value, map-get($Button_variants, $variant, neutral));
+            @include ljasButtonHoverIntent($variant, $intent, $value, map.get($Button_variants, $variant, neutral));
         }
     }
 }

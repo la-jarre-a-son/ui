@@ -51,6 +51,8 @@ const config: StorybookConfig = {
                   localIdentRegExp: /[/\\]([^/\\]+?)(?:\.module)?\.[^./\\]+$/,
                   localIdentName: '[1]-[local]_[hash:base64:5]',
                 },
+                sourceMap: true,
+                importLoaders: 1,
               },
             },
             'resolve-url-loader',
@@ -59,7 +61,8 @@ const config: StorybookConfig = {
               options: {
                 sourceMap: true,
                 sassOptions: {
-                  includePaths: [
+                  silenceDeprecations: ['import'], // FIXME: next update should fix this
+                  loadPaths: [
                     path.resolve(__dirname, '../node_modules'),
                     path.resolve(__dirname, '../src/theme/jar')
                   ]

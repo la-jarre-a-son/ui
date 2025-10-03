@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 
 $Typography_weights: (light, regular, bold) !default;
 $Typography_sizes: (xs, sm, md, lg) !default;
@@ -9,19 +10,19 @@ $Typography-contrast_color: $color-neutral-100 !default;
 $Typography-error_color: $color-danger-500 !default;
 
 @mixin _textStyle($parentPrefix, $prefix, $size, $weight) {
-  @if mixin-exists(textStyle) {
+  @if meta.mixin-exists(textStyle) {
     @include textStyle($parentPrefix, $prefix, $size, $weight);
   } @else if $parentPrefix {
-    #{$parentPrefix}_fontFamily: var(#{$prefix}_fontFamily, #{map-get($typo, $size, $weight, font-family)});
-    #{$parentPrefix}_fontSize: var(#{$prefix}_fontSize, #{map-get($typo, $size, $weight, font-size)});
-    #{$parentPrefix}_fontWeight: var(#{$prefix}_fontWeight, #{map-get($typo, $size, $weight, font-weight)});
-    #{$parentPrefix}_lineHeight: var(#{$prefix}_lineHeight, #{map-get($typo, $size, $weight, line-height)});
-    #{$parentPrefix}_letterSpacing: var(#{$prefix}_letterSpacing, #{map-get($typo, $size, $weight, letter-spacing)});
+    #{$parentPrefix}_fontFamily: var(#{$prefix}_fontFamily, #{map.get($typo, $size, $weight, font-family)});
+    #{$parentPrefix}_fontSize: var(#{$prefix}_fontSize, #{map.get($typo, $size, $weight, font-size)});
+    #{$parentPrefix}_fontWeight: var(#{$prefix}_fontWeight, #{map.get($typo, $size, $weight, font-weight)});
+    #{$parentPrefix}_lineHeight: var(#{$prefix}_lineHeight, #{map.get($typo, $size, $weight, line-height)});
+    #{$parentPrefix}_letterSpacing: var(#{$prefix}_letterSpacing, #{map.get($typo, $size, $weight, letter-spacing)});
   } @else {
-    font-family: var(#{$prefix}_fontFamily, #{map-get($typo, $size, $weight, font-family)});
-    font-size: var(#{$prefix}_fontSize, #{map-get($typo, $size, $weight, font-size)});
-    font-weight: var(#{$prefix}_fontWeight, #{map-get($typo, $size, $weight, font-weight)});
-    line-height: var(#{$prefix}_lineHeight, #{map-get($typo, $size, $weight, line-height)});
-    letter-spacing: var(#{$prefix}_letterSpacing, #{map-get($typo, $size, $weight, letter-spacing)});
+    font-family: var(#{$prefix}_fontFamily, #{map.get($typo, $size, $weight, font-family)});
+    font-size: var(#{$prefix}_fontSize, #{map.get($typo, $size, $weight, font-size)});
+    font-weight: var(#{$prefix}_fontWeight, #{map.get($typo, $size, $weight, font-weight)});
+    line-height: var(#{$prefix}_lineHeight, #{map.get($typo, $size, $weight, line-height)});
+    letter-spacing: var(#{$prefix}_letterSpacing, #{map.get($typo, $size, $weight, letter-spacing)});
   }
 }

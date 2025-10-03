@@ -1,20 +1,21 @@
+@use 'sass:map';
 @import 'ljas-ui-theme';
 
 // Mixins
 
 @mixin ljasBadgeSize($size, $map) {
-    @include _textStyle(--Badge, --Badge--#{$size}, map-get($map, textStyle)...);
+    @include _textStyle(--Badge, --Badge--#{$size}, map.get($map, textStyle)...);
 
-    --Badge_height: var(--Badge--#{$size}_height, #{map-get($map, height)});
-    --Badge_padding: var(--Badge--#{$size}_padding, #{map-get($map, padding)});
+    --Badge_height: var(--Badge--#{$size}_height, #{map.get($map, height)});
+    --Badge_padding: var(--Badge--#{$size}_padding, #{map.get($map, padding)});
 }
 
 @mixin ljasBadgeIntent($intent, $map) {
     --Badge_background: var(
         --Badge--#{$intent}_background,
-        #{map-get($map, background)}
+        #{map.get($map, background)}
     );
-    --Badge_color: var(--Badge--#{$intent}_color, #{map-get($map, color)});
+    --Badge_color: var(--Badge--#{$intent}_color, #{map.get($map, color)});
 }
 
 // Classes

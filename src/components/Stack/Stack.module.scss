@@ -1,3 +1,5 @@
+@use 'sass:map'; 
+@use 'sass:string'; 
 @import 'ljas-ui-theme';
 
 // Local variables
@@ -48,18 +50,18 @@ $justifies: ('center', 'start', 'end', 'stretch', 'space-around', 'space-between
 
 @each $alignment in $alignments {
     .--align-#{$alignment} {
-        align-items: unquote($alignment);
+        align-items: string.unquote($alignment);
     }
 }
 
 @each $justify in $justifies {
     .--justify-#{$justify} {
-        justify-content: unquote($justify);
+        justify-content: string.unquote($justify);
     }
 }
 
 @each $gap, $value in $Stack_gaps {
     .--gap-#{$gap} {
-        gap: var(--Stack--gap#{$gap}, map-get($Stack_gaps, $gap));
+        gap: var(--Stack--gap#{$gap}, map.get($Stack_gaps, $gap));
     }
 }

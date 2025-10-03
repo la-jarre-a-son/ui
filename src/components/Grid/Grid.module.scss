@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 .root {
@@ -15,7 +16,7 @@
 
 @each $gap, $value in $Grid_gaps {
     .--gap-#{$gap} {
-        --Grid_gap: var(--Grid--gap#{$gap}_gap, #{map-get($Grid_gaps, $gap)});
+        --Grid_gap: var(--Grid--gap#{$gap}_gap, #{map.get($Grid_gaps, $gap)});
     }
 }
 
@@ -23,6 +24,6 @@
 
 @each $size, $value in $Grid_sizes {
     .col--#{$size} {
-        --Grid-col_minWidth: var(--Grid-col--#{$size}_minWidth, #{map-get($Grid_sizes, $size)});
+        --Grid-col_minWidth: var(--Grid-col--#{$size}_minWidth, #{map.get($Grid_sizes, $size)});
     }
 }

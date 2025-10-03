@@ -1,5 +1,6 @@
 $ljas-ui-asset-path: '~assets';
 
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 @import '../src/style/normalize.scss';

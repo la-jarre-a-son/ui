@@ -1,12 +1,13 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Mixins
 
 @mixin ljasLinkIntent($intent, $map) {
-    --Link_color: var(--Link--#{$intent}_color, #{map-get($map, color)});
-    --Link_outlineColor: var(--Link--#{$intent}_outlineColor, #{map-get($map, outlineColor)});
-    --Link--hover_color: var(--Link--#{$intent}--hover_color, #{map-get($map, hoverColor)});
-    --Link--active_color: var(--Link--#{$intent}--active_color, #{map-get($map, activeColor)});
+    --Link_color: var(--Link--#{$intent}_color, #{map.get($map, color)});
+    --Link_outlineColor: var(--Link--#{$intent}_outlineColor, #{map.get($map, outlineColor)});
+    --Link--hover_color: var(--Link--#{$intent}--hover_color, #{map.get($map, hoverColor)});
+    --Link--active_color: var(--Link--#{$intent}--active_color, #{map.get($map, activeColor)});
 }
 
 // Classes

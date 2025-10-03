@@ -189,35 +189,35 @@ $Button--ghost_cancelBorderWidth: 0 !default;
 
 // Defaults
 
-$Button_borderRadius: map-get($Button_sizes, 'sm', borderRadius) !default;
-$Button_height: map-get($Button_sizes, 'sm', height) !default;
-$Button_fontSize: map-get($Button_sizes, 'sm', fontSize) !default;
-$Button_padding: map-get($Button_sizes, 'sm', padding) !default;
-$Button_gap: map-get($Button_sizes, 'sm', gap) !default;
-$Button_color: map-get($Button_variants, 'filled', 'neutral', color) !default;
-$Button_background: map-get($Button_variants, 'filled', 'neutral', background) !default;
-$Button_borderColor: map-get($Button_variants, 'filled', 'neutral', borderColor) !default;
-$Button--hover_color: map-get($Button_variants, 'filled', 'neutral', hoverColor) !default;
-$Button--hover_borderColor: map-get(
+$Button_borderRadius: map.get($Button_sizes, 'sm', borderRadius) !default;
+$Button_height: map.get($Button_sizes, 'sm', height) !default;
+$Button_fontSize: map.get($Button_sizes, 'sm', fontSize) !default;
+$Button_padding: map.get($Button_sizes, 'sm', padding) !default;
+$Button_gap: map.get($Button_sizes, 'sm', gap) !default;
+$Button_color: map.get($Button_variants, 'filled', 'neutral', color) !default;
+$Button_background: map.get($Button_variants, 'filled', 'neutral', background) !default;
+$Button_borderColor: map.get($Button_variants, 'filled', 'neutral', borderColor) !default;
+$Button--hover_color: map.get($Button_variants, 'filled', 'neutral', hoverColor) !default;
+$Button--hover_borderColor: map.get(
    $Button_variants,
     'filled',
     'neutral',
     hoverBackground
 ) !default;
-$Button--hover_background: map-get(
+$Button--hover_background: map.get(
    $Button_variants,
     'filled',
     'neutral',
     hoverBackground
 ) !default;
-$Button--active_color: map-get($Button_variants, 'filled', 'neutral', activeColor) !default;
-$Button--active_borderColor: map-get(
+$Button--active_color: map.get($Button_variants, 'filled', 'neutral', activeColor) !default;
+$Button--active_borderColor: map.get(
    $Button_variants,
     'filled',
     'neutral',
     activeBackground
 ) !default;
-$Button--active_background: map-get(
+$Button--active_background: map.get(
    $Button_variants,
     'filled',
     'neutral',

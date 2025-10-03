@@ -60,5 +60,5 @@ $Avatar_sizes: (
 
 // Defaults
 
-$Avatar_size: map-get($Avatar_sizes, 'md', size) !default;
-$Avatar_textStyle: map-get($Avatar_sizes, 'md', textStyle) !default;
+$Avatar_size: map.get($Avatar_sizes, 'md', size) !default;
+$Avatar_textStyle: map.get($Avatar_sizes, 'md', textStyle) !default;

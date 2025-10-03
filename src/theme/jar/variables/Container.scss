@@ -14,4 +14,4 @@ $Container-breakpoint-sm: $breakpoint-sm !default;
 
 // defaults
 
-$Container_maxWidth: map-get($Container_sizes, 'xl') !default;
+$Container_maxWidth: map.get($Container_sizes, 'xl') !default;

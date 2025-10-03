@@ -1,13 +1,14 @@
+@use 'sass:map';
 @import 'ljas-ui-theme';
 
 // Mixins
 
 @mixin ljasBoxElevation($elevation, $map) {
-    --Box_background: var(--Box--elevation#{$elevation}_background, #{map-get($map, background)});
-    --Box_color: var(--Box--elevation#{$elevation}_color, #{map-get($map, color)});
-    --Box_borderColor: var(--Box--elevation#{$elevation}_borderColor, #{map-get($map, borderColor)});
-    --Box_borderRadius: var(--Box--elevation#{$elevation}_borderRadius, #{map-get($map, borderRadius)});
-    --Box_boxShadow: var(--Box--elevation#{$elevation}_boxShadow, #{map-get($map, boxShadow)});
+    --Box_background: var(--Box--elevation#{$elevation}_background, #{map.get($map, background)});
+    --Box_color: var(--Box--elevation#{$elevation}_color, #{map.get($map, color)});
+    --Box_borderColor: var(--Box--elevation#{$elevation}_borderColor, #{map.get($map, borderColor)});
+    --Box_borderRadius: var(--Box--elevation#{$elevation}_borderRadius, #{map.get($map, borderRadius)});
+    --Box_boxShadow: var(--Box--elevation#{$elevation}_boxShadow, #{map.get($map, boxShadow)});
 }
 
 .root {
@@ -34,7 +35,7 @@
 
 @each $pad, $value in $Box_pads {
     .--pad-#{$pad} {
-        --Box_padding: var(--Box--pad-#{$pad}_padding, #{map-get($Box_pads, $pad)});
+        --Box_padding: var(--Box--pad-#{$pad}_padding, #{map.get($Box_pads, $pad)});
     }
 }
 

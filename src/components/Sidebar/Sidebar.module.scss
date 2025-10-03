@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 .root {
@@ -24,7 +25,7 @@
 
 @each $size, $value in $Sidebar_sizes {
     .--#{$size} {
-        --Sidebar_minSize: var(--Sidebar--#{$size}_width, #{map-get($Sidebar_sizes, $size)});
+        --Sidebar_minSize: var(--Sidebar--#{$size}_width, #{map.get($Sidebar_sizes, $size)});
     }
 }
 

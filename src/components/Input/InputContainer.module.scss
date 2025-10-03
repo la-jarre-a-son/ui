@@ -1,13 +1,14 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Mixins
 
 @mixin ljasInputSize($size, $map) {
-    @include _textStyle(--InputContainer, --InputContainer--#{$size}, map-get($map, textStyle)...);
+    @include _textStyle(--InputContainer, --InputContainer--#{$size}, map.get($map, textStyle)...);
 
-    --InputContainer_height: var(--InputContainer--#{$size}_height, #{map-get($map, height)});
-    --InputContainer_padding: var(--InputContainer--#{$size}_padding, #{map-get($map, padding)});
-    --InputContainer_gap: var(--InputContainer--#{$size}_gap, #{map-get($map, gap)});
+    --InputContainer_height: var(--InputContainer--#{$size}_height, #{map.get($map, height)});
+    --InputContainer_padding: var(--InputContainer--#{$size}_padding, #{map.get($map, padding)});
+    --InputContainer_gap: var(--InputContainer--#{$size}_gap, #{map.get($map, gap)});
 }
 
 

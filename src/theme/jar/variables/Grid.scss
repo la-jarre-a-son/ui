@@ -14,4 +14,4 @@ $Grid_gaps: (
 
 // Defaults
 
-$Grid-col_minWidth: map-get($Grid_sizes, 'md') !default;
+$Grid-col_minWidth: map.get($Grid_sizes, 'md') !default;

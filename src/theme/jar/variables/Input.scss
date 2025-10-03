@@ -57,7 +57,7 @@ $InputContainer_sizes: (
 
 // Defaults
 
-$InputContainer_height: map-get($InputContainer_sizes, 'md', height) !default;
-$InputContainer_padding: map-get($InputContainer_sizes, 'md', padding) !default;
-$InputContainer_gap: map-get($InputContainer_sizes, 'md', gap) !default;
-$InputContainer_textStyle: map-get($InputContainer_sizes, 'md', textStyle) !default;
+$InputContainer_height: map.get($InputContainer_sizes, 'md', height) !default;
+$InputContainer_padding: map.get($InputContainer_sizes, 'md', padding) !default;
+$InputContainer_gap: map.get($InputContainer_sizes, 'md', gap) !default;
+$InputContainer_textStyle: map.get($InputContainer_sizes, 'md', textStyle) !default;

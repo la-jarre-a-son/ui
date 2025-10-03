@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 // Animation
@@ -20,13 +21,13 @@
 // Mixins
 
 @mixin ljasAvatarSize($size, $map) {
-  --Avatar_size: var(--Avatar--#{$size}_size, #{map-get($map, size)});
-  --Avatar_borderRadius: var(--Avatar--#{$size}_borderRadius, #{map-get($map, borderRadius)});
-  --Avatar_boxShadow: var(--Avatar--#{$size}_boxShadow, #{map-get($map, boxShadow)});
-  --Avatar_outlineWidth: var(--Avatar--#{$size}_outlineWidth, #{map-get($map, outlineWidth)});
+  --Avatar_size: var(--Avatar--#{$size}_size, #{map.get($map, size)});
+  --Avatar_borderRadius: var(--Avatar--#{$size}_borderRadius, #{map.get($map, borderRadius)});
+  --Avatar_boxShadow: var(--Avatar--#{$size}_boxShadow, #{map.get($map, boxShadow)});
+  --Avatar_outlineWidth: var(--Avatar--#{$size}_outlineWidth, #{map.get($map, outlineWidth)});
 
-  @if (map-has-key($map, textStyle)) {
-    @include _textStyle(--Avatar, --Avatar--#{$size}, map-get($map, textStyle)...);
+  @if (map.has-key($map, textStyle)) {
+    @include _textStyle(--Avatar, --Avatar--#{$size}, map.get($map, textStyle)...);
   } @else {
     --Avatar_lineHeight: var(--Avatar_size);
     --Avatar_fontSize: calc(

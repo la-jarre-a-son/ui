@@ -1,3 +1,4 @@
+@use 'sass:map'; 
 @import 'ljas-ui-theme';
 
 .root {
@@ -44,7 +45,7 @@
 
 @each $size, $value in $Drawer_sizes {
     .--#{$size} {
-        --Drawer_minSize: var(--Drawer--#{$size}_width, #{map-get($Drawer_sizes, $size)});
+        --Drawer_minSize: var(--Drawer--#{$size}_width, #{map.get($Drawer_sizes, $size)});
     }
 }
 
