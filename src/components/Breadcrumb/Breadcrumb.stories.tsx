@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react-webpack5';
+import { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { extractThemeVariables } from '../../../.storybook/utils/Theming';
 
@@ -23,9 +23,9 @@ export default {
   },
 } as Meta;
 
-export const Default = () => {
-  return (
-    <Breadcrumb>
+export const Default: StoryObj<typeof Breadcrumb> = {
+  render: ({ separator }) => (
+    <Breadcrumb separator={separator}>
       <BreadcrumbItem aria-label="Home">
         <Icon name="fi fi-rr-home" />
       </BreadcrumbItem>
@@ -36,7 +36,10 @@ export const Default = () => {
         <Icon name="fi fi-rr-search" />
       </BreadcrumbItem>
     </Breadcrumb>
-  );
+  ),
+  args: {
+    separator: 'chevron',
+  },
 };
 
 /**

@@ -26,7 +26,6 @@
 
     gap: var(--Breadcrumb-item_gap, $Breadcrumb-item_gap);
     padding: var(--Breadcrumb-item_padding, $Breadcrumb-item_padding);
-    padding-left: calc(var(--Breadcrumb-item_padding, $Breadcrumb-item_padding) + var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2);
 
     color: var(--Breadcrumb-item_color, $Breadcrumb-item_color);
     background: var(
@@ -95,8 +94,26 @@
             #{$Breadcrumb-separator--active_color}
         );
     }
+}
 
-    &::after {
+.--none {
+    .item {
+        padding: var(--Breadcrumb-item_padding, $Breadcrumb-item_padding)  calc(
+            var(--Breadcrumb-item_padding, $Breadcrumb-item_padding) +
+            var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 4
+        );
+    }
+}
+
+.--chevron, .--slash, .--backslash {
+    .item {
+        padding-left: calc(var(--Breadcrumb-item_padding, $Breadcrumb-item_padding) + var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2);
+        padding-right: var(--Breadcrumb-item_padding, $Breadcrumb-item_padding);
+    }
+}
+
+.--chevron {
+    .item::after {
         position: absolute;
         display: block;
         top: 0;
@@ -105,6 +122,42 @@
         content: ' ';
         border: calc(var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2) solid transparent;
         border-left-color: var(--Breadcrumb-separator_color, $Breadcrumb-separator_color);
+        z-index: 1;
+        pointer-events: none;
+    }
+}
+
+.--slash {
+    .item::after {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        content: ' ';
+        border-width: calc(var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2) calc(var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 4);
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: var(--Breadcrumb-separator_color, $Breadcrumb-separator_color);
+        border-left-color: var(--Breadcrumb-separator_color, $Breadcrumb-separator_color);
+        z-index: 1;
+        pointer-events: none;
+    }
+}
+
+.--backslash {
+    .item::after {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        content: ' ';
+        border-width: calc(var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 2) calc(var(--Breadcrumb-item_height, $Breadcrumb-item_height) / 4);
+        border-style: solid;
+        border-color: transparent;
+        border-left-color: var(--Breadcrumb-separator_color, $Breadcrumb-separator_color);
+        border-bottom-color: var(--Breadcrumb-separator_color, $Breadcrumb-separator_color);
         z-index: 1;
         pointer-events: none;
     }

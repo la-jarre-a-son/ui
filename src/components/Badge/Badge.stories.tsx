@@ -17,7 +17,7 @@ const meta = {
   component: Badge,
   tags: ['autodocs'],
   parameters: {
-    // theming: extractThemeVariables([moduleCss, themeVariablesScss], 'Badge'),
+    theming: extractThemeVariables([moduleCss, themeVariablesScss], 'Badge'),
   },
 } satisfies Meta<typeof Badge>;
 
