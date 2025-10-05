@@ -4,12 +4,31 @@ import introductionImage from './Introduction_example.png';
 
 <Meta title="Documentation/Introduction" />
 
-# LJAS UI
-
-<div style={{ textAlign: 'center', marginTop: 80 }}>
+<div style={{
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'center', 
+    justifyContent: 'space-between', 
+    textAlign: 'center',
+    minHeight: '100%',
+    gap: '32px',
+}}>
     <img
-        style={{ borderRadius: '8px', boxShadow: '0 4px 8px 4px rgba(0,0,0,0.2)', maxWidth: '1080px', width: '100%' }}
+        style={{
+            maxWidth: '640px', 
+            width: '100%'
+        }}
+        src="/cassette-ljas-ui.svg"
+        alt="@LJAS/UI logo"
+    />
+    <img
+        style={{
+            borderRadius: '8px', 
+            boxShadow: '0 4px 8px 4px rgba(0,0,0,0.2)', 
+            maxWidth: '1080px', 
+            width: '100%'
+        }}
         src={introductionImage}
-        alt="JAR UI example"
+        alt="@LJAS/UI example"
     />
 </div>
