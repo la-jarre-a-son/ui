@@ -8,7 +8,7 @@ import themeVariablesScss from '!!raw-loader!../../theme/jar/variables/Avatar.sc
 
 import { Avatar, AvatarSizes, AvatarShapes } from '.';
 
-const imageSrc = '/placeholderImage.svg';
+import imageSrc from '../../../public/placeholderImage.svg';
 
 const meta = {
   title: 'Components/Data/Avatar',

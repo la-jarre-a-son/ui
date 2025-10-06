@@ -14,9 +14,9 @@ import Stack from '../Stack';
 import Icon from '../Icon';
 import Typography from '../Typography';
 
-import { Skeleton } from '.';
+import imageSrc from '../../../public/placeholderBackground.svg';
 
-const src = '/placeholderBackground.svg';
+import { Skeleton } from '.';
 
 export default {
   title: 'Components/Data/Skeleton',
@@ -126,9 +126,9 @@ export const Demo = () => {
       ) : (
         <Card elevation={1} outlined style={{ width: 400 }}>
           <CardThumbnailGrid>
-            <CardThumbnail alt="thumbnail" src={src} />
-            <CardThumbnail alt="thumbnail" src={src} />
-            <CardThumbnail alt="thumbnail" src={src} />
+            <CardThumbnail alt="thumbnail" src={imageSrc} />
+            <CardThumbnail alt="thumbnail" src={imageSrc} />
+            <CardThumbnail alt="thumbnail" src={imageSrc} />
           </CardThumbnailGrid>
           <CardHeader left={<Icon name="fi fi-rr-camera" />}>My card</CardHeader>
         </Card>

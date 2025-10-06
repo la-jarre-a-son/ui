@@ -16,6 +16,8 @@ import Menu, { MenuItem } from '../Menu';
 import Stack from '../Stack';
 import Typography from '../Typography';
 
+import imageSrc from '../../../public/placeholderBackground.svg';
+
 import {
   Card,
   CardHeader,
@@ -42,7 +44,7 @@ export default {
   },
 } as Meta;
 
-const src = '/placeholderBackground.svg';
+
 
 const cardStyle: React.CSSProperties = {
   height: 160,
@@ -133,7 +135,7 @@ export const Thumbnail = () => {
   return (
     <Grid size="md" gap="xl">
       <Card elevation={1}>
-        <CardThumbnail alt="img" src={src} />
+        <CardThumbnail alt="img" src={imageSrc} />
         <CardHeader>Basic thumbnail image</CardHeader>
       </Card>
       <Card elevation={1}>
@@ -253,9 +255,9 @@ export const ThumbnailGrid = () => {
     <Grid size="sm" gap="xl">
       <Card>
         <CardThumbnailGrid>
-          <CardThumbnail alt="img" src={`${src}?random=1`} />
-          <CardThumbnail alt="img" src={`${src}?random=2`} />
-          <CardThumbnail alt="img" src={`${src}?random=3`} />
+          <CardThumbnail alt="img" src={`${imageSrc}?random=1`} />
+          <CardThumbnail alt="img" src={`${imageSrc}?random=2`} />
+          <CardThumbnail alt="img" src={`${imageSrc}?random=3`} />
         </CardThumbnailGrid>
       </Card>
       <Card>
@@ -301,7 +303,7 @@ export const Interactive = () => {
   return (
     <Grid size="sm" gap="xl">
       <Card elevation={1} as="button" interactive outlined onClick={() => alert('clicked')}>
-        <CardThumbnail alt="img" src={src} />
+        <CardThumbnail alt="img" src={imageSrcs} />
         <CardHeader>Button card</CardHeader>
       </Card>
 
@@ -314,7 +316,7 @@ export const Interactive = () => {
         href="https://github.com/"
         target="_blank"
       >
-        <CardThumbnail alt="img" src={src} />
+        <CardThumbnail alt="img" src={imageSrc} />
         <CardHeader>Link card</CardHeader>
       </Card>
 
