@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/la-jarre-a-son/ui/compare/v1.3.0...v1.4.0) (2025-10-06)
+
+
+### Features
+
+* **Avatar:** added Avatar component ([483e029](https://github.com/la-jarre-a-son/ui/commit/483e029aa8f9c39eb44bcedd7424d8ec941d76c1))
+* **Breadcrumb:** add separator prop ([da668ce](https://github.com/la-jarre-a-son/ui/commit/da668cedc40aa3b6c202e447f1cefa66664e6700))
+* **Dot:** added Dot component ([99e23f8](https://github.com/la-jarre-a-son/ui/commit/99e23f8563658f80124040de1f9dae3fcf7866ec))
+* **Icon:** migrate from fontawesome to flaticon-uicons ([c194af8](https://github.com/la-jarre-a-son/ui/commit/c194af81b1f0028fdefb84d153faacea1b5205fd))
+
+
+### Bug Fixes
+
+* **CardThumbnail:** add loading logic to transition image ([3c5d01f](https://github.com/la-jarre-a-son/ui/commit/3c5d01f6543dd769ccfef63279be2c387903ce57))
+* **Checkbox:** indeterminate takes priority over checked ([24430f2](https://github.com/la-jarre-a-son/ui/commit/24430f2ed3b247184251e8762b2e73248022e2fd))
+* **style:** do not use :global in non-module stylesheets ([fd4361f](https://github.com/la-jarre-a-son/ui/commit/fd4361f47cf7ee9e1a4e5e00ef9c30866c0ae5bb))
+* **style:** remove color sass functions + update colors ([f5feeab](https://github.com/la-jarre-a-son/ui/commit/f5feeab4cb3d3b9d5a167be9cee2328f14483df3))
+* **tests:** fix Dot & Tabs components tests ([8a8c280](https://github.com/la-jarre-a-son/ui/commit/8a8c280e6e583a1996479120f0b1363c2ca02427))
+
 ## [1.3.0](https://github.com/la-jarre-a-son/ui/compare/v1.2.3...v1.3.0) (2024-12-23)
 
 
